@@ -278,7 +278,7 @@ def bar_plot_volume_split_data(date:int, section:int, batch_num = 40):
             print(label_part_lst[i])
             DIR = os.path.join(os.path.abspath(PLOT_PATH), save_date[0])
             figname = save_date[0] + '-' + save_date[1] + '-' + str(contract_pair) + "_volume_split" + '.png'
-            f = open("test.txt", "w")
+            f = open("test.txt", "a")
             try:
                 plot_fig(vol_section, bar_section, label_section_part, fig_title = str(contract_pair) + '_' + str(vol_section_part), export_dir=DIR, filename=figname, x_rotation=False)
                 f.write("Success:" + str(contract_pair))
