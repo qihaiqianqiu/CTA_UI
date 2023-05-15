@@ -87,7 +87,7 @@ def bar_plot_get_continous_data(contract_pair_lst:list, date:int, section:int):
     
 
 # 成交量返回对应数据
-def bar_plot_get_volume_split_data(contract_pair_lst:list, date:int, section:int, batch_num = 40):
+def bar_plot_get_volume_split_data(contract_pair_lst:list, date:int, section:int, batch_num = 40, volume_threshold = 3000):
     df_section = []
     label_section = []
     volume_batch_section = []
@@ -117,7 +117,7 @@ def bar_plot_get_volume_split_data(contract_pair_lst:list, date:int, section:int
             max_vol = df['volume'].max()
             min_vol = df['volume'].min()
             volume_batch = int((max_vol - min_vol) / batch_num)
-            if volume_batch == 0:
+            if volume_batch == 0 or min_vol < volume_threshold:
                 break
             df['volume_section'] = df['volume'].apply(lambda x: int((x - min_vol) / volume_batch))
             df['volume_section'] = df['volume_section'].apply(lambda x: x if x < batch_num else batch_num - 1)
@@ -455,6 +455,16 @@ def plot_continuous_contract():
         print(e)
         print("Error:" , date)
 
+def plot_volume_split():
+    # 画连续合约图像
+    date, section = get_date_section()
+    date, section = from_predict(date, section)
+    date, section = from_predict(date, section)
+    try:
+        bar_plot_volume_split_data(date, section)
+    except Exception as e:
+        print(e)
+        print("Error:" , date)
 
 def plot_time_series(date:int, back_period=30):    
     # 画合约时序图像
