@@ -473,6 +473,4 @@ def plot_time_series(date:int, back_period=30):
 
 
 if __name__ == "__main__":
-    bar_plot_volume_split_data(20230511, 0)
-    bar_plot_volume_split_data(20230511, 1)
-    bar_plot_volume_split_data(20230511, 2)
+    bar_plot_volume_split_data(20230515, 0)
