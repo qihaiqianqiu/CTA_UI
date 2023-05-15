@@ -7,6 +7,7 @@ all = ["BOUNDARY_PATH", "PLOT_PATH", "client", "ssh", "trade_day", "breed_dict",
 # Where parameter stored 
 BOUNDARY_PATH = r".\info\boundary_info"
 PLOT_PATH = r'.\barplot'
+
 DB_CONFIG_PATH = r'.\DB_config.json'
 # 数据库配置
 db_para = json.load(open(DB_CONFIG_PATH))

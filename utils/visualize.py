@@ -37,7 +37,7 @@ from utils.rename import rename
 from utils.get_db_contract_pair import get_db_contract_pair
 from utils.date_section_modification import get_date_section, from_predict
 
-all = ['plot']
+all = ['plot_continuous_contract', 'plot_time_series', 'plot_volume_split']
 # Get data from start_date[MorningMarket] to end_date[EveningMarket]
 def get_pairwise_data(contract_pair:list, start_date:int, end_date:int):
     select_clause = 'SELECT contract, trading_date, time, ap1, av1, bp1, bv1, volume from ctp_future_tick '
@@ -483,6 +483,16 @@ def plot_time_series(date:int, back_period=30):
 
 
 if __name__ == "__main__":
-    bar_plot_volume_split_data(20230515, 0)
-    # bar_plot_volume_split_data(20230515, 1)
-    # bar_plot_volume_split_data(20230515, 2)
+    print("开始生成图像")
+    print("绘制成交量切分套利图...")
+    try:
+        plot_volume_split()
+        print("成交量切分套利图生成完成（barplot目录）")
+        print("绘制品种连续合约套利图...")
+        plot_continuous_contract()
+        print("品种连续合约套利图生成完成（barplot目录）")
+        print("绘制固定套利对时序分析图...")
+        plot_time_series()
+    except Exception as e:
+        print("图像生成失败")
+        print(e)
