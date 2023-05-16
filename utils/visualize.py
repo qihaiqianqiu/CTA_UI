@@ -20,7 +20,7 @@ mpl.rcParams['ytick.major.size'] = 8
 mpl.rcParams['ytick.major.width'] = 2
 from scipy.stats import norm
 import matplotlib.dates as mdate
-import datetime as dt
+import datetime
 from time import *
 import traceback
 mpl.rcParams.update({
@@ -485,14 +485,15 @@ def plot_time_series(date:int, back_period=30):
 if __name__ == "__main__":
     print("开始生成图像")
     print("绘制成交量切分套利图...")
+    today = int(datetime.date.today().strftime('%Y%m%d'))
     try:
-        #plot_volume_split()
+        plot_volume_split()
         print("成交量切分套利图生成完成（barplot目录）")
         print("绘制品种连续合约套利图...")
         plot_continuous_contract()
         print("品种连续合约套利图生成完成（barplot目录）")
         print("绘制固定套利对时序分析图...")
-        plot_time_series()
+        plot_time_series(today, back_period=44)
     except Exception as e:
         print("图像生成失败")
         print(e)
