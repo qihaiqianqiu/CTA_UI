@@ -1,0 +1,20 @@
+{
+    "PULL_FILE" : {"remote": ["report.csv", "holding.csv", "trading.csv"],
+                    "local": ["params.csv"]
+                    },
+    "PULL_RULE" : ["planned", "real_time", "activate"],
+    "LOCAL_DIR": "Z:/300_Group/HFT/Program/CTA_UI/",
+    "DEST_DIR": "SFTP_Test",
+    "BRIDGE_SERVER_ADDR": {
+        "host": "140.206.103.17",
+        "port" : 22389,
+        "username": "root",
+        "pwd": "KStest@88"
+    },
+    "TRADE_SERVER_ADDR":{
+        "host": "pass",
+        "port" : "pass",
+        "username": "pass",
+        "pwd": "pass"
+    }
+}

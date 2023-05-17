@@ -20,7 +20,7 @@ mpl.rcParams['ytick.major.size'] = 8
 mpl.rcParams['ytick.major.width'] = 2
 from scipy.stats import norm
 import matplotlib.dates as mdate
-import datetime as dt
+import datetime
 from time import *
 import traceback
 mpl.rcParams.update({
@@ -37,7 +37,7 @@ from utils.rename import rename
 from utils.get_db_contract_pair import get_db_contract_pair
 from utils.date_section_modification import get_date_section, from_predict
 
-all = ['plot']
+all = ['plot_continuous_contract', 'plot_time_series', 'plot_volume_split']
 # Get data from start_date[MorningMarket] to end_date[EveningMarket]
 def get_pairwise_data(contract_pair:list, start_date:int, end_date:int):
     select_clause = 'SELECT contract, trading_date, time, ap1, av1, bp1, bv1, volume from ctp_future_tick '
@@ -87,7 +87,7 @@ def bar_plot_get_continous_data(contract_pair_lst:list, date:int, section:int):
     
 
 # 成交量返回对应数据
-def bar_plot_get_volume_split_data(contract_pair_lst:list, date:int, section:int, batch_num = 40):
+def bar_plot_get_volume_split_data(contract_pair_lst:list, date:int, section:int, batch_num = 40, volume_threshold = 3000):
     df_section = []
     label_section = []
     volume_batch_section = []
@@ -117,7 +117,8 @@ def bar_plot_get_volume_split_data(contract_pair_lst:list, date:int, section:int
             max_vol = df['volume'].max()
             min_vol = df['volume'].min()
             volume_batch = int((max_vol - min_vol) / batch_num)
-            if volume_batch == 0:
+            print("Volume batch for {} is {}".format(contract_pair, volume_batch))
+            if volume_batch == 0 or max_vol < volume_threshold:
                 break
             df['volume_section'] = df['volume'].apply(lambda x: int((x - min_vol) / volume_batch))
             df['volume_section'] = df['volume_section'].apply(lambda x: x if x < batch_num else batch_num - 1)
@@ -278,7 +279,7 @@ def bar_plot_volume_split_data(date:int, section:int, batch_num = 40):
             print(label_part_lst[i])
             DIR = os.path.join(os.path.abspath(PLOT_PATH), save_date[0])
             figname = save_date[0] + '-' + save_date[1] + '-' + str(contract_pair) + "_volume_split" + '.png'
-            f = open("test.txt", "w")
+            f = open("test.txt", "a")
             try:
                 plot_fig(vol_section, bar_section, label_section_part, fig_title = str(contract_pair) + '_' + str(vol_section_part), export_dir=DIR, filename=figname, x_rotation=False)
                 f.write("Success:" + str(contract_pair))
@@ -455,6 +456,16 @@ def plot_continuous_contract():
         print(e)
         print("Error:" , date)
 
+def plot_volume_split():
+    # 画连续合约图像
+    date, section = get_date_section()
+    date, section = from_predict(date, section)
+    date, section = from_predict(date, section)
+    try:
+        bar_plot_volume_split_data(date, section)
+    except Exception as e:
+        print(e)
+        print("Error:" , date)
 
 def plot_time_series(date:int, back_period=30):    
     # 画合约时序图像
@@ -473,6 +484,17 @@ def plot_time_series(date:int, back_period=30):
 
 
 if __name__ == "__main__":
-    bar_plot_volume_split_data(20230515, 0)
-    # bar_plot_volume_split_data(20230515, 1)
-    # bar_plot_volume_split_data(20230515, 2)
+    print("开始生成图像")
+    print("绘制成交量切分套利图...")
+    today = int(datetime.date.today().strftime('%Y%m%d'))
+    try:
+        plot_volume_split()
+        print("成交量切分套利图生成完成（barplot目录）")
+        print("绘制品种连续合约套利图...")
+        plot_continuous_contract()
+        print("品种连续合约套利图生成完成（barplot目录）")
+        print("绘制固定套利对时序分析图...")
+        plot_time_series(today, back_period=44)
+    except Exception as e:
+        print("图像生成失败")
+        print(e)
