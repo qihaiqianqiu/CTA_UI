@@ -117,7 +117,7 @@ def bar_plot_get_volume_split_data(contract_pair_lst:list, date:int, section:int
             max_vol = df['volume'].max()
             min_vol = df['volume'].min()
             volume_batch = int((max_vol - min_vol) / batch_num)
-            if volume_batch == 0 or min_vol < volume_threshold:
+            if volume_batch == 0 or max_vol < volume_threshold:
                 break
             df['volume_section'] = df['volume'].apply(lambda x: int((x - min_vol) / volume_batch))
             df['volume_section'] = df['volume_section'].apply(lambda x: x if x < batch_num else batch_num - 1)
