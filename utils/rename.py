@@ -1,6 +1,7 @@
 import re
 from utils.const import breed_dict
 all = ["rename"]
+
 # Contract name from upper case and %ccdddd [params.csv] to lower case and %cdddd [breed_dict] 
 def rename(contract:str):
     code = re.search("[a-zA-Z]+", contract).group(0)
@@ -18,6 +19,7 @@ def rename(contract:str):
     
     return code + figure
 
+
 # reverse contract string from database format into param format
 def rename_db_to_param(contract:str):
     code = re.search("[a-zA-Z]+", contract).group(0)
@@ -29,4 +31,4 @@ def rename_db_to_param(contract:str):
     return code + figure
 
 if __name__ == "__main__":
-    print(rename_db_to_param(""))
+    print(rename_db_to_param())
