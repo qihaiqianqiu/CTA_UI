@@ -34,7 +34,7 @@ from itertools import product
 from multiprocessing import Process
 from utils.const import client, trade_day, PLOT_PATH
 from utils.rename import rename
-from utils.get_db_contract_pair import get_db_contract_pair
+from utils.get_contract_pair import get_db_contract_pair
 from utils.date_section_modification import get_date_section, from_predict
 
 all = ['plot_continuous_contract', 'plot_time_series', 'plot_volume_split']

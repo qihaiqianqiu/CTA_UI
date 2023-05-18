@@ -1,13 +1,16 @@
 from clickhouse_driver import Client
 import json
+import os
 
 all = ["BOUNDARY_PATH", "PLOT_PATH", "client", "ssh", "trade_day", "breed_dict", 
        "param_columns", "boundary_dict", "exchange_breed_dict", "secury_deposit_d1_dict"]
 # 路径
 # Where parameter stored 
-BOUNDARY_PATH = r"Z:\\300_Group\\HFT\\Program\\CTA_UI\info\boundary_info"
-PLOT_PATH = r"Z:\\300_Group\\HFT\\Program\\CTA_UI\\barplot"
-DB_CONFIG_PATH = r'Z:\\300_Group\\HFT\\Program\\CTA_UI\DB_config.json'
+ROOT_PATH = r"Z:\300_Group\HFT\Program\CTA_UI"
+PARAM_PATH = os.path.join(ROOT_PATH, "params")
+BOUNDARY_PATH = os.path.join(ROOT_PATH, "info", "boundary_info")
+PLOT_PATH = os.path.join(ROOT_PATH, "barplot")
+DB_CONFIG_PATH = os.path.join(ROOT_PATH, "DB_config.json")
 # 数据库配置
 db_para = json.load(open(DB_CONFIG_PATH))
 

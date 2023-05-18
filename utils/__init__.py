@@ -10,6 +10,7 @@ from .trade_to_trading import *
 from .transform import *
 from .visualize import *
 from .sftp_file_transfer import *
+from .get_contract_pair import *
 
 __all__ = ["cache_management", "calculate_parameter", "compare", "const", "date_section_modification",
-           "rename", "report_to_tmpvalue", "sftp", "trade_to_trading", "transform", "visualize", "sftp_file_transfer"]
+           "rename", "report_to_tmpvalue", "sftp", "trade_to_trading", "transform", "visualize", "sftp_file_transfer", "get_contract_pair"]

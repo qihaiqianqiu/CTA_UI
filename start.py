@@ -17,6 +17,7 @@ import qdarkstyle
 import datetime as dt
 import concurrent.futures
 from tqdm import tqdm
+import os
 from utils import *
 from UI_widget import *
 
@@ -217,6 +218,18 @@ class Example(QMainWindow):
                              "QPushButton:pressed {padding-left:6px;padding-top:6px;border:1px solid #f8878f;}")
         btn9.clicked.connect(self.export_trading_compare_table)
 
+        btn_check = QPushButton("检查参数表", self)
+        btn_check.setFont(font)
+        btn_check.setObjectName("pushButton")
+        btn_check.setStyleSheet("QPushButton{background:qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, "
+                             "stop:0 #0a4a83, stop:0.5 #186e99, stop:1 #239cd8);"
+                             "border:2px solid qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0,"
+                             "stop:0 #002aff, stop:0.5 #00aeff, stop:1 #00e6fc); border-radius:1px; "
+                             "color:#d0f2f5} "
+                             "QPushButton:hover:!pressed {border:1px solid #f8878f;}"
+                             "QPushButton:pressed {padding-left:6px;padding-top:6px;border:1px solid #f8878f;}")
+        btn_check.clicked.connect(self.check_param_pairs)
+        
         btn_up = QPushButton("上传参数表", self)
         btn_up.setFont(font)
         btn_up.setObjectName("pushButton")
@@ -247,6 +260,7 @@ class Example(QMainWindow):
         button_layout_line3.addWidget(btn5)
         button_layout_line3.addWidget(btn6)
         button_layout_line3.addWidget(btn9)
+        button_layout_line4.addWidget(btn_check)
         button_layout_line4.addWidget(btn_up)
         button_layout_line4.addWidget(btn_down)
 
@@ -451,7 +465,53 @@ class Example(QMainWindow):
                 
         self.status.showMessage("区界信息已生成")
     
-    
+    @QtCore.pyqtSlot()
+    def check_param_pairs(self):
+        lost_pair_vaild = pd.DataFrame(columns=['合约对', '是否可转抛'])
+        lost_pair_invaild = pd.DataFrame(columns=['合约对', '是否可转抛'])
+        candidate_pairs = get_contract_pair.check_vaild_month()
+        for i in range(self.table.rowCount(), 0, -1):
+            if self.table.cellWidget(i-1, 0).findChild(type(QCheckBox())).isChecked():
+                acc_info = [self.table.item(i-1,j).text() for j in range(1, self.table.columnCount())]
+                acc_name = acc_info[0]
+                param_df = pd.read_csv(os.path.join(const.PARAM_PATH, "params.csv"))
+                counter = 0
+                for contract_pair in candidate_pairs['contract_pair'].tolist():
+                    if contract_pair not in param_df['pairs_id'].tolist():
+                        counter += 1
+                        print("检测到未包含合约：", contract_pair)
+                        if candidate_pairs[candidate_pairs['contract_pair']==contract_pair]['flag'].tolist()[0] == True:
+                            lost_pair_vaild = lost_pair_vaild.append({'合约对': contract_pair, '是否可转抛': '是'}, ignore_index=True)
+                        else:
+                            lost_pair_invaild = lost_pair_invaild.append({'合约对': contract_pair, '是否可转抛': '否'}, ignore_index=True)
+
+                print(len(lost_pair_vaild), len(lost_pair_invaild))
+                dialog_valid = QDialog()
+                model = pandasModel(lost_pair_vaild)
+                view = QTableView()
+                view.setModel(model)
+                view.setSizeAdjustPolicy(QTableView.AdjustToContents)  # 自适应表格大小
+                view.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+                layout = QVBoxLayout()
+                layout.addWidget(view)
+                dialog_valid.setLayout(layout)
+                dialog_valid.setWindowTitle("可转抛合约")
+                dialog_valid.exec_()
+                
+                dialog_invalid = QDialog()
+                model = pandasModel(lost_pair_invaild)
+                view = QTableView()
+                view.setModel(model)
+                view.setSizeAdjustPolicy(QTableView.AdjustToContents)  # 自适应表格大小
+                view.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+                layout = QVBoxLayout()
+                layout.addWidget(view)
+                dialog_invalid.setLayout(layout)
+                dialog_invalid.setWindowTitle("不可转抛合约")
+                dialog_invalid.exec_()         
+                
+        self.status.showMessage("套利对检查完成")
+        
     @QtCore.pyqtSlot()
     def visualization(self, dialog):
         date = int(dialog.date.text())
