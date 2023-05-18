@@ -33,7 +33,7 @@ from multiprocessing import Pool
 from itertools import product
 from multiprocessing import Process
 from utils.const import client, trade_day, PLOT_PATH
-from utils.rename import rename
+from utils.rename import rename, rename_db_to_param
 from utils.get_contract_pair import get_db_contract_pair
 from utils.date_section_modification import get_date_section, from_predict
 
@@ -240,7 +240,7 @@ def bar_plot_time_series(contract_pair:list, start_date:int, end_date:int):
     df_section, label_section, save_date = bar_plot_get_time_series_data(contract_pair, start_date, end_date)
     vol_section, bar_section = bar_plot_data_segmentation(df_section)
     DIR = os.path.join(os.path.abspath(PLOT_PATH), str(save_date))
-    figname = str(save_date) + '-' + str(contract_pair[0]) + '-' + str(contract_pair[1]) + '.png'
+    figname = str(save_date) + '-' + rename_db_to_param(str(contract_pair[0])) + '-' + rename_db_to_param(str(contract_pair[1])) + '.png'
     plot_fig(vol_section, bar_section, label_section, fig_title = str(contract_pair), export_dir=DIR, filename=figname)
 
 

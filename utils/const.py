@@ -2,7 +2,7 @@ from clickhouse_driver import Client
 import json
 import os
 
-all = ["BOUNDARY_PATH", "PLOT_PATH", "client", "ssh", "trade_day", "breed_dict", 
+all = ["ROOT_PATH", "BOUNDARY_PATH", "PLOT_PATH", "client", "ssh", "trade_day", "breed_dict", 
        "param_columns", "boundary_dict", "exchange_breed_dict", "secury_deposit_d1_dict"]
 # 路径
 # Where parameter stored 

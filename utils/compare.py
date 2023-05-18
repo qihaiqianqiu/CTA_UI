@@ -7,11 +7,12 @@ import pandas as pd, numpy as np
 import datetime
 import re
 import sys
+from utils.const import ROOT_PATH 
 
 all = ["get_hold", "get_param_pairs", "export_holdings_compare", "export_trading_compare"]
 def get_hold(acc_name):
     ### 读取hold
-    reportDir = os.path.join("./report")
+    reportDir = os.path.join(ROOT_PATH, "report")
     reportFileDir = os.path.join(reportDir, acc_name)
     if not os.path.exists(reportFileDir):
         os.mkdir(reportFileDir)
@@ -49,7 +50,7 @@ def get_hold(acc_name):
 
 # 获取账户对应参数表含有的全部套利对
 def get_param_pairs(acc_name):
-    paramFileDir = os.path.join("./params", acc_name)
+    paramFileDir = os.path.join(ROOT_PATH, "params", acc_name)
     paramFile = os.path.join(paramFileDir , "params.csv")
     df = pd.read_csv(paramFile)
     df = df[['pairs_id']]
@@ -68,7 +69,7 @@ def get_param_pairs(acc_name):
 def export_holdings_compare(acc_lst):
     tmpvalue_dict = {}
     for acc_name in acc_lst:
-        TmpValueDir = os.path.join("./TmpValue")
+        TmpValueDir = os.path.join(ROOT_PATH, "TmpValue")
         TmpValueFileDir = os.path.join(TmpValueDir, acc_name)
         TmpValueFile = os.path.join(TmpValueFileDir, "TmpValue.csv")
         if os.path.exists(TmpValueFile):
@@ -89,7 +90,7 @@ def export_holdings_compare(acc_lst):
         df = df.fillna('0').sort_values(by='pairs_id')
         if not os.path.exists("./holding_compare"):
             os.mkdir("./holding_compare")
-        df.to_csv(os.path.join("./holding_compare", str(datetime.date.today()) + '_holding_compare.csv'), index=False)
+        df.to_csv(os.path.join(ROOT_PATH, "holding_compare", str(datetime.date.today()) + '_holding_compare.csv'), index=False)
     except UnboundLocalError as e:
         print("未选中账户！")
     return df
@@ -112,7 +113,7 @@ def trade_record_processing(df):
 def export_trading_compare(acc_lst:list):
     trading_dict = {}
     for acc_name in acc_lst:
-        tradingDir = os.path.join("./tradings")
+        tradingDir = os.path.join(ROOT_PATH, "tradings")
         tradingFileDir = os.path.join(tradingDir, acc_name)
         # selected most recent trading record
         recent_date = "0"
@@ -143,5 +144,5 @@ def export_trading_compare(acc_lst:list):
     if not os.path.exists("./trading_compare"):
         os.mkdir("./trading_compare")
     df = df.sort_index().sort_index(axis=1).fillna("0")
-    df.to_csv(os.path.join("./trading_compare", str(datetime.date.today()) + '_day_compare.csv'), encoding='GBK')
+    df.to_csv(os.path.join(ROOT_PATH, "trading_compare", str(datetime.date.today()) + '_day_compare.csv'), encoding='GBK')
     return df

@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 all = ["pandasModel"]
 class pandasModel(QAbstractTableModel):
+    # https://stackoverflow.com/questions/31475965/fastest-way-to-populate-qtableview-from-pandas-data-frame
     def __init__(self, data):
         QAbstractTableModel.__init__(self)
         self._data = data
@@ -12,11 +13,14 @@ class pandasModel(QAbstractTableModel):
 
     def columnCount(self, parent=None):
         return self._data.shape[1]
-
+   
     def data(self, index, role=Qt.DisplayRole):
+        print(index.row(), index.column())
+        print("++++++")
         if index.isValid():
             if role == Qt.DisplayRole:
                 value = self._data.iloc[index.row(), index.column()]
+                print(index.row(), index.column(), value)
                 return str(value)
             elif role == Qt.BackgroundRole:
                 #return QColor(Qt.white)
@@ -47,7 +51,7 @@ class pandasModel(QAbstractTableModel):
 
     def flags(self, index):
         if index.column() == 0:
-            return Qt.ItemIsEnabled | Qt.ItemIsUserCheckable
+            return Qt.ItemIsEnabled | Qt.ItemIsSelectable
         else:
             return Qt.ItemIsEnabled
     
