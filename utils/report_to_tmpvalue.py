@@ -8,7 +8,8 @@ import pandas as pd
 import networkx as nx
 import datetime
 import re
-from . import compare
+from utils.compare import get_param_pairs, get_hold
+from utils.const import ROOT_PATH
 
 all = ["to_tmpvalue"]
 # 对params里的套利对进行连同图分析，找出入度大于1的套利对
@@ -32,20 +33,20 @@ def fix_param_pairs(param_df, hold):
 
 def to_tmpvalue(acc_name):
     # Path configurations
-    TmpValueDir = os.path.join("./TmpValue")
+    TmpValueDir = os.path.join(ROOT_PATH, "TmpValue")
     TmpValueFileDir = os.path.join(TmpValueDir, acc_name)
     if not os.path.exists(TmpValueFileDir):
         os.mkdir(TmpValueFileDir)
     TmpValueFile = os.path.join(TmpValueFileDir, "TmpValue.csv")
 
     # 加载参数表，持仓
-    param_df = compare.get_param_pairs(acc_name)
+    param_df = get_param_pairs(acc_name)
     # 去除反套
     param_df['reverse_flag'] = param_df.apply(lambda x: 1 if x['code1'] > x['code2'] else 0, axis=1)
     param_df = param_df[param_df['reverse_flag'] == 0]
     param_df = param_df.drop(columns=['reverse_flag'])
 
-    hold = compare.get_hold(acc_name)
+    hold = get_hold(acc_name)
     param_df = fix_param_pairs(param_df, hold)
     tmpvalue = pd.DataFrame()
     legging = []

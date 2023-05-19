@@ -1,5 +1,5 @@
 from utils.date_section_modification import to_predict
-from utils.const import ROOT_PATH
+from utils.const import ROOT_PATH, PARAM_PATH
 import os
 import pandas as pd
 
@@ -10,7 +10,7 @@ def check_cache(account_name:str, date:int, section:int, pairs:pd.Series, args:t
     # 检查文件名
     date, section = to_predict(date, section)
     args_dirname = "q={}_step={}_ratio={}".format(args[0], args[1], args[2])
-    ACC_PATH = os.path.join(ROOT_PATH, "params", account_name)
+    ACC_PATH = os.path.join(PARAM_PATH , account_name)
     LOG_PATH = os.path.join(ACC_PATH, 'log')
     ARG_PATH = os.path.join(LOG_PATH, args_dirname)
     filename = "params_" + str(date) + "_" + str(section) + ".csv" 
@@ -26,7 +26,7 @@ def check_cache(account_name:str, date:int, section:int, pairs:pd.Series, args:t
 def get_most_updated_cache(account_name:str, pairs:pd.Series, args:tuple):
     # 检查文件名
     args_dirname = "q={}_step={}_ratio={}".format(args[0], args[1], args[2])
-    ACC_PATH = os.path.join(ROOT_PATH, "params", account_name)
+    ACC_PATH = os.path.join(PARAM_PATH, account_name)
     LOG_PATH = os.path.join(ACC_PATH, 'log')
     ARG_PATH = os.path.join(LOG_PATH, args_dirname)
     filename = max(os.listdir(ARG_PATH))
@@ -40,7 +40,7 @@ def cache_param(account_name:str, df, date, section, args:tuple):
     date, section = to_predict(date, section)
     print("Cache predict section", date,section)
     args_dirname = "q={}_step={}_ratio={}".format(args[0], args[1], args[2])
-    ACC_PATH = os.path.join(ROOT_PATH, "params", account_name)
+    ACC_PATH = os.path.join(PARAM_PATH, account_name)
     LOG_PATH = os.path.join(ACC_PATH, "log")
     ARG_PATH = os.path.join(LOG_PATH, args_dirname)
     if not os.path.exists(ACC_PATH):
@@ -55,5 +55,5 @@ def cache_param(account_name:str, df, date, section, args:tuple):
 
 
 def save_param(account_name:str, df):
-    ACC_PATH = os.path.join(ROOT_PATH, "params", account_name)
+    ACC_PATH = os.path.join(PARAM_PATH, account_name)
     df.to_csv(os.path.join(ACC_PATH, 'params.csv'), index=False)

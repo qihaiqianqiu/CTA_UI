@@ -1,6 +1,6 @@
 import re
 from utils.const import breed_dict
-all = ["rename"]
+all = ["rename", "rename_db_to_param"]
 
 # Contract name from upper case and %ccdddd [params.csv] to lower case and %cdddd [breed_dict] 
 def rename(contract:str):

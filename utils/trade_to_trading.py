@@ -5,8 +5,9 @@ import pandas as pd
 import re
 import datetime
 import os
-from . import compare
-from . import rename
+from utils.compare import get_param_pairs
+from utils.rename import rename
+from utils.const import ROOT_PATH
 
 all = ["fix_trade_record"]
 # 以下为成交记录合成模块
@@ -152,10 +153,10 @@ def match(df, buffer, param):
         
 
 def fix_trade_record(acc_name):
-    param_df = compare.get_param_pairs(acc_name)
+    param_df = get_param_pairs(acc_name)
     param_df['code1'] = param_df['code1'].apply(lambda x: rename(x))
     param_df['code2'] = param_df['code2'].apply(lambda x: rename(x))
-    tradeFileDir = os.path.join("./tradings")
+    tradeFileDir = os.path.join(ROOT_PATH, "tradings")
     tradeFileDir = os.path.join(tradeFileDir, acc_name)
     if not os.path.exists(tradeFileDir):
         os.mkdir(tradeFileDir)

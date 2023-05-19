@@ -14,8 +14,8 @@ import matplotlib.dates as mdate
 import datetime as dt
 from time import *
 import time
-from . import rename
-from . import const
+from utils.rename import rename
+from utils.const import client, BOUNDARY_PATH, trade_day, boundary_dict
 
 __all__ = ["predict_info"]
 # Get data from start_date[MorningMarket] to end_date[EveningMarket]
@@ -25,7 +25,7 @@ def get_pairwise_data(contract_pair:list, start_date:int, end_date:int):
     select_clause = 'SELECT contract, trading_date, time, ap1, av1, bp1, bv1 from ctp_future_tick '
     where_clause = 'WHERE contract in ' + str(tuple(contract_pair)) + ' and trading_date >= '+ str(start_date) + ' and trading_date <= ' + str(end_date)
     query = select_clause + where_clause
-    res = const.client.query_dataframe(query)
+    res = client.query_dataframe(query)
     print("SQL TIME: ", time.time()-start)
     if len(res) > 0:
         res = res.sort_values(by=['trading_date', 'time'])
@@ -48,7 +48,7 @@ def get_pairwise_data(contract_pair:list, start_date:int, end_date:int):
 # 单一套利对，起止交易日之间全部早、午、夜市
 def pair_plot_section(contract_pair:list, start_date:int, end_date:int):
     # Trading_section = [['9','11:30'], ['13:30','15:00'] ,['21:00','2:30']] or [1D, 3D, 5D, 11D, 22D]
-    pair_data = get_pairwise_data(contract_pair, start_date=const.trade_day[const.trade_day.index(start_date)], end_date=const.trade_day[const.trade_day.index(end_date)])
+    pair_data = get_pairwise_data(contract_pair, start_date=trade_day[trade_day.index(start_date)], end_date=trade_day[trade_day.index(end_date)])
     if len(pair_data) > 0:
         df_0 = pair_data[(pair_data['time'] > '09') & (pair_data['time'] < '11:30')]
         df_1 = pair_data[(pair_data['time'] > '13:30') & (pair_data['time'] < '15:00')]
@@ -66,7 +66,7 @@ def pair_plot_section(contract_pair:list, start_date:int, end_date:int):
 def check_update_flag(contract_pair:list, q:float):
     # future_pair: ['fu2301', 'fu2305'] --> Paramater CSV: BOUNDARY_PATH/fu2301-fu2305.csv
     pair_filename = contract_pair[0] + '-' + contract_pair[1] + '.csv'
-    PARA = os.path.join(const.BOUNDARY_PATH, "q=" + str(q))
+    PARA = os.path.join(BOUNDARY_PATH, "q=" + str(q))
     flag = os.path.exists(os.path.join(PARA, pair_filename))
     return flag, pair_filename
     
@@ -80,7 +80,7 @@ def export_parameter_csv(contract_pair_group:list, start_date:int, end_date:int,
         update_flag, pair_fname = check_update_flag(pair,q)
         print("增量模式：", update_flag)
         if update_flag:
-            Boundary = os.path.join(const.BOUNDARY_PATH, "q=" + str(q))
+            Boundary = os.path.join(BOUNDARY_PATH, "q=" + str(q))
             # Reading saved params file of current pair
             df = pd.read_csv(os.path.join(Boundary, pair_fname))
             saved_date = int(df['date'].max().split('_')[0])
@@ -98,9 +98,9 @@ def export_parameter_csv(contract_pair_group:list, start_date:int, end_date:int,
                         for temp in pd.concat([df_b_temp,df_s_temp],axis=1).groupby('trading_date'):
                             # 交易单元代码轮换
                             if i == 0:
-                                date = str(const.trade_day[const.trade_day.index(temp[0])]) + '_' + str(1)
+                                date = str(trade_day[trade_day.index(temp[0])]) + '_' + str(1)
                             if i == 1:
-                                date = str(const.trade_day[const.trade_day.index(temp[0])]) + '_' + str(2)
+                                date = str(trade_day[trade_day.index(temp[0])]) + '_' + str(2)
                             max_0 = temp[1].iloc[:,1].max()
                             min_0 = temp[1].iloc[:,1].min()
                             mean_0 = temp[1].iloc[:,1].mean()
@@ -119,7 +119,7 @@ def export_parameter_csv(contract_pair_group:list, start_date:int, end_date:int,
                             row_data = {'date': [date], 'max(buy)': max_0, 'min(buy)': min_0, 'mean(buy)':mean_0, 'mean-std(buy)':mean_0-std_0, 'mean-2std(buy)':mean_0-2*std_0, 'mean-2.5std(buy)':mean_0-2.5*std_0, 'price_quantile_90(buy)':q_0_90, 'price_quantile_95(buy)':q_0_95, 'price_quantile_N(buy)':q_0_N, 'max(sell)':max_1, 'min(sell)':min_1, 'mean(sell)':mean_1, 'mean+std(sell)':mean_1+std_1, 'mean+2std(sell)':mean_1+2*std_1, 'mean+2.5std(sell)':mean_1+2.5*std_1, 'price_quantile_90(sell)':q_1_90, 'price_quantile_95(sell)':q_1_95, 'price_quantile_N(sell)':q_1_N}
                             df = pd.concat([df,pd.DataFrame(row_data)])
             # Pushing start pointer one day later
-            start_date = const.trade_day[const.trade_day.index(saved_date)+1]
+            start_date = trade_day[trade_day.index(saved_date)+1]
         if start_date <= end_date:
             # Appending following days
             # Query DB            
@@ -132,11 +132,11 @@ def export_parameter_csv(contract_pair_group:list, start_date:int, end_date:int,
                     for temp in pd.concat([df_b_temp,df_s_temp],axis=1).groupby('trading_date'):
                         # 交易单元代码轮换
                         if i == 0:
-                            date = str(const.trade_day[const.trade_day.index(temp[0])]) + '_' + str(1)
+                            date = str(trade_day[trade_day.index(temp[0])]) + '_' + str(1)
                         if i == 1:
-                            date = str(const.trade_day[const.trade_day.index(temp[0])]) + '_' + str(2)
+                            date = str(trade_day[trade_day.index(temp[0])]) + '_' + str(2)
                         if i == 2:
-                            date = str(const.trade_day[const.trade_day.index(temp[0])]) + '_' + str(0)
+                            date = str(trade_day[trade_day.index(temp[0])]) + '_' + str(0)
                         max_0 = temp[1].iloc[:,1].max()
                         min_0 = temp[1].iloc[:,1].min()
                         mean_0 = temp[1].iloc[:,1].mean()
@@ -214,7 +214,7 @@ def predict_boundary_rolling(param_data, step=20, start_date='20220908_0', predi
 # 进度条计时器在这里放
 def predict_boundary(contract_pair:list, end_date:int, end_date_section:int, q=0.95, step=20, start_date=20220908):
     # 1
-    PARA = os.path.join(const.BOUNDARY_PATH, "q=" + str(q))
+    PARA = os.path.join(BOUNDARY_PATH, "q=" + str(q))
     if not os.path.exists(PARA):
         os.mkdir(PARA)
     contract_pair = [rename(contract_pair[0]), rename(contract_pair[1])]
@@ -269,7 +269,7 @@ def predict_info(region_info:pd.DataFrame, end_date:int, end_section:int, q:floa
         region_info['up_boundary_4'] = (region_info['up_boundary_3'] + region_info['boundary_tick_lock']).apply(lambda x: round(x,2))
         region_info['boundary_tick_lock'] = region_info['boundary_tick_lock'] * ratio
         # 除价跳单位
-        region_info['boundary_tick_lock'] = region_info['boundary_tick_lock'] / region_info['kind'].map(const.boundary_dict)
+        region_info['boundary_tick_lock'] = region_info['boundary_tick_lock'] / region_info['kind'].map(boundary_dict)
         region_info['boundary_tick_lock'] = region_info['boundary_tick_lock'].apply(lambda x: round(x))
     else:
         cached_info = pd.read_csv(cache_path)
