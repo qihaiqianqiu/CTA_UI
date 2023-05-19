@@ -40,6 +40,7 @@ from utils.date_section_modification import get_date_section, from_predict
 all = ['plot_continuous_contract', 'plot_time_series', 'plot_volume_split']
 # Get data from start_date[MorningMarket] to end_date[EveningMarket]
 def get_pairwise_data(contract_pair:list, start_date:int, end_date:int):
+    print("Getting pairdata")
     select_clause = 'SELECT contract, trading_date, time, ap1, av1, bp1, bv1, volume from ctp_future_tick '
     where_clause = 'WHERE contract in ' + str(tuple(contract_pair)) + ' and trading_date >= '+ str(start_date) + ' and trading_date <= ' + str(end_date)
     query = select_clause + where_clause
@@ -54,6 +55,7 @@ def get_pairwise_data(contract_pair:list, start_date:int, end_date:int):
     pair_data.drop(columns=['contract_'+contract_pair[0], 'contract_'+contract_pair[1]], inplace=True)
     pair_data.sort_values(by=['trading_date', 'time'])
     pair_data = pair_data.fillna(method='ffill').replace([np.inf, -np.inf], np.nan).dropna()
+    print("**********")
     print(pair_data)
     return pair_data
 
@@ -62,6 +64,7 @@ def bar_plot_get_continous_data(contract_pair_lst:list, date:int, section:int):
     df_section = []
     label_section = []
     for contract_pair in contract_pair_lst:
+        print("绘制套利对{}连续合约图像的{}_{}： ",format(contract_pair, date, section))
         try:
             if section == 2:
                 pair_data = get_pairwise_data(contract_pair, start_date=trade_day[trade_day.index(date)+1], end_date=trade_day[trade_day.index(date)+1])
@@ -69,7 +72,6 @@ def bar_plot_get_continous_data(contract_pair_lst:list, date:int, section:int):
                 pair_data = get_pairwise_data(contract_pair, start_date=trade_day[trade_day.index(date)], end_date=trade_day[trade_day.index(date)])
         except Exception as e:
             continue
-        print("绘制连续合约图像的交易日&单元： ", date, section)
         if section == 0:
             df = pair_data[(pair_data['time'] > '09') & (pair_data['time'] < '11:30')]
 
@@ -92,6 +94,7 @@ def bar_plot_get_volume_split_data(contract_pair_lst:list, date:int, section:int
     label_section = []
     volume_batch_section = []
     for contract_pair in contract_pair_lst:
+        print("绘制套利对{}成交分段图像的{}_{}： ".format(contract_pair, date, section))
         try:
             if section == 2:
                 pair_data = get_pairwise_data(contract_pair, start_date=trade_day[trade_day.index(date)+1], end_date=trade_day[trade_day.index(date)+1])
@@ -99,8 +102,6 @@ def bar_plot_get_volume_split_data(contract_pair_lst:list, date:int, section:int
                 pair_data = get_pairwise_data(contract_pair, start_date=trade_day[trade_day.index(date)], end_date=trade_day[trade_day.index(date)])
         except Exception as e:
             continue
-        print("绘制成交量切割合约图像的交易日&单元： ", date, section)
-        print(contract_pair)
 
         if section == 0:
             df = pair_data[(pair_data['time'] > '09') & (pair_data['time'] < '11:30')]
@@ -498,3 +499,4 @@ if __name__ == "__main__":
     except Exception as e:
         print("图像生成失败")
         print(e)
+    

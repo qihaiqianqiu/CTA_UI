@@ -6,7 +6,7 @@ import datetime
 
 all = ["get_db_contract_pair",  "check_vaild_month"]
 
-def get_db_contract_pair():
+def get_param_contract_pair():
     breed_lst = []
     for key, values in exchange_breed_dict.items():
         breed_lst += exchange_breed_dict[key]
@@ -23,6 +23,25 @@ def get_db_contract_pair():
         contract_pair_dict[breed_class[0]] = contract_pair_lst
     return contract_pair_dict
 
+
+def get_db_contract_pair():
+    breed_lst = []
+    for key, values in exchange_breed_dict.items():
+        breed_lst += exchange_breed_dict[key]
+    breed_lst += [x.lower() for x in breed_lst]
+    cta_table = db_para['tb_to']
+    SQL = "SELECT distinct contract, breed from " + cta_table + " where breed in " + str(tuple(breed_lst))
+    print(SQL)
+    df = client.query_dataframe(SQL).sort_values('contract')
+    contract_pair_dict = {}
+    for breed_class in df.groupby('breed'):
+        contract_pair_lst = []
+        contract_lst = breed_class[1]['contract'].tolist()
+        contract_pair_lst += [[contract_lst[i], contract_lst[i+1]] for i in range(len(contract_lst)-1)]
+        contract_pair_dict[breed_class[0]] = contract_pair_lst
+    return contract_pair_dict
+
+
 def check(breed:str, month:int):
     if breed in invalid_month_dict.keys():
         if month in invalid_month_dict[breed]:
@@ -33,7 +52,7 @@ def check(breed:str, month:int):
         return False
     
 def check_vaild_month():
-    contract_pair_dict = get_db_contract_pair()
+    contract_pair_dict = get_param_contract_pair()
     df = pd.DataFrame()
     today = datetime.datetime.today()
     year = today.year
