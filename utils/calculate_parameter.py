@@ -68,6 +68,10 @@ def check_update_flag(contract_pair:list, q:float):
     pair_filename = contract_pair[0] + '-' + contract_pair[1] + '.csv'
     PARA = os.path.join(BOUNDARY_PATH, "q=" + str(q))
     flag = os.path.exists(os.path.join(PARA, pair_filename))
+    if flag:
+        df = pd.read_csv(os.path.join(PARA, pair_filename))
+        if len(df) == 0:
+            flag = False
     return flag, pair_filename
     
     
