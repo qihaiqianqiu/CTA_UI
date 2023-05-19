@@ -1,6 +1,11 @@
 from PyQt5 import Qt
+from PyQt5.QtCore import QModelIndex
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
+from utils.plotfile_management import get_profile
+
+# 待实现的功能：点击套利对名称即可自动打开对应时序套利图
+
 all = ["pandasModel"]
 class pandasModel(QAbstractTableModel):
     # https://stackoverflow.com/questions/31475965/fastest-way-to-populate-qtableview-from-pandas-data-frame
@@ -15,8 +20,6 @@ class pandasModel(QAbstractTableModel):
         return self._data.shape[1]
    
     def data(self, index, role=Qt.DisplayRole):
-        print(index.row(), index.column())
-        print("++++++")
         if index.isValid():
             if role == Qt.DisplayRole:
                 value = self._data.iloc[index.row(), index.column()]
@@ -26,7 +29,8 @@ class pandasModel(QAbstractTableModel):
                 #return QColor(Qt.white)
                 pass
         return None
-
+    
+    
     def headerData(self, section, orientation, role=Qt.DisplayRole):
         if role != Qt.DisplayRole:
             return None
