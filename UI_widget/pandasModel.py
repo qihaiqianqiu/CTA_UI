@@ -2,7 +2,7 @@ from PyQt5 import Qt
 from PyQt5.QtCore import QModelIndex
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
-from utils.plotfile_management import get_profile
+from utils.plotfile_management import pairname_to_plotdir
 
 # 待实现的功能：点击套利对名称即可自动打开对应时序套利图
 
