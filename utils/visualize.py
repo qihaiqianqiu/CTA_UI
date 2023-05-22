@@ -64,7 +64,7 @@ def bar_plot_get_continous_data(contract_pair_lst:list, date:int, section:int):
     df_section = []
     label_section = []
     for contract_pair in contract_pair_lst:
-        print("绘制套利对{}连续合约图像的{}_{}： ",format(contract_pair, date, section))
+        print("绘制套利对{}连续合约图像的{}_{}： ".format(contract_pair, date, section))
         try:
             if section == 2:
                 pair_data = get_pairwise_data(contract_pair, start_date=trade_day[trade_day.index(date)+1], end_date=trade_day[trade_day.index(date)+1])
@@ -248,6 +248,7 @@ def bar_plot_time_series(contract_pair:list, start_date:int, end_date:int):
 def bar_plot_continous_data(date:int, section:int):
     contract_dict = get_db_contract_pair()
     for key in contract_dict:
+        print(contract_dict[key], date, section)
         df_section, label_section, save_date = bar_plot_get_continous_data(contract_dict[key], date, section)
         vol_section, bar_section = bar_plot_data_segmentation(df_section)
         DIR = os.path.join(os.path.abspath(PLOT_PATH), save_date[0])
@@ -489,13 +490,13 @@ if __name__ == "__main__":
     print("绘制成交量切分套利图...")
     today = int(datetime.date.today().strftime('%Y%m%d'))
     try:
-        plot_volume_split()
-        print("成交量切分套利图生成完成（barplot目录）")
+        # plot_volume_split()
+        # print("成交量切分套利图生成完成（barplot目录）")
         print("绘制品种连续合约套利图...")
         plot_continuous_contract()
-        print("品种连续合约套利图生成完成（barplot目录）")
-        print("绘制固定套利对时序分析图...")
-        plot_time_series(today, back_period=44)
+        # print("品种连续合约套利图生成完成（barplot目录）")
+        # print("绘制固定套利对时序分析图...")
+        # plot_time_series(today, back_period=44)
     except Exception as e:
         print("图像生成失败")
         print(e)
