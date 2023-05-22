@@ -488,8 +488,7 @@ class Example(QMainWindow):
                 print(len(lost_pair_vaild), len(lost_pair_invaild))
                 dialog_valid = QDialog()
                 model = pandasModel(lost_pair_vaild)
-                view = QTableView()
-                view.setModel(model)
+                view = TableView(model)
                 view.setSizeAdjustPolicy(QTableView.AdjustToContents)  # 自适应表格大小
                 view.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
                 layout = QVBoxLayout()
@@ -500,8 +499,7 @@ class Example(QMainWindow):
                 
                 dialog_invalid = QDialog()
                 model = pandasModel(lost_pair_invaild)
-                view = QTableView()
-                view.setModel(model)
+                view = TableView(model)
                 view.setSizeAdjustPolicy(QTableView.AdjustToContents)  # 自适应表格大小
                 view.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
                 layout = QVBoxLayout()
@@ -648,8 +646,7 @@ class Example(QMainWindow):
             res = compare.export_holdings_compare(acc_lst)
             dialog = QDialog()
             model = pandasModel(res)
-            view = QTableView()
-            view.setModel(model)
+            view = TableView(model)
             view.setSizeAdjustPolicy(QTableView.AdjustToContents)  # 自适应表格大小
             view.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
             layout = QVBoxLayout()
@@ -677,8 +674,7 @@ class Example(QMainWindow):
             res = compare.export_trading_compare(acc_lst)
             dialog = QDialog()
             model = pandasModel(res)
-            view = QTableView()
-            view.setModel(model)
+            view = TableView(model)
             view.setSizeAdjustPolicy(QTableView.AdjustToContents)  # 自适应表格大小
             view.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
             layout = QVBoxLayout()

@@ -1,16 +1,23 @@
 from PyQt5 import Qt
-from PyQt5.QtCore import QModelIndex
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
+from PyQt5.QtGui import QIcon, QDesktopServices, QMouseEvent
+import os
 from utils.plotfile_management import pairname_to_plotdir
+from utils.const import ROOT_PATH, PLOT_PATH
 
 # 待实现的功能：点击套利对名称即可自动打开对应时序套利图
 
-all = ["pandasModel"]
+all = ["pandasModel", "TableView"]
 class pandasModel(QAbstractTableModel):
     # https://stackoverflow.com/questions/31475965/fastest-way-to-populate-qtableview-from-pandas-data-frame
     def __init__(self, data):
         QAbstractTableModel.__init__(self)
+        original_columns = data.columns.tolist()
+        data.loc[:, 'CheckBox'] = False
+        data.loc[:, 'BarPlot'] = data[original_columns[0]].apply(lambda x: pairname_to_plotdir(x))
+        data = data[['CheckBox', 'BarPlot'] + original_columns]
+        print(data)
         self._data = data
 
     def rowCount(self, parent=None):
@@ -21,13 +28,30 @@ class pandasModel(QAbstractTableModel):
    
     def data(self, index, role=Qt.DisplayRole):
         if index.isValid():
-            if role == Qt.DisplayRole:
-                value = self._data.iloc[index.row(), index.column()]
-                print(index.row(), index.column(), value)
+            row = index.row()
+            col = index.column()
+            if role == Qt.DisplayRole and col >= 2:
+                value = self._data.iloc[row, col]
                 return str(value)
-            elif role == Qt.BackgroundRole:
-                #return QColor(Qt.white)
-                pass
+            elif role == Qt.CheckStateRole and col == 0:
+                checked = self._data.iloc[row, col]
+                return Qt.Checked if checked else Qt.Unchecked
+            elif role == Qt.DecorationRole and col == 1:
+                icon_path = os.path.join(ROOT_PATH, "src", "box-plot.png")
+                if icon_path:
+                    icon = QIcon(icon_path)
+                    return icon
+            elif role == Qt.UserRole and col == 1:
+                image_path = self._data.iloc[row, col]
+                print(image_path)
+                return image_path
+            """
+            elif role == Qt.MouseButtonPressRole and col == 1:
+                # Open file on mouse button press in image column
+                image_path = pairname_to_plotdir(self._data.iloc[row, col-1])
+                if image_path:
+                    QDesktopServices.openUrl(QUrl.fromLocalFile(image_path))
+            """
         return None
     
     
@@ -41,20 +65,20 @@ class pandasModel(QAbstractTableModel):
 
     def setData(self, index, value, role):
         if role == Qt.CheckStateRole and index.column() == 0:
-            if len(self._data.index.names) == 1:
-                self._data.iloc[index.row()] = [value == Qt.Checked] + list(self._data.iloc[index.row(), 1:])
-            else:
-                row_values = list(self._data.index[index.row()])
-                for i in range(len(self._data.index.names)):
-                    if self._data.index.names[i] == index.internalPointer().name():
-                        row_values[i] = value == Qt.Checked
-                self._data.set_value(tuple(row_values), self._data.columns[index.column()], value == Qt.Checked)
+            row = index.row()
+            checked = value == Qt.Checked
+            self._data.iloc[row, index.column()] = checked
             self.dataChanged.emit(index, index)
             return True
         return False
 
+
     def flags(self, index):
         if index.column() == 0:
+            return Qt.ItemIsEnabled | Qt.ItemIsUserCheckable
+        if index.column() == 1:
+            return Qt.ItemIsEnabled | Qt.ItemIsSelectable | Qt.ItemIsEditable
+        elif index.column() >= 2:
             return Qt.ItemIsEnabled | Qt.ItemIsSelectable
         else:
             return Qt.ItemIsEnabled
@@ -87,3 +111,24 @@ class pandasModel(QAbstractTableModel):
             self.dataChanged.emit(QModelIndex(), QModelIndex())
         else:
             super().mouseMoveEvent(event)
+            
+
+class TableView(QTableView):
+    def __init__(self, model):
+        super(TableView, self).__init__()
+        self.setModel(model)
+
+    def mousePressEvent(self, event: QMouseEvent) -> None:
+        index = self.indexAt(event.pos())
+        if index.column() == 1:  # 图片列
+            file_path = self.model().data(index, Qt.UserRole)
+            print(file_path)
+            print(os.path.exists(file_path))
+            if file_path:
+                url = QUrl.fromLocalFile(file_path)
+                url.setScheme("file")
+                QDesktopServices.openUrl(url)
+            else:
+                print("BarPlot not exist")
+        else:
+            super().mousePressEvent(event)

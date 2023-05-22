@@ -1,6 +1,7 @@
 # Dependencies
 import os
 import numpy as np, pandas as pd
+import re
 # 非交互模式防止内存泄露
 import matplotlib
 matplotlib.use('Agg') 
@@ -241,28 +242,28 @@ def bar_plot_time_series(contract_pair:list, start_date:int, end_date:int):
     df_section, label_section, save_date = bar_plot_get_time_series_data(contract_pair, start_date, end_date)
     vol_section, bar_section = bar_plot_data_segmentation(df_section)
     DIR = os.path.join(os.path.abspath(PLOT_PATH), str(save_date))
-    figname = str(save_date) + '-' + rename_db_to_param(str(contract_pair[0])) + '-' + rename_db_to_param(str(contract_pair[1])) + '.png'
+    figname = str(save_date) + '-' + rename_db_to_param(str(contract_pair[0])) + '-' + re.search("[0-9]+", rename_db_to_param(str(contract_pair[1]))).group(0) + '.png'
     plot_fig(vol_section, bar_section, label_section, fig_title = str(contract_pair), export_dir=DIR, filename=figname)
 
 
 def bar_plot_continous_data(date:int, section:int):
     contract_dict = get_db_contract_pair()
-    for key in contract_dict:
-        print(contract_dict[key], date, section)
-        df_section, label_section, save_date = bar_plot_get_continous_data(contract_dict[key], date, section)
+    for breed in contract_dict:
+        print(contract_dict[breed], date, section)
+        df_section, label_section, save_date = bar_plot_get_continous_data(contract_dict[breed], date, section)
         vol_section, bar_section = bar_plot_data_segmentation(df_section)
         DIR = os.path.join(os.path.abspath(PLOT_PATH), save_date[0])
-        figname = save_date[0] + '_' + save_date[1] + '-' + str(key) + '.png'
+        figname = save_date[0] + '_' + save_date[1] + '-' + str(breed) + '.png'
         try:
-            plot_fig(vol_section, bar_section, label_section, fig_title = str(key), export_dir=DIR, filename=figname, x_rotation=False)
+            plot_fig(vol_section, bar_section, label_section, fig_title = str(breed), export_dir=DIR, filename=figname, x_rotation=False)
         except Exception as e:
             print(e)
             continue
 
 def bar_plot_volume_split_data(date:int, section:int, batch_num = 40):
     contract_dict = get_db_contract_pair()
-    for key in contract_dict:
-        df_part_lst, label_part_lst, volume_part_lst, save_date = bar_plot_get_volume_split_data(contract_dict[key], date, section, batch_num)
+    for breed in contract_dict:
+        df_part_lst, label_part_lst, volume_part_lst, save_date = bar_plot_get_volume_split_data(contract_dict[breed], date, section, batch_num)
         print(df_part_lst)
         # 将根据成交量切分的df列表解开成一个个df
         for i in range(len(df_part_lst)):
@@ -280,7 +281,9 @@ def bar_plot_volume_split_data(date:int, section:int, batch_num = 40):
             print(vol_section)
             print(label_part_lst[i])
             DIR = os.path.join(os.path.abspath(PLOT_PATH), save_date[0])
-            figname = save_date[0] + '-' + save_date[1] + '-' + str(contract_pair) + "_volume_split" + '.png'
+            near = str(contract_pair).split('-')[0]
+            forward = str(contract_pair).split('-')[1]
+            figname = save_date[0] + '-' + save_date[1] + '-' + rename_db_to_param(near) + '-' + re.search("[0-9]+", rename_db_to_param(forward)).group(0) + "-volume_split" + '.png'
             f = open("test.txt", "a")
             try:
                 plot_fig(vol_section, bar_section, label_section_part, fig_title = str(contract_pair) + '_' + str(vol_section_part), export_dir=DIR, filename=figname, x_rotation=False)
