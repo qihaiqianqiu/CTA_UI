@@ -484,11 +484,12 @@ class Example(QMainWindow):
                             lost_pair_vaild = lost_pair_vaild.append({'合约对': contract_pair, '是否可转抛': '是'}, ignore_index=True)
                         else:
                             lost_pair_invaild = lost_pair_invaild.append({'合约对': contract_pair, '是否可转抛': '否'}, ignore_index=True)
-
-                print(len(lost_pair_vaild), len(lost_pair_invaild))
+                lost_pair_vaild = lost_pair_vaild.reset_index(drop=True).set_index('合约对')
+                lost_pair_invaild = lost_pair_invaild.reset_index(drop=True).set_index('合约对')
                 dialog_valid = QDialog()
                 model = pandasModel(lost_pair_vaild)
                 view = TableView(model)
+                # 大小策略
                 view.setSizeAdjustPolicy(QTableView.AdjustToContents)  # 自适应表格大小
                 view.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
                 layout = QVBoxLayout()

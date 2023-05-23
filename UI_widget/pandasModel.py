@@ -4,7 +4,15 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import QIcon, QDesktopServices, QMouseEvent
 import os
 from utils.plotfile_management import pairname_to_plotdir
-from utils.const import ROOT_PATH, PLOT_PATH
+from utils.const import ROOT_PATH
+import pandas as pd
+#显示所有列
+pd.set_option('display.max_columns', None)
+#显示所有行
+pd.set_option('display.max_rows', None)
+#设置value的显示长度为100，默认为50
+pd.set_option('max_colwidth',100)
+
 
 # 待实现的功能：点击套利对名称即可自动打开对应时序套利图
 
@@ -14,10 +22,9 @@ class pandasModel(QAbstractTableModel):
     def __init__(self, data):
         QAbstractTableModel.__init__(self)
         original_columns = data.columns.tolist()
-        data.loc[:, 'CheckBox'] = False
-        data.loc[:, 'BarPlot'] = data[original_columns[0]].apply(lambda x: pairname_to_plotdir(x))
-        data = data[['CheckBox', 'BarPlot'] + original_columns]
-        print(data)
+        data.insert(0, 'BarPlot', data.apply(lambda x: pairname_to_plotdir(x.name), axis=1))
+        data.insert(0, 'CheckBox', False)
+        print(data.columns)
         self._data = data
 
     def rowCount(self, parent=None):

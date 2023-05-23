@@ -9,8 +9,14 @@ def pairname_to_plotdir(contract_pair_name) -> str:
     :param contract_pair_name: 套利对名称
     :return: 图像存储路径
     """
-    updated_date = max(os.listdir(PLOT_PATH))
-    plot_name = updated_date + '-' + contract_pair_name + ".png"
-    plot_dir = os.path.join(PLOT_PATH, updated_date, plot_name)
-    
-    return plot_dir
+    date_lst = os.listdir(PLOT_PATH)
+    date_lst.sort(reverse=True)
+    for date in date_lst[:3]:
+        plotname = date + "-" + contract_pair_name + ".png"
+        plot_dir = os.path.join(PLOT_PATH, date, plotname)
+        if os.path.exists(plot_dir):
+            return plot_dir
+    return "无效套利对"
+
+if __name__ == "__main__":
+    print(pairname_to_plotdir("AU2402-2404"))

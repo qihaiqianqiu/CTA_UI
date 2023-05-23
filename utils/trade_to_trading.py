@@ -6,7 +6,7 @@ import re
 import datetime
 import os
 from utils.compare import get_param_pairs
-from utils.rename import rename
+from utils.rename import rename, rename_db_to_param
 from utils.const import ROOT_PATH
 
 all = ["fix_trade_record"]
@@ -123,7 +123,7 @@ def match(df, buffer, param):
         forward_dt = re.findall(r"\d+.?\d*",forward)[0].replace(' ','')
         if len(forward_dt) == 3:
             forward_dt = '2' + forward_dt
-        pair = (near + '-' + forward_dt).upper()
+        pair = (rename_db_to_param(near) + '-' + forward_dt).upper()
         time = df['time'].iloc[0]
         if df[df['code'] == near]['deal'].values[0] > 0:
             operation = "买"
