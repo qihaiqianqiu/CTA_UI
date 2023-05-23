@@ -489,6 +489,9 @@ class Example(QMainWindow):
                 dialog_valid = QDialog()
                 model = pandasModel(lost_pair_vaild)
                 view = TableView(model)
+                vheader = view.verticalHeader()
+                vheader.setMinimumSize(VERTICAL_HEADER_WID, VERTICAL_HEADER_HEI)
+                
                 # 大小策略
                 view.setSizeAdjustPolicy(QTableView.AdjustToContents)  # 自适应表格大小
                 view.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
@@ -501,6 +504,8 @@ class Example(QMainWindow):
                 dialog_invalid = QDialog()
                 model = pandasModel(lost_pair_invaild)
                 view = TableView(model)
+                vheader = view.verticalHeader()
+                vheader.setMinimumSize(VERTICAL_HEADER_WID, VERTICAL_HEADER_HEI)
                 view.setSizeAdjustPolicy(QTableView.AdjustToContents)  # 自适应表格大小
                 view.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
                 layout = QVBoxLayout()
@@ -648,6 +653,9 @@ class Example(QMainWindow):
             dialog = QDialog()
             model = pandasModel(res)
             view = TableView(model)
+            # 大小策略
+            vheader = view.verticalHeader()
+            vheader.setMinimumSize(VERTICAL_HEADER_WID, VERTICAL_HEADER_HEI)
             view.setSizeAdjustPolicy(QTableView.AdjustToContents)  # 自适应表格大小
             view.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
             layout = QVBoxLayout()
@@ -676,6 +684,10 @@ class Example(QMainWindow):
             dialog = QDialog()
             model = pandasModel(res)
             view = TableView(model)
+            
+            # 大小策略
+            vheader = view.verticalHeader()
+            vheader.setMinimumSize(VERTICAL_HEADER_WID, VERTICAL_HEADER_HEI)
             view.setSizeAdjustPolicy(QTableView.AdjustToContents)  # 自适应表格大小
             view.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
             layout = QVBoxLayout()

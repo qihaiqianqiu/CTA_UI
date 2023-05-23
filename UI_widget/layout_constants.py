@@ -6,4 +6,6 @@ ACC_TABLE_COL_NAME = ['√', 'id', 'describe' , 'status', 'account', 'region_bud
 CHECKBOX_WID = 70
 ACC_TABLE_COL_WID = 200
 ACC_TABLE_HEI = 400
+VERTICAL_HEADER_WID = 120
+VERTICAL_HEADER_HEI = 500
 
