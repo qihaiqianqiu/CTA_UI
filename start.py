@@ -467,27 +467,24 @@ class Example(QMainWindow):
     
     @QtCore.pyqtSlot()
     def check_param_pairs(self):
-        lost_pair_vaild = pd.DataFrame(columns=['合约对', '是否可转抛'])
-        lost_pair_invaild = pd.DataFrame(columns=['合约对', '是否可转抛'])
+        lost_pair = pd.DataFrame(columns=['合约对', '是否可转抛', '成交量'])
         candidate_pairs = get_contract_pair.check_vaild_month()
         for i in range(self.table.rowCount(), 0, -1):
             if self.table.cellWidget(i-1, 0).findChild(type(QCheckBox())).isChecked():
                 acc_info = [self.table.item(i-1,j).text() for j in range(1, self.table.columnCount())]
                 acc_name = acc_info[0]
-                param_df = pd.read_csv(os.path.join(const.PARAM_PATH, "params.csv"))
-                counter = 0
+                param_df = pd.read_csv(os.path.join(const.PARAM_PATH, acc_name, "params.csv"))
                 for contract_pair in candidate_pairs['contract_pair'].tolist():
                     if contract_pair not in param_df['pairs_id'].tolist():
-                        counter += 1
+                        vol = candidate_pairs[candidate_pairs['contract_pair']==contract_pair]['volume'].tolist()[0]
                         print("检测到未包含合约：", contract_pair)
-                        if candidate_pairs[candidate_pairs['contract_pair']==contract_pair]['flag'].tolist()[0] == True:
-                            lost_pair_vaild = lost_pair_vaild.append({'合约对': contract_pair, '是否可转抛': '是'}, ignore_index=True)
-                        else:
-                            lost_pair_invaild = lost_pair_invaild.append({'合约对': contract_pair, '是否可转抛': '否'}, ignore_index=True)
-                lost_pair_vaild = lost_pair_vaild.reset_index(drop=True).set_index('合约对')
-                lost_pair_invaild = lost_pair_invaild.reset_index(drop=True).set_index('合约对')
+                        flag = candidate_pairs[candidate_pairs['contract_pair']==contract_pair]['flag'].tolist()[0]
+                        lost_pair = lost_pair.append({'合约对': contract_pair, '是否可转抛': flag, '成交量': vol}, ignore_index=True)
+
+                lost_pair = lost_pair.reset_index(drop=True).set_index('合约对')
+                lost_pair = lost_pair.sort_values(by=['是否可转抛', '成交量'], ascending=False)
                 dialog_valid = QDialog()
-                model = pandasModel(lost_pair_vaild)
+                model = pandasModel(lost_pair)
                 view = TableView(model)
                 vheader = view.verticalHeader()
                 vheader.setMinimumSize(VERTICAL_HEADER_WID, VERTICAL_HEADER_HEI)
@@ -500,19 +497,6 @@ class Example(QMainWindow):
                 dialog_valid.setLayout(layout)
                 dialog_valid.setWindowTitle("可转抛合约")
                 dialog_valid.exec_()
-                
-                dialog_invalid = QDialog()
-                model = pandasModel(lost_pair_invaild)
-                view = TableView(model)
-                vheader = view.verticalHeader()
-                vheader.setMinimumSize(VERTICAL_HEADER_WID, VERTICAL_HEADER_HEI)
-                view.setSizeAdjustPolicy(QTableView.AdjustToContents)  # 自适应表格大小
-                view.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-                layout = QVBoxLayout()
-                layout.addWidget(view)
-                dialog_invalid.setLayout(layout)
-                dialog_invalid.setWindowTitle("不可转抛合约")
-                dialog_invalid.exec_()         
                 
         self.status.showMessage("套利对检查完成")
         
