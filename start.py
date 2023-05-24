@@ -4,7 +4,7 @@
 Author: Han Hao
 Last edited: December 2022
 """
-import sys
+import sys, traceback
 import pandas as pd
 from PyQt5 import QtCore, QtGui, QtWidgets, Qt
 from PyQt5.QtWidgets import *
@@ -14,7 +14,7 @@ import matplotlib
 matplotlib.use('Qt5Agg')
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 import qdarkstyle
-import datetime as dt
+import datetime
 import concurrent.futures
 from tqdm import tqdm
 import os
@@ -782,11 +782,16 @@ class Example(QMainWindow):
         dict_dialog.exec()
 
 if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
-    ex = Example()
-    sys.exit(app.exec_())
-
+    try:
+        app = QApplication(sys.argv)
+        app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
+        ex = Example()
+        sys.exit(app.exec_())
+    except Exception as e:
+        error_info = traceback.format_exc()
+        with open("error_log.txt", "w+", encoding='utf-8') as err_file:
+            err_file.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
+            err_file.write(error_info + '\n')
 #展示已建立的套利对
 #添加新套利对
 #删除旧套利对
