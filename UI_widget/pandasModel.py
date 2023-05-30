@@ -1,11 +1,14 @@
 from PyQt5 import Qt
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
+
+from PyQt5.QtGui import QIcon, QDesktopServices, QMouseEvent
+from PyQt5.QtWidgets import QTableView
+from PyQt5.QtCore import QUrl, QModelIndex, QAbstractTableModel, Qt
 from PyQt5.QtGui import QIcon, QDesktopServices, QMouseEvent
 import os
 from utils.plotfile_management import pairname_to_plotdir
 from utils.const import ROOT_PATH
 import pandas as pd
+
 #显示所有列
 pd.set_option('display.max_columns', None)
 #显示所有行
@@ -17,16 +20,22 @@ pd.set_option('max_colwidth',100)
 # 待实现的功能：点击套利对名称即可自动打开对应时序套利图
 
 all = ["pandasModel", "TableView"]
-class pandasModel(QAbstractTableModel):
-    # https://stackoverflow.com/questions/31475965/fastest-way-to-populate-qtableview-from-pandas-data-frame
-    def __init__(self, data):
-        QAbstractTableModel.__init__(self)
-        original_columns = data.columns.tolist()
-        data.insert(0, 'BarPlot', data.apply(lambda x: pairname_to_plotdir(x.name), axis=1))
-        data.insert(0, 'CheckBox', False)
-        print(data.columns)
-        self._data = data
 
+class pandasModel(QAbstractTableModel):
+    
+    def __init__(self, data, barplot_flag=True, checkbox_flag=True):
+        QAbstractTableModel.__init__(self)
+        self.barplot_flag = barplot_flag
+        self.checkbox_flag = checkbox_flag
+        self._data = self.addColumnToDf(data, barplot_flag, checkbox_flag)
+
+    def addColumnToDf(self, data, barplot_flag, checkbox_flag):
+        if barplot_flag:
+            data.insert(0, 'BarPlot', data.apply(lambda x: pairname_to_plotdir(x.name), axis=1))
+        if checkbox_flag:
+            data.insert(0, 'CheckBox', False)
+        return data
+    
     def rowCount(self, parent=None):
         return self._data.shape[0]
 
@@ -37,20 +46,20 @@ class pandasModel(QAbstractTableModel):
         if index.isValid():
             row = index.row()
             col = index.column()
-            if role == Qt.DisplayRole and col >= 2:
+            if role == Qt.DisplayRole and col >= self.checkbox_flag + self.barplot_flag:
                 value = self._data.iloc[row, col]
                 return str(value)
-            elif role == Qt.CheckStateRole and col == 0:
+            elif self.checkbox_flag and role == Qt.CheckStateRole and col == 0:
                 checked = self._data.iloc[row, col]
                 return Qt.Checked if checked else Qt.Unchecked
-            elif role == Qt.DecorationRole and col == 1:
+            elif self.barplot_flag and role == Qt.DecorationRole and col == self.checkbox_flag:
                 icon_path = os.path.join(ROOT_PATH, "src", "box-plot.png")
                 if icon_path:
                     icon = QIcon(icon_path)
                     return icon
-            elif role == Qt.UserRole and col == 1:
+            elif self.barplot_flag and role == Qt.UserRole and col == self.checkbox_flag:
                 image_path = self._data.iloc[row, col]
-                print(image_path)
+                #print(image_path)
                 return image_path
             """
             elif role == Qt.MouseButtonPressRole and col == 1:
@@ -81,11 +90,11 @@ class pandasModel(QAbstractTableModel):
 
 
     def flags(self, index):
-        if index.column() == 0:
+        if self.checkbox_flag and index.column() == 0:
             return Qt.ItemIsEnabled | Qt.ItemIsUserCheckable
-        if index.column() == 1:
+        elif self.barplot_flag and index.column() == self.checkbox_flag:
             return Qt.ItemIsEnabled | Qt.ItemIsSelectable | Qt.ItemIsEditable
-        elif index.column() >= 2:
+        elif index.column() >= self.barplot_flag + self.checkbox_flag:
             return Qt.ItemIsEnabled | Qt.ItemIsSelectable
         else:
             return Qt.ItemIsEnabled
@@ -124,10 +133,12 @@ class TableView(QTableView):
     def __init__(self, model):
         super(TableView, self).__init__()
         self.setModel(model)
+        self.barplot_flag = model.barplot_flag
+        self.checkbox_flag = model.checkbox_flag
 
     def mousePressEvent(self, event: QMouseEvent) -> None:
         index = self.indexAt(event.pos())
-        if index.column() == 1:  # 图片列
+        if self.barplot_flag and index.column() == self.checkbox_flag:  # 图片列
             file_path = self.model().data(index, Qt.UserRole)
             print(file_path)
             print(os.path.exists(file_path))

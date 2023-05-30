@@ -7,8 +7,8 @@ Last edited: December 2022
 import sys, traceback
 import pandas as pd
 from PyQt5 import QtCore, QtGui, QtWidgets, Qt
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
+from PyQt5.QtWidgets import QProgressBar, QApplication, QMainWindow, QDesktopWidget, QAbstractItemView, QTableView, QAction, QPushButton, QFileDialog, QMessageBox, QCheckBox, QHBoxLayout, QVBoxLayout, QWidget, QTableWidgetItem, QDialog, QSizePolicy 
+from PyQt5.QtCore import Qt, QSize
 import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use('Qt5Agg')
@@ -634,8 +634,9 @@ class Example(QMainWindow):
                 acc_lst.append(acc_name)
         try:
             res = compare.export_holdings_compare(acc_lst)
+            res_trade_export = res.copy()
             dialog = QDialog()
-            model = pandasModel(res)
+            model = pandasModel(res, checkbox_flag=False)
             view = TableView(model)
             # 大小策略
             vheader = view.verticalHeader()
@@ -647,6 +648,8 @@ class Example(QMainWindow):
             dialog.setLayout(layout)
             dialog.setWindowTitle("持仓对比")
             dialog.exec_()
+            # 导出对比文件
+            res_trade_export.to_csv(os.path.join(ROOT_PATH, "holding_compare", str(datetime.date.today()) + '_holding_compare.csv'))
             QMessageBox.information(self, "导出持仓对比完成", "持仓对比结果存储在hold_compare目录下")
         except FileNotFoundError as e1:
             print(e1)
@@ -665,10 +668,13 @@ class Example(QMainWindow):
                 acc_lst.append(acc_name)
         try:
             res = compare.export_trading_compare(acc_lst)
+            res_hold_export = res.copy()
             dialog = QDialog()
-            model = pandasModel(res)
+            model = pandasModel(res, checkbox_flag=False)
             view = TableView(model)
-            
+            # 导出对比文件
+            res_hold_export.to_csv(os.path.join(ROOT_PATH, "trading_compare", str(datetime.date.today()) + '_day_compare.csv'), encoding='GBK')
+
             # 大小策略
             vheader = view.verticalHeader()
             vheader.setMinimumSize(VERTICAL_HEADER_WID, VERTICAL_HEADER_HEI)

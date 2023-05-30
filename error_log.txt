@@ -1,0 +1,14 @@
+2023-05-29 14:17:58
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 791, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 36, in __init__
+    self.initUI()
+  File "D:\local_repo\CTA_UI\start.py", line 293, in initUI
+    self.openDefaultFile()
+  File "D:\local_repo\CTA_UI\start.py", line 300, in openDefaultFile
+    self.addLine(line)
+  File "D:\local_repo\CTA_UI\start.py", line 353, in addLine
+    h = QHBoxLayout()
+AttributeError: type object 'QBoxLayout' has no attribute 'QHBoxLayout'
+

@@ -90,7 +90,6 @@ def export_holdings_compare(acc_lst):
         df = df.fillna('0').sort_values(by='pairs_id')
         if not os.path.exists("./holding_compare"):
             os.mkdir("./holding_compare")
-        df.to_csv(os.path.join(ROOT_PATH, "holding_compare", str(datetime.date.today()) + '_holding_compare.csv'), index=False)
         df = df.reset_index(drop=True).set_index("pairs_id")
     except UnboundLocalError as e:
         print("未选中账户！")
@@ -145,7 +144,6 @@ def export_trading_compare(acc_lst:list):
     if not os.path.exists("./trading_compare"):
         os.mkdir("./trading_compare")
     df = df.sort_index().sort_index(axis=1).fillna("0")
-    df.to_csv(os.path.join(ROOT_PATH, "trading_compare", str(datetime.date.today()) + '_day_compare.csv'), encoding='GBK')
     # Reset index for df to fit pandasModel
     df = df.reset_index()
     df = df.set_index("pairs_id")
