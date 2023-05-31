@@ -102,5 +102,10 @@ def check_vaild_month(volume_threshold=80):
         df = df[df['volume'] >= volume_threshold]
     return df[['contract_pair', 'flag', 'volume']]
 
+
+def get_sp_instruction():
+    pass
+
+
 if __name__ == "__main__":
     print(check_vaild_month())

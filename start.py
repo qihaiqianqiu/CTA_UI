@@ -21,13 +21,15 @@ import os
 from utils import *
 from UI_widget import *
 
-class Example(QMainWindow):
+class Arbitrator(QMainWindow):
     def __init__(self):
         super().__init__()
         # in_buffer: 面板表格的当前内容
         self.in_buffer = []
         self.edit_buffer = []
+        # 账户表
         self.table = accountTable()
+        # 参数表
         self.param = paraTable()
         self.editable = False
         self.initUI()
@@ -63,7 +65,7 @@ class Example(QMainWindow):
         # 保存
         saveAct = QAction('Save', self)
         saveAct.setShortcut('Ctrl+S')
-        saveAct.setStatusTip('将当前账户信息保存至account_info.xlsx')
+        saveAct.setStatusTip('保存当前账户参数信息')
         saveAct.triggered.connect(self.save)
         
         # 期货信息表
@@ -617,7 +619,14 @@ class Example(QMainWindow):
         self.update_inbuffer()
         df = pd.DataFrame(self.in_buffer, columns=self.table.columns[1:])
         df.to_excel('./info/account_info.xlsx', index=False, sheet_name='Sheet1')
-        self.status.showMessage("新账户表保存成功")
+        param_df = self.param.model._data
+        param_df = param_df.loc[:, ~param_df.columns.isin(['CheckBox', 'BarPlot'])]
+        region_info, boundary_info, suffix_info = transform.param_split(param_df)
+        region_info.to_excel(os.path.join(const.INFO_PATH, 'region_info.xlsx'))
+        boundary_info.to_excel(os.path.join(const.INFO_PATH, 'boundary_info.xlsx'))
+        suffix_info.to_excel(os.path.join(const.INFO_PATH, 'suffix_info.xlsx'))
+        param_df.to_csv(os.path.join(const.PARAM_PATH, 'BASE', 'params.csv'))
+        self.status.showMessage("账户参数表保存成功")
 
     @QtCore.pyqtSlot()
     def audit(self):
@@ -777,7 +786,7 @@ if __name__ == '__main__':
     try:
         app = QApplication(sys.argv)
         app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
-        ex = Example()
+        ex = Arbitrator()
         sys.exit(app.exec_())
     except Exception as e:
         error_info = traceback.format_exc()

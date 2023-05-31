@@ -28,7 +28,6 @@ class pandasModel(QAbstractTableModel):
         self.checkbox_flag = checkbox_flag
         self._data = self.addColumnToDf(data, barplot_flag, checkbox_flag)
         # 在.0时不显示小数
-        print(self._data.dtypes)
         self._data = self._data.apply(lambda x: x.apply(lambda y: '{:.0f}'.format(y) if y == int(y) else y) if x.dtype == float else x)
         
           
