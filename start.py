@@ -469,7 +469,7 @@ class Arbitrator(QMainWindow):
     
     @QtCore.pyqtSlot()
     def check_param_pairs(self):
-        lost_pair = pd.DataFrame(columns=['合约对', '是否可转抛', '成交量'])
+        lost_pair = pd.DataFrame(columns=['pairs_id', 'warehouse_recipt', 'volume'])
         candidate_pairs = get_contract_pair.check_vaild_month()
         for i in range(self.table.rowCount(), 0, -1):
             if self.table.cellWidget(i-1, 0).findChild(type(QCheckBox())).isChecked():
@@ -481,18 +481,18 @@ class Arbitrator(QMainWindow):
                         vol = candidate_pairs[candidate_pairs['contract_pair']==contract_pair]['volume'].tolist()[0]
                         print("检测到未包含合约：", contract_pair)
                         flag = candidate_pairs[candidate_pairs['contract_pair']==contract_pair]['flag'].tolist()[0]
-                        lost_pair = lost_pair.append({'合约对': contract_pair, '是否可转抛': flag, '成交量': vol}, ignore_index=True)
+                        lost_pair = lost_pair.append({'pairs_id': contract_pair, 'warehouse_recipt': flag, 'volume': vol}, ignore_index=True)
 
-                lost_pair = lost_pair.reset_index(drop=True).set_index('合约对')
-                lost_pair = lost_pair.sort_values(by=['是否可转抛', '成交量'], ascending=False)
+                lost_pair = lost_pair.reset_index(drop=True).set_index('pairs_id')
+                lost_pair = lost_pair.sort_values(by=['warehouse_recipt', 'volume'], ascending=False)
                 dialog_valid = QDialog()
                 model = pandasModel(lost_pair)
                 view = TableView(model)
 
-                layout = QVBoxLayout()
+                layout = QHBoxLayout()
                 layout.addWidget(view)
                 dialog_valid.setLayout(layout)
-                dialog_valid.setWindowTitle("可转抛合约")
+                dialog_valid.setWindowTitle("可添加套利对")
                 dialog_valid.exec_()
                 
         self.status.showMessage("套利对检查完成")
@@ -622,9 +622,6 @@ class Arbitrator(QMainWindow):
         param_df = self.param.model._data
         param_df = param_df.loc[:, ~param_df.columns.isin(['CheckBox', 'BarPlot'])]
         region_info, boundary_info, suffix_info = transform.param_split(param_df)
-        region_info.to_excel(os.path.join(const.INFO_PATH, 'region_info.xlsx'))
-        boundary_info.to_excel(os.path.join(const.INFO_PATH, 'boundary_info.xlsx'))
-        suffix_info.to_excel(os.path.join(const.INFO_PATH, 'suffix_info.xlsx'))
         param_df.to_csv(os.path.join(const.PARAM_PATH, 'BASE', 'params.csv'))
         self.status.showMessage("账户参数表保存成功")
 

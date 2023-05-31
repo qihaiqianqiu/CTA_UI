@@ -17,9 +17,6 @@ class paraTable(QTableWidget):
         info_df = pd.read_csv(os.path.join(PARAM_PATH, 'BASE', 'params.csv')).reset_index(drop=True).set_index("pairs_id")
         # 使用pandasModel将info_df转化为表格
         region_info, boundary_info, suffix_info = param_split(info_df)
-        region_info.to_excel(os.path.join(INFO_PATH, "region_info.xlsx"))
-        boundary_info.to_excel(os.path.join(INFO_PATH, "boundary_info.xlsx"))
-        suffix_info.to_excel(os.path.join(INFO_PATH, "suffix_info.xlsx"))
         self.model = pandasModel(info_df)
         self.view = TableView(self.model)
 

@@ -1,6 +1,6 @@
 from PyQt5 import Qt
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
+from PyQt5.QtWidgets import QDialog, QLineEdit, QLabel, QGridLayout, QDialogButtonBox
+
 all=["addAccDialog"]
 class addAccDialog(QDialog):
     def __init__(self):
