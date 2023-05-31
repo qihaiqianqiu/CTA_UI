@@ -476,3 +476,427 @@ Traceback (most recent call last):
     raise IndexingError("Too many indexers")
 pandas.errors.IndexingError: Too many indexers
 
+2023-05-31 10:36:40
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 24, in __init__
+    self.model = self.model.updateHeaderSize()
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 43, in updateHeaderSize
+    sizeHint = self.sizeHintForIndex(index)
+AttributeError: 'pandasModel' object has no attribute 'sizeHintForIndex'
+
+2023-05-31 10:39:06
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 24, in __init__
+    self.model = self.model.updateHeaderSize()
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 43, in updateHeaderSize
+    sizeHint = self.sizeHintForIndex(index)
+AttributeError: 'pandasModel' object has no attribute 'sizeHintForIndex'
+
+2023-05-31 10:39:35
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 24, in __init__
+    self.model.updateHeaderSize()
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 43, in updateHeaderSize
+    sizeHint = self.sizeHintForIndex(index)
+AttributeError: 'pandasModel' object has no attribute 'sizeHintForIndex'
+
+2023-05-31 10:42:39
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 24, in __init__
+    self.model.updateHeaderSize()
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 43, in updateHeaderSize
+    sizeHint = self.sizeHintForIndex(index)
+AttributeError: 'pandasModel' object has no attribute 'sizeHintForIndex'
+
+2023-05-31 10:44:51
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 25, in __init__
+    self.model.updateHeaderSize()
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 43, in updateHeaderSize
+    sizeHint = self.sizeHintForIndex(index)
+AttributeError: 'pandasModel' object has no attribute 'sizeHintForIndex'
+
+2023-05-31 10:45:03
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 25, in __init__
+    self.model.updateHeaderSize()
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 44, in updateHeaderSize
+    sizeHint = self.sizeHintForIndex(index)
+AttributeError: 'pandasModel' object has no attribute 'sizeHintForIndex'
+
+2023-05-31 10:45:27
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 25, in __init__
+    self.model.updateHeaderSize()
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 43, in updateHeaderSize
+    sizeHint = self.sizeHintForIndex(index)
+AttributeError: 'pandasModel' object has no attribute 'sizeHintForIndex'
+
+2023-05-31 10:46:03
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 25, in __init__
+    self.model.updateHeaderSize()
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 45, in updateHeaderSize
+    sizeHint = self.sizeHintForIndex(index)
+AttributeError: 'pandasModel' object has no attribute 'sizeHintForIndex'
+
+2023-05-31 10:46:23
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 25, in __init__
+    self.model.updateHeaderSize()
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 46, in updateHeaderSize
+    sizeHint = self.sizeHintForIndex(index)
+AttributeError: 'pandasModel' object has no attribute 'sizeHintForIndex'
+
+2023-05-31 10:47:13
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 25, in __init__
+    self.model.updateHeaderSize()
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 46, in updateHeaderSize
+    sizeHint = self.sizeHintForIndex(index)
+AttributeError: 'pandasModel' object has no attribute 'sizeHintForIndex'
+
+2023-05-31 10:51:44
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 27, in __init__
+    self.model.updateHeaderSize()
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 46, in updateHeaderSize
+    sizeHint = self.sizeHintForIndex(index)
+AttributeError: 'pandasModel' object has no attribute 'sizeHintForIndex'
+
+2023-05-31 10:55:28
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 27, in __init__
+    self.model.updateHeaderSize()
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 46, in updateHeaderSize
+    sizeHint = self.sizeHintForIndex(index)
+AttributeError: 'pandasModel' object has no attribute 'sizeHintForIndex'
+
+2023-05-31 10:57:37
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 781, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 32, in __init__
+    self.param.model.updateHeaderSize()
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 46, in updateHeaderSize
+    sizeHint = self.sizeHintForIndex(index)
+AttributeError: 'pandasModel' object has no attribute 'sizeHintForIndex'
+
+2023-05-31 11:04:26
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 781, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 25, in __init__
+    self.model.updateHeaderSize()
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 46, in updateHeaderSize
+    sizeHint = self.sizeHintForIndex(index)
+AttributeError: 'pandasModel' object has no attribute 'sizeHintForIndex'
+
+2023-05-31 11:05:38
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 781, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 25, in __init__
+    self.model.updateHeaderSize()
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 147, in updateHeaderSize
+    sizeHint = self.sizeHintForIndex(index)
+AttributeError: 'pandasModel' object has no attribute 'sizeHintForIndex'
+
+2023-05-31 11:06:56
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 781, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 24, in __init__
+    self.view = TableView(self.model)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 166, in __init__
+    self.model.updateHeaderSize()
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 147, in updateHeaderSize
+    sizeHint = self.sizeHintForIndex(index)
+AttributeError: 'pandasModel' object has no attribute 'sizeHintForIndex'
+
+2023-05-31 11:15:47
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 781, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 24, in __init__
+    self.view = TableView(self.model)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 149, in __init__
+    self.updateHeaderSize()
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 153, in updateHeaderSize
+    for row in range(self.rowCount()):
+AttributeError: 'TableView' object has no attribute 'rowCount'
+
+2023-05-31 11:18:13
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 781, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 24, in __init__
+    self.view = TableView(self.model)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 149, in __init__
+    self.updateHeaderSize()
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 156, in updateHeaderSize
+    sizeHint = self.model.sizeHint(index, Qt.SizeHintRole)
+AttributeError: 'pandasModel' object has no attribute 'sizeHint'
+
+2023-05-31 11:26:33
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 781, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 24, in __init__
+    self.view = TableView(self.model)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 149, in __init__
+    self.updateHeaderSize()
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 156, in updateHeaderSize
+    sizeHint = self.model.sizeHint(index, Qt.SizeHintRole)
+AttributeError: 'pandasModel' object has no attribute 'sizeHint'
+
+2023-05-31 11:28:57
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 781, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 32, in __init__
+    self.param.model.updateHeaderSize()
+AttributeError: 'pandasModel' object has no attribute 'updateHeaderSize'
+
+2023-05-31 13:52:29
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 780, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 24, in __init__
+    self.view = TableView(self.model)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 154, in __init__
+    self.updateHeaderSize()
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 167, in updateHeaderSize
+    self.horizontalHeader().resizeSection(col, sizeHint.width() * 0.5 + len(text) * 8)
+TypeError: resizeSection(self, int, int): argument 2 has unexpected type 'float'
+
+2023-05-31 14:31:01
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 780, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 19, in __init__
+    info_df = info_df.apply(lambda x: int(x) if x == int(x) else x)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 9568, in apply
+    return op.apply().__finalize__(self, method="apply")
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 764, in apply
+    return self.apply_standard()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 891, in apply_standard
+    results, res_index = self.apply_series_generator()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 907, in apply_series_generator
+    results[i] = self.f(v)
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 19, in <lambda>
+    info_df = info_df.apply(lambda x: int(x) if x == int(x) else x)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\series.py", line 206, in wrapper
+    raise TypeError(f"cannot convert the series to {converter}")
+TypeError: cannot convert the series to <class 'int'>
+
+2023-05-31 14:31:12
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 780, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 19, in __init__
+    info_df = info_df.apply(lambda x: int(x) if x == int(x) else x)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 9568, in apply
+    return op.apply().__finalize__(self, method="apply")
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 764, in apply
+    return self.apply_standard()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 891, in apply_standard
+    results, res_index = self.apply_series_generator()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 907, in apply_series_generator
+    results[i] = self.f(v)
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 19, in <lambda>
+    info_df = info_df.apply(lambda x: int(x) if x == int(x) else x)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\series.py", line 206, in wrapper
+    raise TypeError(f"cannot convert the series to {converter}")
+TypeError: cannot convert the series to <class 'int'>
+
+2023-05-31 14:32:52
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 780, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 23, in __init__
+    self.model = pandasModel(info_df)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 31, in __init__
+    self._data = self._data.apply(lambda x: x.apply(lambda y: int(y) if y == int(y) else y))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 9568, in apply
+    return op.apply().__finalize__(self, method="apply")
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 764, in apply
+    return self.apply_standard()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 891, in apply_standard
+    results, res_index = self.apply_series_generator()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 907, in apply_series_generator
+    results[i] = self.f(v)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 31, in <lambda>
+    self._data = self._data.apply(lambda x: x.apply(lambda y: int(y) if y == int(y) else y))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\series.py", line 4771, in apply
+    return SeriesApply(self, func, convert_dtype, args, kwargs).apply()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 1123, in apply
+    return self.apply_standard()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 1174, in apply_standard
+    mapped = lib.map_infer(
+  File "pandas\_libs\lib.pyx", line 2924, in pandas._libs.lib.map_infer
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 31, in <lambda>
+    self._data = self._data.apply(lambda x: x.apply(lambda y: int(y) if y == int(y) else y))
+ValueError: invalid literal for int() with base 10: 'Z:\\300_Group\\HFT\\Program\\CTA_UI\\barplot\\20230531\\20230531-A2307-2309.png'
+
+2023-05-31 14:33:57
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 780, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 23, in __init__
+    self.model = pandasModel(info_df)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 31, in __init__
+    self._data = self._data.apply(lambda x: x.apply(lambda y: int(y) if y == int(y) else y) if x.dtype == float else x)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 9568, in apply
+    return op.apply().__finalize__(self, method="apply")
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 764, in apply
+    return self.apply_standard()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 891, in apply_standard
+    results, res_index = self.apply_series_generator()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 907, in apply_series_generator
+    results[i] = self.f(v)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 31, in <lambda>
+    self._data = self._data.apply(lambda x: x.apply(lambda y: int(y) if y == int(y) else y) if x.dtype == float else x)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\series.py", line 4771, in apply
+    return SeriesApply(self, func, convert_dtype, args, kwargs).apply()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 1123, in apply
+    return self.apply_standard()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 1174, in apply_standard
+    mapped = lib.map_infer(
+  File "pandas\_libs\lib.pyx", line 2924, in pandas._libs.lib.map_infer
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 31, in <lambda>
+    self._data = self._data.apply(lambda x: x.apply(lambda y: int(y) if y == int(y) else y) if x.dtype == float else x)
+ValueError: cannot convert float NaN to integer
+
+2023-05-31 14:35:06
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 780, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 23, in __init__
+    self.model = pandasModel(info_df)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 31, in __init__
+    self._data = self._data.apply(lambda x: x.apply(lambda y: int(y) if y == int(y) else y) if x.dtype == float else x)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 9568, in apply
+    return op.apply().__finalize__(self, method="apply")
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 764, in apply
+    return self.apply_standard()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 891, in apply_standard
+    results, res_index = self.apply_series_generator()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 907, in apply_series_generator
+    results[i] = self.f(v)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 31, in <lambda>
+    self._data = self._data.apply(lambda x: x.apply(lambda y: int(y) if y == int(y) else y) if x.dtype == float else x)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\series.py", line 4771, in apply
+    return SeriesApply(self, func, convert_dtype, args, kwargs).apply()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 1123, in apply
+    return self.apply_standard()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 1174, in apply_standard
+    mapped = lib.map_infer(
+  File "pandas\_libs\lib.pyx", line 2924, in pandas._libs.lib.map_infer
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 31, in <lambda>
+    self._data = self._data.apply(lambda x: x.apply(lambda y: int(y) if y == int(y) else y) if x.dtype == float else x)
+ValueError: cannot convert float NaN to integer
+
+2023-05-31 14:35:38
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 780, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 23, in __init__
+    self.model = pandasModel(info_df)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 32, in __init__
+    self._data = self._data.apply(lambda x: x.apply(lambda y: int(y) if y == int(y) else y) if x.dtype == float else x)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 9568, in apply
+    return op.apply().__finalize__(self, method="apply")
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 764, in apply
+    return self.apply_standard()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 891, in apply_standard
+    results, res_index = self.apply_series_generator()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 907, in apply_series_generator
+    results[i] = self.f(v)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 32, in <lambda>
+    self._data = self._data.apply(lambda x: x.apply(lambda y: int(y) if y == int(y) else y) if x.dtype == float else x)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\series.py", line 4771, in apply
+    return SeriesApply(self, func, convert_dtype, args, kwargs).apply()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 1123, in apply
+    return self.apply_standard()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 1174, in apply_standard
+    mapped = lib.map_infer(
+  File "pandas\_libs\lib.pyx", line 2924, in pandas._libs.lib.map_infer
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 32, in <lambda>
+    self._data = self._data.apply(lambda x: x.apply(lambda y: int(y) if y == int(y) else y) if x.dtype == float else x)
+ValueError: cannot convert float NaN to integer
+

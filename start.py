@@ -486,12 +486,7 @@ class Example(QMainWindow):
                 dialog_valid = QDialog()
                 model = pandasModel(lost_pair)
                 view = TableView(model)
-                vheader = view.verticalHeader()
-                vheader.setMinimumSize(VERTICAL_HEADER_WID, VERTICAL_HEADER_HEI)
-                
-                # 大小策略
-                view.setSizeAdjustPolicy(QTableView.AdjustToContents)  # 自适应表格大小
-                view.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+
                 layout = QVBoxLayout()
                 layout.addWidget(view)
                 dialog_valid.setLayout(layout)
@@ -638,11 +633,7 @@ class Example(QMainWindow):
             dialog = QDialog()
             model = pandasModel(res, checkbox_flag=False)
             view = TableView(model)
-            # 大小策略
-            vheader = view.verticalHeader()
-            vheader.setMinimumSize(VERTICAL_HEADER_WID, VERTICAL_HEADER_HEI)
-            view.setSizeAdjustPolicy(QTableView.AdjustToContents)  # 自适应表格大小
-            view.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+
             layout = QVBoxLayout()
             layout.addWidget(view)
             dialog.setLayout(layout)
@@ -674,11 +665,7 @@ class Example(QMainWindow):
             view = TableView(model)
             # 导出对比文件
             res_hold_export.to_csv(os.path.join(ROOT_PATH, "trading_compare", str(datetime.date.today()) + '_day_compare.csv'), encoding='GBK')
-            # 大小策略
-            vheader = view.verticalHeader()
-            vheader.setMinimumSize(VERTICAL_HEADER_WID, VERTICAL_HEADER_HEI)
-            view.setSizeAdjustPolicy(QTableView.AdjustToContents)  # 自适应表格大小
-            view.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+
             layout = QVBoxLayout()
             layout.addWidget(view)
             dialog.setLayout(layout)

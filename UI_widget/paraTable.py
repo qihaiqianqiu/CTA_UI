@@ -22,6 +22,7 @@ class paraTable(QTableWidget):
         suffix_info.to_excel(os.path.join(INFO_PATH, "suffix_info.xlsx"))
         self.model = pandasModel(info_df)
         self.view = TableView(self.model)
+
         print("PARA TABLE GENERATED")
 
         

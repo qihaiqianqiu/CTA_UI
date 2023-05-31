@@ -1,7 +1,7 @@
 from PyQt5 import Qt
 
 from PyQt5.QtGui import QIcon, QDesktopServices, QMouseEvent
-from PyQt5.QtWidgets import QTableView
+from PyQt5.QtWidgets import QTableView, QAbstractItemView
 from PyQt5.QtCore import QUrl, QModelIndex, QAbstractTableModel, Qt
 from PyQt5.QtGui import QIcon, QDesktopServices, QMouseEvent
 import os
@@ -22,25 +22,24 @@ pd.set_option('max_colwidth',100)
 all = ["pandasModel", "TableView"]
 
 class pandasModel(QAbstractTableModel):
-    
     def __init__(self, data, barplot_flag=True, checkbox_flag=True):
         QAbstractTableModel.__init__(self)
         self.barplot_flag = barplot_flag
         self.checkbox_flag = checkbox_flag
         self._data = self.addColumnToDf(data, barplot_flag, checkbox_flag)
-
-    def addColumnToDf(self, data, barplot_flag, checkbox_flag):
-        if barplot_flag:
-            data.insert(0, 'BarPlot', data.apply(lambda x: pairname_to_plotdir(x.name), axis=1))
-        if checkbox_flag:
-            data.insert(0, 'CheckBox', False)
-        return data
-    
+        # 在.0时不显示小数
+        print(self._data.dtypes)
+        self._data = self._data.apply(lambda x: x.apply(lambda y: '{:.0f}'.format(y) if y == int(y) else y) if x.dtype == float else x)
+        
+          
+            
     def rowCount(self, parent=None):
         return self._data.shape[0]
 
+
     def columnCount(self, parent=None):
         return self._data.shape[1]
+   
    
     def data(self, index, role=Qt.DisplayRole):
         if index.isValid():
@@ -79,11 +78,18 @@ class pandasModel(QAbstractTableModel):
         else:
             return str(self._data.index[section])
 
+
     def setData(self, index, value, role):
         if role == Qt.CheckStateRole and index.column() == 0:
             row = index.row()
             checked = value == Qt.Checked
             self._data.iloc[row, index.column()] = checked
+            self.dataChanged.emit(index, index)
+            return True
+        if role == Qt.EditRole:
+            row = index.row()
+            col = index.column()
+            self._data.iloc[row, col] = value
             self.dataChanged.emit(index, index)
             return True
         return False
@@ -98,6 +104,7 @@ class pandasModel(QAbstractTableModel):
             return Qt.ItemIsEnabled | Qt.ItemIsSelectable | Qt.ItemIsEditable
         else:
             return Qt.ItemIsEnabled
+    
     
     def mousePressEvent(self, event):
         index = self.indexAt(event.pos())
@@ -117,6 +124,7 @@ class pandasModel(QAbstractTableModel):
         else:
             super().mousePressEvent(event)
             
+            
     def mouseMoveEvent(self, event):
         index = self.indexAt(event.pos())
         if event.buttons() & Qt.LeftButton:
@@ -128,6 +136,15 @@ class pandasModel(QAbstractTableModel):
         else:
             super().mouseMoveEvent(event)
             
+            
+    def addColumnToDf(self, data, barplot_flag, checkbox_flag):
+        if barplot_flag:
+            data.insert(0, 'BarPlot', data.apply(lambda x: pairname_to_plotdir(x.name), axis=1))
+        if checkbox_flag:
+            data.insert(0, 'CheckBox', False)
+        return data
+    
+            
 
 class TableView(QTableView):
     def __init__(self, model):
@@ -135,7 +152,22 @@ class TableView(QTableView):
         self.setModel(model)
         self.barplot_flag = model.barplot_flag
         self.checkbox_flag = model.checkbox_flag
+        self.updateHeaderSize()
+        self.setEditTriggers(QAbstractItemView.DoubleClicked)
 
+
+    def updateHeaderSize(self):
+        for row in range(self.model().rowCount()):
+            index = self.model().index(row, 0)
+            sizeHint = self.sizeHintForIndex(index)
+            self.verticalHeader().resizeSection(row, sizeHint.height())
+            
+        for col in range(self.model().columnCount()):
+            index = self.model().index(0, col)
+            text = self.model().headerData(col, Qt.Horizontal)
+            self.horizontalHeader().resizeSection(col, len(text) * 8)
+            
+            
     def mousePressEvent(self, event: QMouseEvent) -> None:
         index = self.indexAt(event.pos())
         if self.barplot_flag and index.column() == self.checkbox_flag:  # 图片列
