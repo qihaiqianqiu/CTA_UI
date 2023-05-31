@@ -87,6 +87,9 @@ def check_vaild_month(volume_threshold=80):
     for key, values in contract_pair_dict.items():
         contract_breed = key.upper()
         contract_pair_lst = values
+        if len(contract_pair_lst) == 0:
+            # 跳过一些品种，比如说有的品种只有一个合约
+            continue
         breed_df = pd.DataFrame.from_dict({contract_breed:contract_pair_lst}, orient='columns')
         breed_df['contract_pair'] = breed_df[contract_breed].apply(lambda x: x[0] + "-" + re.search("[0-9]+", x[1]).group(0))
         breed_df['first_ins'] = breed_df[contract_breed].apply(lambda x: int(re.search("[0-9]+", x[0]).group(0)))
