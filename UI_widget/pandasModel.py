@@ -95,7 +95,7 @@ class pandasModel(QAbstractTableModel):
         elif self.barplot_flag and index.column() == self.checkbox_flag:
             return Qt.ItemIsEnabled | Qt.ItemIsSelectable | Qt.ItemIsEditable
         elif index.column() >= self.barplot_flag + self.checkbox_flag:
-            return Qt.ItemIsEnabled | Qt.ItemIsSelectable
+            return Qt.ItemIsEnabled | Qt.ItemIsSelectable | Qt.ItemIsEditable
         else:
             return Qt.ItemIsEnabled
     

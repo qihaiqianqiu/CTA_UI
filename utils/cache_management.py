@@ -1,5 +1,6 @@
 from utils.date_section_modification import to_predict
-from utils.const import ROOT_PATH, PARAM_PATH
+from utils.const import PARAM_PATH, INFO_PATH
+from utils.transform import param_split
 import os
 import pandas as pd
 
@@ -23,18 +24,25 @@ def check_cache(account_name:str, date:int, section:int, pairs:pd.Series, args:t
             flag = True
     return flag, FILE_PATH
 
+# Deprecated
 def get_most_updated_cache(account_name:str, pairs:pd.Series, args:tuple):
+    # 每次从当前程序的基账户更新region_df
+    if account_name == 'BASE':
+        BASE_PATH = os.path.join(PARAM_PATH, 'BASE', 'params.csv')
+        region_df = param_split(pd.read_csv(BASE_PATH))   
+        region_df.to_excel(os.path.join(INFO_PATH, 'region_info.xlsx'))
+        flag = True
     # 检查文件名
-    args_dirname = "q={}_step={}_ratio={}".format(args[0], args[1], args[2])
-    ACC_PATH = os.path.join(PARAM_PATH, account_name)
-    LOG_PATH = os.path.join(ACC_PATH, 'log')
-    ARG_PATH = os.path.join(LOG_PATH, args_dirname)
-    filename = max(os.listdir(ARG_PATH))
-    FILE_PATH = os.path.join(ARG_PATH, filename)
-    flag = True
+    else:
+        args_dirname = "q={}_step={}_ratio={}".format(args[0], args[1], args[2])
+        ACC_PATH = os.path.join(PARAM_PATH, account_name)
+        LOG_PATH = os.path.join(ACC_PATH, 'log')
+        ARG_PATH = os.path.join(LOG_PATH, args_dirname)
+        filename = max(os.listdir(ARG_PATH))
+        FILE_PATH = os.path.join(ARG_PATH, filename)
     return flag, FILE_PATH
 
-
+# 向账户目录下的log目录留存参数表缓存记录
 def cache_param(account_name:str, df, date, section, args:tuple):
     # date, section to predict value
     date, section = to_predict(date, section)
@@ -50,10 +58,10 @@ def cache_param(account_name:str, df, date, section, args:tuple):
     if not os.path.exists(ARG_PATH):
         os.mkdir(ARG_PATH)
     filename = "params_" + str(date) + "_" + str(section) + ".csv" 
-    df.to_csv(os.path.join(ACC_PATH, 'params.csv'), index=False)
-    df.to_csv(os.path.join(ARG_PATH, filename), index=False)
+    df.to_csv(os.path.join(ACC_PATH, 'params.csv'))
+    df.to_csv(os.path.join(ARG_PATH, filename))
 
-
+# 向账户目录下对应账户直接生成params.csv
 def save_param(account_name:str, df):
     ACC_PATH = os.path.join(PARAM_PATH, account_name)
-    df.to_csv(os.path.join(ACC_PATH, 'params.csv'), index=False)
+    df.to_csv(os.path.join(ACC_PATH, 'params.csv'))

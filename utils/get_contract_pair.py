@@ -92,6 +92,7 @@ def check_vaild_month(volume_threshold=80):
         breed_df['first_ins'] = breed_df[contract_breed].apply(lambda x: int(re.search("[0-9]+", x[0]).group(0)))
         breed_df['volume'] = breed_df[contract_breed].apply(lambda x: x[2])
         breed_df = breed_df[breed_df['first_ins'] >= int(str(year)[2:] + str(nxt_month).zfill(2))]
+        print(breed_df)
         breed_df['flag'] = breed_df.apply(lambda x: check(contract_breed, int(str(x['first_ins'])[-2:])), axis=1)
         df = pd.concat([df, breed_df], axis=0)
         df = df[['contract_pair', 'flag', 'volume']]

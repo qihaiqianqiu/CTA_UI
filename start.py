@@ -270,7 +270,7 @@ class Example(QMainWindow):
 
         # Parameter table
         param_layout = QtWidgets.QHBoxLayout()
-        param_layout.addWidget(self.param)
+        param_layout.addWidget(self.param.view)
 
         # Global setting
         layout.addLayout(table_layout, 0, 0)
@@ -674,7 +674,6 @@ class Example(QMainWindow):
             view = TableView(model)
             # 导出对比文件
             res_hold_export.to_csv(os.path.join(ROOT_PATH, "trading_compare", str(datetime.date.today()) + '_day_compare.csv'), encoding='GBK')
-
             # 大小策略
             vheader = view.verticalHeader()
             vheader.setMinimumSize(VERTICAL_HEADER_WID, VERTICAL_HEADER_HEI)
@@ -795,7 +794,7 @@ if __name__ == '__main__':
         sys.exit(app.exec_())
     except Exception as e:
         error_info = traceback.format_exc()
-        with open("error_log.txt", "w+", encoding='utf-8') as err_file:
+        with open("error_log.txt", "a+", encoding='utf-8') as err_file:
             err_file.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
             err_file.write(error_info + '\n')
 #展示已建立的套利对

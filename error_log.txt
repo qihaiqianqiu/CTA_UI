@@ -1,14 +1,478 @@
-2023-05-29 14:17:58
+2023-05-30 14:23:55
 Traceback (most recent call last):
-  File "D:\local_repo\CTA_UI\start.py", line 791, in <module>
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
     ex = Example()
-  File "D:\local_repo\CTA_UI\start.py", line 36, in __init__
-    self.initUI()
-  File "D:\local_repo\CTA_UI\start.py", line 293, in initUI
-    self.openDefaultFile()
-  File "D:\local_repo\CTA_UI\start.py", line 300, in openDefaultFile
-    self.addLine(line)
-  File "D:\local_repo\CTA_UI\start.py", line 353, in addLine
-    h = QHBoxLayout()
-AttributeError: type object 'QBoxLayout' has no attribute 'QHBoxLayout'
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 28, in __init__
+    self.model = pandasModel.pandasModel(info_df)
+AttributeError: type object 'pandasModel' has no attribute 'pandasModel'
+
+2023-05-30 14:26:24
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 28, in __init__
+    self.model = pandasModel.pandasModel(info_df)
+AttributeError: type object 'pandasModel' has no attribute 'pandasModel'
+
+2023-05-30 14:26:43
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 28, in __init__
+    self.model = pandasModel.pandasModel(info_df)
+AttributeError: type object 'pandasModel' has no attribute 'pandasModel'
+
+2023-05-30 14:27:04
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 29, in __init__
+    self.model = pandasModel.pandasModel(info_df)
+AttributeError: type object 'pandasModel' has no attribute 'pandasModel'
+
+2023-05-30 14:27:33
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 30, in __init__
+    self.model = pandasModel.pandasModel(info_df)
+AttributeError: type object 'pandasModel' has no attribute 'pandasModel'
+
+2023-05-30 14:28:28
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 30, in __init__
+    self.model = pandasModel.pandasModel(info_df)
+AttributeError: type object 'pandasModel' has no attribute 'pandasModel'
+
+2023-05-30 14:29:00
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 29, in __init__
+    self.model = pandasModel(info_df)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 30, in __init__
+    self._data = self.addColumnToDf(data, barplot_flag, checkbox_flag)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 34, in addColumnToDf
+    data.insert(0, 'BarPlot', data.apply(lambda x: pairname_to_plotdir(x.name), axis=1))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 9568, in apply
+    return op.apply().__finalize__(self, method="apply")
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 764, in apply
+    return self.apply_standard()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 891, in apply_standard
+    results, res_index = self.apply_series_generator()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 907, in apply_series_generator
+    results[i] = self.f(v)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 34, in <lambda>
+    data.insert(0, 'BarPlot', data.apply(lambda x: pairname_to_plotdir(x.name), axis=1))
+  File "D:\local_repo\CTA_UI\utils\plotfile_management.py", line 15, in pairname_to_plotdir
+    plotname = date + "-" + contract_pair_name + ".png"
+TypeError: can only concatenate str (not "int") to str
+
+2023-05-30 14:29:36
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 29, in __init__
+    self.model = pandasModel(info_df)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 31, in __init__
+    self._data = self.addColumnToDf(data, barplot_flag, checkbox_flag)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 35, in addColumnToDf
+    data.insert(0, 'BarPlot', data.apply(lambda x: pairname_to_plotdir(x.name), axis=1))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 9568, in apply
+    return op.apply().__finalize__(self, method="apply")
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 764, in apply
+    return self.apply_standard()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 891, in apply_standard
+    results, res_index = self.apply_series_generator()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 907, in apply_series_generator
+    results[i] = self.f(v)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 35, in <lambda>
+    data.insert(0, 'BarPlot', data.apply(lambda x: pairname_to_plotdir(x.name), axis=1))
+  File "D:\local_repo\CTA_UI\utils\plotfile_management.py", line 15, in pairname_to_plotdir
+    plotname = date + "-" + contract_pair_name + ".png"
+TypeError: can only concatenate str (not "int") to str
+
+2023-05-30 14:30:01
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 29, in __init__
+    self.model = pandasModel(info_df)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 30, in __init__
+    self._data = self.addColumnToDf(data, barplot_flag, checkbox_flag)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 34, in addColumnToDf
+    data.insert(0, 'BarPlot', data.apply(lambda x: pairname_to_plotdir(x.name), axis=1))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 9568, in apply
+    return op.apply().__finalize__(self, method="apply")
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 764, in apply
+    return self.apply_standard()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 891, in apply_standard
+    results, res_index = self.apply_series_generator()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 907, in apply_series_generator
+    results[i] = self.f(v)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 34, in <lambda>
+    data.insert(0, 'BarPlot', data.apply(lambda x: pairname_to_plotdir(x.name), axis=1))
+  File "D:\local_repo\CTA_UI\utils\plotfile_management.py", line 15, in pairname_to_plotdir
+    plotname = date + "-" + contract_pair_name + ".png"
+TypeError: can only concatenate str (not "int") to str
+
+2023-05-30 14:30:36
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 29, in __init__
+    self.model = pandasModel(info_df)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 31, in __init__
+    self._data = self.addColumnToDf(data, barplot_flag, checkbox_flag)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 35, in addColumnToDf
+    data.insert(0, 'BarPlot', data.apply(lambda x: pairname_to_plotdir(x.name), axis=1))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 9568, in apply
+    return op.apply().__finalize__(self, method="apply")
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 764, in apply
+    return self.apply_standard()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 891, in apply_standard
+    results, res_index = self.apply_series_generator()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 907, in apply_series_generator
+    results[i] = self.f(v)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 35, in <lambda>
+    data.insert(0, 'BarPlot', data.apply(lambda x: pairname_to_plotdir(x.name), axis=1))
+  File "D:\local_repo\CTA_UI\utils\plotfile_management.py", line 15, in pairname_to_plotdir
+    plotname = date + "-" + contract_pair_name + ".png"
+TypeError: can only concatenate str (not "int") to str
+
+2023-05-30 16:07:58
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 19, in __init__
+    self.model = pandasModel(info_df)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 30, in __init__
+    self._data = self.addColumnToDf(data, barplot_flag, checkbox_flag)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 34, in addColumnToDf
+    data.insert(0, 'BarPlot', data.apply(lambda x: pairname_to_plotdir(x.name), axis=1))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 9568, in apply
+    return op.apply().__finalize__(self, method="apply")
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 764, in apply
+    return self.apply_standard()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 891, in apply_standard
+    results, res_index = self.apply_series_generator()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 907, in apply_series_generator
+    results[i] = self.f(v)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 34, in <lambda>
+    data.insert(0, 'BarPlot', data.apply(lambda x: pairname_to_plotdir(x.name), axis=1))
+  File "D:\local_repo\CTA_UI\utils\plotfile_management.py", line 15, in pairname_to_plotdir
+    plotname = date + "-" + contract_pair_name + ".png"
+TypeError: can only concatenate str (not "int") to str
+
+2023-05-30 16:08:21
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 20, in __init__
+    self.model = pandasModel(info_df)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 30, in __init__
+    self._data = self.addColumnToDf(data, barplot_flag, checkbox_flag)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 34, in addColumnToDf
+    data.insert(0, 'BarPlot', data.apply(lambda x: pairname_to_plotdir(x.name), axis=1))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 9568, in apply
+    return op.apply().__finalize__(self, method="apply")
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 764, in apply
+    return self.apply_standard()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 891, in apply_standard
+    results, res_index = self.apply_series_generator()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 907, in apply_series_generator
+    results[i] = self.f(v)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 34, in <lambda>
+    data.insert(0, 'BarPlot', data.apply(lambda x: pairname_to_plotdir(x.name), axis=1))
+  File "D:\local_repo\CTA_UI\utils\plotfile_management.py", line 15, in pairname_to_plotdir
+    plotname = date + "-" + contract_pair_name + ".png"
+TypeError: can only concatenate str (not "int") to str
+
+2023-05-30 16:08:59
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 20, in __init__
+    self.model = pandasModel(info_df)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 30, in __init__
+    self._data = self.addColumnToDf(data, barplot_flag, checkbox_flag)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 34, in addColumnToDf
+    data.insert(0, 'BarPlot', data.apply(lambda x: pairname_to_plotdir(x.name), axis=1))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 9568, in apply
+    return op.apply().__finalize__(self, method="apply")
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 764, in apply
+    return self.apply_standard()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 891, in apply_standard
+    results, res_index = self.apply_series_generator()
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\apply.py", line 907, in apply_series_generator
+    results[i] = self.f(v)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 34, in <lambda>
+    data.insert(0, 'BarPlot', data.apply(lambda x: pairname_to_plotdir(x.name), axis=1))
+  File "D:\local_repo\CTA_UI\utils\plotfile_management.py", line 15, in pairname_to_plotdir
+    plotname = date + "-" + contract_pair_name + ".png"
+TypeError: can only concatenate str (not "int") to str
+
+2023-05-30 16:31:20
+Traceback (most recent call last):
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\indexes\base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: ('pairs_id', 'region_drift', 'region_0', 'region_1', 'region_2', 'region_3', 'region_4', 'region_5', 'region_6', 'region_7', 'region_tick_lock', 'region_unit_num')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 19, in __init__
+    region_info, boundary_info, suffix_info = param_split(info_df)
+  File "D:\local_repo\CTA_UI\utils\transform.py", line 40, in param_split
+    region_df = df["pairs_id", "region_drift", "region_0", "region_1", "region_2", "region_3", "region_4", "region_5", "region_6", "region_7", "region_tick_lock" , "region_unit_num"]
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\indexes\base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: ('pairs_id', 'region_drift', 'region_0', 'region_1', 'region_2', 'region_3', 'region_4', 'region_5', 'region_6', 'region_7', 'region_tick_lock', 'region_unit_num')
+
+2023-05-30 16:31:40
+Traceback (most recent call last):
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\indexes\base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: ('pairs_id', 'region_drift', 'region_0', 'region_1', 'region_2', 'region_3', 'region_4', 'region_5', 'region_6', 'region_7', 'region_tick_lock', 'region_unit_num')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 20, in __init__
+    region_info, boundary_info, suffix_info = param_split(info_df)
+  File "D:\local_repo\CTA_UI\utils\transform.py", line 40, in param_split
+    region_df = df["pairs_id", "region_drift", "region_0", "region_1", "region_2", "region_3", "region_4", "region_5", "region_6", "region_7", "region_tick_lock" , "region_unit_num"]
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\indexes\base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: ('pairs_id', 'region_drift', 'region_0', 'region_1', 'region_2', 'region_3', 'region_4', 'region_5', 'region_6', 'region_7', 'region_tick_lock', 'region_unit_num')
+
+2023-05-30 16:32:09
+Traceback (most recent call last):
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\indexes\base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: ('pairs_id', 'region_drift', 'region_0', 'region_1', 'region_2', 'region_3', 'region_4', 'region_5', 'region_6', 'region_7', 'region_tick_lock', 'region_unit_num')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 19, in __init__
+    region_info, boundary_info, suffix_info = param_split(info_df)
+  File "D:\local_repo\CTA_UI\utils\transform.py", line 40, in param_split
+    region_df = df["pairs_id", "region_drift", "region_0", "region_1", "region_2", "region_3", "region_4", "region_5", "region_6", "region_7", "region_tick_lock" , "region_unit_num"]
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\indexes\base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: ('pairs_id', 'region_drift', 'region_0', 'region_1', 'region_2', 'region_3', 'region_4', 'region_5', 'region_6', 'region_7', 'region_tick_lock', 'region_unit_num')
+
+2023-05-30 16:32:24
+Traceback (most recent call last):
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\indexes\base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: ('pairs_id', 'region_drift', 'region_0', 'region_1', 'region_2', 'region_3', 'region_4', 'region_5', 'region_6', 'region_7', 'region_tick_lock', 'region_unit_num')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 20, in __init__
+    region_info, boundary_info, suffix_info = param_split(info_df)
+  File "D:\local_repo\CTA_UI\utils\transform.py", line 40, in param_split
+    region_df = df["pairs_id", "region_drift", "region_0", "region_1", "region_2", "region_3", "region_4", "region_5", "region_6", "region_7", "region_tick_lock" , "region_unit_num"]
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\indexes\base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: ('pairs_id', 'region_drift', 'region_0', 'region_1', 'region_2', 'region_3', 'region_4', 'region_5', 'region_6', 'region_7', 'region_tick_lock', 'region_unit_num')
+
+2023-05-30 16:33:13
+Traceback (most recent call last):
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\indexes\base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: ('pairs_id', 'region_drift', 'region_0', 'region_1', 'region_2', 'region_3', 'region_4', 'region_5', 'region_6', 'region_7', 'region_tick_lock', 'region_unit_num')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 19, in __init__
+    region_info, boundary_info, suffix_info = param_split(info_df)
+  File "D:\local_repo\CTA_UI\utils\transform.py", line 40, in param_split
+    region_df = df["pairs_id", "region_drift", "region_0", "region_1", "region_2", "region_3", "region_4", "region_5", "region_6", "region_7", "region_tick_lock" , "region_unit_num"]
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\indexes\base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: ('pairs_id', 'region_drift', 'region_0', 'region_1', 'region_2', 'region_3', 'region_4', 'region_5', 'region_6', 'region_7', 'region_tick_lock', 'region_unit_num')
+
+2023-05-30 16:33:50
+Traceback (most recent call last):
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\indexes\base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: ('region_drift', 'region_0', 'region_1', 'region_2', 'region_3', 'region_4', 'region_5', 'region_6', 'region_7', 'region_tick_lock', 'region_unit_num')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 19, in __init__
+    region_info, boundary_info, suffix_info = param_split(info_df)
+  File "D:\local_repo\CTA_UI\utils\transform.py", line 40, in param_split
+    region_df = df["region_drift", "region_0", "region_1", "region_2", "region_3", "region_4", "region_5", "region_6", "region_7", "region_tick_lock" , "region_unit_num"]
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\indexes\base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: ('region_drift', 'region_0', 'region_1', 'region_2', 'region_3', 'region_4', 'region_5', 'region_6', 'region_7', 'region_tick_lock', 'region_unit_num')
+
+2023-05-30 16:34:03
+Traceback (most recent call last):
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\indexes\base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: ('region_drift', 'region_0', 'region_1', 'region_2', 'region_3', 'region_4', 'region_5', 'region_6', 'region_7', 'region_tick_lock', 'region_unit_num')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 19, in __init__
+    region_info, boundary_info, suffix_info = param_split(info_df)
+  File "D:\local_repo\CTA_UI\utils\transform.py", line 41, in param_split
+    region_df = df["region_drift", "region_0", "region_1", "region_2", "region_3", "region_4", "region_5", "region_6", "region_7", "region_tick_lock" , "region_unit_num"]
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\indexes\base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: ('region_drift', 'region_0', 'region_1', 'region_2', 'region_3', 'region_4', 'region_5', 'region_6', 'region_7', 'region_tick_lock', 'region_unit_num')
+
+2023-05-30 16:34:41
+Traceback (most recent call last):
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\indexes\base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: ('region_drift', 'region_0', 'region_1', 'region_2', 'region_3', 'region_4', 'region_5', 'region_6', 'region_7', 'region_tick_lock', 'region_unit_num')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 19, in __init__
+    region_info, boundary_info, suffix_info = param_split(info_df)
+  File "D:\local_repo\CTA_UI\utils\transform.py", line 40, in param_split
+    region_df = df["region_drift", "region_0", "region_1", "region_2", "region_3", "region_4", "region_5", "region_6", "region_7", "region_tick_lock" , "region_unit_num"]
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\indexes\base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: ('region_drift', 'region_0', 'region_1', 'region_2', 'region_3', 'region_4', 'region_5', 'region_6', 'region_7', 'region_tick_lock', 'region_unit_num')
+
+2023-05-30 16:36:36
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 793, in <module>
+    ex = Example()
+  File "D:\local_repo\CTA_UI\start.py", line 31, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 19, in __init__
+    region_info, boundary_info, suffix_info = param_split(info_df)
+  File "D:\local_repo\CTA_UI\utils\transform.py", line 40, in param_split
+    region_df = df.loc[:,"region_drift", "region_0", "region_1", "region_2", "region_3", "region_4", "region_5", "region_6", "region_7", "region_tick_lock" , "region_unit_num"]
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\indexing.py", line 1067, in __getitem__
+    return self._getitem_tuple(key)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\indexing.py", line 1250, in _getitem_tuple
+    tup = self._validate_tuple_indexer(tup)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\indexing.py", line 869, in _validate_tuple_indexer
+    key = self._validate_key_length(key)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\indexing.py", line 908, in _validate_key_length
+    raise IndexingError("Too many indexers")
+pandas.errors.IndexingError: Too many indexers
 

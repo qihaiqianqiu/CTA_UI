@@ -3,12 +3,14 @@ import json
 import os
 
 all = ["ROOT_PATH", "BOUNDARY_PATH", "PLOT_PATH", "client", "ssh", "trade_day", "breed_dict", 
-       "param_columns", "boundary_dict", "exchange_breed_dict", "secury_deposit_d1_dict"]
+       "param_columns", "boundary_dict", "exchange_breed_dict", "secury_deposit_d1_dict", "default_args"]
 # 路径
 # Where parameter stored 
-ROOT_PATH = r"Z:\300_Group\HFT\Program\CTA_UI"
+# ROOT_PATH = r"Z:\300_Group\HFT\Program\CTA_UI"
+ROOT_PATH = r"D:\local_repo\CTA_UI"
 PARAM_PATH = os.path.join(ROOT_PATH, "params")
-BOUNDARY_PATH = os.path.join(ROOT_PATH, "info", "boundary_info")
+INFO_PATH = os.path.join(ROOT_PATH, "info")
+BOUNDARY_PATH = os.path.join(INFO_PATH, "boundary_info")
 PLOT_PATH = os.path.join(ROOT_PATH, "barplot")
 DB_CONFIG_PATH = os.path.join(ROOT_PATH, "DB_config.json")
 # 数据库配置
@@ -17,6 +19,9 @@ db_para = json.load(open(DB_CONFIG_PATH))
 # Clickhouse config
 client = Client(host=db_para['ip'], port=db_para['port'])
 client.execute('use ' + db_para['db_to'])
+
+# 界计算模块参数
+default_args = (0.95, 6, 1.0)
 
 # 交易日列表
 trade_day = [20220809, 20220810, 20220811, 20220812, 20220815, 20220816, 20220817, 20220818, 20220819, 20220822, 20220823, 20220824, 
