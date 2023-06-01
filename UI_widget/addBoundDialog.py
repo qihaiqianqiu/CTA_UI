@@ -2,11 +2,10 @@
 计算参数，更新参数表
 """
 from PyQt5 import Qt
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
+from PyQt5.QtWidgets import QLineEdit, QLabel, QDialog, QDialogButtonBox, QGridLayout
 from utils.date_section_modification import get_date_section
-all = ["addParaDialog"]
-class addParaDialog(QDialog):
+all = ["addBoundDialog"]
+class addBoundDialog(QDialog):
     def __init__(self):
         super().__init__()
         self.end_date = QLineEdit()

@@ -7,7 +7,7 @@ Last edited: December 2022
 import sys, traceback
 import pandas as pd
 from PyQt5 import QtCore, QtGui, QtWidgets, Qt
-from PyQt5.QtWidgets import QProgressBar, QApplication, QMainWindow, QDesktopWidget, QAbstractItemView, QTableView, QAction, QPushButton, QFileDialog, QMessageBox, QCheckBox, QHBoxLayout, QVBoxLayout, QWidget, QTableWidgetItem, QDialog, QSizePolicy 
+from PyQt5.QtWidgets import QProgressBar, QApplication, QMainWindow, QDesktopWidget, QAbstractItemView, QAction, QPushButton, QFileDialog, QMessageBox, QCheckBox, QHBoxLayout, QVBoxLayout, QWidget, QTableWidgetItem, QDialog, QSizePolicy 
 from PyQt5.QtCore import Qt, QSize
 import matplotlib.pyplot as plt
 import matplotlib
@@ -469,33 +469,9 @@ class Arbitrator(QMainWindow):
     
     @QtCore.pyqtSlot()
     def check_param_pairs(self):
-        lost_pair = pd.DataFrame(columns=['pairs_id', 'warehouse_recipt', 'volume'])
-        candidate_pairs = get_contract_pair.check_vaild_month()
-        for i in range(self.table.rowCount(), 0, -1):
-            if self.table.cellWidget(i-1, 0).findChild(type(QCheckBox())).isChecked():
-                acc_info = [self.table.item(i-1,j).text() for j in range(1, self.table.columnCount())]
-                acc_name = acc_info[0]
-                param_df = pd.read_csv(os.path.join(const.PARAM_PATH, acc_name, "params.csv"))
-                for contract_pair in candidate_pairs['contract_pair'].tolist():
-                    if contract_pair not in param_df['pairs_id'].tolist():
-                        vol = candidate_pairs[candidate_pairs['contract_pair']==contract_pair]['volume'].tolist()[0]
-                        print("检测到未包含合约：", contract_pair)
-                        flag = candidate_pairs[candidate_pairs['contract_pair']==contract_pair]['flag'].tolist()[0]
-                        lost_pair = lost_pair.append({'pairs_id': contract_pair, 'warehouse_recipt': flag, 'volume': vol}, ignore_index=True)
-
-                lost_pair = lost_pair.reset_index(drop=True).set_index('pairs_id')
-                lost_pair = lost_pair.sort_values(by=['warehouse_recipt', 'volume'], ascending=False)
-                dialog_valid = QDialog()
-                model = pandasModel(lost_pair)
-                view = TableView(model)
-
-                layout = QHBoxLayout()
-                layout.addWidget(view)
-                dialog_valid.setLayout(layout)
-                dialog_valid.setWindowTitle("可添加套利对")
-                dialog_valid.exec_()
-                
+        checkParaDialog = checkParaDialog()
         self.status.showMessage("套利对检查完成")
+
         
     @QtCore.pyqtSlot()
     def visualization(self, dialog):
@@ -514,7 +490,7 @@ class Arbitrator(QMainWindow):
 
     @QtCore.pyqtSlot()
     def export_param(self):
-        dialog = addParaDialog()
+        dialog = addBoundDialog()
         dialog.accepted.connect(lambda: self.get_param(dialog))
         dialog.exec()
 

@@ -1,5 +1,5 @@
 from PyQt5 import Qt
-from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import QHBoxLayout, QDialogButtonBox, QDialog, QVBoxLayout, QLabel, QLineEdit, QScrollArea
 from PyQt5.QtCore import *
 from utils.const import breed_dict
 
