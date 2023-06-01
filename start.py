@@ -469,8 +469,9 @@ class Arbitrator(QMainWindow):
     
     @QtCore.pyqtSlot()
     def check_param_pairs(self):
-        checkParaDialog = checkParaDialog()
+        dialog = checkParaDialog()
         self.status.showMessage("套利对检查完成")
+        dialog.exec_()
 
         
     @QtCore.pyqtSlot()
