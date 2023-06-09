@@ -32,6 +32,8 @@ class Arbitrator(QMainWindow):
         # 参数表
         self.param = paraTable()
         self.editable = False
+        self.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
+
         self.initUI()
 
     # 布局：菜单 - 读取（打开）套利对CSV
@@ -472,6 +474,7 @@ class Arbitrator(QMainWindow):
         dialog = checkParaDialog()
         self.status.showMessage("套利对检查完成")
         dialog.exec_()
+        self.setFocus()
 
         
     @QtCore.pyqtSlot()
@@ -759,7 +762,6 @@ class Arbitrator(QMainWindow):
 if __name__ == '__main__':
     try:
         app = QApplication(sys.argv)
-        app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
         ex = Arbitrator()
         sys.exit(app.exec_())
     except Exception as e:
