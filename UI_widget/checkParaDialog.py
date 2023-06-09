@@ -51,7 +51,6 @@ class checkParaDialog(QDialog):
         self.setLayout(layout)
         self.setGeometry(300, 300, 640, 1000)
         self.setWindowTitle("可添加套利对")
-        self.setWindowModality(Qt.NonModal)
         
     
     def add_param(self):

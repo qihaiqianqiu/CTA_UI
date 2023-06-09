@@ -172,7 +172,7 @@ class TableView(QTableView):
         if self.barplot_flag and index.column() == self.checkbox_flag:  # 图片列
             file_path = self.model().data(index, Qt.UserRole)
             print(file_path)
-            print(os.path.exists(file_path))
+            #print(os.path.exists(file_path))
             if file_path:
                 url = QUrl.fromLocalFile(file_path)
                 url.setScheme("file")

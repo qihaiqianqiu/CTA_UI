@@ -1,9 +1,12 @@
 """
 计算参数，更新参数表
 """
-from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QDesktopServices
+from PyQt5.QtCore import QUrl
 from PyQt5.QtWidgets import QLineEdit, QLabel, QDialog, QDialogButtonBox, QGridLayout, QVBoxLayout, QWidget, QPushButton
-from utils.date_section_modification import get_date_section
+from utils.plotfile_management import pairname_to_plotdir
+from functools import partial
+
 all = ["addParaDialog"]
 class addParaDialog(QDialog):
     def __init__(self, pairs_id_lst):
@@ -19,6 +22,8 @@ class addParaDialog(QDialog):
             panel.setStyleSheet("background-color:gray;")
             line_layout = QVBoxLayout(panel)
             btn = QPushButton(contract_pair)
+            # 这个按钮直接链接到套利图上
+            btn.clicked.connect(partial(QDesktopServices.openUrl, QUrl.fromLocalFile(pairname_to_plotdir(btn.text()))))  # 使用新的变量
             btn.setStyleSheet("QPushButton{background:qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, "
                              "stop:0 #0a4a83, stop:0.5 #186e99, stop:1 #239cd8);"
                              "border:2px solid qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0,"
@@ -34,9 +39,7 @@ class addParaDialog(QDialog):
 
         self.buttonBox.accepted.connect(self.accept)
         self.buttonBox.rejected.connect(self.reject)
-
-        self.setWindowModality(Qt.NonModal)
-
+            
 
     def generate_line(self, contract_pair:str):
         region_line_label = ["region_drift", "region_0", "region_1", "region_2", "region_3", "region_4", "region_5", "region_6", "region_7", "region_tick_lock", "region_unit_num"]
