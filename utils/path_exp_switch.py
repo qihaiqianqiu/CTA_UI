@@ -1,3 +1,5 @@
+all = ["windows_to_linux", "linux_to_windows"]
+
 def windows_to_linux(path):
     return path.replace("\\", "/")
 
