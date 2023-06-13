@@ -3,9 +3,11 @@
 """
 from PyQt5.QtGui import QDesktopServices
 from PyQt5.QtCore import QUrl
-from PyQt5.QtWidgets import QLineEdit, QLabel, QDialog, QDialogButtonBox, QGridLayout, QVBoxLayout, QWidget, QPushButton
+from PyQt5.QtWidgets import QLineEdit, QLabel, QDialog, QDialogButtonBox, QGridLayout, QVBoxLayout, QWidget, QPushButton, QMessageBox
 from utils.plotfile_management import pairname_to_plotdir
+from utils.const import INFO_PATH
 from functools import partial
+from utils.date_section_modification import get_date_section
 
 all = ["addParaDialog"]
 class addParaDialog(QDialog):
@@ -14,7 +16,7 @@ class addParaDialog(QDialog):
         self.setAutoFillBackground(True)
         self.layout = QVBoxLayout()
         self.setLayout(self.layout)
-        self._contract_pair_label_lst = []
+        self._contract_pair_label_lst = {}
         for contract_pair in pairs_id_lst:
             sub_layout = QGridLayout()
             panel = QWidget()
@@ -37,8 +39,9 @@ class addParaDialog(QDialog):
 
         self.buttonBox = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
 
-        self.buttonBox.accepted.connect(self.accept)
+        self.buttonBox.accepted.connect(self.add_param)
         self.buttonBox.rejected.connect(self.reject)
+        self.layout.addWidget(self.buttonBox)
             
 
     def generate_line(self, contract_pair:str):
@@ -97,4 +100,47 @@ class addParaDialog(QDialog):
         line_layout = QVBoxLayout()
         line_layout.addLayout(region_layout)
         line_layout.addLayout(suffix_layout)
+        self._contract_pair_label_lst[contract_pair] = line_layout
+
         return line_layout
+    
+    
+    def add_param_line(self, contract_pair:str):
+        pass
+    
+        
+    def add_param(self):
+        # 获取全部已经填写的Layout
+        date, section = get_date_section()
+        for key, value in self._contract_pair_label_lst.items():
+            param_dict = {}
+            param_dict["pairs_id"] = key
+            param_dict["indate_date"] = str(date) + '_' + str(section)
+            # 前置列 还包含主被动腿的信息
+            print("Looking at pair: ", key)
+            # Sublayout 应该是两个QGridLayout， 一个是region， 一个是suffix
+            for i in range(value.count()):
+                region_layout = value.itemAt(0)
+                suffix_layout = value.itemAt(1)
+                for k in range(region_layout.count()):
+                    subwidget = region_layout.itemAt(k).widget()
+                    if isinstance(subwidget, QLineEdit):
+                        if len(subwidget.text()) == 0:
+                            QMessageBox.information(self, "区信息填写错误", "请检查空参数！")
+                            return False
+                        else:
+                            param_dict[region_layout.itemAt(k-1).widget().text()] = subwidget.text()
+
+                for l in range(suffix_layout.count()):
+                    subwidget = suffix_layout.itemAt(l).widget()
+                    if isinstance(subwidget, QLineEdit):
+                        if len(subwidget.text()) == 0:
+                            QMessageBox.information(self, "附加信息填写错误", "请检查空参数！")
+                            return False
+                        else:
+                            param_dict[suffix_layout.itemAt(l-1).widget().text()] = subwidget.text()                   
+        # 添加其他信息
+        param_dict["first_instrument"]
+        param_dict["second_instrument"]
+        param_dict["prime_instrument"]
+    

@@ -22,7 +22,7 @@ class paraTable(QTableWidget):
 
         print("PARA TABLE GENERATED")
 
-        
+    # 包含计算模块，需要修改    
     def update(self):
         date, section = get_date_section()
         date, section = from_predict(date, section)

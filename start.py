@@ -307,6 +307,7 @@ class Arbitrator(QMainWindow):
             self.addLine(pair)
         self.status.showMessage("账户配置导入完成")
     
+    # 未启用：SFTP传输模块
     @QtCore.pyqtSlot()
     def sftp_transfer(self):
         openfile_path = QFileDialog.getOpenFileName(self,'选择文件','','XLSX files(*.xlsx)')
@@ -361,6 +362,7 @@ class Arbitrator(QMainWindow):
             self.table.setItem(row,i+1,QTableWidgetItem(str(line[i])))
         self.update_inbuffer()
 
+    # 添加账户的对话框
     @QtCore.pyqtSlot()
     def add_dialog(self, dialog):
         print("Add ",type(dialog.accepted))
@@ -598,7 +600,7 @@ class Arbitrator(QMainWindow):
     def save(self):
         self.update_inbuffer()
         df = pd.DataFrame(self.in_buffer, columns=self.table.columns[1:])
-        df.to_excel('./info/account_info.xlsx', index=False, sheet_name='Sheet1')
+        df.to_excel(os.path.join(const.INFO_PATH, "account_info.xlsx"), index=False, sheet_name='Sheet1')
         param_df = self.param.model._data
         param_df = param_df.loc[:, ~param_df.columns.isin(['CheckBox', 'BarPlot'])]
         region_info, boundary_info, suffix_info = transform.param_split(param_df)
