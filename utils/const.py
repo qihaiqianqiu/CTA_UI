@@ -57,7 +57,7 @@ param_columns = ['pairs_id','indate_date', 'first_instrument', 'second_instrumen
         'down_boundary_2', 'down_boundary_3', 'down_boundary_4', 'down_boundary_5', 'today_fee', 'wait_window', \
         'favor_times', 'unfavor_times', 'abs_threshold', 'boundary_tick_lock', 'wait2_windows', 'after_tick', 'night_type',\
         'if_add', 'limitcoef', 'abs_threshold_after', 'kind', 'before_tick', 'before_cancel_flag', 'before_cancel_num',\
-        'max_position', 'min_position', 'region_tick_lock', 'region_unit_num']
+        'max_position', 'min_position', 'region_tick_lock', 'region_unit_num', 'If_SP', 'SP_InstrumentID']
 
 multiple_dict = {
     "AG" : 15,

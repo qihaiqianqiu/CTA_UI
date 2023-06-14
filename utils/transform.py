@@ -2,7 +2,7 @@
 将时序预测的结果整理，添加常量列和顺序，生成可用的参数表
 """
 import pandas as pd
-from utils.const import INFO_PATH, PARAM_PATH, param_columns
+from utils.const import INFO_PATH, param_columns
 import os
 
 all = ["add_suffix", "param_split"]

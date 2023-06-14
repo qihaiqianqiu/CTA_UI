@@ -1,16 +1,21 @@
 """
 计算参数，更新参数表
 """
+import re
+import os
+import pandas as pd
 from PyQt5.QtGui import QDesktopServices
-from PyQt5.QtCore import QUrl
-from PyQt5.QtWidgets import QLineEdit, QLabel, QDialog, QDialogButtonBox, QGridLayout, QVBoxLayout, QWidget, QPushButton, QMessageBox
+from PyQt5.QtCore import QUrl, pyqtSignal
+from PyQt5.QtWidgets import QLineEdit, QLabel, QDialog, QDialogButtonBox, QGridLayout, QVBoxLayout, QWidget, QPushButton, QMessageBox, QCheckBox
 from utils.plotfile_management import pairname_to_plotdir
-from utils.const import INFO_PATH
+from utils.const import PARAM_PATH, exchange_breed_dict, param_columns
 from functools import partial
 from utils.date_section_modification import get_date_section
+from utils.get_contract_pair import get_contract_pair_rank
 
 all = ["addParaDialog"]
 class addParaDialog(QDialog):
+    add_signal = pyqtSignal(bool)
     def __init__(self, pairs_id_lst):
         super().__init__()
         self.setAutoFillBackground(True)
@@ -41,7 +46,10 @@ class addParaDialog(QDialog):
 
         self.buttonBox.accepted.connect(self.add_param)
         self.buttonBox.rejected.connect(self.reject)
+        self.sp_checkbox = QCheckBox("程序是否交易SP合约")
+        self.layout.addWidget(self.sp_checkbox)
         self.layout.addWidget(self.buttonBox)
+        
             
 
     def generate_line(self, contract_pair:str):
@@ -104,14 +112,11 @@ class addParaDialog(QDialog):
 
         return line_layout
     
-    
-    def add_param_line(self, contract_pair:str):
-        pass
-    
         
     def add_param(self):
         # 获取全部已经填写的Layout
         date, section = get_date_section()
+        old_param = pd.read_csv(os.path.join(PARAM_PATH, 'BASE', "params.csv"))
         for key, value in self._contract_pair_label_lst.items():
             param_dict = {}
             param_dict["pairs_id"] = key
@@ -127,7 +132,8 @@ class addParaDialog(QDialog):
                     if isinstance(subwidget, QLineEdit):
                         if len(subwidget.text()) == 0:
                             QMessageBox.information(self, "区信息填写错误", "请检查空参数！")
-                            return False
+                            self.add_signal.emit(False)
+                            return 0
                         else:
                             param_dict[region_layout.itemAt(k-1).widget().text()] = subwidget.text()
 
@@ -136,11 +142,49 @@ class addParaDialog(QDialog):
                     if isinstance(subwidget, QLineEdit):
                         if len(subwidget.text()) == 0:
                             QMessageBox.information(self, "附加信息填写错误", "请检查空参数！")
-                            return False
+                            self.add_signal.emit(False)
+                            return 0
                         else:
                             param_dict[suffix_layout.itemAt(l-1).widget().text()] = subwidget.text()                   
-        # 添加其他信息
-        param_dict["first_instrument"]
-        param_dict["second_instrument"]
-        param_dict["prime_instrument"]
+            # 添加其他信息
+            first_contract_code = key.split('-')[0]
+            breed = re.search("[a-zA-Z]+", first_contract_code).group(0)
+            param_dict["kind"] = breed.upper()
+            second_contract_code = breed + key.split('-')[1]
+            ins_ranking = get_contract_pair_rank([first_contract_code, second_contract_code])
+            def get_exchange_on(contract_code):
+                for exchange, values in exchange_breed_dict.items():
+                    if breed in values:
+                        contract_code = contract_code + "." + exchange
+                        break 
+                return contract_code
+            param_dict["first_instrument"] = get_exchange_on(first_contract_code)
+            param_dict["second_instrument"] = get_exchange_on(second_contract_code)
+            param_dict["prime_instrument"] = get_exchange_on(ins_ranking[0])
+            up_boundary = ["up_boundary_5", "up_boundary_4", "up_boundary_3", "up_boundary_2", "up_boundary_1"]
+            down_boundary = ["down_boundary_1", "down_boundary_2", "down_boundary_3", "down_boundary_4", "down_boundary_5"]
+            boundary_list = ["boundary_tick_lock", "boundary_unit_num"]
+            for label in boundary_list:
+                param_dict[label] = "0"
+            for label in up_boundary:
+                param_dict[label] = "99999"
+            for label in down_boundary:
+                param_dict[label] = "-99999"
+            param_line = pd.DataFrame(param_dict, index=[0])
+            print(param_line.columns)
+            print(param_line)
+            for column in param_columns:
+                if column not in param_line.columns:
+                    print(column)
+            order = param_columns
+            param_line = param_line[order]
+            if not self.sp_checkbox.isChecked():
+                param_line.drop(["If_SP", "SP_InstrumentID"], axis=1, inplace=True)
+            old_param = pd.concat([old_param, param_line], axis=0)
+        old_param.to_csv(os.path.join(PARAM_PATH, 'BASE', "params.csv"), index=False)
+        QMessageBox.information(self, "参数添加成功", "参数添加成功！")
+        self.add_signal.emit(True)
+        # 关闭窗口
+        self.close()
+        return 1
     

@@ -24,6 +24,7 @@ class paraTable(QTableWidget):
 
     # 包含计算模块，需要修改    
     def update(self):
+        """        
         date, section = get_date_section()
         date, section = from_predict(date, section)
         region_df = pd.read_excel('./info/region_info.xlsx', sheet_name="Sheet1")
@@ -35,3 +36,9 @@ class paraTable(QTableWidget):
         cache_param('BASE', info_df, date, section, default_args)
         save_param('BASE', info_df)
         self.model._data = info_df
+        """
+        info_df = pd.read_csv(os.path.join(PARAM_PATH, 'BASE', 'params.csv')).reset_index(drop=True).set_index("pairs_id")
+        # 使用pandasModel将info_df转化为表格
+        region_info, boundary_info, suffix_info = param_split(info_df)
+        self.model = pandasModel(info_df)
+        self.view = TableView(self.model)

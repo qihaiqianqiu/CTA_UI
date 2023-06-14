@@ -475,6 +475,7 @@ class Arbitrator(QMainWindow):
     def check_param_pairs(self):
         dialog = checkParaDialog()
         self.status.showMessage("套利对检查完成")
+        dialog.add_signal.connect(lambda: self.refresh)
         dialog.exec_()
         self.setFocus()
 
@@ -509,12 +510,13 @@ class Arbitrator(QMainWindow):
     @QtCore.pyqtSlot()
     def update_base_info(self):
         self.param.update()
-        QMessageBox.information(self, "BASE参数表更新完成")
+        QMessageBox.information(self, "刷新完成", "BASE参数表更新完成")
 
     @QtCore.pyqtSlot()
-    def refresh(self):
-        self.param.update()
-        QMessageBox.information(self, "刷新完成", "BASE参数表更新完成")
+    def refresh(self, flag=True):
+        if flag:
+            self.param.update()
+            QMessageBox.information(self, "刷新完成", "BASE参数表更新完成")
 
     @QtCore.pyqtSlot()
     def add(self):

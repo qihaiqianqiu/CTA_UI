@@ -1,11 +1,13 @@
 from utils.const import exchange_breed_dict, db_para, client, invalid_month_dict, trade_day
-from utils.rename import rename_db_to_param
+from utils.rename import rename_db_to_param, rename
 from utils.date_section_modification import to_trading_day_backwards
 import pandas as pd
 import re
 import datetime
 
-all = ["get_db_contract_pair",  "check_vaild_month"]
+# 获取合约对名称，SP指令，成交量等信息
+
+all = ["get_db_contract_pair",  "check_vaild_month", "get_param_contract_pair_with_volume", "get_param_contract_pair"]
 
 def get_param_contract_pair():
     breed_lst = []
@@ -102,10 +104,22 @@ def check_vaild_month(volume_threshold=80):
         df = df[df['volume'] >= volume_threshold]
     return df[['contract_pair', 'flag', 'volume']]
 
+def get_contract_pair_rank(contract_pair: list):
+    contract_pair = [rename(contract) for contract in contract_pair]
+    cta_table = db_para['tb_to']
+    today = datetime.datetime.today().strftime('%Y%m%d')
+    previous_trading_date = trade_day[trade_day.index(to_trading_day_backwards(int(today))) - 1]
+    SQL = "SELECT distinct contract, max(volume) from " + cta_table + " where contract in " + str(tuple(contract_pair)) + " and trading_date = " + str(previous_trading_date) + " group by contract"
+    df = client.query_dataframe(SQL).sort_values('max_volume_', ascending=False)
+    print(df)
+    first_contract = df['contract'].tolist()[0]
+    second_contract = df['contract'].tolist()[1]
+    return [first_contract, second_contract]
+
 
 def get_sp_instruction():
     pass
 
 
 if __name__ == "__main__":
-    print(check_vaild_month())
+    print(get_contract_pair_rank(['IH2309', 'IH2312']))
