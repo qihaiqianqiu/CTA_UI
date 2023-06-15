@@ -22,8 +22,16 @@ class paraTable(QTableWidget):
 
         print("PARA TABLE GENERATED")
 
-    # 包含计算模块，需要修改    
-    def update(self):
+    # 刷新参数表并更新其在UI的显示
+    def update(self): 
+        info_df = pd.read_csv(os.path.join(PARAM_PATH, 'BASE', 'params.csv')).reset_index(drop=True).set_index("pairs_id")
+        # 使用pandasModel将info_df转化为表格
+        region_info, boundary_info, suffix_info = param_split(info_df)
+        self.model = pandasModel(info_df)
+        self.view = TableView(self.model)
+        
+    # 参数计算模块
+    def fill_para_Table(self):
         """        
         date, section = get_date_section()
         date, section = from_predict(date, section)
@@ -37,8 +45,4 @@ class paraTable(QTableWidget):
         save_param('BASE', info_df)
         self.model._data = info_df
         """
-        info_df = pd.read_csv(os.path.join(PARAM_PATH, 'BASE', 'params.csv')).reset_index(drop=True).set_index("pairs_id")
-        # 使用pandasModel将info_df转化为表格
-        region_info, boundary_info, suffix_info = param_split(info_df)
-        self.model = pandasModel(info_df)
-        self.view = TableView(self.model)
+        pass

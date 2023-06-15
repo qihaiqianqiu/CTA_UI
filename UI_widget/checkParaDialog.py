@@ -5,6 +5,7 @@ from PyQt5 import QtGui
 from PyQt5.QtCore import Qt, pyqtSignal
 from PyQt5.QtWidgets import  QDialog, QHBoxLayout, QPushButton
 import pandas as pd
+import sys
 import os
 from utils.get_contract_pair import check_vaild_month
 from utils.const import PARAM_PATH
@@ -13,7 +14,7 @@ from .pandasModel import pandasModel, TableView
 
 all = ["checkParamDialog"]
 class checkParaDialog(QDialog):
-    add_signal = pyqtSignal(bool)
+    add_signal_outer = pyqtSignal(bool)
     def __init__(self):
         super().__init__()
         lost_pair = pd.DataFrame(columns=['warehouse_recipt', 'volume'], index=['pairs_id'])
@@ -56,12 +57,15 @@ class checkParaDialog(QDialog):
         
     # 将信号传递给主窗口
     def pass_add_signal(self, flag):
-        self.add_signal.emit(flag)
+        print("sending signal to mainUI:", flag)
+        self.add_signal_outer.emit(flag)
+
+
+
         
     def add_param(self):
         pairs_id = self.model._data[self.model._data['CheckBox'] == True].index.tolist()
         if len(pairs_id) > 0:
-            dia = addParaDialog(pairs_id)
-            dia.add_signal.connect(self.pass_add_signal)
-            dia.exec_()
-       
+            self.add_dia = addParaDialog(pairs_id)
+            self.add_dia.add_signal_inner.connect(self.pass_add_signal)
+            self.add_dia.show() 

@@ -103,9 +103,9 @@ class Arbitrator(QMainWindow):
         # ToolBar
         toolBar = self.addToolBar("")
 
-        refresh = QAction(QtGui.QIcon("./src/reload.png"), "refresh", self)
-        refresh.triggered.connect(self.update_base_info)
-        toolBar.addAction(refresh)
+        calculate = QAction(QtGui.QIcon("./src/reload.png"), "calculate parameter", self)
+        calculate.triggered.connect(self.update_base_info)
+        toolBar.addAction(calculate)
 
         addAccount = QAction(QtGui.QIcon("./src/add-user.png"), "add account", self)
         addAccount.triggered.connect(self.add)
@@ -473,11 +473,10 @@ class Arbitrator(QMainWindow):
     
     @QtCore.pyqtSlot()
     def check_param_pairs(self):
-        dialog = checkParaDialog()
+        self.check_dialog = checkParaDialog()
+        self.check_dialog.add_signal_outer.connect(self.refresh)
+        self.check_dialog.show()
         self.status.showMessage("套利对检查完成")
-        dialog.add_signal.connect(lambda: self.refresh)
-        dialog.exec_()
-        self.setFocus()
 
         
     @QtCore.pyqtSlot()
@@ -513,10 +512,12 @@ class Arbitrator(QMainWindow):
         QMessageBox.information(self, "刷新完成", "BASE参数表更新完成")
 
     @QtCore.pyqtSlot()
-    def refresh(self, flag=True):
+    # 使UI主界面参数表与存储的参数表同步
+    def refresh(self, flag):
         if flag:
             self.param.update()
             QMessageBox.information(self, "刷新完成", "BASE参数表更新完成")
+
 
     @QtCore.pyqtSlot()
     def add(self):

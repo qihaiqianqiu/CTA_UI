@@ -1,5 +1,4 @@
 from PyQt5 import Qt
-
 from PyQt5.QtGui import QIcon, QDesktopServices, QMouseEvent
 from PyQt5.QtWidgets import QTableView, QAbstractItemView
 from PyQt5.QtCore import QUrl, QModelIndex, QAbstractTableModel, Qt
@@ -18,6 +17,7 @@ pd.set_option('max_colwidth',100)
 
 
 # 待实现的功能：点击套利对名称即可自动打开对应时序套利图
+# PandasModel对于属于其中的df比较索引依赖，因此需要将df的index重置为套利对名称
 
 all = ["pandasModel", "TableView"]
 

@@ -15,7 +15,7 @@ from utils.get_contract_pair import get_contract_pair_rank
 
 all = ["addParaDialog"]
 class addParaDialog(QDialog):
-    add_signal = pyqtSignal(bool)
+    add_signal_inner = pyqtSignal(bool)
     def __init__(self, pairs_id_lst):
         super().__init__()
         self.setAutoFillBackground(True)
@@ -49,6 +49,7 @@ class addParaDialog(QDialog):
         self.sp_checkbox = QCheckBox("程序是否交易SP合约")
         self.layout.addWidget(self.sp_checkbox)
         self.layout.addWidget(self.buttonBox)
+        self.add_signal_inner.emit(True)
         
             
 
@@ -131,8 +132,9 @@ class addParaDialog(QDialog):
                     subwidget = region_layout.itemAt(k).widget()
                     if isinstance(subwidget, QLineEdit):
                         if len(subwidget.text()) == 0:
+                            self.add_signal_inner.emit(False)
                             QMessageBox.information(self, "区信息填写错误", "请检查空参数！")
-                            self.add_signal.emit(False)
+                            print("Sent bad signal to checkPara")
                             return 0
                         else:
                             param_dict[region_layout.itemAt(k-1).widget().text()] = subwidget.text()
@@ -141,8 +143,9 @@ class addParaDialog(QDialog):
                     subwidget = suffix_layout.itemAt(l).widget()
                     if isinstance(subwidget, QLineEdit):
                         if len(subwidget.text()) == 0:
+                            self.add_signal_inner.emit(False)
                             QMessageBox.information(self, "附加信息填写错误", "请检查空参数！")
-                            self.add_signal.emit(False)
+                            print("Sent bad signal to checkPara")
                             return 0
                         else:
                             param_dict[suffix_layout.itemAt(l-1).widget().text()] = subwidget.text()                   
@@ -182,8 +185,10 @@ class addParaDialog(QDialog):
                 param_line.drop(["If_SP", "SP_InstrumentID"], axis=1, inplace=True)
             old_param = pd.concat([old_param, param_line], axis=0)
         old_param.to_csv(os.path.join(PARAM_PATH, 'BASE', "params.csv"), index=False)
+        print("Sent good signal to CheckParam")
         QMessageBox.information(self, "参数添加成功", "参数添加成功！")
-        self.add_signal.emit(True)
+        self.add_signal_inner.emit(True)
+        print("Sent good signal to checkPara")
         # 关闭窗口
         self.close()
         return 1
