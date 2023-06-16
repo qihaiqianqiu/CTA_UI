@@ -59,6 +59,8 @@ class checkParaDialog(QDialog):
     def pass_add_signal(self, flag):
         print("sending signal to mainUI:", flag)
         self.add_signal_outer.emit(flag)
+        if flag == True:
+            self.close()
 
 
 

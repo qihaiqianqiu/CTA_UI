@@ -22,6 +22,9 @@ from utils import *
 from UI_widget import *
 
 class Arbitrator(QMainWindow):
+    
+
+            
     def __init__(self):
         super().__init__()
         # in_buffer: 面板表格的当前内容
@@ -33,7 +36,9 @@ class Arbitrator(QMainWindow):
         self.param = paraTable()
         self.editable = False
         self.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
-
+        # layout management
+        self.container = QtWidgets.QWidget()
+        self.param_layout = QtWidgets.QHBoxLayout()
         self.initUI()
 
     # 布局：菜单 - 读取（打开）套利对CSV
@@ -135,10 +140,9 @@ class Arbitrator(QMainWindow):
         self.status.show()
         self.status.showMessage('就绪')
 
-        # layout management
-        container = QtWidgets.QWidget()
-        self.setCentralWidget(container)
-        layout = QtWidgets.QGridLayout(container)
+
+        self.setCentralWidget(self.container)
+        self.layout = QtWidgets.QGridLayout(self.container)
 
         # Button
         button_layout_line1 = QtWidgets.QHBoxLayout()
@@ -273,22 +277,21 @@ class Arbitrator(QMainWindow):
         table_layout.addWidget(self.table)
 
         # Parameter table
-        param_layout = QtWidgets.QHBoxLayout()
-        param_layout.addWidget(self.param.view)
+        self.param_layout.addWidget(self.param.view)
 
         # Global setting
-        layout.addLayout(table_layout, 0, 0)
-        layout.addLayout(button_layout_line1, 1, 0)
-        layout.addLayout(button_layout_line2, 2, 0)
-        layout.addLayout(button_layout_line3, 3, 0)
-        layout.addLayout(button_layout_line4, 4, 0)
-        layout.addLayout(param_layout, 5, 0)
-        layout.setRowStretch(0, 0)
-        layout.setRowStretch(1, 0)
-        layout.setRowStretch(2, 0)
-        layout.setRowStretch(3, 0)
-        layout.setRowStretch(4, 0)
-        layout.setRowStretch(5, 6)
+        self.layout.addLayout(table_layout, 0, 0)
+        self.layout.addLayout(button_layout_line1, 1, 0)
+        self.layout.addLayout(button_layout_line2, 2, 0)
+        self.layout.addLayout(button_layout_line3, 3, 0)
+        self.layout.addLayout(button_layout_line4, 4, 0)
+        self.layout.addLayout(self.param_layout, 5, 0)
+        self.layout.setRowStretch(0, 0)
+        self.layout.setRowStretch(1, 0)
+        self.layout.setRowStretch(2, 0)
+        self.layout.setRowStretch(3, 0)
+        self.layout.setRowStretch(4, 0)
+        self.layout.setRowStretch(5, 6)
         self.setGeometry(X_OFFSET, Y_OFFSET, width, height)
         self.setWindowTitle('Arbitrager')
         self.openDefaultFile()
@@ -474,7 +477,7 @@ class Arbitrator(QMainWindow):
     @QtCore.pyqtSlot()
     def check_param_pairs(self):
         self.check_dialog = checkParaDialog()
-        self.check_dialog.add_signal_outer.connect(self.refresh)
+        self.check_dialog.add_signal_outer.connect(lambda flag: self.refresh(flag))
         self.check_dialog.show()
         self.status.showMessage("套利对检查完成")
 
@@ -516,6 +519,9 @@ class Arbitrator(QMainWindow):
     def refresh(self, flag):
         if flag:
             self.param.update()
+            self.param_layout = QtWidgets.QHBoxLayout()
+            self.layout.addLayout(self.param_layout, 5, 0)
+            self.param_layout.addWidget(self.param.view)
             QMessageBox.information(self, "刷新完成", "BASE参数表更新完成")
 
 

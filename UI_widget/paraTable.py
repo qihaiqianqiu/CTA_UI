@@ -30,6 +30,8 @@ class paraTable(QTableWidget):
         self.model = pandasModel(info_df)
         self.view = TableView(self.model)
         
+        print("PARA TABLE UPDATED")
+        
     # 参数计算模块
     def fill_para_Table(self):
         """        
