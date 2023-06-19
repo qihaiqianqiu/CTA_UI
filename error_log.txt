@@ -900,3 +900,61 @@ Traceback (most recent call last):
     self._data = self._data.apply(lambda x: x.apply(lambda y: int(y) if y == int(y) else y) if x.dtype == float else x)
 ValueError: cannot convert float NaN to integer
 
+2023-06-19 14:34:56
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 825, in <module>
+    ex = Arbitrator()
+  File "D:\local_repo\CTA_UI\start.py", line 43, in __init__
+    self.initUI()
+  File "D:\local_repo\CTA_UI\start.py", line 116, in initUI
+    self.editMenu.addAction(undoAct)
+NameError: name 'undoAct' is not defined
+
+2023-06-19 14:43:50
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 829, in <module>
+    ex = Arbitrator()
+  File "D:\local_repo\CTA_UI\start.py", line 37, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 20, in __init__
+    self.model = pandasModel(info_df)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 29, in __init__
+    self._data = self.addColumnToDf(data, barplot_flag, checkbox_flag)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 141, in addColumnToDf
+    data.insert(0, 'BarPlot', data.apply(lambda x: pairname_to_plotdir(x.name), axis=1))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 4817, in insert
+    raise ValueError(f"cannot insert {column}, already exists")
+ValueError: cannot insert BarPlot, already exists
+
+2023-06-19 14:44:14
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 829, in <module>
+    ex = Arbitrator()
+  File "D:\local_repo\CTA_UI\start.py", line 37, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 20, in __init__
+    self.model = pandasModel(info_df)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 29, in __init__
+    self._data = self.addColumnToDf(data, barplot_flag, checkbox_flag)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 141, in addColumnToDf
+    data.insert(0, 'BarPlot', data.apply(lambda x: pairname_to_plotdir(x.name), axis=1))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 4817, in insert
+    raise ValueError(f"cannot insert {column}, already exists")
+ValueError: cannot insert BarPlot, already exists
+
+2023-06-19 14:44:44
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 829, in <module>
+    ex = Arbitrator()
+  File "D:\local_repo\CTA_UI\start.py", line 37, in __init__
+    self.param = paraTable()
+  File "D:\local_repo\CTA_UI\UI_widget\paraTable.py", line 20, in __init__
+    self.model = pandasModel(info_df)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 29, in __init__
+    self._data = self.addColumnToDf(data, barplot_flag, checkbox_flag)
+  File "D:\local_repo\CTA_UI\UI_widget\pandasModel.py", line 141, in addColumnToDf
+    data.insert(0, 'BarPlot', data.apply(lambda x: pairname_to_plotdir(x.name), axis=1))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\pandas\core\frame.py", line 4817, in insert
+    raise ValueError(f"cannot insert {column}, already exists")
+ValueError: cannot insert BarPlot, already exists
+

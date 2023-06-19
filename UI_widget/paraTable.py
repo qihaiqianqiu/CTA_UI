@@ -24,7 +24,7 @@ class paraTable(QTableWidget):
 
     # 刷新参数表并更新其在UI的显示
     def update(self): 
-        info_df = pd.read_csv(os.path.join(PARAM_PATH, 'BASE', 'params.csv')).reset_index(drop=True).set_index("pairs_id")
+        info_df = pd.read_csv(os.path.join(PARAM_PATH, 'BASE', 'params.csv')).reset_index(drop=True).set_index("pairs_id").sort_index()
         # 使用pandasModel将info_df转化为表格
         region_info, boundary_info, suffix_info = param_split(info_df)
         self.model = pandasModel(info_df)

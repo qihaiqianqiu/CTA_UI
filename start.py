@@ -27,9 +27,10 @@ class Arbitrator(QMainWindow):
             
     def __init__(self):
         super().__init__()
-        # in_buffer: 面板表格的当前内容
+        # in_buffer: 账户表当前内容
         self.in_buffer = []
         self.edit_buffer = []
+        self.param_edit_buffer = pd.DataFrame()
         # 账户表
         self.table = accountTable()
         # 参数表
@@ -77,13 +78,23 @@ class Arbitrator(QMainWindow):
         
         # 期货信息表
         dictAct = QAction('Show Dict', self)
-        dictAct.setShortcut('Ctrl+D')
+        dictAct.setShortcut('Ctrl+M')
         dictAct.triggered.connect(self.showDict)
 
-        # 撤回
-        undoAct = QAction('Undo', self)
-        undoAct.setShortcut('Ctrl+Z')
-        undoAct.triggered.connect(self.undo)
+        # 删除参数表中的勾选行
+        deletAct = QAction('Delete Param', self)
+        deletAct.setShortcut('Ctrl+D')
+        deletAct.triggered.connect(self.delete_param)
+        
+        # 撤回参数表修改
+        undoAct_param = QAction('Undo Param', self)
+        undoAct_param.setShortcut('Ctrl+Z')
+        undoAct_param.triggered.connect(self.undo_delete_param)
+        
+        # 撤回账户表修改
+        undoAct_acc = QAction('Undo Account', self)
+        undoAct_acc.setShortcut('Ctrl+X')
+        undoAct_acc.triggered.connect(self.undo)
 
         # 全选
         selectAllAct = QAction('Click all checkbox', self)
@@ -100,11 +111,15 @@ class Arbitrator(QMainWindow):
 
         self.dictMenu = menuBar.addMenu('&Dict')
         self.dictMenu.addAction(dictAct)
-
+        
+        
         self.editMenu = menuBar.addMenu('&Edit')
-        self.editMenu.addAction(undoAct)
+        self.editMenu.addAction(saveAct)
         self.editMenu.addAction(selectAllAct)
-
+        self.editMenu.addAction(deletAct)
+        self.editMenu.addAction(undoAct_param)
+        self.editMenu.addAction(undoAct_acc)
+        
         # ToolBar
         toolBar = self.addToolBar("")
 
@@ -117,7 +132,7 @@ class Arbitrator(QMainWindow):
         toolBar.addAction(addAccount)
 
         delAccount = QAction(QtGui.QIcon("./src/delete-user.png"), "delete account", self)
-        delAccount.triggered.connect(self.delete)
+        delAccount.triggered.connect(self.delete_user)
         toolBar.addAction(delAccount)
 
         editAccount = QAction(QtGui.QIcon("./src/edit.png"), "edit account", self)
@@ -297,11 +312,13 @@ class Arbitrator(QMainWindow):
         self.openDefaultFile()
         self.show()
         
+        
     @QtCore.pyqtSlot()
     def openDefaultFile(self):
         df = pd.read_excel('./info/account_info.xlsx', sheet_name="Sheet1")
         for line in df.values.tolist():
             self.addLine(line)
+
 
     @QtCore.pyqtSlot()
     def open(self):
@@ -309,6 +326,7 @@ class Arbitrator(QMainWindow):
         for pair in pd.read_excel(openfile_path[0], sheet_name='Sheet1').values.tolist():
             self.addLine(pair)
         self.status.showMessage("账户配置导入完成")
+    
     
     # 未启用：SFTP传输模块
     @QtCore.pyqtSlot()
@@ -350,6 +368,7 @@ class Arbitrator(QMainWindow):
             current_content.insert(0, temp)
         self.in_buffer = current_content
 
+
     @QtCore.pyqtSlot()
     def addLine(self, line:list):
         row = self.table.rowCount()
@@ -364,6 +383,7 @@ class Arbitrator(QMainWindow):
         for i in range(len(line)):
             self.table.setItem(row,i+1,QTableWidgetItem(str(line[i])))
         self.update_inbuffer()
+
 
     # 添加账户的对话框
     @QtCore.pyqtSlot()
@@ -384,16 +404,19 @@ class Arbitrator(QMainWindow):
         self.table.scrollToBottom()
         self.status.showMessage("添加账户:"+ str(id))
 
+
     # 以下为更新参数表模块
     @QtCore.pyqtSlot()
     def update_progressbar(self, progressbar, value):
         progressbar.setValue(value)
+
 
     @QtCore.pyqtSlot()
     def run_predict_info(self, region_info, end_date, end_section, q, step, ratio, flag, cache_path, progressbar):
         result = calculate_parameter.predict_info(region_info, end_date, end_section, q, step, ratio, flag, cache_path)
         progressbar.setValue(100)
         return result
+    
     
     @QtCore.pyqtSlot()
     def upload_param(self):
@@ -402,12 +425,14 @@ class Arbitrator(QMainWindow):
         for account in acc_lst:
             sftp_file_transfer.sftp_transfer(conn, account, "activate")
 
+
     @QtCore.pyqtSlot()
     def download_holdings(self):
         conn = sftp_file_transfer.sftp_conn("bridge")
         acc_lst = sftp_file_transfer.get_acc_lst()
         for account in acc_lst:
             sftp_file_transfer.sftp_transfer(conn, account, "planned_times")
+
 
     @QtCore.pyqtSlot()
     def start_prediction(self, region_info, end_date, end_section, q, step, ratio, flag, cache_path, progressbar):
@@ -419,6 +444,7 @@ class Arbitrator(QMainWindow):
                 QtWidgets.QApplication.processEvents()  # 允许 GUI 线程响应事件
         result = future.result()
         return result
+    
     
     @QtCore.pyqtSlot()
     def get_param(self, dialog):
@@ -474,6 +500,7 @@ class Arbitrator(QMainWindow):
                 
         self.status.showMessage("区界信息已生成")
     
+    
     @QtCore.pyqtSlot()
     def check_param_pairs(self):
         self.check_dialog = checkParaDialog()
@@ -497,11 +524,13 @@ class Arbitrator(QMainWindow):
         visualize.plot_time_series(date=date, back_period=back_period)
         self.status.showMessage("固定套利对时序分析图生成完成（barplot目录）")
 
+
     @QtCore.pyqtSlot()
     def export_param(self):
         dialog = addBoundDialog()
         dialog.accepted.connect(lambda: self.get_param(dialog))
         dialog.exec()
+
 
     @QtCore.pyqtSlot()
     def visualize(self):
@@ -509,10 +538,12 @@ class Arbitrator(QMainWindow):
         dialog.accepted.connect(lambda: self.visualization(dialog))
         dialog.exec()
     
+    
     @QtCore.pyqtSlot()
     def update_base_info(self):
         self.param.update()
         QMessageBox.information(self, "刷新完成", "BASE参数表更新完成")
+
 
     @QtCore.pyqtSlot()
     # 使UI主界面参数表与存储的参数表同步
@@ -531,8 +562,9 @@ class Arbitrator(QMainWindow):
         dialog.accepted.connect(lambda: self.add_dialog(dialog))
         dialog.exec()
         
+        
     @QtCore.pyqtSlot()
-    def delete(self):
+    def delete_user(self):
         for i in range(self.table.rowCount(), 0, -1):
             if self.table.cellWidget(i-1, 0).findChild(type(QCheckBox())).isChecked():
                 temp = [self.table.item(i-1,j).text() for j in range(1, self.table.columnCount())]
@@ -541,6 +573,29 @@ class Arbitrator(QMainWindow):
                     self.edit_buffer.append(temp)
         self.update_inbuffer()
         self.status.showMessage("已删除勾选套利对")
+        
+        
+    @QtCore.pyqtSlot()
+    def delete_param(self):
+        param_df = self.param.model._data
+        delete_line = param_df[param_df['CheckBox'] == True]
+        delete_line = delete_line.loc[:, ~param_df.columns.isin(['CheckBox', 'BarPlot'])]
+        print(delete_line)
+        self.param_edit_buffer = pd.concat([self.param_edit_buffer, delete_line])
+        keep_line = param_df[param_df['CheckBox'] == False]
+        keep_line = keep_line.loc[:, ~param_df.columns.isin(['CheckBox', 'BarPlot'])]
+        keep_line.to_csv(os.path.join(const.PARAM_PATH, 'BASE', 'params.csv'))
+        self.refresh(True)
+    
+    
+    @QtCore.pyqtSlot()
+    def undo_delete_param(self):
+        param_df = self.param.model._data
+        param_df = param_df.loc[:, ~param_df.columns.isin(['CheckBox', 'BarPlot'])]
+        param_df = pd.concat([param_df, self.param_edit_buffer])
+        param_df.to_csv(os.path.join(const.PARAM_PATH, 'BASE', 'params.csv'))
+        self.refresh(True)
+            
 
     @QtCore.pyqtSlot()
     def move_row_down(self):
@@ -605,6 +660,7 @@ class Arbitrator(QMainWindow):
             self.status.showMessage("开启编辑功能,可修改账户表")
             self.editable = True
 
+
     @QtCore.pyqtSlot()
     def save(self):
         self.update_inbuffer()
@@ -615,6 +671,7 @@ class Arbitrator(QMainWindow):
         region_info, boundary_info, suffix_info = transform.param_split(param_df)
         param_df.to_csv(os.path.join(const.PARAM_PATH, 'BASE', 'params.csv'))
         self.status.showMessage("账户参数表保存成功")
+
 
     @QtCore.pyqtSlot()
     def audit(self):
@@ -669,6 +726,7 @@ class Arbitrator(QMainWindow):
             dialog.setWindowTitle("日成交对比")
             dialog.exec_()
             QMessageBox.information(self, "导出持仓对比完成", "持仓对比结果存储在day_compare目录下")
+            
         except FileNotFoundError as e1:
             print(e1)
             QMessageBox.information(self, "读取日成交失败--" + acc_name, "TmpValue文件未生成在对应账户目录")
@@ -775,6 +833,7 @@ if __name__ == '__main__':
         app = QApplication(sys.argv)
         ex = Arbitrator()
         sys.exit(app.exec_())
+        
     except Exception as e:
         error_info = traceback.format_exc()
         with open("error_log.txt", "a+", encoding='utf-8') as err_file:

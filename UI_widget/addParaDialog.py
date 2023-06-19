@@ -184,6 +184,7 @@ class addParaDialog(QDialog):
             if not self.sp_checkbox.isChecked():
                 param_line.drop(["If_SP", "SP_InstrumentID"], axis=1, inplace=True)
             old_param = pd.concat([old_param, param_line], axis=0)
+        old_param = old_param.sort_values(by=["pairs_id"])
         old_param.to_csv(os.path.join(PARAM_PATH, 'BASE', "params.csv"), index=False)
         print("Sent good signal to CheckParam")
         QMessageBox.information(self, "参数添加成功", "参数添加成功！")
