@@ -7,7 +7,7 @@ import datetime
 
 # 获取合约对名称，SP指令，成交量等信息
 
-all = ["get_db_contract_pair",  "check_vaild_month", "get_param_contract_pair_with_volume", "get_param_contract_pair"]
+all = ["get_db_contract_pair",  "check_vaild_month", "get_param_contract_pair_with_volume", "get_param_contract_pair", "check_vaild_month_with_volume", "check"]
 
 def get_param_contract_pair():
     breed_lst = []
@@ -65,7 +65,7 @@ def get_db_contract_pair():
         contract_pair_dict[breed_class[0]] = contract_pair_lst
     return contract_pair_dict
 
-
+#检查是否可转抛
 def check(breed:str, month:int):
     if breed in invalid_month_dict.keys():
         if month in invalid_month_dict[breed]:
@@ -122,4 +122,6 @@ def get_sp_instruction():
 
 
 if __name__ == "__main__":
-    print(get_contract_pair_rank(['IH2309', 'IH2312']))
+    print(check_vaild_month())
+    #print(get_contract_pair_rank(['IH2309', 'IH2312']))
+    print(check("B", ))
