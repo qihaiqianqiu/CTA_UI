@@ -1,9 +1,12 @@
 
 # 开启/关闭反套
 # 开启/关闭不可转抛合约
-import sys
-from PyQt5.QtWidgets import QSlider, QWidget, QGridLayout, QLabel, QDialog, QApplication
+import sys, os
+import pandas as pd
+from PyQt5.QtWidgets import QSlider, QGridLayout, QLabel, QDialog, QApplication, QDialogButtonBox, QCheckBox, QMessageBox
 from PyQt5.QtCore import Qt
+from utils.const import PARAM_PATH
+from utils.mute import mute_by_instruct
 
 class muteMonth(QDialog):
     def __init__(self):
@@ -17,39 +20,52 @@ class muteMonth(QDialog):
         self.generate_line("反套", i+1)
         self.generate_line("不可转抛合约", i+2)
         self.generate_line("全合约", i+3)
+        self.buttonBox = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+        self.buttonBox.accepted.connect(self.submit_mute)
+        self.buttonBox.rejected.connect(self.reject)
+        self.layout.addWidget(self.buttonBox, i+4, 0, 1, 2)
         self.setLayout(self.layout)
+        self.title = "开启/关闭合约交易"
+        
 
-    def on_slider_change(self, value):
-        # 当用户移动滑块时触发此函数
-        # 检查滑块所控制的范围
-        slider = self.sender()  # 获取发射信号的对象
-        row = self.layout.getItemPosition(self.layout.indexOf(slider))[0]  # 获取行
-        # 获取Mute指令
-        label = self.layout.itemAtPosition(row, 0).widget()  # 获取同一行的QLabel控件
-        if value == 0:
-            print("关闭")
-        elif value == 1:
-            print("开启")
-        self.mute[label.text()] = self.layout.itemAtPosition(row, 1).widget().value()
-        print(self.mute)
         
     def generate_line(self, instruct:str, position:int):
         label = QLabel(instruct)
         slider = QSlider(Qt.Horizontal)
+        checker = QCheckBox()
         slider.setMinimum(0)
         slider.setMaximum(1)
         slider.setSliderPosition(1) # 初始状态为开启
-        slider.valueChanged.connect(self.on_slider_change)
-        self.layout.addWidget(label, position, 0)
-        self.layout.addWidget(slider, position, 1)
-        self.mute[label.text()] = slider.value()
+        self.layout.addWidget(checker, position, 0)
+        self.layout.addWidget(label, position, 1)
+        self.layout.addWidget(slider, position, 2)
+                
         
-    def mute_by_instruct(self, instruct:str):
-        if instruct in ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']:
-            pass
-        
-        
-        
+    def submit_mute(self):
+        df = pd.read_csv(os.path.join(PARAM_PATH, 'BASE', "params.csv"))
+        # 遍历被选中的操作
+        for i in range(15):
+            rowWidget = self.layout.itemAtPosition(i, 0).widget()
+            if rowWidget.isChecked():
+                instruct = self.layout.itemAtPosition(i, 1).widget().text()
+                self.mute[instruct] = self.layout.itemAtPosition(i, 2).widget().value()
+        # 根据mute指令修改df
+        if(len(self.mute) == 0):
+            QMessageBox.warning(self, "警告", "未选择任何操作")
+        else:
+            txt = ""
+            for key, values in self.mute.items():
+                if values == 0:
+                    txt += key + " " + "合约开启" + "\n"
+                else:
+                    txt += key + " " + "合约关闭" + "\n"
+                df = mute_by_instruct(key, values, df)        
+            df.to_csv(os.path.join(PARAM_PATH, 'BASE', "params.csv"), index=False)
+            self.mute = {}
+            QMessageBox.information(self, "修改成功", txt)
+            self.close()
+    
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     dialog = muteMonth()
