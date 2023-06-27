@@ -37,6 +37,7 @@ def get_param_contract_pair_with_volume():
     previous_trading_date = trade_day[trade_day.index(to_trading_day_backwards(int(today))) - 1]
     SQL = "SELECT distinct contract, breed, max(volume) from " + cta_table + " where breed in " + str(tuple(breed_lst)) + " and trading_date = " + str(previous_trading_date) + " group by contract, breed"
     df = client.query_dataframe(SQL).sort_values('contract')
+    print(df)
     contract_pair_dict = {}
     for breed_class in df.groupby('breed'):
         contract_pair_lst = []
@@ -44,6 +45,7 @@ def get_param_contract_pair_with_volume():
         volume_lst = breed_class[1]['max_volume_'].tolist()
         contract_pair_lst += [[rename_db_to_param(contract_lst[i]), rename_db_to_param(contract_lst[i+1]), min(volume_lst[i], volume_lst[i+1])] for i in range(len(contract_lst)-1)]
         contract_pair_dict[breed_class[0]] = contract_pair_lst
+    print(contract_pair_dict)
     return contract_pair_dict
 
 
@@ -102,6 +104,7 @@ def check_vaild_month(volume_threshold=80):
         df = pd.concat([df, breed_df], axis=0)
         df = df[['contract_pair', 'flag', 'volume']]
         df = df[df['volume'] >= volume_threshold]
+    print(df)
     return df[['contract_pair', 'flag', 'volume']]
 
 def get_contract_pair_rank(contract_pair: list):
@@ -124,4 +127,3 @@ def get_sp_instruction():
 if __name__ == "__main__":
     print(check_vaild_month())
     #print(get_contract_pair_rank(['IH2309', 'IH2312']))
-    print(check("B", ))

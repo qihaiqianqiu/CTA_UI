@@ -958,3 +958,13 @@ Traceback (most recent call last):
     raise ValueError(f"cannot insert {column}, already exists")
 ValueError: cannot insert BarPlot, already exists
 
+2023-06-20 15:34:42
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 831, in <module>
+    ex = Arbitrator()
+  File "D:\local_repo\CTA_UI\start.py", line 40, in __init__
+    self.initUI()
+  File "D:\local_repo\CTA_UI\start.py", line 251, in initUI
+    btn_check.clicked.connect(self.check_param_pairs)
+AttributeError: 'Arbitrator' object has no attribute 'check_param_pairs'
+

@@ -5,15 +5,16 @@ import sys, os
 import pandas as pd
 from PyQt5.QtWidgets import QSlider, QGridLayout, QLabel, QDialog, QApplication, QDialogButtonBox, QCheckBox, QMessageBox
 from PyQt5.QtCore import Qt
+from PyQt5.QtCore import pyqtSignal
 from utils.const import PARAM_PATH
 from utils.mute import mute_by_instruct
 
 class muteMonth(QDialog):
+    refresh_signal = pyqtSignal(bool)
     def __init__(self):
         super().__init__()
         self.layout = QGridLayout()
         self.mute = {}
-        
         # 添加全部功能
         for i in range(12):
             self.generate_line(str(i+1) + "月", i)
@@ -56,12 +57,13 @@ class muteMonth(QDialog):
             txt = ""
             for key, values in self.mute.items():
                 if values == 0:
-                    txt += key + " " + "合约开启" + "\n"
-                else:
                     txt += key + " " + "合约关闭" + "\n"
+                else:
+                    txt += key + " " + "合约开启" + "\n"
                 df = mute_by_instruct(key, values, df)        
             df.to_csv(os.path.join(PARAM_PATH, 'BASE', "params.csv"), index=False)
             self.mute = {}
+            self.refresh_signal.emit(True)
             QMessageBox.information(self, "修改成功", txt)
             self.close()
     

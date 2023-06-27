@@ -55,9 +55,9 @@ class checkParaDialog(QDialog):
         self.setWindowTitle("可添加套利对")
         
         
-    # 将信号传递给主窗口
+    # 将信号传递给工具箱窗口
     def pass_add_signal(self, flag):
-        print("sending signal to mainUI:", flag)
+        print("sending signal to toolKit:", flag)
         self.add_signal_outer.emit(flag)
         if flag == True:
             self.close()

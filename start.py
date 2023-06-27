@@ -21,10 +21,7 @@ import os
 from utils import *
 from UI_widget import *
 
-class Arbitrator(QMainWindow):
-    
-
-            
+class Arbitrator(QMainWindow):    
     def __init__(self):
         super().__init__()
         # in_buffer: 账户表当前内容
@@ -241,7 +238,7 @@ class Arbitrator(QMainWindow):
                              "QPushButton:pressed {padding-left:6px;padding-top:6px;border:1px solid #f8878f;}")
         btn9.clicked.connect(self.export_trading_compare_table)
 
-        btn_check = QPushButton("检查参数表", self)
+        btn_check = QPushButton("工具箱", self)
         btn_check.setFont(font)
         btn_check.setObjectName("pushButton")
         btn_check.setStyleSheet("QPushButton{background:qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, "
@@ -251,7 +248,7 @@ class Arbitrator(QMainWindow):
                              "color:#d0f2f5} "
                              "QPushButton:hover:!pressed {border:1px solid #f8878f;}"
                              "QPushButton:pressed {padding-left:6px;padding-top:6px;border:1px solid #f8878f;}")
-        btn_check.clicked.connect(self.check_param_pairs)
+        btn_check.clicked.connect(self.open_toolkit)
         
         btn_up = QPushButton("上传参数表", self)
         btn_up.setFont(font)
@@ -407,6 +404,13 @@ class Arbitrator(QMainWindow):
 
     # 以下为更新参数表模块
     @QtCore.pyqtSlot()
+    def open_toolkit(self):
+        self.toolkit = toolKit()
+        self.toolkit.show()
+        self.toolkit.refresh_signal.connect(lambda flag: self.refresh(flag))
+        
+        
+    @QtCore.pyqtSlot()
     def update_progressbar(self, progressbar, value):
         progressbar.setValue(value)
 
@@ -500,13 +504,6 @@ class Arbitrator(QMainWindow):
                 
         self.status.showMessage("区界信息已生成")
     
-    
-    @QtCore.pyqtSlot()
-    def check_param_pairs(self):
-        self.check_dialog = checkParaDialog()
-        self.check_dialog.add_signal_outer.connect(lambda flag: self.refresh(flag))
-        self.check_dialog.show()
-        self.status.showMessage("套利对检查完成")
 
         
     @QtCore.pyqtSlot()
