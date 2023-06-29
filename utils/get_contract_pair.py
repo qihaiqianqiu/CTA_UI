@@ -113,6 +113,7 @@ def get_contract_pair_rank(contract_pair: list):
     today = datetime.datetime.today().strftime('%Y%m%d')
     previous_trading_date = trade_day[trade_day.index(to_trading_day_backwards(int(today))) - 1]
     SQL = "SELECT distinct contract, max(volume) from " + cta_table + " where contract in " + str(tuple(contract_pair)) + " and trading_date = " + str(previous_trading_date) + " group by contract"
+    print(SQL)
     df = client.query_dataframe(SQL).sort_values('max_volume_', ascending=False)
     print(df)
     first_contract = df['contract'].tolist()[0]

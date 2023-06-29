@@ -163,10 +163,10 @@ class addParaDialog(QDialog):
                 return contract_code
             param_dict["first_instrument"] = get_exchange_on(first_contract_code)
             param_dict["second_instrument"] = get_exchange_on(second_contract_code)
-            param_dict["prime_instrument"] = get_exchange_on(ins_ranking[0])
-            up_boundary = ["up_boundary_5", "up_boundary_4", "up_boundary_3", "up_boundary_2", "up_boundary_1"]
+            param_dict["prime_instrument"] = get_exchange_on(ins_ranking[0].upper())
+            up_boundary = ["boundary_tick_lock", "up_boundary_5", "up_boundary_4", "up_boundary_3", "up_boundary_2", "up_boundary_1"]
             down_boundary = ["down_boundary_1", "down_boundary_2", "down_boundary_3", "down_boundary_4", "down_boundary_5"]
-            boundary_list = ["boundary_tick_lock", "boundary_unit_num"]
+            boundary_list = ["boundary_unit_num"]
             for label in boundary_list:
                 param_dict[label] = "0"
             for label in up_boundary:

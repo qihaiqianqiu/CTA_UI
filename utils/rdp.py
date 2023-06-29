@@ -14,7 +14,7 @@ def rdp_transmission_demo():
     import time
     time.sleep(1)
 
-    # 复制本地文件到系统剪贴板
+    # 复制本地文件到系统剪贴板【例如params.csv中的内容】
     import win32clipboard
     with open(local_file_path, 'rb') as f:
         file_data = f.read()
@@ -30,13 +30,9 @@ def rdp_transmission_demo():
 
     # 在远程计算机上粘贴文件
     subprocess.run(f"cmd /c echo.|set /p=\"{remote_file_path}\"|clip", shell=True)
-    print("1", win32clipboard.GetClipboardData(win32clipboard.CF_UNICODETEXT))
     subprocess.run(f"cmd /c start {rdp_clip_exe} \\tsclient", shell=True)
-    print("2", win32clipboard.GetClipboardData(win32clipboard.CF_UNICODETEXT))
     time.sleep(1)
-    subprocess.run(f"cmd /c echo.|set /p=\"%Clipboard%\"|clip", shell=True)
     print("3", win32clipboard.GetClipboardData(win32clipboard.CF_UNICODETEXT))
-    subprocess.run(f"cmd /c start /wait cmd /c \"if not exist \"%Clipboard%\" exit 1\"", shell=True)
     print("4", win32clipboard.GetClipboardData(win32clipboard.CF_UNICODETEXT))
 
 
