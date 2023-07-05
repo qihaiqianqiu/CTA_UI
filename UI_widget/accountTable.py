@@ -1,5 +1,4 @@
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
+from PyQt5.QtWidgets import QDesktopWidget, QTableWidget, QAbstractItemView, QFrame
 from . import layout_constants
 all = ["accountTable"]
 class accountTable(QTableWidget):

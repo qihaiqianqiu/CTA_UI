@@ -5,6 +5,7 @@ import json
 import time
 import asyncio
 import traceback
+import datetime
 
 def windows_to_linux(path):
     return path.replace("\\", "/")
@@ -18,7 +19,7 @@ def linux_to_windows(path):
 def pull_from_market_to_trading(config_file):
     """从行情服务器向交易服务器传送参数表"""
     # 获取config文件所在的目录，找到对应交易员与账户
-    ftp_config = json.load(open(config_file))
+    ftp_config = json.load(open(os.path.join(".\sftp_configs", config_file)))
     trade_server_para = ftp_config["tradeServer"]
     ssh = sftp.SSHConnection(host=trade_server_para['host'], port=trade_server_para['port'],
                              username=trade_server_para['username'], pwd=trade_server_para['pwd'])
@@ -34,12 +35,12 @@ def pull_from_market_to_trading(config_file):
         trade_param_dir = os.path.join(trade_dir_list[idx], "params.csv")
         ssh.upload(market_param_dir, trade_param_dir)
         print("行情服务器参数表成功上传至交易端", trade_param_dir)    
-    
+    ssh.close() 
     
 def request_from_market_cloud(config_file):
     """行情服务器从云服务器获取最新的参数表与链路信息"""
     # 根目录 行情服务器的CTA文件夹
-    ftp_config = json.load(open(config_file))
+    ftp_config = json.load(open(os.path.join(".\sftp_configs", config_file)))
     cloud_server_para = ftp_config["cloudServer"]
     ssh = sftp.SSHConnection(host=cloud_server_para['host'], port=cloud_server_para['port'],
                              username=cloud_server_para['username'], pwd=cloud_server_para['pwd'])
@@ -57,23 +58,23 @@ def request_from_market_cloud(config_file):
         # 获取最新的参数表
         ssh.download(windows_to_linux(os.path.join(acc_cloud_dir, "params.csv")), os.path.join(acc_dest_dir, "params.csv"))
         print("云服务器参数表成功下载至行情端", acc_dest_dir)
-        
+    ssh.close()    
 
 async def config_task(config):
     f = open("error_log.txt", "a+")
-    try:
-        while True:
+    while True:
+        try:
             request_from_market_cloud(config)
             pull_from_market_to_trading(config)
-    except Exception as e:
-        error_info = traceback.format_exc()
-        f.write(str(error_info))
-    f.close()
-    await asyncio.sleep(1)
+        except Exception as e:
+            f.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
+            error_info = traceback.format_exc()
+            f.write(str(error_info))
+        await asyncio.sleep(1)
 
 
 async def main():
-    config_lst = [f for f in os.listdir() if ".json" in f]
+    config_lst = [f for f in os.listdir("sftp_configs") if ".json" in f]
     for config in config_lst:
         await config_task(config)
     

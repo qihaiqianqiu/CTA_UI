@@ -63,7 +63,7 @@ class Arbitrator(QMainWindow):
         
         # 退出
         exitAct = QAction('Exit', self)
-        exitAct.setShortcut('Ctrl+W')
+        exitAct.setShortcut('Ctrl+L')
         exitAct.setStatusTip('退出')
         exitAct.triggered.connect(self.close)
 
@@ -102,7 +102,6 @@ class Arbitrator(QMainWindow):
         menuBar = self.menuBar()
         self.fileMenu = menuBar.addMenu('&File')
         self.fileMenu.addAction(appendAct)
-        self.fileMenu.addAction(saveAct)
         self.fileMenu.addAction(exitAct)
 
 
@@ -166,6 +165,7 @@ class Arbitrator(QMainWindow):
         font.setFamily("方正粗黑宋简体")
         font.setPointSize(18)
 
+        # 计算界参数
         btn4 = QPushButton("导出参数", self)
         btn4.setFont(font)
         btn4.setObjectName("pushButton")
@@ -424,10 +424,10 @@ class Arbitrator(QMainWindow):
     
     @QtCore.pyqtSlot()
     def upload_param(self):
-        conn = sftp_file_transfer.sftp_conn("bridge")
-        acc_lst = sftp_file_transfer.get_acc_lst()
-        for account in acc_lst:
-            sftp_file_transfer.sftp_transfer(conn, account, "activate")
+        config_file_lst = os.listdir(os.path.join(const.ROOT_PATH, "sftp_configs"))
+        for config in config_file_lst:
+            sftp_file_transfer.pull_from_UI_to_cloud(config)
+        QMessageBox.information(self, "上传完成", "参数表已上传至云端")
 
 
     @QtCore.pyqtSlot()
@@ -667,6 +667,16 @@ class Arbitrator(QMainWindow):
         param_df = param_df.loc[:, ~param_df.columns.isin(['CheckBox', 'BarPlot'])]
         region_info, boundary_info, suffix_info = transform.param_split(param_df)
         param_df.to_csv(os.path.join(const.PARAM_PATH, 'BASE', 'params.csv'))
+        # 再从基表分发给各个账户表
+        for acc in self.in_buffer:
+            id = acc[0]
+            region_budget = float(acc[4])
+            boundary_budget = float(acc[5])
+            acc_param_df = param_df.copy()
+            acc_param_df['region_unit_num'] = acc_param_df.apply(lambda x: int(round(x['region_unit_num'] * region_budget,0)), axis=1)
+            acc_param_df['boundary_unit_num'] = acc_param_df.apply(lambda x: int(round(x['boundary_unit_num'] * boundary_budget,0)), axis=1)
+            acc_param_df.to_csv(os.path.join(const.PARAM_PATH, id, 'params.csv'))
+            print("已分发参数表：", id)
         self.status.showMessage("账户参数表保存成功")
 
 

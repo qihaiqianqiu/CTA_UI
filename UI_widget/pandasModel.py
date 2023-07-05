@@ -1,6 +1,6 @@
 from PyQt5 import Qt
 from PyQt5.QtGui import QIcon, QDesktopServices, QMouseEvent
-from PyQt5.QtWidgets import QTableView, QAbstractItemView
+from PyQt5.QtWidgets import QTableView, QAbstractItemView, QAbstractScrollArea, QHeaderView
 from PyQt5.QtCore import QUrl, QModelIndex, QAbstractTableModel, Qt
 from PyQt5.QtGui import QIcon, QDesktopServices, QMouseEvent
 import os
@@ -28,7 +28,12 @@ class pandasModel(QAbstractTableModel):
         self.checkbox_flag = checkbox_flag
         self._data = self.addColumnToDf(data, barplot_flag, checkbox_flag)
         # 在.0时不显示小数
-        self._data = self._data.apply(lambda x: x.apply(lambda y: '{:.0f}'.format(y) if y == int(y) else y) if x.dtype == float else x)
+        def convert_decimal_to_integer(x):
+            if isinstance(x, float) and x.is_integer():  # 检查元素是否为浮点数且小数部分为 0
+                return int(x)
+            else:
+                return x
+        self._data = self._data.applymap(convert_decimal_to_integer)
         
           
             
@@ -153,7 +158,9 @@ class TableView(QTableView):
         self.checkbox_flag = model.checkbox_flag
         self.updateHeaderSize()
         self.setEditTriggers(QAbstractItemView.DoubleClicked)
-
+        self.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
+        for i in range(1, self.model().columnCount()):
+            self.setColumnWidth(i, 100) 
 
     def updateHeaderSize(self):
         for row in range(self.model().rowCount()):

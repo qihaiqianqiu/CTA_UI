@@ -26,7 +26,7 @@ class muteMonth(QDialog):
         self.buttonBox.rejected.connect(self.reject)
         self.layout.addWidget(self.buttonBox, i+4, 0, 1, 2)
         self.setLayout(self.layout)
-        self.title = "开启/关闭合约交易"
+        self.setWindowTitle("开启/关闭合约交易")  
         
 
         

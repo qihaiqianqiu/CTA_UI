@@ -24,7 +24,7 @@ class toolKit(QDialog):
         self.layout.addWidget(btn3, 1, 0)
         self.layout.addWidget(btn4, 1, 1)
         self.setLayout(self.layout)
-        
+        self.setWindowTitle("工具箱")
         btn1.clicked.connect(self.check_param_pairs)
         btn2.clicked.connect(self.mute)
 
