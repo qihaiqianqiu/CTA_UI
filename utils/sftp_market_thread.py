@@ -4,6 +4,7 @@ import sftp
 import json
 import time
 import asyncio
+import traceback
 
 def windows_to_linux(path):
     return path.replace("\\", "/")
@@ -43,12 +44,12 @@ def request_from_market_cloud(config_file):
     ssh = sftp.SSHConnection(host=cloud_server_para['host'], port=cloud_server_para['port'],
                              username=cloud_server_para['username'], pwd=cloud_server_para['pwd'])
     ssh.connect()
-    username = cloud_server_para['username']
+    username = ftp_config['userName']
     cta_cloud_dir = os.path.join("CTA", username)
     os.system("mkdir " + username)
     # 获取最新的链路配置表
     ssh.download(windows_to_linux(os.path.join(cta_cloud_dir, config_file)), os.path.join(username, config_file))
-    for acc in cloud_server_para['accountLst']:
+    for acc in ftp_config['accountList']:
         acc_cloud_dir = os.path.join(cta_cloud_dir, acc)
         acc_dest_dir = os.path.join(username, acc)
         # 首先保证本地目录已经创建
@@ -65,7 +66,8 @@ async def config_task(config):
             request_from_market_cloud(config)
             pull_from_market_to_trading(config)
     except Exception as e:
-        f.write(str(e))
+        error_info = traceback.format_exc()
+        f.write(str(error_info))
     f.close()
     await asyncio.sleep(1)
 
