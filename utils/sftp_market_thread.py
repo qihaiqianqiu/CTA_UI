@@ -1,42 +1,15 @@
-import json
-from . import sftp
-from . import path_exp_switch
+import paramiko
 import os
-import pandas as pd
-from utils.const import ROOT_PATH, INFO_PATH
-from utils.path_exp_switch import windows_to_linux
+import sftp
+import json
+import time
+import asyncio
 
-__all__ = ["pull_from_UI_to_cloud"]
+def windows_to_linux(path):
+    return path.replace("\\", "/")
 
-
-def pull_from_UI_to_cloud(config_file):
-    """
-    从UI端向云服务器传送参数表，链路配置
-    Args:
-        config_file (_type_): _description_
-    """
-    ftp_config_dir = os.path.join(ROOT_PATH, "sftp_configs", config_file)
-    ftp_config = json.load(open(ftp_config_dir))
-    cloud_server_para = ftp_config["cloudServer"]
-    ssh = sftp.SSHConnection(host=cloud_server_para['host'], port=cloud_server_para['port'],
-                             username=cloud_server_para['username'], pwd=cloud_server_para['pwd'])
-    ssh.connect()
-    # 参数表推送
-    username = ftp_config["userName"]
-    account_list = ftp_config["accountList"]
-    dest_user_dir = os.path.join("CTA", username)
-    ssh.cmd("mkdir -p " + windows_to_linux(dest_user_dir))
-    ssh.upload(ftp_config_dir, windows_to_linux(os.path.join(dest_user_dir, config_file)))
-    for acc in account_list:
-        # 首先，保证云服务器端建立相应的存储目录
-        dest_acc_dir = os.path.join(dest_user_dir, acc)
-        ssh.cmd("mkdir -p " + windows_to_linux(dest_acc_dir))
-        # 上传参数表, 链路配置表
-        param_dir = os.path.join(ROOT_PATH, "params", acc, "params.csv")
-        print(param_dir)
-        ssh.upload(param_dir, windows_to_linux(os.path.join(dest_acc_dir, "params.csv")))
-        print("参数表成功上传至", dest_acc_dir)
-    
+def linux_to_windows(path):
+    return path.replace("/", "\\")
 
 # 以下部署在行情服务器上 CTA目录下【同步自云服务器】
 # 行情服务器的方法挂载在后台实时运行
@@ -59,7 +32,7 @@ def pull_from_market_to_trading(config_file):
         market_param_dir = os.path.join(username, account_list[idx], "params.csv")
         trade_param_dir = os.path.join(trade_dir_list[idx], "params.csv")
         ssh.upload(market_param_dir, trade_param_dir)
-        print("参数表成功上传至", trade_param_dir)    
+        print("行情服务器参数表成功上传至交易端", trade_param_dir)    
     
     
 def request_from_market_cloud(config_file):
@@ -82,8 +55,24 @@ def request_from_market_cloud(config_file):
         os.system("mkdir " + acc_dest_dir)
         # 获取最新的参数表
         ssh.download(windows_to_linux(os.path.join(acc_cloud_dir, "params.csv")), os.path.join(acc_dest_dir, "params.csv"))
-
-
+        print("云服务器参数表成功下载至行情端", acc_dest_dir)
         
-if __name__ == "__main__":
-    pull_from_UI_to_cloud("huajing34.json")
+
+async def config_task(config):
+    f = open("error_log.txt", "a+")
+    try:
+        while True:
+            request_from_market_cloud(config)
+            pull_from_market_to_trading(config)
+    except Exception as e:
+        f.write(str(e))
+    f.close()
+    await asyncio.sleep(1)
+
+
+async def main():
+    config_lst = [f for f in os.listdir() if ".json" in f]
+    for config in config_lst:
+        await config_task(config)
+    
+asyncio.run(main())        

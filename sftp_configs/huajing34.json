@@ -1,0 +1,23 @@
+{
+    "userName" : "feng",
+
+    "cloudServer": {
+        "host": "39.97.106.35",
+        "port" : 22,
+        "username": "root",
+        "pwd": "Wojiaomt1"
+    },
+
+    "tradeServer": {
+        "host": "10.72.2.34",
+        "port" : 22,
+        "username": "Administrator",
+        "pwd": "Gtjaqh@123"
+    },
+
+    "localUIDir": "D:\\local_repo\\CTA_UI",
+    
+    "accountList": ["ch3", "ch5"],
+
+    "tradeDirList": ["C:\\Users\\Administrator\\Desktop\\cta_lq_ch3\\testdir", "C:\\Users\\Administrator\\Desktop\\cta_lq_ch5\\testdir"]
+}
