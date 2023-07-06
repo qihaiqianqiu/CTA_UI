@@ -5,9 +5,16 @@
         "host": "39.97.106.35",
         "port" : 22,
         "username": "root",
-        "pwd": "Wojiaomt1"
+        "pwd": "Wojiaomt1",
+        "reverse_port": 9876
     },
 
+    "marketServer": {
+        "username": "Administrator",
+        "pwd": "601318",
+        "mktDir": "C:\\Users\\Administrator\\Desktop\\CTA"
+    },
+    
     "tradeServer": {
         "host": "10.72.2.34",
         "port" : 22,

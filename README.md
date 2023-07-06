@@ -21,10 +21,76 @@
 - （已实现）pandasModel的列宽有些不够，应该根据内容的长短适应性改变尺寸
 
 ## 文件传输、监控链路
-- 方案1： 不做内网穿透，云服务器做中转中枢
 1. 链路 SSH实现，一个链路对应一个终点RDP对应一个Config
 2. UI中链路可视化 链路编辑 设置默认链路组合
 3. 每次传输的时候走Default链路组合
 4. 参数表修改日志，在云服务器运行计算()
+5. 使用rsync进行与中枢服务器保存的日志文件同步到本地：
+`rsync_example = "rsync -avPz --port 8730 --password-file=/cygdrive/C/Users/Han.Hao/AppData/Local/cwrsync/bin/cta_password.txt root@39.97.106.35::cta/ /cygdrive/C/Users/Han.Hao/test"`
+`rsync_pwd_path` & `rsync dest path`
 
-- 方案2： 做内网穿透，云服务器做备份(废案)
+- 方案1： 不做内网穿透，云服务器做中转中枢
+
+
+- 方案2： 做内网穿透，云服务器做备份
+- 方案3： 用云服务器做反向SSH的内网穿透
+  
+1. 在云服务器上，确保 SSH 服务已启动，并且允许反向隧道连接。你可以编辑 `/etc/ssh/sshd_config` 文件，确保以下配置项未被注释或设置为正确的值：
+
+   ```
+   GatewayPorts yes
+   AllowTcpForwarding yes
+   ```
+   之后记得重启服务器的SSHD: systemctl restart sshd
+
+2. 在本地主机上，使用以下命令建立反向 SSH 隧道，将本地主机的某个端口（例如 8888）转发到云服务器上的 SSH 端口（默认为 22）：
+
+   ```bash
+   ssh -i <私钥文件路径> -R 8888:localhost:22 <云服务器用户名>@<云服务器IP地址>
+   ```
+   以某行情服务器为例，在行情服务器上运行 ssh -R 9876:localhost:22 root@39.97.106.35
+   为了确保本地主机上的反向 SSH 隧道长时间存在并保持连接，使用 SSH 的 KeepAlive 机制：
+   使用 SSH 的 TCPKeepAlive 选项：在云服务器上的 SSH 配置文件 `/etc/ssh/sshd_config` 中，你可以设置 `TCPKeepAlive yes`，以确保 SSH 服务器也发送 KeepAlive 消息。这样可以防止服务器端因为长时间没有活动而关闭连接。
+   请注意，修改 SSH 服务器配置后，你需要重启 SSH 服务以使更改生效。
+   在建立反向 SSH 隧道时，可以通过 `-o ServerAliveInterval=<秒数>` 参数设置 SSH 的 KeepAlive 间隔时间。例如：-o ServerAliveInterval=60
+
+   ```bash
+   ssh -i <私钥文件路径> -o ServerAliveInterval=60 -R 8888:localhost:22 <云服务器用户名>@<云服务器IP地址>
+   ```
+   UI端推送参数表的时候，一方面给云服务器推送。另一方面给行情服务器直接推送。
+   推送时使用Paramiko建立SSH连接，等价命令: SSH -p 9876 adminstrator[行情服务器用户]@39.97.106.35[云服务器公网IP]
+
+   请注意替换 `<私钥文件路径>`、`<云服务器用户名>` 和 `<云服务器IP地址>` 为你实际的值。
+
+3. 在云服务器上，安装并配置 inotify 工具。例如，在 Ubuntu 上，你可以使用以下命令安装 inotify-tools：
+
+   ```bash
+   sudo apt-get install inotify-tools
+   ```
+
+4. 创建一个 Bash 脚本，用于监控云服务器上的文件变化并触发同步操作。以下是一个示例脚本：
+
+   ```bash
+   #!/bin/bash
+
+   SOURCE_DIR="<云服务器文件目录>"
+   DEST_DIR="<本地主机文件目录>"
+
+   inotifywait -m -r -e modify,create,delete "$SOURCE_DIR" |
+   while read path action file; do
+       rsync --inplace --update -e "ssh -p 8888" "$SOURCE_DIR/$file" "$DEST_DIR/$file"
+   done
+   ```
+
+   请注意替换 `<云服务器文件目录>` 和 `<本地主机文件目录>` 为你实际的值。
+
+   上述脚本使用 inotifywait 监控指定的云服务器文件目录，当文件发生修改、创建或删除时，将触发 rsync 命令进行同步。rsync 命令使用反向 SSH 隧道的端口（8888）连接到本地主机。
+
+5. 在云服务器上运行上述脚本：
+
+   ```bash
+   bash sync_script.sh
+   ```
+
+   脚本将开始监控云服务器上的文件变化，并在文件发生更改时触发同步操作。
+

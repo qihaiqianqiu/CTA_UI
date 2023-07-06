@@ -7,6 +7,10 @@ import asyncio
 import traceback
 import datetime
 
+
+rsync_example = "rsync -avPz --port 8730 --password-file=/cygdrive/C/Users/Han.Hao/AppData/Local/cwrsync/bin/cta_password.txt root@39.97.106.35::cta/ /cygdrive/C/Users/Han.Hao/test"
+# "rsync_pwd_path" & "rsync dest path"
+
 def windows_to_linux(path):
     return path.replace("\\", "/")
 

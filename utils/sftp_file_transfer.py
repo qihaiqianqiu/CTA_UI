@@ -6,7 +6,7 @@ import pandas as pd
 from utils.const import ROOT_PATH, INFO_PATH
 from utils.path_exp_switch import windows_to_linux
 
-__all__ = ["pull_from_UI_to_cloud"]
+__all__ = ["pull_from_UI_to_cloud", "pull_from_UI_to_market"]
 
 
 def pull_from_UI_to_cloud(config_file):
@@ -35,9 +35,40 @@ def pull_from_UI_to_cloud(config_file):
         param_dir = os.path.join(ROOT_PATH, "params", acc, "params.csv")
         print(param_dir)
         ssh.upload(param_dir, windows_to_linux(os.path.join(dest_acc_dir, "params.csv")))
-        print("参数表成功上传至", dest_acc_dir)
+        print("参数表成功上传至云端", dest_acc_dir)
     
 
+def pull_from_UI_to_market(config_file):
+    """
+    从UI端向云服务器传送参数表，链路配置
+    Args:
+        config_file (_type_): _description_
+    """
+    ftp_config_dir = os.path.join(ROOT_PATH, "sftp_configs", config_file)
+    ftp_config = json.load(open(ftp_config_dir))
+    cloud_server_para = ftp_config["cloudServer"]
+    market_server_para = ftp_config["marketServer"]
+    
+    ssh = sftp.SSHConnection(host=cloud_server_para['host'], port=cloud_server_para['reverse_port'],
+                             username=market_server_para['username'], pwd=market_server_para['pwd'])
+    ssh.connect()
+    # 参数表推送
+    username = ftp_config["userName"]
+    account_list = ftp_config["accountList"]
+    dest_user_dir = market_server_para["mktDir"]
+    ssh.cmd("mkdir " + dest_user_dir)
+    ssh.upload(ftp_config_dir, os.path.join(dest_user_dir, config_file))
+    for acc in account_list:
+        # 首先，保证行情服务器端建立相应的存储目录
+        dest_acc_dir = os.path.join(dest_user_dir, acc)
+        ssh.cmd("mkdir " + dest_acc_dir)
+        # 上传参数表, 链路配置表
+        param_dir = os.path.join(ROOT_PATH, "params", acc, "params.csv")
+        print(param_dir)
+        ssh.upload(param_dir, os.path.join(dest_acc_dir, "params.csv"))
+        print("参数表成功上传至行情端", dest_acc_dir)
+        
+        
 # 以下部署在行情服务器上 CTA目录下【同步自云服务器】
 # 行情服务器的方法挂载在后台实时运行
 # 获取根目录下的所有config并推送参数表
@@ -86,4 +117,4 @@ def request_from_market_cloud(config_file):
 
         
 if __name__ == "__main__":
-    pull_from_UI_to_cloud("huajing34.json")
+    pull_from_UI_to_market("huajing34.json")
