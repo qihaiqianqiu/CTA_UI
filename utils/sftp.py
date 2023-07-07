@@ -1,4 +1,7 @@
 import paramiko
+import threading
+import socket
+import select
 import uuid
 
 all = ["SSHConnection"] 
@@ -29,7 +32,43 @@ class SSHConnection(object):
     def download(self,remote_path,local_path):
         sftp = paramiko.SFTPClient.from_transport(self.__transport)
         sftp.get(remote_path,local_path)
- 
+        
+    def reverse_forward_tunnel(self, server_port, remote_host, remote_port):
+        def handler(chan, host, port):
+            sock = socket.socket()
+            try:
+                sock.connect((host, port))
+            except Exception as e:
+                print('Forwarding request to %s:%d failed: %r' % (host, port, e))
+                return
+            
+            print('Connected!  Tunnel open %r -> %r -> %r' % (chan.origin_addr,
+                                                                chan.getpeername(), (host, port)))
+            while True:
+                r, w, x = select.select([sock, chan], [], [])
+                if sock in r:
+                    data = sock.recv(1024)
+                    if len(data) == 0:
+                        break
+                    chan.send(data)
+                if chan in r:
+                    data = chan.recv(1024)
+                    if len(data) == 0:
+                        break
+                    sock.send(data)
+            chan.close()
+            sock.close()
+            print('Tunnel closed from %r' % (chan.origin_addr,))
+        
+        self.__transport.request_port_forward('', server_port)
+        while True:
+            chan = self.__transport.accept(1000)
+            if chan is None:
+                continue
+            thr = threading.Thread(target=handler, args=(chan, remote_host, remote_port))
+            thr.setDaemon(True)
+            thr.start()
+        
     def cmd(self, command):
         ssh = paramiko.SSHClient()
         ssh._transport = self.__transport

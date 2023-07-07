@@ -7,6 +7,7 @@ import asyncio
 import traceback
 import datetime
 
+SSH_reverse_tunnel = "ssh -R 9876:localhost:22 root@39.97.106.35"
 
 rsync_example = "rsync -avPz --port 8730 --password-file=/cygdrive/C/Users/Han.Hao/AppData/Local/cwrsync/bin/cta_password.txt root@39.97.106.35::cta/ /cygdrive/C/Users/Han.Hao/test"
 # "rsync_pwd_path" & "rsync dest path"
@@ -20,6 +21,16 @@ def linux_to_windows(path):
 # 以下部署在行情服务器上 CTA目录下【同步自云服务器】
 # 行情服务器的方法挂载在后台实时运行
 # 获取根目录下的所有config并推送参数表
+        
+def set_up_ssh_reverse_tunnel(config_file):
+    ftp_config = json.load(open(os.path.join(".\sftp_configs", config_file)))
+    cloud_server_para = ftp_config["cloudServer"]
+    ssh = sftp.SSHConnection(host=cloud_server_para['host'], port=cloud_server_para['port'],
+                              username=cloud_server_para['username'], pwd=cloud_server_para['pwd'])
+    ssh.connect()
+    ssh.reverse_forward_tunnel(cloud_server_para['reverse_port'], ftp_config['marketServer']['host'], ftp_config['marketServer']['port'])
+    
+    
 def pull_from_market_to_trading(config_file):
     """从行情服务器向交易服务器传送参数表"""
     # 获取config文件所在的目录，找到对应交易员与账户
@@ -64,6 +75,7 @@ def request_from_market_cloud(config_file):
         print("云服务器参数表成功下载至行情端", acc_dest_dir)
     ssh.close()    
 
+"""
 async def config_task(config):
     f = open("error_log.txt", "a+")
     while True:
@@ -83,3 +95,5 @@ async def main():
         await config_task(config)
     
 asyncio.run(main())        
+"""
+set_up_ssh_reverse_tunnel("huajing34.json")
