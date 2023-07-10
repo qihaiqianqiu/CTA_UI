@@ -24,7 +24,7 @@
 1. 链路 SSH实现，一个链路对应一个终点RDP对应一个Config
 2. UI中链路可视化 链路编辑 设置默认链路组合
 3. 每次传输的时候走Default链路组合
-4. 参数表修改日志，在云服务器运行计算()
+4. 参数表修改日志，在云服务器运行计算
 5. 使用rsync进行与中枢服务器保存的日志文件同步到本地：
 `rsync_example = "rsync -avPz --port 8730 --password-file=/cygdrive/C/Users/Han.Hao/AppData/Local/cwrsync/bin/cta_password.txt root@39.97.106.35::cta/ /cygdrive/C/Users/Han.Hao/test"`
 `rsync_pwd_path` & `rsync dest path`
@@ -33,7 +33,7 @@
 
 
 - 方案2： 做内网穿透，云服务器做备份
-- 方案3： 用云服务器做反向SSH的内网穿透
+- 方案3： 用云服务器做反向SSH的内网穿透【已通过paramiko实现】
   
 1. 在云服务器上，确保 SSH 服务已启动，并且允许反向隧道连接。你可以编辑 `/etc/ssh/sshd_config` 文件，确保以下配置项未被注释或设置为正确的值：
 

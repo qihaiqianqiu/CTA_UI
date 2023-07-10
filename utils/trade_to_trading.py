@@ -33,7 +33,7 @@ def preprocessing(df):
     return df
 
 
-def raw_pairing(df, pairing, sec_interval=0, max_interval=180):
+def raw_pairing(df, pairing, sec_interval=0, max_interval=90):
     df = df.sort_values('time')
     pairing_slice = []
     pairing_delta = []
@@ -47,6 +47,7 @@ def raw_pairing(df, pairing, sec_interval=0, max_interval=180):
                 if (temp[1].iloc[i]['time'] - temp[1].iloc[start]['time']) > datetime.timedelta(seconds=sec_interval):
                     # 提取切片
                     sliced = temp[1].iloc[start:i]
+                    print("hit time interval:", (temp[1].iloc[i]['time'] - temp[1].iloc[start]['time']).total_seconds(), sec_interval, sliced)
                     pairing_slice.append(sliced)
                     start = i
             pairing_slice.append(temp[1].iloc[start:len(temp[1])])
@@ -62,9 +63,13 @@ def raw_pairing(df, pairing, sec_interval=0, max_interval=180):
     # Recursive
     # 退出条件
     if (len(pairing_delta) == 0 and sec_interval >= max_interval) or len(single_df) == 0:
+        print(sec_interval, max_interval)
+        print(pairing, single_df)
         return pairing ,single_df
     else:
-        return raw_pairing(single_df, pairing, sec_interval+1)
+        ("++++")
+        print(single_df)
+        return raw_pairing(single_df, pairing, sec_interval+1, max_interval)
   
 
 def parse(df):
@@ -75,36 +80,26 @@ def parse(df):
     pairs, single_df = raw_pairing(df, pairs)
     #print(pairs)
 
-    """
     # 落单交易记录-细配对
     if len(single_df) > 0:
+        append_pairs = []
         print(single_df)
         print("***")
-        for i in range(len(single_df)):
-            buffer = []
-            index_buffer = []
-            time_buffer = []
-            single_record = single_df.iloc[i]
-            target_breed = single_record['breed']
-            target_time = single_record['time']
-            for j in range(len(pairs)):
-                if pairs[j]['breed'].unique()[0] == target_breed:
-                    index_buffer.append(j)
-                    buffer.append(pairs[j])
-            for k in range(len(buffer)):
-                time_diff = abs((buffer[k].iloc[0]['time'] - target_time).total_seconds())
-                time_buffer.append(time_diff)
-            # 对每一个record，寻找已配对记录中时间最接近的同品种交易对记录
-            if len(time_buffer) > 0:
-                target_idx = index_buffer[time_buffer.index(min(time_buffer))]
-                target_slice = pairs[target_idx].copy(deep=True)
-                target_slice = combine(pd.concat([target_slice, pd.DataFrame(single_record).T]))
-                del pairs[target_idx]
-            else:
-                target_slice = combine(pd.DataFrame(single_record).T)
-            pairs.append(target_slice)
-    """
+        max_interval_sec = 0
+        min_interval_sec = 9999
+        for temp in single_df.groupby('breed', as_index=False):
+            interval_sec = temp[1].iloc[-1]['time'] - temp[1].iloc[0]['time']
+            interval_sec = interval_sec.total_seconds()
+            if interval_sec < min_interval_sec:
+                min_interval_sec = interval_sec
+            if interval_sec > max_interval_sec:
+                max_interval_sec = interval_sec
+        append_pairs, dropped_df = raw_pairing(single_df, append_pairs, sec_interval=min_interval_sec-1, max_interval=max_interval_sec+1)
+        pairs += append_pairs
+
     for item in pairs:
+        if item.iloc[0]['breed'] == "AL":
+            print(item)
         item['price'] = item['count'] / item['deal']
     return pairs
 
