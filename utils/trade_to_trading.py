@@ -43,11 +43,11 @@ def raw_pairing(df, pairing, sec_interval=0, max_interval=90):
             start = 0
             # 如果两条交易记录落在一定的时间差之内
             for i in range(1, len(temp[1])):
-                print(sec_interval)
+                #print(sec_interval)
                 if (temp[1].iloc[i]['time'] - temp[1].iloc[start]['time']) > datetime.timedelta(seconds=sec_interval):
                     # 提取切片
                     sliced = temp[1].iloc[start:i]
-                    print("hit time interval:", (temp[1].iloc[i]['time'] - temp[1].iloc[start]['time']).total_seconds(), sec_interval, sliced)
+                    #print("hit time interval:", (temp[1].iloc[i]['time'] - temp[1].iloc[start]['time']).total_seconds(), sec_interval, sliced)
                     pairing_slice.append(sliced)
                     start = i
             pairing_slice.append(temp[1].iloc[start:len(temp[1])])
@@ -63,45 +63,51 @@ def raw_pairing(df, pairing, sec_interval=0, max_interval=90):
     # Recursive
     # 退出条件
     if (len(pairing_delta) == 0 and sec_interval >= max_interval) or len(single_df) == 0:
-        print(sec_interval, max_interval)
-        print(pairing, single_df)
+        #print(sec_interval, max_interval)
+        #print(pairing, single_df)
         return pairing ,single_df
     else:
-        ("++++")
-        print(single_df)
+        #("++++")
+        #print(single_df)
         return raw_pairing(single_df, pairing, sec_interval+1, max_interval)
   
 
 def parse(df):
     pairs = []
-    # single_df deprecated
-    single_df = pd.DataFrame()
-    # 4秒间隔起-粗配对
+    structure = pd.DataFrame()
+    # 粗配对
     pairs, single_df = raw_pairing(df, pairs)
-    #print(pairs)
 
     # 落单交易记录-细配对
     if len(single_df) > 0:
-        append_pairs = []
-        print(single_df)
-        print("***")
-        max_interval_sec = 0
-        min_interval_sec = 9999
-        for temp in single_df.groupby('breed', as_index=False):
-            interval_sec = temp[1].iloc[-1]['time'] - temp[1].iloc[0]['time']
-            interval_sec = interval_sec.total_seconds()
-            if interval_sec < min_interval_sec:
-                min_interval_sec = interval_sec
-            if interval_sec > max_interval_sec:
-                max_interval_sec = interval_sec
-        append_pairs, dropped_df = raw_pairing(single_df, append_pairs, sec_interval=min_interval_sec-1, max_interval=max_interval_sec+1)
-        pairs += append_pairs
+        if single_df['deal'].sum() == 0:
+            append_pairs = []
+            print(single_df)
+            print("***")
+            max_interval_sec = 0
+            min_interval_sec = 9999
+            for temp in single_df.groupby('breed', as_index=False):
+                interval_sec = temp[1].iloc[-1]['time'] - temp[1].iloc[0]['time']
+                interval_sec = interval_sec.total_seconds()
+                if interval_sec < min_interval_sec:
+                    min_interval_sec = interval_sec
+                if interval_sec > max_interval_sec:
+                    max_interval_sec = interval_sec
+            append_pairs, dropped_df = raw_pairing(single_df, append_pairs, sec_interval=min_interval_sec-1, max_interval=max_interval_sec+1)
+            pairs += append_pairs
 
-    for item in pairs:
-        if item.iloc[0]['breed'] == "AL":
-            print(item)
-        item['price'] = item['count'] / item['deal']
-    return pairs
+        for item in pairs:
+            if item.iloc[0]['breed'] == "AL":
+                print(item)
+            item['price'] = item['count'] / item['deal']
+        else:
+            structure = single_df.groupby('code', as_index=False).aggregate({"deal":"sum", "price":"first", "time":"first", "breed":"first", "count":"sum"}) 
+            structure['price'] = structure['count'] / structure['deal']
+            structure = structure.rename(columns={"code":"套利对", "deal":"手数", "price":"价格", "time":"交易时间", "breed":"品种", "count":"总价"})
+            structure['操作'] = structure.apply(lambda x: "买" if x['手数'] > 0 else "卖", axis=1)
+            structure = structure[['套利对', '交易时间', '操作', '价格', '手数']]
+            
+    return pairs, structure
 
 
 def match(df, buffer, param):
@@ -172,7 +178,8 @@ def fix_trade_record(acc_name):
             df = preprocessing(df)
             trade_record = pd.DataFrame()
             match_buffer = []
-            for item in parse(df):
+            pairs, structure = parse(df)
+            for item in pairs:
                 #print(item)
                 pair_res, match_buffer = match(item, match_buffer, param_df)
                 trade_record = pd.concat([trade_record, pair_res])
@@ -180,6 +187,7 @@ def fix_trade_record(acc_name):
             for item in match_buffer:
                 trade_record = pd.concat([trade_record, match(item, [], param_df)[0]])
             res = combine(trade_record).sort_values('套利对')
+            res = pd.concat([res, structure])
             print(res)
             res.to_csv(os.path.join(tradeFileDir, filename.split('.')[0] + '_sorted.csv'), index=False, encoding='gbk')
         except KeyError as e:
