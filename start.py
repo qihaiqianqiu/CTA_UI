@@ -426,16 +426,16 @@ class Arbitrator(QMainWindow):
     def upload_param(self):
         config_file_lst = os.listdir(os.path.join(const.ROOT_PATH, "sftp_configs"))
         for config in config_file_lst:
-            sftp_file_transfer.pull_from_UI_to_cloud(config)
+            flink.pull_from_UI_to_cloud(config)
         QMessageBox.information(self, "上传完成", "参数表已上传至云端")
 
 
     @QtCore.pyqtSlot()
     def download_holdings(self):
-        conn = sftp_file_transfer.sftp_conn("bridge")
-        acc_lst = sftp_file_transfer.get_acc_lst()
+        conn = flink.sftp_conn("bridge")
+        acc_lst = flink.get_acc_lst()
         for account in acc_lst:
-            sftp_file_transfer.sftp_transfer(conn, account, "planned_times")
+            flink.sftp_transfer(conn, account, "planned_times")
 
 
     @QtCore.pyqtSlot()
