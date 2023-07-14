@@ -6,15 +6,15 @@
         "port" : 22,
         "username": "root",
         "pwd": "Wojiaomt1",
-        "reverse_port": 9876
+        "reverse_port": 9875
     },
 
     "marketServer": {
         "host": "localhost",
         "port": 22,
-        "pwd": "123",
         "username": "Han.Hao",
-        "mktDir": "C:\\Users\\Han.Hao\\Desktop\\CTA"
+        "pwd": "123",
+        "mktDir": "D:\\CTA_mkt\\mktdata\\"
     },
 
     "tradeServer": {
