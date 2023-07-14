@@ -10,9 +10,11 @@
     },
 
     "marketServer": {
-        "username": "Han.Hao",
+        "host": "localhost",
+        "port": 22,
         "pwd": "123",
-        "mktDir": "C:\\Users\\Administrator\\Desktop\\CTA"
+        "username": "Han.Hao",
+        "mktDir": "C:\\Users\\Han.Hao\\Desktop\\CTA"
     },
 
     "tradeServer": {
