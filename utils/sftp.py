@@ -59,7 +59,7 @@ class SSHConnection(object):
             chan.close()
             sock.close()
             print('Tunnel closed from %r' % (chan.origin_addr,))
-        
+        self.__transport.set_keepalive(30)
         self.__transport.request_port_forward('', server_port)
         while True:
             chan = self.__transport.accept(1000)

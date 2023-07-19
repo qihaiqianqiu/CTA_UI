@@ -424,10 +424,31 @@ class Arbitrator(QMainWindow):
     
     @QtCore.pyqtSlot()
     def upload_param(self):
+        fail_counter = 0
         config_file_lst = os.listdir(os.path.join(const.ROOT_PATH, "sftp_configs"))
         for config in config_file_lst:
-            flink.pull_from_UI_to_cloud(config)
-        QMessageBox.information(self, "上传完成", "参数表已上传至云端")
+            try:
+                flink.pull_from_UI_to_cloud(config)
+            except Exception as e:
+                fail_counter += 1
+                print("文件上传至云端失败:", config)
+                QMessageBox.information(self, "上传失败", "参数表上传至云端失败:" + config)
+                error_info = traceback.format_exc()
+                with open("error_log.txt", "a+", encoding='utf-8') as err_file:
+                    err_file.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
+                    err_file.write(error_info + '\n')
+            try:
+                flink.pull_from_UI_to_market(config)
+            except Exception as e:
+                fail_counter += 1
+                print("文件上传至行情端失败:", config)
+                QMessageBox.information(self, "上传失败", "参数表上传至行情端失败:" + config)
+                error_info = traceback.format_exc()
+                with open("error_log.txt", "a+", encoding='utf-8') as err_file:
+                    err_file.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
+                    err_file.write(error_info + '\n')
+        if fail_counter == 0:
+            QMessageBox.information(self, "上传完成", "参数表已上传至云端&行情端")
 
 
     @QtCore.pyqtSlot()
@@ -675,6 +696,9 @@ class Arbitrator(QMainWindow):
             acc_param_df = param_df.copy()
             acc_param_df['region_unit_num'] = acc_param_df.apply(lambda x: int(round(x['region_unit_num'] * region_budget,0)), axis=1)
             acc_param_df['boundary_unit_num'] = acc_param_df.apply(lambda x: int(round(x['boundary_unit_num'] * boundary_budget,0)), axis=1)
+            acc_param_dir = os.path.join(const.PARAM_PATH, id)
+            if not os.path.exists(acc_param_dir):
+                os.mkdir(acc_param_dir)
             acc_param_df.to_csv(os.path.join(const.PARAM_PATH, id, 'params.csv'))
             print("已分发参数表：", id)
         self.status.showMessage("账户参数表保存成功")
