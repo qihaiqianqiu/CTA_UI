@@ -11,7 +11,7 @@ from utils.plotfile_management import pairname_to_plotdir
 from utils.const import PARAM_PATH, exchange_breed_dict, param_columns
 from functools import partial
 from utils.date_section_modification import get_date_section
-from utils.get_contract_pair import get_contract_pair_rank
+from utils.get_contract_pair import get_contract_pair_rank, get_exchange_on
 
 all = ["addParaDialog"]
 class addParaDialog(QDialog):
@@ -150,19 +150,12 @@ class addParaDialog(QDialog):
                         else:
                             param_dict[suffix_layout.itemAt(l-1).widget().text()] = subwidget.text()                   
             # 添加其他信息
-            first_contract_code = key.split('-')[0]
-            breed = re.search("[a-zA-Z]+", first_contract_code).group(0)
-            param_dict["kind"] = breed.upper()
-            second_contract_code = breed + key.split('-')[1]
-            ins_ranking = get_contract_pair_rank([first_contract_code, second_contract_code])
-            def get_exchange_on(contract_code):
-                for exchange, values in exchange_breed_dict.items():
-                    if breed in values:
-                        contract_code = contract_code + "." + exchange
-                        break 
-                return contract_code
-            param_dict["first_instrument"] = get_exchange_on(first_contract_code)
-            param_dict["second_instrument"] = get_exchange_on(second_contract_code)
+            pairs = get_exchange_on(key)
+            first = pairs[0]
+            second = pairs[1]
+            ins_ranking = get_contract_pair_rank([first, second])
+            param_dict["first_instrument"] = first
+            param_dict["second_instrument"] = second
             param_dict["prime_instrument"] = get_exchange_on(ins_ranking[0].upper())
             up_boundary = ["boundary_tick_lock", "up_boundary_5", "up_boundary_4", "up_boundary_3", "up_boundary_2", "up_boundary_1"]
             down_boundary = ["down_boundary_1", "down_boundary_2", "down_boundary_3", "down_boundary_4", "down_boundary_5"]

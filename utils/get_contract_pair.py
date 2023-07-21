@@ -7,7 +7,7 @@ import datetime
 
 # 获取合约对名称，SP指令，成交量等信息
 
-all = ["get_db_contract_pair",  "check_vaild_month", "get_param_contract_pair_with_volume", "get_param_contract_pair", "check_vaild_month_with_volume", "check"]
+all = ["get_db_contract_pair",  "check_vaild_month", "get_param_contract_pair_with_volume", "get_param_contract_pair", "check_vaild_month_with_volume", "check", "get_exchange_on"]
 
 def get_param_contract_pair():
     breed_lst = []
@@ -25,6 +25,18 @@ def get_param_contract_pair():
         contract_pair_lst += [[rename_db_to_param(contract_lst[i]), rename_db_to_param(contract_lst[i+1])] for i in range(len(contract_lst)-1)]
         contract_pair_dict[breed_class[0]] = contract_pair_lst
     return contract_pair_dict
+
+
+def get_exchange_on(contract_code):
+        first_contract_code = contract_code.split('-')[0]
+        breed = re.search("[a-zA-Z]+", first_contract_code).group(0)
+        second_contract_code = breed + contract_code.split('-')[1]
+        for exchange, values in exchange_breed_dict.items():
+            if breed in values:
+                first_contract_code = first_contract_code + "." + exchange
+                second_contract_code = second_contract_code + "." + exchange
+                break 
+        return [first_contract_code, second_contract_code]
 
 
 def get_param_contract_pair_with_volume():

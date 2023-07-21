@@ -425,6 +425,7 @@ class Arbitrator(QMainWindow):
     @QtCore.pyqtSlot()
     def upload_param(self):
         fail_counter = 0
+        error_log = ""
         config_file_lst = os.listdir(os.path.join(const.ROOT_PATH, "sftp_configs"))
         for config in config_file_lst:
             try:
@@ -432,7 +433,7 @@ class Arbitrator(QMainWindow):
             except Exception as e:
                 fail_counter += 1
                 print("文件上传至云端失败:", config)
-                QMessageBox.information(self, "上传失败", "参数表上传至云端失败:" + config)
+                error_log += "文件上传至云端失败:" + config + '\n'
                 error_info = traceback.format_exc()
                 with open("error_log.txt", "a+", encoding='utf-8') as err_file:
                     err_file.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
@@ -442,13 +443,15 @@ class Arbitrator(QMainWindow):
             except Exception as e:
                 fail_counter += 1
                 print("文件上传至行情端失败:", config)
-                QMessageBox.information(self, "上传失败", "参数表上传至行情端失败:" + config)
+                error_log += "文件上传至行情端失败:" + config + '\n'
                 error_info = traceback.format_exc()
                 with open("error_log.txt", "a+", encoding='utf-8') as err_file:
                     err_file.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
                     err_file.write(error_info + '\n')
         if fail_counter == 0:
             QMessageBox.information(self, "上传完成", "参数表已上传至云端&行情端")
+        else:
+            QMessageBox.information(self, "上传失败", error_log)
 
 
     @QtCore.pyqtSlot()

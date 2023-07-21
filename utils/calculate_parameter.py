@@ -16,6 +16,7 @@ from time import *
 import time
 from utils.rename import rename
 from utils.const import client, BOUNDARY_PATH, trade_day, boundary_dict
+from utils.get_contract_pair import get_exchange_on
 
 __all__ = ["predict_info"]
 # Get data from start_date[MorningMarket] to end_date[EveningMarket]
@@ -29,7 +30,11 @@ def get_pairwise_data(contract_pair:list, start_date:int, end_date:int):
     print("SQL TIME: ", time.time()-start)
     if len(res) > 0:
         res = res.sort_values(by=['trading_date', 'time'])
-        res['time'] = res['time'].apply(lambda x: x.split(':')[0] + ':' + x.split(':')[1] + ':' + x.split(':')[2] + ':000' if int(x.split(':')[3]) < abs(int(x.split(':')[3])-500) else x.split(':')[0] + ':' + x.split(':')[1] + ':' + x.split(':')[2] + ':500')
+        #res.to_csv(os.path.join(r"Z:\300_Group\HFT\Program\CTA_UI", "error_test.csv"))
+        res['ms'] = res['time'].apply(lambda x: x.split(':')[3])
+        # 个别tick毫秒数据会带有小数点，需要转换为整数
+        res['ms'] = res['ms'].astype('float').astype('int')
+        res['time'] = res.apply(lambda x: x['time'].split(':')[0] + ':' + x['time'].split(':')[1] + ':' + x['time'].split(':')[2] + ':000' if x['ms'] < 500 else x['time'].split(':')[0] + ':' + x['time'].split(':')[1] + ':' + x['time'].split(':')[2] + ':500', axis=1)
 
         # Inner join
         pair_data_0 = res[res['contract'] == contract_pair[0]]
@@ -254,14 +259,13 @@ def predict_region(region_num:int, end_date:int, reduce_date:int, clear_date:int
 # 生成一张info表，与账户的budget值迭代后在ui上展示
 # info表包含且仅包含完整的区界信息，传入transform函数后可以得到合适的params.csv
 def predict_info(region_info:pd.DataFrame, end_date:int, end_section:int, q:float, step:int, ratio:float, flag:bool, cache_path:str):
-    region_info['region_unit_num'] = region_info.apply(lambda x: predict_region(x['region_unit_num'], end_date, x['reduce_date'], x['clear_date']), axis=1)
-    region_info['boundary_unit_num'] = region_info.apply(lambda x: predict_region(x['boundary_unit_num'], end_date, x['reduce_date'], x['clear_date']), axis=1)
     region_info['up_boundary_5'] = "99999"
     region_info['down_boundary_5'] = "-99999"
     region_info['kind'] = region_info['pairs_id'].apply(lambda x: re.search("[a-zA-Z]+", x).group(0))
+    print(region_info)
     if not flag:
         # boundary predict
-        region_info[['down_boundary_1', 'boundary_tick_lock']] = region_info.apply(lambda x: predict_boundary([x['first_instrument'], x['second_instrument']], end_date, end_section, q=q, step=step), axis=1, result_type="expand")
+        region_info[['down_boundary_1', 'boundary_tick_lock']] = region_info.apply(lambda x: predict_boundary(get_exchange_on(x['pairs_id']), end_date, end_section, q=q, step=step), axis=1, result_type="expand")
         region_info['down_boundary_2'] = (region_info['down_boundary_1'] - region_info['boundary_tick_lock']).apply(lambda x: round(x,2))
         region_info['down_boundary_3'] = (region_info['down_boundary_2'] - region_info['boundary_tick_lock']).apply(lambda x: round(x,2))
         region_info['down_boundary_4'] = (region_info['down_boundary_3'] - region_info['boundary_tick_lock']).apply(lambda x: round(x,2))

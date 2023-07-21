@@ -1064,3 +1064,219 @@ Traceback (most recent call last):
     raise SSHException(
 paramiko.ssh_exception.SSHException: Unable to connect to 39.97.106.35: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
 
+2023-07-19 15:37:24
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 441, in upload_param
+    flink.pull_from_UI_to_market(config)
+  File "D:\local_repo\CTA_UI\utils\flink.py", line 54, in pull_from_UI_to_market
+    ssh.connect()
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 18, in connect
+    transport = paramiko.Transport((self.host,self.port))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Unable to connect to 39.97.106.35: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+2023-07-19 15:43:17
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 441, in upload_param
+    flink.pull_from_UI_to_market(config)
+  File "D:\local_repo\CTA_UI\utils\flink.py", line 54, in pull_from_UI_to_market
+    ssh.connect()
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 18, in connect
+    transport = paramiko.Transport((self.host,self.port))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Unable to connect to 39.97.106.35: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+2023-07-19 15:43:23
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 441, in upload_param
+    flink.pull_from_UI_to_market(config)
+  File "D:\local_repo\CTA_UI\utils\flink.py", line 54, in pull_from_UI_to_market
+    ssh.connect()
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 18, in connect
+    transport = paramiko.Transport((self.host,self.port))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Unable to connect to 39.97.106.35: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+2023-07-19 16:11:58
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 441, in upload_param
+    flink.pull_from_UI_to_market(config)
+  File "D:\local_repo\CTA_UI\utils\flink.py", line 54, in pull_from_UI_to_market
+    ssh.connect()
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 18, in connect
+    transport = paramiko.Transport((self.host,self.port))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Unable to connect to 39.97.106.35: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+2023-07-19 16:12:03
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 441, in upload_param
+    flink.pull_from_UI_to_market(config)
+  File "D:\local_repo\CTA_UI\utils\flink.py", line 54, in pull_from_UI_to_market
+    ssh.connect()
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 18, in connect
+    transport = paramiko.Transport((self.host,self.port))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Unable to connect to 39.97.106.35: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+2023-07-19 16:12:10
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 441, in upload_param
+    flink.pull_from_UI_to_market(config)
+  File "D:\local_repo\CTA_UI\utils\flink.py", line 54, in pull_from_UI_to_market
+    ssh.connect()
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 18, in connect
+    transport = paramiko.Transport((self.host,self.port))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Unable to connect to 39.97.106.35: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+2023-07-19 16:13:46
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 441, in upload_param
+    flink.pull_from_UI_to_market(config)
+  File "D:\local_repo\CTA_UI\utils\flink.py", line 54, in pull_from_UI_to_market
+    ssh.connect()
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 18, in connect
+    transport = paramiko.Transport((self.host,self.port))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Unable to connect to 39.97.106.35: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+2023-07-19 16:13:51
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 441, in upload_param
+    flink.pull_from_UI_to_market(config)
+  File "D:\local_repo\CTA_UI\utils\flink.py", line 54, in pull_from_UI_to_market
+    ssh.connect()
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 18, in connect
+    transport = paramiko.Transport((self.host,self.port))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Unable to connect to 39.97.106.35: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+2023-07-19 16:16:56
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 441, in upload_param
+    flink.pull_from_UI_to_market(config)
+  File "D:\local_repo\CTA_UI\utils\flink.py", line 54, in pull_from_UI_to_market
+    ssh.connect()
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 18, in connect
+    transport = paramiko.Transport((self.host,self.port))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Unable to connect to 39.97.106.35: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+2023-07-19 16:17:04
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 441, in upload_param
+    flink.pull_from_UI_to_market(config)
+  File "D:\local_repo\CTA_UI\utils\flink.py", line 54, in pull_from_UI_to_market
+    ssh.connect()
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 18, in connect
+    transport = paramiko.Transport((self.host,self.port))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Unable to connect to 39.97.106.35: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+2023-07-19 16:17:10
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 441, in upload_param
+    flink.pull_from_UI_to_market(config)
+  File "D:\local_repo\CTA_UI\utils\flink.py", line 54, in pull_from_UI_to_market
+    ssh.connect()
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 18, in connect
+    transport = paramiko.Transport((self.host,self.port))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Unable to connect to 39.97.106.35: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+2023-07-19 16:17:15
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 441, in upload_param
+    flink.pull_from_UI_to_market(config)
+  File "D:\local_repo\CTA_UI\utils\flink.py", line 54, in pull_from_UI_to_market
+    ssh.connect()
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 18, in connect
+    transport = paramiko.Transport((self.host,self.port))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Unable to connect to 39.97.106.35: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+2023-07-19 16:20:49
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 441, in upload_param
+    try:
+  File "D:\local_repo\CTA_UI\utils\flink.py", line 54, in pull_from_UI_to_market
+    ssh.connect()
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 18, in connect
+    transport = paramiko.Transport((self.host,self.port))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Unable to connect to 39.97.106.35: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+2023-07-19 16:20:54
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 441, in upload_param
+    try:
+  File "D:\local_repo\CTA_UI\utils\flink.py", line 54, in pull_from_UI_to_market
+    ssh.connect()
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 18, in connect
+    transport = paramiko.Transport((self.host,self.port))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Unable to connect to 39.97.106.35: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+2023-07-19 16:21:00
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 441, in upload_param
+    try:
+  File "D:\local_repo\CTA_UI\utils\flink.py", line 54, in pull_from_UI_to_market
+    ssh.connect()
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 18, in connect
+    transport = paramiko.Transport((self.host,self.port))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Unable to connect to 39.97.106.35: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+2023-07-19 16:25:50
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 441, in upload_param
+    try:
+  File "D:\local_repo\CTA_UI\utils\flink.py", line 54, in pull_from_UI_to_market
+    ssh.connect()
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 18, in connect
+    transport = paramiko.Transport((self.host,self.port))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Unable to connect to 39.97.106.35: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+2023-07-19 16:25:56
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 441, in upload_param
+    try:
+  File "D:\local_repo\CTA_UI\utils\flink.py", line 54, in pull_from_UI_to_market
+    ssh.connect()
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 18, in connect
+    transport = paramiko.Transport((self.host,self.port))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Unable to connect to 39.97.106.35: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+2023-07-19 16:26:01
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 441, in upload_param
+    try:
+  File "D:\local_repo\CTA_UI\utils\flink.py", line 54, in pull_from_UI_to_market
+    ssh.connect()
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 18, in connect
+    transport = paramiko.Transport((self.host,self.port))
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Unable to connect to 39.97.106.35: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+

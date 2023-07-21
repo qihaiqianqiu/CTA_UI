@@ -95,7 +95,7 @@ class fileMonitor(FileSystemEventHandler):
                 log_txt += "    修改套利对: " + index + '\n'
                 for col, value in row.items():
                     if value != 0:
-                        log_txt +=  "        ###" +  col + " 修改前: " + value.split('->')[0] +  " 修改后: " + value.split('->')[1] + '\n'
+                        log_txt +=  "        [" +  col + "] 修改前: " + value.split('->')[0] +  " 修改后: " + value.split('->')[1] + '\n'
         else:
             log_txt += "    首次上传参数表  " + '\n'
 
@@ -127,7 +127,7 @@ class fileMonitor(FileSystemEventHandler):
                     # 在此处添加你要执行的操作，如运行其他脚本或发送通知等
                     print("已记录文件 {} 发生变化".format(file_path))
                     f.write(modify_log)
-                    f.write("############################################\n") 
+                    f.write("==================================================\n") 
                     # 重新缓存文件
                     self.cache_all_csv_files()
                     # 行情端 -> 交易端

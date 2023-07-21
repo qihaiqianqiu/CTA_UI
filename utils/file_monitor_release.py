@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import time
 import json
 from watchdog.observers import Observer
@@ -265,7 +266,7 @@ class fileMonitor(FileSystemEventHandler):
         self.cache = self.cache_all_csv_files()
         self.is_market = is_market
         self.set_up_ssh_tunnel()
-        self.processed_files ={}
+
     
     def set_up_ssh_tunnel(self):
         if self.is_market:
@@ -333,7 +334,7 @@ class fileMonitor(FileSystemEventHandler):
                 log_txt += "    修改套利对: " + index + '\n'
                 for col, value in row.items():
                     if value != 0:
-                        log_txt +=  "        ###" +  col + " 修改前: " + value.split('->')[0] +  " 修改后: " + value.split('->')[1] + '\n'
+                        log_txt +=  "        [" +  col + "] 修改前: " + value.split('->')[0] +  " 修改后: " + value.split('->')[1] + '\n'
         else:
             log_txt += "    首次上传参数表  " + '\n'
 
@@ -342,10 +343,6 @@ class fileMonitor(FileSystemEventHandler):
     def on_modified(self, event):
         f = open(os.path.join(self.path, 'changelog.txt'), 'a+')  # 记录日志
         if not event.is_directory and event.src_path.endswith(".csv") and event.event_type == 'modified':
-            if event.src_path in self.processed_files:
-                self.processed_files[event.src_path] = False
-            if self.processed_files[event.src_path]:
-                return
             print("EVENT INFORMATION: ", event)
             file_path = event.src_path  # 获取变化的文件路径
             print("检测到文件修改：", file_path)
@@ -358,14 +355,14 @@ class fileMonitor(FileSystemEventHandler):
                     new_df = pd.read_csv(file_path)
                     print("read_new_df_success")
                     if file_path not in self.cache:
-                        old_df = pd.DataFrame()
+                        old_df = pd.DataFrame() 
                     else:
                         old_df = self.cache[file_path]
                     modify_log = self.compare_csv_file(new_df, old_df)
                     # 在此处添加你要执行的操作，如运行其他脚本或发送通知等
                     print("已记录文件 {} 发生变化".format(file_path))
                     f.write(modify_log)
-                    f.write("############################################\n") 
+                    f.write("==================================================\n") 
                     # 重新缓存文件
                     self.cache_all_csv_files()
                     # 行情端 -> 交易端
@@ -377,7 +374,6 @@ class fileMonitor(FileSystemEventHandler):
                         print("找到链路配置文件：", config_file)
                         pull_from_market_to_trading(os.path.join(acc_dir, config_file))
                         print("@成功从行情端推送至交易端:", file_path)
-                    self.processed_files[event.src_path] = True
             except Exception as e:
                 error_info = traceback.format_exc()
                 print(error_info)
@@ -387,7 +383,7 @@ class fileMonitor(FileSystemEventHandler):
 
 
 if __name__ == "__main__":
-    path = r"D:\CTA_mkt"  # 被监视的目录路径
+    path = "./"  # 被监视的目录路径
     event_handler = fileMonitor(path, is_market=False)
     observer = Observer()
     observer.schedule(event_handler, path, recursive=True)
