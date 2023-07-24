@@ -10,6 +10,7 @@ from PyQt5.QtWidgets import QLineEdit, QLabel, QDialog, QDialogButtonBox, QGridL
 from utils.plotfile_management import pairname_to_plotdir
 from utils.const import PARAM_PATH, exchange_breed_dict, param_columns
 from functools import partial
+from utils.rename import rename_db_to_param
 from utils.date_section_modification import get_date_section
 from utils.get_contract_pair import get_contract_pair_rank, get_exchange_on
 
@@ -121,6 +122,7 @@ class addParaDialog(QDialog):
         for key, value in self._contract_pair_label_lst.items():
             param_dict = {}
             param_dict["pairs_id"] = key
+            param_dict["kind"] = re.search("[a-zA-Z]+", key).group(0).upper()
             param_dict["indate_date"] = str(date) + '_' + str(section)
             # 前置列 还包含主被动腿的信息
             print("Looking at pair: ", key)
@@ -153,10 +155,14 @@ class addParaDialog(QDialog):
             pairs = get_exchange_on(key)
             first = pairs[0]
             second = pairs[1]
-            ins_ranking = get_contract_pair_rank([first, second])
+            prime_ins = rename_db_to_param(get_contract_pair_rank([first, second])[0])
+            if prime_ins == first.split('.')[0]:
+                prime_ins = first
+            else:
+                prime_ins = second
             param_dict["first_instrument"] = first
             param_dict["second_instrument"] = second
-            param_dict["prime_instrument"] = get_exchange_on(ins_ranking[0].upper())
+            param_dict["prime_instrument"] = prime_ins
             up_boundary = ["boundary_tick_lock", "up_boundary_5", "up_boundary_4", "up_boundary_3", "up_boundary_2", "up_boundary_1"]
             down_boundary = ["down_boundary_1", "down_boundary_2", "down_boundary_3", "down_boundary_4", "down_boundary_5"]
             boundary_list = ["boundary_unit_num"]

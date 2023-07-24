@@ -205,7 +205,7 @@ def export_boundary_dataset(q=0.95, start_date=20220908):
             param_df.to_csv(os.path.join(PARA, pair_name + '.csv'), index=False)
             print("已成功导出套利对数据：", pair_name)
         except Exception as e:
-            print("导出套利对数据失败：", pair_name, e")
+            print("导出套利对数据失败：", pair_name, e)
 
 if __name__ == "__main__":
     print(export_boundary_dataset())
