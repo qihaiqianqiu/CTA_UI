@@ -69,6 +69,39 @@ def pull_from_UI_to_market(config_file):
         print("参数表成功上传至行情端", dest_acc_dir)
     ssh.close()
         
+def request_from_market_to_UI(config_file):
+    """
+    行情服务器向UI传送日志文件，链路配置
+    Args:
+        config_file (_type_): _description_
+    """
+    ftp_config_dir = os.path.join(ROOT_PATH, "sftp_configs", config_file)
+    ftp_config = json.load(open(ftp_config_dir))
+    cloud_server_para = ftp_config["cloudServer"]
+    market_server_para = ftp_config["marketServer"]
+    
+    ssh = sftp.SSHConnection(host=cloud_server_para['host'], port=cloud_server_para['reverse_port'],
+                             username=market_server_para['username'], pwd=market_server_para['pwd'])
+    ssh.connect()
+    # 日志文件推送
+    username = ftp_config["userName"]
+    account_list = ftp_config["accountList"]
+    UI_dir = ftp_config["localUIDir"]
+    dest_user_dir = os.path.join(market_server_para["mktDir"], username)
+    ssh.cmd("mkdir " + dest_user_dir)
+    for acc in account_list:
+        # 首先，保证行情服务器端建立相应的存储目录
+        dest_acc_dir = os.path.join(dest_user_dir, acc)
+        ssh.cmd("mkdir " + dest_acc_dir)
+        # 上传参数表, 链路配置表
+        report_lst = [f for f in os.listdir(dest_acc_dir) if 'report' in f]
+        trading_lst = [f for f in os.listdir(dest_acc_dir) if 'trading' in f]
+        report_dir = os.path.join(dest_acc_dir, max(report_lst))
+        trading_dir = os.path.join(dest_acc_dir, max(trading_lst))       
+        ssh.download(report_dir, os.path.join(UI_dir, "report", acc, max(report_lst)))
+        ssh.download(trading_dir, os.path.join(UI_dir, "tradings", acc, max(trading_lst)))
+        print("参数表成功下载至UI端", dest_acc_dir)
+    ssh.close()
 """
 Relevant Terminal
 SSH_reverse_tunnel = "ssh -R 9876:localhost:22 root@39.97.106.35"
@@ -110,6 +143,36 @@ def pull_from_market_to_trading(config_file):
         ssh.upload(market_param_dir, trade_param_dir)
         print("行情服务器参数表成功上传至交易端", trade_param_dir)    
     ssh.close() 
+
+
+def request_from_trading_to_market(config_file):
+    """从交易服务器向行情服务器传送交易日志"""
+    # 获取config文件所在的目录，找到对应交易员与账户
+    ftp_config = json.load(open(config_file))
+    trade_server_para = ftp_config["tradeServer"]
+    ssh = sftp.SSHConnection(host=trade_server_para['host'], port=trade_server_para['port'],
+                             username=trade_server_para['username'], pwd=trade_server_para['pwd'])
+    ssh.connect()
+    # 日志文件推送
+    username = ftp_config["userName"]
+    mkt_dir = ftp_config["marketServer"]["mktDir"]
+    account_list = ftp_config["accountList"]
+    trade_dir_list = ftp_config["tradeDirList"]
+    for idx in range(len(trade_dir_list)):
+        ssh.cmd("mkdir " + trade_dir_list[idx])
+        # 推送日志文件到行情端
+        market_dir = os.path.join(mkt_dir, username, account_list[idx])
+        trade_trading_dir = os.path.join(trade_dir_list[idx], "tradings")
+        trade_report_dir = os.path.join(trade_dir_list[idx], "report")
+        trading_file = os.path.join(trade_trading_dir, max(os.listdir(trade_trading_dir)))
+        report_file = os.path.join(trade_report_dir, max(os.listdir(trade_report_dir)))
+        print("从交易端获取交易日志文件", trading_file, "上传至行情端", market_dir)
+        ssh.download(trading_file, os.path.join(market_dir, max(os.listdir(trade_trading_dir))))
+        print("交易服务器日志文件成功上传至交易端端", os.path.join(market_dir, max(os.listdir(trade_trading_dir))))
+        print("从交易端获取交易日志文件", report_file, "上传至行情端", market_dir)
+        ssh.download(report_file, os.path.join(market_dir, max(os.listdir(trade_report_dir))))
+        print("交易服务器日志文件成功上传至交易端端", os.path.join(market_dir, max(os.listdir(trade_report_dir))))
+    ssh.close()
     
 def request_from_market_to_cloud(config_file):
     """行情服务器从云服务器获取最新的参数表与链路信息"""
@@ -134,8 +197,6 @@ def request_from_market_to_cloud(config_file):
         print("云服务器参数表成功下载至行情端", acc_dest_dir)
     ssh.close()    
 
-def request_from_trading_to_market(config_file):
-    pass
 
 def pull_from_cloud_to_market(config_file):
     pass

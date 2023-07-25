@@ -95,3 +95,34 @@
 
    脚本将开始监控云服务器上的文件变化，并在文件发生更改时触发同步操作。
 
+
+## CTPtest-GetPosAndTrd.exe 持仓交易导出程序configure实例：
+- 文件名:configure.json
+```
+{
+  "EveryCfg": [
+    {
+     "PosOutFilePath": "C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\report\\holding",
+     "TrdOutFilePath": "C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\tradings\\trading",
+      "BrokerID": "66666",
+      "InvesterID": "xxxxx",
+      "InvesterPassword": "xxxxx",
+      "AuthCode": "xxxxx",
+      "AppID": "client_xsqq_1.0.0",
+      "TradeFrontAddr": "tcp://172.31.xx.xxx:43205"
+    }
+  ]
+}
+```
+- 持仓文件会存储为：C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\report\\holding_YYMMDD.csv
+- 交易记录会存储为：C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\tradings\\trading_YYMMDD.csv
+
+
+## 交易服务器脚本说明
+
+- 路径eg：/cta_lq_zx/ {CTPtest-GetPosAndTrd.exe} & {CTPtest-test.exe} & {trading_server_monitor.exe} [在同一目录下]
+- 功能：
+  1. 开盘前收盘后自动启动和终止CTPtest-test的交易进程
+  2. 收盘后自动导出CTPtest-GetPosAntTrd的交易日志
+  3. 收盘后自动清理glog和LimitValue文件
+  

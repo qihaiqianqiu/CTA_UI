@@ -20,6 +20,7 @@ def combine(df):
 
 
 def preprocessing(df):
+    print(df)
     df['deal'] = df['deal'].astype('int')
     df['time'] = df['time'].apply(lambda x: pd.to_datetime(x))
     df['code'] = df['code'].apply(lambda x: x.strip(' '))
@@ -168,12 +169,13 @@ def fix_trade_record(acc_name):
             continue
         file = os.path.join(tradeFileDir, filename)
         try:
-            df = pd.read_csv(file, encoding='gbk')
+            df = pd.read_csv(file, encoding='gbk', index_col=False)
             print(df.columns)
             if '成交合约' in df.columns:
                 df = df[['成交合约','买卖','手数','成交价格','成交时间']]
             else:
                 df = df[['合约','买卖','成交手数','成交价格','成交时间']]
+            print(df)
             df.columns = ['code','direction','deal', 'price','time']
             df = preprocessing(df)
             trade_record = pd.DataFrame()

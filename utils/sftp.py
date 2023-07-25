@@ -76,7 +76,7 @@ class SSHConnection(object):
         stdin, stdout, stderr = ssh.exec_command(command)
         # 获取命令结果
         result = stdout.read()
-        print (str(result,encoding='utf-8'))
+        print (str(result,encoding='gbk'))
         return result
 
 if __name__ == "__main__":
