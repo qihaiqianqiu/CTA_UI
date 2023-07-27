@@ -122,7 +122,7 @@ def export_trading_compare(acc_lst:list):
                 dt = re.findall(r"\d+", filename)[0]
                 if dt > recent_date:
                     recent_date = dt
-        most_recent_tradingFile = "成交记录_" + str(recent_date) + "_sorted.csv"
+        most_recent_tradingFile = max([f for f in tradingFileDir if str(recent_date) + "_sorted.csv" in f])
         tradingFile = os.path.join(tradingFileDir, most_recent_tradingFile)
         # 读取相应trading文件
         if os.path.exists(tradingFile):

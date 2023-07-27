@@ -33,7 +33,7 @@ def init_CTP(exe):
     subprocess.Popen(os.path.join(BASE_DIR, exe))
 
 def shutdown_CTP(exe):
-    subprocess.call(["taskkill", "/F", "/IM", os.path.join(BASE_DIR, exe)])
+    subprocess.call(["taskkill", "/F", "/IM", exe])
 
 
             
@@ -46,29 +46,29 @@ while True:
         HMtime = time.strftime("%H:%M", time.localtime())
         print("Current time:", HMtime)
         # 夜盘开盘 启动程序
-        if HMtime > '20:55' and HMtime < '20:59' and not night:
+        if (HMtime > '20:55' or HMtime < '02:30') and not night:
             init_CTP("CTPtest-test.exe")
             night = 1
             print("夜盘开盘")
         # 夜盘收盘 关闭程序 删除glog limit
-        if HMtime > '02:31' and HMtime < '08:50' and night:
+        if HMtime > '02:35' and HMtime < '08:50' and night:
             shutdown_CTP("CTPtest-test.exe")
             delete_glog_limit()
             night = 0
             print("夜盘收盘")
         # 早盘开盘 启动程序
-        if HMtime > '08:55' and HMtime < '08:59' and not morning:
+        if HMtime > '08:55' and HMtime < '11:30' and not morning:
             init_CTP("CTPtest-test.exe")
             morning = 1
             print("早盘开盘")
         # 早盘收盘 关闭程序 删除glog limit
-        if HMtime > '11:31' and HMtime < '13:20' and morning:
+        if HMtime > '11:35' and HMtime < '13:20' and morning:
             shutdown_CTP("CTPtest-test.exe")
             delete_glog_limit()
             morning = 0
             print("早盘收盘")
         # 午盘开盘 启动程序
-        if HMtime > '13:25' and HMtime < '13:29' and not afternoon:
+        if HMtime > '13:25' and HMtime < '15:00' and not afternoon:
             init_CTP("CTPtest-test.exe")
             afternoon = 1
             print("午盘开盘")

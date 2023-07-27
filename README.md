@@ -123,6 +123,7 @@
 - 路径eg：/cta_lq_zx/ {CTPtest-GetPosAndTrd.exe} & {CTPtest-test.exe} & {trading_server_monitor.exe} [在同一目录下]
 - 功能：
   1. 开盘前收盘后自动启动和终止CTPtest-test的交易进程
+   - 终止的事件顺序：程序收盘前撤单 -> 收盘后杀进程
   2. 收盘后自动导出CTPtest-GetPosAntTrd的交易日志
   3. 收盘后自动清理glog和LimitValue文件
   

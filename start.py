@@ -704,7 +704,7 @@ class Arbitrator(QMainWindow):
                 os.mkdir(acc_param_dir)
             acc_param_df.to_csv(os.path.join(const.PARAM_PATH, id, 'params.csv'))
             print("已分发参数表：", id)
-        self.status.showMessage("账户参数表保存成功")
+        self.status.showMessage("账户参数表保存并分发成功")
 
 
     @QtCore.pyqtSlot()

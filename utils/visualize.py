@@ -22,7 +22,7 @@ mpl.rcParams['ytick.major.width'] = 2
 from scipy.stats import norm
 import matplotlib.dates as mdate
 import datetime
-from time import *
+import time
 import traceback
 mpl.rcParams.update({
 'text.usetex': False,
@@ -33,32 +33,17 @@ import cProfile
 from multiprocessing import Pool
 from itertools import product
 from multiprocessing import Process
-from utils.const import client, trade_day, PLOT_PATH
+from utils.const import trade_day, PLOT_PATH
 from utils.rename import rename, rename_db_to_param
 from utils.get_contract_pair import get_db_contract_pair
 from utils.date_section_modification import get_date_section, from_predict
+from utils.calculate_parameter import get_pairwise_data
 
 all = ['plot_continuous_contract', 'plot_time_series', 'plot_volume_split']
-# Get data from start_date[MorningMarket] to end_date[EveningMarket]
-def get_pairwise_data(contract_pair:list, start_date:int, end_date:int):
-    print("Getting pairdata")
-    select_clause = 'SELECT contract, trading_date, time, ap1, av1, bp1, bv1, volume from ctp_future_tick '
-    where_clause = 'WHERE contract in ' + str(tuple(contract_pair)) + ' and trading_date >= '+ str(start_date) + ' and trading_date <= ' + str(end_date)
-    query = select_clause + where_clause
-    res = client.query_dataframe(query)
-    res = res.sort_values(by=['trading_date', 'time'])
-    res['time'] = res['time'].apply(lambda x: x.split(':')[0] + ':' + x.split(':')[1] + ':' + x.split(':')[2] + ':000' if int(x.split(':')[3]) < abs(int(x.split(':')[3])-500) else x.split(':')[0] + ':' + x.split(':')[1] + ':' + x.split(':')[2] + ':500')
+logger = open(os.path.join(PLOT_PATH, "visual_log.txt"), "a+")
+err = open(os.path.join(PLOT_PATH, "visual_error.txt"), "a+")
 
-    # Inner join
-    pair_data_0 = res[res['contract'] == contract_pair[0]]
-    pair_data_1 = res[res['contract'] == contract_pair[1]]
-    pair_data = pd.merge(pair_data_0, pair_data_1, how='inner', on=['trading_date','time'],suffixes=('_' + contract_pair[0], '_' + contract_pair[1]))
-    pair_data.drop(columns=['contract_'+contract_pair[0], 'contract_'+contract_pair[1]], inplace=True)
-    pair_data.sort_values(by=['trading_date', 'time'])
-    pair_data = pair_data.fillna(method='ffill').replace([np.inf, -np.inf], np.nan).dropna()
-    print("**********")
-    print(pair_data)
-    return pair_data
+# Get data from start_date[MorningMarket] to end_date[EveningMarket]
 
 # 连续合约对模块（蝶式套）返回对应数据  
 def bar_plot_get_continous_data(contract_pair_lst:list, date:int, section:int):
@@ -71,6 +56,8 @@ def bar_plot_get_continous_data(contract_pair_lst:list, date:int, section:int):
                 pair_data = get_pairwise_data(contract_pair, start_date=trade_day[trade_day.index(date)+1], end_date=trade_day[trade_day.index(date)+1])
             else:
                 pair_data = get_pairwise_data(contract_pair, start_date=trade_day[trade_day.index(date)], end_date=trade_day[trade_day.index(date)])
+            if len(pair_data) == 0:
+                continue
         except Exception as e:
             continue
         if section == 0:
@@ -101,6 +88,8 @@ def bar_plot_get_volume_split_data(contract_pair_lst:list, date:int, section:int
                 pair_data = get_pairwise_data(contract_pair, start_date=trade_day[trade_day.index(date)+1], end_date=trade_day[trade_day.index(date)+1])
             else:
                 pair_data = get_pairwise_data(contract_pair, start_date=trade_day[trade_day.index(date)], end_date=trade_day[trade_day.index(date)])
+            if len(pair_data) == 0:
+                continue
         except Exception as e:
             continue
 
@@ -114,6 +103,7 @@ def bar_plot_get_volume_split_data(contract_pair_lst:list, date:int, section:int
             df = pair_data[(pair_data['time'] > '21') | (pair_data['time'] < '02:30')]
 
         if len(df) > 0:
+            print(df)
             df['volume'] = df.apply(lambda x: min(x['volume_'+contract_pair[0]] ,x['volume_'+contract_pair[1]]), axis=1)
             # 计算成交量分段
             max_vol = df['volume'].max()
@@ -235,71 +225,111 @@ def plot_fig(vol_section, bar_section, label_lst, fig_title, export_dir, filenam
     plt.savefig(os.path.join(export_dir, filename))
     fig.clf()
     plt.close()
-    plt.show()
 
 
 def bar_plot_time_series(contract_pair:list, start_date:int, end_date:int):
-    df_section, label_section, save_date = bar_plot_get_time_series_data(contract_pair, start_date, end_date)
-    vol_section, bar_section = bar_plot_data_segmentation(df_section)
-    DIR = os.path.join(os.path.abspath(PLOT_PATH), str(save_date))
-    figname = str(save_date) + '-' + rename_db_to_param(str(contract_pair[0])) + '-' + re.search("[0-9]+", rename_db_to_param(str(contract_pair[1]))).group(0) + '.png'
-    plot_fig(vol_section, bar_section, label_section, fig_title = str(contract_pair), export_dir=DIR, filename=figname)
-
+    try:
+        df_section, label_section, save_date = bar_plot_get_time_series_data(contract_pair, start_date, end_date)
+        if len(df_section) == 0:
+            return
+    except Exception as e:
+        print(traceback.format_exc())
+        err.write("{" + time.strftime("%y:%m:%d:%H:%M", time.localtime()) + "}" + " ##Get_TimeSeries_Data" + " Fail:" + str(contract_pair) + '\n')
+        err.write("==Detail==:\n")
+        err.write(traceback.format_exc()+'\n')
+        err.write('============================================\n')
+        return
+    try:
+        vol_section, bar_section = bar_plot_data_segmentation(df_section)
+        DIR = os.path.join(os.path.abspath(PLOT_PATH), str(save_date))
+        figname = str(save_date) + '-' + rename_db_to_param(str(contract_pair[0])) + '-' + re.search("[0-9]+", rename_db_to_param(str(contract_pair[1]))).group(0) + '.png'
+        plot_fig(vol_section, bar_section, label_section, fig_title = str(contract_pair), export_dir=DIR, filename=figname)
+        logger.write("{" + time.strftime("%y:%m:%d:%H:%M", time.localtime()) + "}" + " ##TimeSeries_Plot" + " Success:" + str(contract_pair))
+        logger.write('\n')
+    except Exception as e:
+        print(traceback.format_exc())
+        err.write("{" + time.strftime("%y:%m:%d:%H:%M", time.localtime()) + "}" + " ##TimeSeries_Plot" + " Fail:" + str(contract_pair))
+        err.write('\n')
+        err.write("==Detail==:\n")
+        err.write(traceback.format_exc()+'\n')
+        err.write('============================================\n')
+        return
 
 def bar_plot_continous_data(date:int, section:int):
     contract_dict = get_db_contract_pair()
     for breed in contract_dict:
         print(contract_dict[breed], date, section)
-        df_section, label_section, save_date = bar_plot_get_continous_data(contract_dict[breed], date, section)
+        try:
+            df_section, label_section, save_date = bar_plot_get_continous_data(contract_dict[breed], date, section)
+        except Exception as e:
+            print(traceback.format_exc())
+            err.write("{" + time.strftime("%y:%m:%d:%H:%M", time.localtime()) + "}" + " ##Get_Continous_Data" + " Fail:" + str(breed) + '\n')
+            err.write("==Detail==:\n")
+            err.write(traceback.format_exc()+'\n')
+            err.write('============================================\n')
+            continue
+        
         vol_section, bar_section = bar_plot_data_segmentation(df_section)
         DIR = os.path.join(os.path.abspath(PLOT_PATH), save_date[0])
         figname = save_date[0] + '_' + save_date[1] + '-' + str(breed) + '.png'
         try:
             plot_fig(vol_section, bar_section, label_section, fig_title = str(breed), export_dir=DIR, filename=figname, x_rotation=False)
+            logger.write("{" + time.strftime("%y:%m:%d:%H:%M", time.localtime()) + "}" + " ##Continous_Plot" + " Success:" + str(breed))
+            logger.write('\n')
         except Exception as e:
-            print(e)
+            print(traceback.format_exc())
+            err.write("{" + time.strftime("%y:%m:%d:%H:%M", time.localtime()) + "}" + " ##Continous_Plot" + " Fail:" + str(breed))
+            err.write('\n')
+            err.write("==Detail==:\n")
+            err.write(traceback.format_exc()+'\n')
+            err.write('============================================\n')
             continue
 
 def bar_plot_volume_split_data(date:int, section:int, batch_num = 40):
     contract_dict = get_db_contract_pair()
     for breed in contract_dict:
-        df_part_lst, label_part_lst, volume_part_lst, save_date = bar_plot_get_volume_split_data(contract_dict[breed], date, section, batch_num)
-        print(df_part_lst)
-        # 将根据成交量切分的df列表解开成一个个df
-        for i in range(len(df_part_lst)):
-            df_section_part_lst = []
-            df_section_part = df_part_lst[i]
-            label_section_part = label_part_lst[i]
-            vol_section_part = volume_part_lst[i]
-            for key, value in df_section_part.items():
-                contract_pair = key
-                df_part = value
-            for df in df_part:
-                df_section_part_lst.append({contract_pair:df})
-            vol_section, bar_section = bar_plot_data_segmentation(df_section_part_lst)
-            print("++++++++")
-            print(vol_section)
-            print(label_part_lst[i])
-            DIR = os.path.join(os.path.abspath(PLOT_PATH), save_date[0])
-            near = str(contract_pair).split('-')[0]
-            forward = str(contract_pair).split('-')[1]
-            figname = save_date[0] + '-' + save_date[1] + '-' + rename_db_to_param(near) + '-' + re.search("[0-9]+", rename_db_to_param(forward)).group(0) + "-volume_split" + '.png'
-            f = open("test.txt", "a")
-            try:
+        try:
+            df_part_lst, label_part_lst, volume_part_lst, save_date = bar_plot_get_volume_split_data(contract_dict[breed], date, section, batch_num)
+            # 将根据成交量切分的df列表解开成一个个df
+        except Exception as e:
+            print(traceback.format_exc())
+            err.write("{" + time.strftime("%y:%m:%d:%H:%M", time.localtime()) + "}" + " ##Get_Volume_Data" + " Fail:" + str(breed) + '\n')
+            err.write("==Detail==:\n")
+            err.write(traceback.format_exc()+'\n')
+            err.write('============================================\n')
+            continue
+
+        try:
+            for i in range(len(df_part_lst)):
+                df_section_part_lst = []
+                df_section_part = df_part_lst[i]
+                label_section_part = label_part_lst[i]
+                vol_section_part = volume_part_lst[i]
+                for key, value in df_section_part.items():
+                    contract_pair = key
+                    df_part = value
+                for df in df_part:
+                    df_section_part_lst.append({contract_pair:df})
+                vol_section, bar_section = bar_plot_data_segmentation(df_section_part_lst)
+                print("++++++++")
+                print(vol_section)
+                print(label_part_lst[i])
+                DIR = os.path.join(os.path.abspath(PLOT_PATH), save_date[0])
+                near = str(contract_pair).split('-')[0]
+                forward = str(contract_pair).split('-')[1]
+                figname = save_date[0] + '-' + save_date[1] + '-' + rename_db_to_param(near) + '-' + re.search("[0-9]+", rename_db_to_param(forward)).group(0) + "-volume_split" + '.png'
                 plot_fig(vol_section, bar_section, label_section_part, fig_title = str(contract_pair) + '_' + str(vol_section_part), export_dir=DIR, filename=figname, x_rotation=False)
-                f.write("Success:" + str(contract_pair))
-                f.write('\n')
-                f.write(str(vol_section))
-                f.write('\n')
-            except Exception as e:
-                print(e)
-                f.write("Fail:" + str(contract_pair))
-                f.write('\n')
-                f.write(str(vol_section))
-                f.write('\n')
-                f.write(str(bar_section))
-                f.write('\n')
-                continue
+                logger.write("{" + time.strftime("%y:%m:%d:%H:%M", time.localtime()) + "}" + " ##Volume_Plot" + " Success:" + str(contract_pair))
+                logger.write('\n')
+        except Exception as e:
+            print(traceback.format_exc())
+            err.write("{" + time.strftime("%y:%m:%d:%H:%M", time.localtime()) + "}" + " ##Volume_Plot" + " Fail:" + str(contract_pair))
+            err.write('\n')
+            err.write("==Detail==:\n")
+            err.write(traceback.format_exc()+'\n')
+            err.write('============================================\n')
+
+            continue
             
             
 
@@ -442,35 +472,24 @@ def get_contract_lst():
 
 def plot_time_series_single(date:int, contract_pair:list, back_period=30):
     start = trade_day[trade_day.index(date)-back_period]
-    try:
-        bar_plot_time_series(contract_pair, start, date)
+    bar_plot_time_series(contract_pair, start, date)
 
-    except Exception as e:
-        print(e)
-        print("Error:" , date, contract_pair)
-    
 
 def plot_continuous_contract():
     # 画连续合约图像
     date, section = get_date_section()
     date, section = from_predict(date, section)
     date, section = from_predict(date, section)
-    try:
-        bar_plot_continous_data(date, section)
-    except Exception as e:
-        print(e)
-        print("Error:" , date)
+    bar_plot_continous_data(date, section)
+
 
 def plot_volume_split():
     # 画连续合约图像
     date, section = get_date_section()
     date, section = from_predict(date, section)
     date, section = from_predict(date, section)
-    try:
-        bar_plot_volume_split_data(date, section)
-    except Exception as e:
-        print(e)
-        print("Error:" , date)
+    bar_plot_volume_split_data(date, section)
+
 
 def plot_time_series(date:int, back_period=30):    
     # 画合约时序图像
@@ -492,15 +511,10 @@ if __name__ == "__main__":
     print("开始生成图像")
     print("绘制成交量切分套利图...")
     today = int(datetime.date.today().strftime('%Y%m%d'))
-    try:
-        plot_volume_split()
-        print("成交量切分套利图生成完成（barplot目录）")
-        print("绘制品种连续合约套利图...")
-        plot_continuous_contract()
-        print("品种连续合约套利图生成完成（barplot目录）")
-        print("绘制固定套利对时序分析图...")
-        plot_time_series(today, back_period=44)
-    except Exception as e:
-        print("图像生成失败")
-        print(e)
-    
+    plot_volume_split()
+    print("成交量切分套利图生成完成（barplot目录）")
+    print("绘制品种连续合约套利图...")
+    plot_continuous_contract()
+    print("品种连续合约套利图生成完成（barplot目录）")
+    print("绘制固定套利对时序分析图...")
+    plot_time_series(today, back_period=44)
