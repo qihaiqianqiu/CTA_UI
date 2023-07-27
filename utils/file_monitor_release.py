@@ -14,6 +14,7 @@ import paramiko
 import socket
 import select
 import uuid
+import re
 
 def windows_to_linux(path):
     return path.replace("\\", "/")
@@ -23,6 +24,7 @@ def linux_to_windows(path):
 
 ROOT_PATH = ""
 
+# SSH连接定义部分 - sftp.py
 all = ["SSHConnection"] 
 class SSHConnection(object):
  
@@ -95,9 +97,11 @@ class SSHConnection(object):
         stdin, stdout, stderr = ssh.exec_command(command)
         # 获取命令结果
         result = stdout.read()
-        print (str(result,encoding='utf-8'))
+        print (str(result,encoding='gbk'))
         return result
 
+
+# 文件链路定义部分 - flink.py
 def pull_from_UI_to_cloud(config_file):
     """
     从UI端向云服务器传送参数表，链路配置
@@ -253,14 +257,21 @@ def request_from_trading_to_market(config_file):
         market_dir = os.path.join(mkt_dir, username, account_list[idx])
         trade_trading_dir = os.path.join(trade_dir_list[idx], "tradings")
         trade_report_dir = os.path.join(trade_dir_list[idx], "report")
-        trading_file = os.path.join(trade_trading_dir, max(os.listdir(trade_trading_dir)))
-        report_file = os.path.join(trade_report_dir, max(os.listdir(trade_report_dir)))
-        print("从交易端获取交易日志文件", trading_file, "上传至行情端", market_dir)
-        ssh.download(trading_file, os.path.join(market_dir, max(os.listdir(trade_trading_dir))))
-        print("交易服务器日志文件成功上传至交易端端", os.path.join(market_dir, max(os.listdir(trade_trading_dir))))
-        print("从交易端获取交易日志文件", report_file, "上传至行情端", market_dir)
-        ssh.download(report_file, os.path.join(market_dir, max(os.listdir(trade_report_dir))))
-        print("交易服务器日志文件成功上传至交易端端", os.path.join(market_dir, max(os.listdir(trade_report_dir))))
+        # 获取交易服务器的日志listdir
+        res = ssh.cmd("dir " + trade_trading_dir)
+        output = res.decode("GBK").splitlines()
+        trading_files = [re.search(r'trading_\d{6}\.csv', f).group() for f in output if re.search(r'trading_\d{6}\.csv', f)]
+        trading_file = os.path.join(trade_trading_dir, max(trading_files))
+        res = ssh.cmd("dir " + trade_report_dir)
+        output = res.decode("GBK").splitlines()
+        holding_files = [re.search(r'holding_\d{6}\.csv', f).group() for f in output if re.search(r'holding_\d{6}\.csv', f)]
+        holding_file = os.path.join(trade_report_dir, max(holding_files))
+        print("从交易端获取交易日志文件", trading_file, "下载至行情端", market_dir)
+        ssh.download(trading_file, os.path.join(market_dir, max(trading_files)))
+        print("交易服务器日志文件成功上传至交易端端", os.path.join(market_dir, trading_file))
+        print("从交易端获取交易日志文件", holding_file, "下载至行情端", market_dir)
+        ssh.download(holding_file, os.path.join(market_dir, max(holding_files)))
+        print("交易服务器日志文件成功上传至交易端端", os.path.join(market_dir, holding_file))
     ssh.close()
     
 def request_from_market_to_cloud(config_file):
@@ -313,6 +324,8 @@ async def main():
 asyncio.run(main())        
 """
 
+
+# 文件监视器部分 - file_monitor.py
 class fileMonitor(FileSystemEventHandler):
     """检测某一根目录下的文件变化
         每隔5分钟，读取目录下存放的所有CSV文件，缓存DataFrame进内存。
@@ -327,17 +340,17 @@ class fileMonitor(FileSystemEventHandler):
         self.path = path
         self.cache = self.cache_all_csv_files()
         self.is_market = is_market
-        self.set_up_ssh_tunnel()
+        if is_market:
+            self.set_up_ssh_tunnel()
 
-    
     def set_up_ssh_tunnel(self):
         if self.is_market:
-            config_files = []
+            self.config_files = []
             for root, dirs, files in os.walk(self.path):
                 for file in files:
-                    if file.endswith(".json"):
-                        config_files.append(os.path.join(root, file))
-            for config in config_files:
+                    if file.endswith(".json") and file != "limit.json" and file != "config.json" and file != "configure.json":
+                        self.config_files.append(os.path.join(root, file))
+            for config in self.config_files:
                 threading.Thread(target=set_up_ssh_reverse_tunnel, args=(config,)).start()
 
         else:
@@ -358,7 +371,6 @@ class fileMonitor(FileSystemEventHandler):
             print(file)
             self.cache[file] = pd.read_csv(file)
         return self.cache
-    
         
     def compare_csv_file(self, new_df, old_df, index_columns='pairs_id', suff=('_new', '_old')):
         log_txt = ""
@@ -410,8 +422,9 @@ class fileMonitor(FileSystemEventHandler):
             file_path = event.src_path  # 获取变化的文件路径
             print("检测到文件修改：", file_path)
             # 计算文件变化
+            file_name = os.path.basename(file_path)
             try:
-                if file_path.endswith(".csv"):
+                if file_name == "params.csv":
                     f.write(datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')+'\n')
                     f.write(file_path+'\n')
                     time.sleep(3)
@@ -437,15 +450,32 @@ class fileMonitor(FileSystemEventHandler):
                         print("找到链路配置文件：", config_file)
                         pull_from_market_to_trading(os.path.join(acc_dir, config_file))
                         print("@成功从行情端推送至交易端:", file_path)
+                if file_name == "limit.json" or "config.json" or "configure.json" or "configure.xml":
+                    pass
             except Exception as e:
                 error_info = traceback.format_exc()
                 print(error_info)
         f.close()
         
+        def planned_time_task(self):
+            if_quest = False
+            while True:
+                current_time = time.strftime("%H:%M", time.localtime())
+                # 交易日志导出任务
+                if current_time > "15:02" and not if_quest:
+                    for config in self.config_files:
+                        threading.Thread(target=request_from_trading_to_market, args=(config,)).start()
+                    if_quest = True
+                # 新的一天之后 重置if_quest
+                if current_time > "00:00" and current_time < "00:05" and if_quest:
+                    if_quest = False
+                time.sleep(30)
 
 
 
 if __name__ == "__main__":
+    # 尝试配置为行情端服务器
+    """
     #path = "./"  # 被监视的目录路径
     path = r'D:\CTA_mkt'
     event_handler = fileMonitor(path, is_market=True)
@@ -460,3 +490,5 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         observer.stop()
         observer.join()
+    """
+    request_from_trading_to_market(r"D:\local_repo\CTA_UI\sftp_configs\lq.json")
