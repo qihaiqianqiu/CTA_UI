@@ -8,13 +8,12 @@ import os
 import datetime
 import time
 import threading
-import asyncio
 import traceback
 import paramiko
 import socket
 import select
-import uuid
 import re
+import sys
 
 def windows_to_linux(path):
     return path.replace("\\", "/")
@@ -22,6 +21,7 @@ def windows_to_linux(path):
 def linux_to_windows(path):
     return path.replace("/", "\\")
 
+# UI端使用的变量 行情端避免重复命名
 ROOT_PATH = ""
 
 # SSH连接定义部分 - sftp.py
@@ -161,13 +161,16 @@ def pull_from_UI_to_market(config_file):
         ssh.upload(ftp_config_dir, os.path.join(dest_acc_dir, config_file))
         print("参数表成功上传至行情端", dest_acc_dir)
     ssh.close()
-        
+
+# 从云服务器下载日志文件到本地，以生成交易记录
+def request_from_cloud_to_UI(config):
+    pass   
+"""     
+行情服务器向UI传送日志文件，链路配置 还不确定要不要这样干 先注释掉了  
 def request_from_market_to_UI(config_file):
-    """
     行情服务器向UI传送日志文件，链路配置
     Args:
         config_file (_type_): _description_
-    """
     ftp_config_dir = os.path.join(ROOT_PATH, "sftp_configs", config_file)
     ftp_config = json.load(open(ftp_config_dir))
     cloud_server_para = ftp_config["cloudServer"]
@@ -196,6 +199,7 @@ def request_from_market_to_UI(config_file):
         print("参数表成功下载至UI端", dest_acc_dir)
     ssh.close()
 """
+"""
 Relevant Terminal
 SSH_reverse_tunnel = "ssh -R 9876:localhost:22 root@39.97.106.35"
 
@@ -206,7 +210,7 @@ rsync_example = "rsync -avPz --port 8730 --password-file=/cygdrive/C/Users/Han.H
 # 行情服务器的方法挂载在后台实时运行
 # 获取根目录下的所有config并推送参数表
 def set_up_ssh_reverse_tunnel(config_file):
-    ftp_config = json.load(open(os.path.join(ROOT_PATH, "sftp_configs", config_file)))
+    ftp_config = json.load(open(config_file))
     cloud_server_para = ftp_config["cloudServer"]
     ssh = SSHConnection(host=cloud_server_para['host'], port=cloud_server_para['port'],
                               username=cloud_server_para['username'], pwd=cloud_server_para['pwd'])
@@ -298,8 +302,34 @@ def request_from_market_to_cloud(config_file):
     ssh.close()    
 
 
-def pull_from_cloud_to_market(config_file):
-    pass
+def pull_from_market_to_cloud(config_file, file):
+    """
+    从行情端向云服务器传送持仓和交易记录
+    Args:
+        config_file (_type_): _description_
+    """
+    ftp_config_dir = os.path.join(config_file)
+    ftp_config = json.load(open(ftp_config_dir))
+    cloud_server_para = ftp_config["cloudServer"]
+    ssh = SSHConnection(host=cloud_server_para['host'], port=cloud_server_para['port'],
+                             username=cloud_server_para['username'], pwd=cloud_server_para['pwd'])
+    ssh.connect()
+    # 参数表推送
+    username = ftp_config["userName"]
+    account_list = ftp_config["accountList"]
+    mkt_dir = ftp_config["marketServer"]["mktDir"]
+    dest_user_dir = os.path.join("CTA", username)
+    ssh.cmd("mkdir -p " + windows_to_linux(dest_user_dir))
+    for acc in account_list:
+        # 首先，保证云服务器端建立相应的存储目录
+        dest_acc_dir = os.path.join(dest_user_dir, acc)
+        ssh.cmd("mkdir -p " + windows_to_linux(dest_acc_dir))
+        # 上传交易日志文件,包括持仓和交易记录
+        file_dir = os.path.join(mkt_dir, username, acc, file)
+        print(file_dir)
+        ssh.upload(file_dir, windows_to_linux(os.path.join(dest_acc_dir, file)))
+        print("交易日志成功上传至云端", dest_acc_dir)
+    ssh.close()
 
 
 """
@@ -343,6 +373,7 @@ class fileMonitor(FileSystemEventHandler):
         if is_market:
             self.set_up_ssh_tunnel()
 
+    # 查找属性path目录下的所有链路配置文件
     def set_up_ssh_tunnel(self):
         if self.is_market:
             self.config_files = []
@@ -414,9 +445,29 @@ class fileMonitor(FileSystemEventHandler):
             log_txt += "    首次上传参数表  " + '\n'
 
         return log_txt
-        
+    
+    def on_created(self, event):
+        f = open(os.path.join(self.path, 'changelog.txt'), 'a+')
+        # 文件增删处理
+        if not event.is_directory and event.src_path.endswith(".csv") and event.event_type == 'created':
+            print("EVENT INFORMATION: ", event)
+            file_path = event.src_path  # 获取变化的文件路径
+            print("检测到文件增删：", file_path)
+            # 如果是交易日志文件，转发到服务器
+            file_name = os.path.basename(file_path)
+            try:
+                if re.search(r'holding_\d{6}\.csv', file_name) or re.search(r'trading_\d{6}\.csv', file_name):
+                    print("文件为交易日志文件" + file_name + "转发到服务器")
+                    for config in self.config_files:
+                        pull_from_market_to_cloud(config, file_name)
+            except Exception as e:
+                error_info = traceback.format_exc()
+                print(error_info)
+                    
+                
     def on_modified(self, event):
         f = open(os.path.join(self.path, 'changelog.txt'), 'a+')  # 记录日志
+        # 文件变化处理
         if not event.is_directory and event.src_path.endswith(".csv") and event.event_type == 'modified':
             print("EVENT INFORMATION: ", event)
             file_path = event.src_path  # 获取变化的文件路径
@@ -475,12 +526,11 @@ class fileMonitor(FileSystemEventHandler):
 
 if __name__ == "__main__":
     # 尝试配置为行情端服务器
-    """
     #path = "./"  # 被监视的目录路径
-    path = r'D:\CTA_mkt'
-    event_handler = fileMonitor(path, is_market=True)
+    MARKET_DIR = os.path.dirname(os.path.realpath(sys.argv[0]))
+    event_handler = fileMonitor(path=MARKET_DIR, is_market=True)
     observer = Observer()
-    observer.schedule(event_handler, path, recursive=True)
+    observer.schedule(event_handler, MARKET_DIR, recursive=True)
     observer.start()
 
     try:
@@ -490,5 +540,3 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         observer.stop()
         observer.join()
-    """
-    request_from_trading_to_market(r"D:\local_repo\CTA_UI\sftp_configs\lq.json")
