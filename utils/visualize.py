@@ -77,7 +77,7 @@ def bar_plot_get_continous_data(contract_pair_lst:list, date:int, section:int):
     
 
 # 成交量返回对应数据
-def bar_plot_get_volume_split_data(contract_pair_lst:list, date:int, section:int, batch_num = 40, volume_threshold = 3000):
+def bar_plot_get_volume_split_data(contract_pair_lst:list, date:int, section:int, batch_num = 40, volume_threshold = 1000):
     df_section = []
     label_section = []
     volume_batch_section = []
@@ -109,9 +109,9 @@ def bar_plot_get_volume_split_data(contract_pair_lst:list, date:int, section:int
             max_vol = df['volume'].max()
             min_vol = df['volume'].min()
             volume_batch = int((max_vol - min_vol) / batch_num)
-            print("Volume batch for {} is {}".format(contract_pair, volume_batch))
             if volume_batch == 0 or max_vol < volume_threshold:
-                break
+                print("Volume batch for {} is {}, expected volume is {} --> insufficient value".format(contract_pair, volume_batch, max_vol))
+                continue
             df['volume_section'] = df['volume'].apply(lambda x: int((x - min_vol) / volume_batch))
             df['volume_section'] = df['volume_section'].apply(lambda x: x if x < batch_num else batch_num - 1)
             df_vol_lst = []
