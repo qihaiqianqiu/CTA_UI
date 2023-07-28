@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-07-28T01:29:38.665Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="7ngY87s8FEbk6Pj9o0kh" version="21.6.5" type="github">
+<mxfile host="app.diagrams.net" modified="2023-07-28T01:32:12.114Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="Kq7ANEQMl1o-GW0vPiCc" version="21.6.5" type="github">
   <diagram name="Page-1" id="55a83fd1-7818-8e21-69c5-c3457e3827bb">
     <mxGraphModel dx="3174" dy="1974" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
@@ -98,13 +98,10 @@
           <mxGeometry x="520" y="100" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="NVRcVpPu2NZPeXmVPFQy-61" value="" style="image;html=1;image=img/lib/clip_art/computers/Data_Filtering_128x128.png" parent="1" vertex="1">
-          <mxGeometry x="310" y="460" width="70" height="50" as="geometry" />
+          <mxGeometry x="300" y="455" width="70" height="50" as="geometry" />
         </mxCell>
         <mxCell id="NVRcVpPu2NZPeXmVPFQy-62" value="" style="image;html=1;image=img/lib/clip_art/computers/Data_Filtering_128x128.png" parent="1" vertex="1">
           <mxGeometry x="200" y="150" width="60" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="NVRcVpPu2NZPeXmVPFQy-65" value="" style="image;html=1;image=img/lib/clip_art/computers/Data_Filtering_128x128.png" parent="1" vertex="1">
-          <mxGeometry x="720" y="545" width="70" height="50" as="geometry" />
         </mxCell>
         <mxCell id="cSd5Ikj80ORa92apMF1n-4" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" parent="1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
