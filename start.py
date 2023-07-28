@@ -692,6 +692,7 @@ class Arbitrator(QMainWindow):
         region_info, boundary_info, suffix_info = transform.param_split(param_df)
         param_df.to_csv(os.path.join(const.PARAM_PATH, 'BASE', 'params.csv'))
         # 再从基表分发给各个账户表
+        acc_lst = ""
         for acc in self.in_buffer:
             id = acc[0]
             region_budget = float(acc[4])
@@ -704,6 +705,8 @@ class Arbitrator(QMainWindow):
                 os.mkdir(acc_param_dir)
             acc_param_df.to_csv(os.path.join(const.PARAM_PATH, id, 'params.csv'))
             print("已分发参数表：", id)
+            acc_lst += id + '\n'
+        QMessageBox.information(self, "参数表保存分发成功", "包含以下用户: \n" + acc_lst)
         self.status.showMessage("账户参数表保存并分发成功")
 
 

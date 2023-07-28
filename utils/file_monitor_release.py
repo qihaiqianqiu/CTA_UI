@@ -391,7 +391,7 @@ class fileMonitor(FileSystemEventHandler):
         csv_files = []
         for root, dirs, files in os.walk(self.path):
             for file in files:
-                if file.endswith(".csv"):
+                if file == "params.csv":
                     csv_files.append(os.path.join(root, file))
         return csv_files
 

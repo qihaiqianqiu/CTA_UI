@@ -17,8 +17,13 @@ def get_hold(acc_name):
     if not os.path.exists(reportFileDir):
         os.mkdir(reportFileDir)
     # 选择最新的持仓文件
-    reportlst = os.listdir(reportFileDir)
-    reportFile = os.path.join(reportFileDir, max(reportlst))
+    reportlst = [re.search(r'\D+\d{6}\.csv', f).group() for f in os.listdir(reportFileDir) if re.search(r'\D+\d{6}\.csv', f)]
+    print(reportlst)
+    dtlst = [int(re.search(r"(\d{6})", f).group(0)) for f in reportlst]
+    print(dtlst)
+    most_recent_holding_file = reportlst[dtlst.index(max(dtlst))]
+    print(most_recent_holding_file)
+    reportFile = os.path.join(reportFileDir, most_recent_holding_file)
     hold = pd.read_csv(reportFile, encoding='gbk')
     if '持仓合约' and '总仓' in hold.columns.tolist():
         hold = hold[['持仓合约','买卖','总仓']]
@@ -116,14 +121,12 @@ def export_trading_compare(acc_lst:list):
         tradingDir = os.path.join(ROOT_PATH, "tradings")
         tradingFileDir = os.path.join(tradingDir, acc_name)
         # selected most recent trading record
-        recent_date = "0"
-        for filename in os.listdir(tradingFileDir):
-            if '_sorted' in filename:
-                dt = re.findall(r"\d+", filename)[0]
-                if dt > recent_date:
-                    recent_date = dt
-        most_recent_tradingFile = max([f for f in tradingFileDir if str(recent_date) + "_sorted.csv" in f])
-        tradingFile = os.path.join(tradingFileDir, most_recent_tradingFile)
+        tradinglst = [re.search(r'\D+\d{6}\_sorted.csv', f).group() for f in os.listdir(tradingFileDir) if re.search(r'\D+\d{6}\_sorted.csv', f)]
+        print(tradinglst)
+        dtlst = [int(re.search(r"(\d{6})", f).group(0)) for f in tradinglst]
+        most_recent_trading_file = tradinglst[dtlst.index(max(dtlst))]
+        tradingFile = os.path.join(tradingFileDir, most_recent_trading_file)
+        print(tradingFile)
         # 读取相应trading文件
         if os.path.exists(tradingFile):
             trading_dict[acc_name] = pd.read_csv(tradingFile, encoding='GBK')
@@ -149,3 +152,7 @@ def export_trading_compare(acc_lst:list):
     df = df.set_index("pairs_id")
     print(df)
     return df
+
+if __name__ == "__main__":
+    get_hold("ch8")
+    #export_trading_compare(["lq", "co5", "ch8"])
