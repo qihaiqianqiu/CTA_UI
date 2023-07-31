@@ -134,30 +134,31 @@ def bar_plot_get_time_series_data(contract_pair:list, start_date:int, end_date:i
     df_whole = get_pairwise_data(contract_pair, start_date, end_date)
     df_section = []
     label_section = []
-    for date in range(start_date, trade_day[trade_day.index(end_date) + 1]):
-        if date in trade_day:
-            pair_data = df_whole[df_whole['trading_date']==date]
-            if len(pair_data) > 0:
-                df_s0 = pair_data[(pair_data['time'] > '09') & (pair_data['time'] < '11:30')]
-                x_label_s0 = str(pair_data['trading_date'].iloc[0]) + '_0'
-        
-                df_s1 = pair_data[(pair_data['time'] > '13:30') & (pair_data['time'] < '15:00')]
-                x_label_s1 = str(pair_data['trading_date'].iloc[0]) + '_1'
-                    
-                df_s2 = pair_data[(pair_data['time'] > '21') | (pair_data['time'] < '02:30')]
-                x_label_s2 = str(trade_day[trade_day.index(pair_data['trading_date'].iloc[0]) - 1]) + '_2'
+    if len(df_whole) > 0:
+        for date in range(start_date, trade_day[trade_day.index(end_date) + 1]):
+            if date in trade_day:
+                pair_data = df_whole[df_whole['trading_date']==date]
+                if len(pair_data) > 0:
+                    df_s0 = pair_data[(pair_data['time'] > '09') & (pair_data['time'] < '11:30')]
+                    x_label_s0 = str(pair_data['trading_date'].iloc[0]) + '_0'
+            
+                    df_s1 = pair_data[(pair_data['time'] > '13:30') & (pair_data['time'] < '15:00')]
+                    x_label_s1 = str(pair_data['trading_date'].iloc[0]) + '_1'
+                        
+                    df_s2 = pair_data[(pair_data['time'] > '21') | (pair_data['time'] < '02:30')]
+                    x_label_s2 = str(trade_day[trade_day.index(pair_data['trading_date'].iloc[0]) - 1]) + '_2'
 
-                if len(df_s2) > 0:
-                    df_section.append({contract_pair[0] + "-" + contract_pair[1]:df_s2})
-                    label_section.append(x_label_s2)    
+                    if len(df_s2) > 0:
+                        df_section.append({contract_pair[0] + "-" + contract_pair[1]:df_s2})
+                        label_section.append(x_label_s2)    
 
-                if len(df_s0) > 0:
-                    df_section.append({contract_pair[0] + "-" + contract_pair[1]:df_s0})
-                    label_section.append(x_label_s0)
+                    if len(df_s0) > 0:
+                        df_section.append({contract_pair[0] + "-" + contract_pair[1]:df_s0})
+                        label_section.append(x_label_s0)
 
-                if len(df_s1) > 0:
-                    df_section.append({contract_pair[0] + "-" + contract_pair[1]:df_s1})
-                    label_section.append(x_label_s1)
+                    if len(df_s1) > 0:
+                        df_section.append({contract_pair[0] + "-" + contract_pair[1]:df_s1})
+                        label_section.append(x_label_s1)
     return df_section, label_section, save_date
 
 
@@ -231,6 +232,7 @@ def bar_plot_time_series(contract_pair:list, start_date:int, end_date:int):
     try:
         df_section, label_section, save_date = bar_plot_get_time_series_data(contract_pair, start_date, end_date)
         if len(df_section) == 0:
+            print("contract pair {} has been outdated".format(contract_pair))
             return
     except Exception as e:
         print(traceback.format_exc())
