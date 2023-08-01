@@ -29,7 +29,7 @@ mpl.rcParams.update({
 'font.family': 'stixgeneral',
 'mathtext.fontset': 'stix',
 })
-import cProfile
+from tabulate import tabulate
 from multiprocessing import Pool
 from itertools import product
 from multiprocessing import Process
@@ -39,12 +39,41 @@ from utils.get_contract_pair import get_db_contract_pair
 from utils.date_section_modification import get_date_section, from_predict
 from utils.calculate_parameter import get_pairwise_data
 
-all = ['plot_continuous_contract', 'plot_time_series', 'plot_volume_split']
+all = ['plot_continuous_contract', 'plot_time_series', 'plot_volume_split', "create_aligned_table", "show_table_in_message_box"]
 logger = open(os.path.join(PLOT_PATH, "visual_log.txt"), "a+")
 err = open(os.path.join(PLOT_PATH, "visual_error.txt"), "a+")
 
-# Get data from start_date[MorningMarket] to end_date[EveningMarket]
 
+# 字符串表格的输出
+def create_aligned_table(data):
+    # 获取每列最大宽度
+    column_widths = [max(map(len, column)) for column in zip(*data)]
+    
+    # 设置表头
+    headers = data[0]
+    
+    # 设置列宽度
+    aligned_data = [[str(item).ljust(width) for item, width in zip(row, column_widths)] for row in data[1:]]
+    
+    # 使用tabulate生成表格
+    table = tabulate(aligned_data, headers, tablefmt="plain")
+    
+    return table
+
+
+def show_table_in_message_box(data):
+    table_html = "<table style='border-collapse: collapse;'>"
+    for row in data:
+        table_html += "<tr>"
+        for item in row:
+            table_html += "<td style='border: 1px solid black; padding: 5px; white-space: nowrap;'>{}</td>".format(item)
+        table_html += "</tr>"
+    table_html += "</table>"
+    
+    return table_html
+
+
+# Get data from start_date[MorningMarket] to end_date[EveningMarket]
 # 连续合约对模块（蝶式套）返回对应数据  
 def bar_plot_get_continous_data(contract_pair_lst:list, date:int, section:int):
     df_section = []
@@ -510,13 +539,5 @@ def plot_time_series(date:int, back_period=30):
 
 
 if __name__ == "__main__":
-    print("开始生成图像")
-    print("绘制成交量切分套利图...")
-    today = int(datetime.date.today().strftime('%Y%m%d'))
-    plot_volume_split()
-    print("成交量切分套利图生成完成（barplot目录）")
-    print("绘制品种连续合约套利图...")
-    plot_continuous_contract()
-    print("品种连续合约套利图生成完成（barplot目录）")
-    print("绘制固定套利对时序分析图...")
-    plot_time_series(today, back_period=44)
+    data = [['account', 'link', 'from', 'to', 'status'], ['ch3', 'UI -> Cloud', 'D:\\local_repo\\CTA_UI\\params\\ch3\\params.csv', 'CTA/feng/ch3/params.csv', '√'], ['ch3', 'UI -> Cloud', 'D:\\local_repo\\CTA_UI\\sftp_configs\\huajing34.json', 'CTA/feng/ch3/huajing34.json', '√'], ['ch5', 'UI -> Cloud', 'D:\\local_repo\\CTA_UI\\params\\ch5\\params.csv', 'CTA/feng/ch5/params.csv', '√'], ['ch5', 'UI -> Cloud', 'D:\\local_repo\\CTA_UI\\sftp_configs\\huajing34.json', 'CTA/feng/ch5/huajing34.json', '√'], ['ch3', 'UI -> Market', '-', '-', 'SSHException'], ['ch5', 'UI -> Market', '-', '-', 'SSHException'], ['lq', 'UI -> Cloud', 'D:\\local_repo\\CTA_UI\\params\\lq\\params.csv', 'CTA/hh/lq/params.csv', '√'], ['lq', 'UI -> Cloud', 'D:\\local_repo\\CTA_UI\\sftp_configs\\lq.json', 'CTA/hh/lq/lq.json', '√'], ['lq', 'UI -> Market', '-', '-', 'TypeError'], ['lqqq', 'UI -> Cloud', 'D:\\local_repo\\CTA_UI\\params\\lqqq\\params.csv', 'CTA/hh/lqqq/params.csv', '√'], ['lqqq', 'UI -> Cloud', 'D:\\local_repo\\CTA_UI\\sftp_configs\\lqq - 副本.json', 'CTA/hh/lqqq/lqq - 副本.json', '√'], ['lqqq', 'UI -> Market', '-', '-', 'TypeError'], ['lqq', 'UI -> Cloud', 'D:\\local_repo\\CTA_UI\\params\\lqq\\params.csv', 'CTA/hh/lqq/params.csv', '√'], ['lqq', 'UI -> Cloud', 'D:\\local_repo\\CTA_UI\\sftp_configs\\lqq.json', 'CTA/hh/lqq/lqq.json', '√'], ['lqq', 'UI -> Market', '-', '-', 'TypeError'], ['lq', 'UI -> Cloud', 'D:\\local_repo\\CTA_UI\\params\\lq\\params.csv', 'CTA/hh/lq/params.csv', '√'], ['lq', 'UI -> Cloud', 'D:\\local_repo\\CTA_UI\\sftp_configs\\lq_market_test.json', 'CTA/hh/lq/lq_market_test.json', '√'], ['lq', 'UI -> Market', '-', '-', 'SSHException']]
+    print(str(create_aligned_table(data)))

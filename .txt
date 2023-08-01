@@ -1,0 +1,169 @@
+2023-08-01 12:10:22
+2023-08-01 12:12:09
++---------+--------------+--------------------------------------------------+-----------------------------+--------------+
+| account |     link     |                       from                       |              to             |    status    |
++---------+--------------+--------------------------------------------------+-----------------------------+--------------+
+|   ch3   | UI -> Cloud  |    D:\local_repo\CTA_UI\params\ch3\params.csv    |   CTA/feng/ch3/params.csv   |      √       |
+|   ch3   | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\huajing34.json | CTA/feng/ch3/huajing34.json |      √       |
+|   ch5   | UI -> Cloud  |    D:\local_repo\CTA_UI\params\ch5\params.csv    |   CTA/feng/ch5/params.csv   |      √       |
+|   ch5   | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\huajing34.json | CTA/feng/ch5/huajing34.json |      √       |
+|   ch3   | UI -> Market |                        -                         |              -              | SSHException |
+|   ch5   | UI -> Market |                        -                         |              -              | SSHException |
++---------+--------------+--------------------------------------------------+-----------------------------+--------------+
+2023-08-01 12:12:12
++---------+--------------+--------------------------------------------------+-----------------------------+--------------+
+| account |     link     |                       from                       |              to             |    status    |
++---------+--------------+--------------------------------------------------+-----------------------------+--------------+
+|   ch3   | UI -> Cloud  |    D:\local_repo\CTA_UI\params\ch3\params.csv    |   CTA/feng/ch3/params.csv   |      √       |
+|   ch3   | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\huajing34.json | CTA/feng/ch3/huajing34.json |      √       |
+|   ch5   | UI -> Cloud  |    D:\local_repo\CTA_UI\params\ch5\params.csv    |   CTA/feng/ch5/params.csv   |      √       |
+|   ch5   | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\huajing34.json | CTA/feng/ch5/huajing34.json |      √       |
+|   ch3   | UI -> Market |                        -                         |              -              | SSHException |
+|   ch5   | UI -> Market |                        -                         |              -              | SSHException |
+|    lq   | UI -> Cloud  |    D:\local_repo\CTA_UI\params\lq\params.csv     |     CTA/hh/lq/params.csv    |      √       |
+|    lq   | UI -> Cloud  |    D:\local_repo\CTA_UI\sftp_configs\lq.json     |      CTA/hh/lq/lq.json      |      √       |
+|    lq   | UI -> Market |                        -                         |              -              |  TypeError   |
++---------+--------------+--------------------------------------------------+-----------------------------+--------------+
+2023-08-01 12:12:14
++---------+--------------+---------------------------------------------------+-----------------------------+--------------+
+| account |     link     |                        from                       |              to             |    status    |
++---------+--------------+---------------------------------------------------+-----------------------------+--------------+
+|   ch3   | UI -> Cloud  |     D:\local_repo\CTA_UI\params\ch3\params.csv    |   CTA/feng/ch3/params.csv   |      √       |
+|   ch3   | UI -> Cloud  |  D:\local_repo\CTA_UI\sftp_configs\huajing34.json | CTA/feng/ch3/huajing34.json |      √       |
+|   ch5   | UI -> Cloud  |     D:\local_repo\CTA_UI\params\ch5\params.csv    |   CTA/feng/ch5/params.csv   |      √       |
+|   ch5   | UI -> Cloud  |  D:\local_repo\CTA_UI\sftp_configs\huajing34.json | CTA/feng/ch5/huajing34.json |      √       |
+|   ch3   | UI -> Market |                         -                         |              -              | SSHException |
+|   ch5   | UI -> Market |                         -                         |              -              | SSHException |
+|    lq   | UI -> Cloud  |     D:\local_repo\CTA_UI\params\lq\params.csv     |     CTA/hh/lq/params.csv    |      √       |
+|    lq   | UI -> Cloud  |     D:\local_repo\CTA_UI\sftp_configs\lq.json     |      CTA/hh/lq/lq.json      |      √       |
+|    lq   | UI -> Market |                         -                         |              -              |  TypeError   |
+|   lqqq  | UI -> Cloud  |    D:\local_repo\CTA_UI\params\lqqq\params.csv    |    CTA/hh/lqqq/params.csv   |      √       |
+|   lqqq  | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\lqq - 副本.json | CTA/hh/lqqq/lqq - 副本.json |      √       |
+|   lqqq  | UI -> Market |                         -                         |              -              |  TypeError   |
++---------+--------------+---------------------------------------------------+-----------------------------+--------------+
+2023-08-01 12:12:15
++---------+--------------+---------------------------------------------------+-----------------------------+--------------+
+| account |     link     |                        from                       |              to             |    status    |
++---------+--------------+---------------------------------------------------+-----------------------------+--------------+
+|   ch3   | UI -> Cloud  |     D:\local_repo\CTA_UI\params\ch3\params.csv    |   CTA/feng/ch3/params.csv   |      √       |
+|   ch3   | UI -> Cloud  |  D:\local_repo\CTA_UI\sftp_configs\huajing34.json | CTA/feng/ch3/huajing34.json |      √       |
+|   ch5   | UI -> Cloud  |     D:\local_repo\CTA_UI\params\ch5\params.csv    |   CTA/feng/ch5/params.csv   |      √       |
+|   ch5   | UI -> Cloud  |  D:\local_repo\CTA_UI\sftp_configs\huajing34.json | CTA/feng/ch5/huajing34.json |      √       |
+|   ch3   | UI -> Market |                         -                         |              -              | SSHException |
+|   ch5   | UI -> Market |                         -                         |              -              | SSHException |
+|    lq   | UI -> Cloud  |     D:\local_repo\CTA_UI\params\lq\params.csv     |     CTA/hh/lq/params.csv    |      √       |
+|    lq   | UI -> Cloud  |     D:\local_repo\CTA_UI\sftp_configs\lq.json     |      CTA/hh/lq/lq.json      |      √       |
+|    lq   | UI -> Market |                         -                         |              -              |  TypeError   |
+|   lqqq  | UI -> Cloud  |    D:\local_repo\CTA_UI\params\lqqq\params.csv    |    CTA/hh/lqqq/params.csv   |      √       |
+|   lqqq  | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\lqq - 副本.json | CTA/hh/lqqq/lqq - 副本.json |      √       |
+|   lqqq  | UI -> Market |                         -                         |              -              |  TypeError   |
+|   lqq   | UI -> Cloud  |     D:\local_repo\CTA_UI\params\lqq\params.csv    |    CTA/hh/lqq/params.csv    |      √       |
+|   lqq   | UI -> Cloud  |     D:\local_repo\CTA_UI\sftp_configs\lqq.json    |     CTA/hh/lqq/lqq.json     |      √       |
+|   lqq   | UI -> Market |                         -                         |              -              |  TypeError   |
++---------+--------------+---------------------------------------------------+-----------------------------+--------------+
+2023-08-01 12:12:19
++---------+--------------+-------------------------------------------------------+-------------------------------+--------------+
+| account |     link     |                          from                         |               to              |    status    |
++---------+--------------+-------------------------------------------------------+-------------------------------+--------------+
+|   ch3   | UI -> Cloud  |       D:\local_repo\CTA_UI\params\ch3\params.csv      |    CTA/feng/ch3/params.csv    |      √       |
+|   ch3   | UI -> Cloud  |    D:\local_repo\CTA_UI\sftp_configs\huajing34.json   |  CTA/feng/ch3/huajing34.json  |      √       |
+|   ch5   | UI -> Cloud  |       D:\local_repo\CTA_UI\params\ch5\params.csv      |    CTA/feng/ch5/params.csv    |      √       |
+|   ch5   | UI -> Cloud  |    D:\local_repo\CTA_UI\sftp_configs\huajing34.json   |  CTA/feng/ch5/huajing34.json  |      √       |
+|   ch3   | UI -> Market |                           -                           |               -               | SSHException |
+|   ch5   | UI -> Market |                           -                           |               -               | SSHException |
+|    lq   | UI -> Cloud  |       D:\local_repo\CTA_UI\params\lq\params.csv       |      CTA/hh/lq/params.csv     |      √       |
+|    lq   | UI -> Cloud  |       D:\local_repo\CTA_UI\sftp_configs\lq.json       |       CTA/hh/lq/lq.json       |      √       |
+|    lq   | UI -> Market |                           -                           |               -               |  TypeError   |
+|   lqqq  | UI -> Cloud  |      D:\local_repo\CTA_UI\params\lqqq\params.csv      |     CTA/hh/lqqq/params.csv    |      √       |
+|   lqqq  | UI -> Cloud  |   D:\local_repo\CTA_UI\sftp_configs\lqq - 副本.json   |  CTA/hh/lqqq/lqq - 副本.json  |      √       |
+|   lqqq  | UI -> Market |                           -                           |               -               |  TypeError   |
+|   lqq   | UI -> Cloud  |       D:\local_repo\CTA_UI\params\lqq\params.csv      |     CTA/hh/lqq/params.csv     |      √       |
+|   lqq   | UI -> Cloud  |       D:\local_repo\CTA_UI\sftp_configs\lqq.json      |      CTA/hh/lqq/lqq.json      |      √       |
+|   lqq   | UI -> Market |                           -                           |               -               |  TypeError   |
+|    lq   | UI -> Cloud  |       D:\local_repo\CTA_UI\params\lq\params.csv       |      CTA/hh/lq/params.csv     |      √       |
+|    lq   | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json | CTA/hh/lq/lq_market_test.json |      √       |
+|    lq   | UI -> Market |                           -                           |               -               | SSHException |
++---------+--------------+-------------------------------------------------------+-------------------------------+--------------+
+2023-08-01 12:28:20
++---------+--------------+--------------+--------------+--------------+
+| account | link         | from         | to           | status       |
++---------+--------------+--------------+--------------+--------------+
+| ch3     | UI -> Cloud  | D:\local_rep | CTA/feng/ch3 | √            |
+|         |              | o\CTA_UI\par | /params.csv  |              |
+|         |              | ams\ch3\para |              |              |
+|         |              | ms.csv       |              |              |
+| ch3     | UI -> Cloud  | D:\local_rep | CTA/feng/ch3 | √            |
+|         |              | o\CTA_UI\sft | /huajing34.j |              |
+|         |              | p_configs\hu | son          |              |
+|         |              | ajing34.json |              |              |
+| ch5     | UI -> Cloud  | D:\local_rep | CTA/feng/ch5 | √            |
+|         |              | o\CTA_UI\par | /params.csv  |              |
+|         |              | ams\ch5\para |              |              |
+|         |              | ms.csv       |              |              |
+| ch5     | UI -> Cloud  | D:\local_rep | CTA/feng/ch5 | √            |
+|         |              | o\CTA_UI\sft | /huajing34.j |              |
+|         |              | p_configs\hu | son          |              |
+|         |              | ajing34.json |              |              |
+| ch3     | UI -> Market | -            | -            | SSHException |
+| ch5     | UI -> Market | -            | -            | SSHException |
+| lq      | UI -> Cloud  | D:\local_rep | CTA/hh/lq/pa | √            |
+|         |              | o\CTA_UI\par | rams.csv     |              |
+|         |              | ams\lq\param |              |              |
+|         |              | s.csv        |              |              |
+| lq      | UI -> Cloud  | D:\local_rep | CTA/hh/lq/lq | √            |
+|         |              | o\CTA_UI\sft | .json        |              |
+|         |              | p_configs\lq |              |              |
+|         |              | .json        |              |              |
+| lq      | UI -> Market | -            | -            | TypeError    |
+| lqqq    | UI -> Cloud  | D:\local_rep | CTA/hh/lqqq/ | √            |
+|         |              | o\CTA_UI\par | params.csv   |              |
+|         |              | ams\lqqq\par |              |              |
+|         |              | ams.csv      |              |              |
+| lqqq    | UI -> Cloud  | D:\local_rep | CTA/hh/lqqq/ | √            |
+|         |              | o\CTA_UI\sft | lqq -        |              |
+|         |              | p_configs\lq | 副本.json    |              |
+|         |              | q - 副本.json |              |              |
+| lqqq    | UI -> Market | -            | -            | TypeError    |
+| lqq     | UI -> Cloud  | D:\local_rep | CTA/hh/lqq/p | √            |
+|         |              | o\CTA_UI\par | arams.csv    |              |
+|         |              | ams\lqq\para |              |              |
+|         |              | ms.csv       |              |              |
+| lqq     | UI -> Cloud  | D:\local_rep | CTA/hh/lqq/l | √            |
+|         |              | o\CTA_UI\sft | qq.json      |              |
+|         |              | p_configs\lq |              |              |
+|         |              | q.json       |              |              |
+| lqq     | UI -> Market | -            | -            | TypeError    |
+| lq      | UI -> Cloud  | D:\local_rep | CTA/hh/lq/pa | √            |
+|         |              | o\CTA_UI\par | rams.csv     |              |
+|         |              | ams\lq\param |              |              |
+|         |              | s.csv        |              |              |
+| lq      | UI -> Cloud  | D:\local_rep | CTA/hh/lq/lq | √            |
+|         |              | o\CTA_UI\sft | _market_test |              |
+|         |              | p_configs\lq | .json        |              |
+|         |              | _market_test |              |              |
+|         |              | .json        |              |              |
+| lq      | UI -> Market | -            | -            | SSHException |
++---------+--------------+--------------+--------------+--------------+
+2023-08-01 12:40:24
++---------+--------------+-------------------------------------------------------+-------------------------------+--------------+
+| account | link         | from                                                  | to                            | status       |
++---------+--------------+-------------------------------------------------------+-------------------------------+--------------+
+| ch3     | UI -> Cloud  | D:\local_repo\CTA_UI\params\ch3\params.csv            | CTA/feng/ch3/params.csv       | √            |
+| ch3     | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\huajing34.json      | CTA/feng/ch3/huajing34.json   | √            |
+| ch5     | UI -> Cloud  | D:\local_repo\CTA_UI\params\ch5\params.csv            | CTA/feng/ch5/params.csv       | √            |
+| ch5     | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\huajing34.json      | CTA/feng/ch5/huajing34.json   | √            |
+| ch3     | UI -> Market | -                                                     | -                             | SSHException |
+| ch5     | UI -> Market | -                                                     | -                             | SSHException |
+| lq      | UI -> Cloud  | D:\local_repo\CTA_UI\params\lq\params.csv             | CTA/hh/lq/params.csv          | √            |
+| lq      | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\lq.json             | CTA/hh/lq/lq.json             | √            |
+| lq      | UI -> Market | -                                                     | -                             | TypeError    |
+| lqqq    | UI -> Cloud  | D:\local_repo\CTA_UI\params\lqqq\params.csv           | CTA/hh/lqqq/params.csv        | √            |
+| lqqq    | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\lqq - 副本.json     | CTA/hh/lqqq/lqq - 副本.json   | √            |
+| lqqq    | UI -> Market | -                                                     | -                             | TypeError    |
+| lqq     | UI -> Cloud  | D:\local_repo\CTA_UI\params\lqq\params.csv            | CTA/hh/lqq/params.csv         | √            |
+| lqq     | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\lqq.json            | CTA/hh/lqq/lqq.json           | √            |
+| lqq     | UI -> Market | -                                                     | -                             | TypeError    |
+| lq      | UI -> Cloud  | D:\local_repo\CTA_UI\params\lq\params.csv             | CTA/hh/lq/params.csv          | √            |
+| lq      | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json | CTA/hh/lq/lq_market_test.json | √            |
+| lq      | UI -> Market | -                                                     | -                             | SSHException |
++---------+--------------+-------------------------------------------------------+-------------------------------+--------------+

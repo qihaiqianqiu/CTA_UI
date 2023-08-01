@@ -20,6 +20,9 @@ from tqdm import tqdm
 import os
 from utils import *
 from UI_widget import *
+from utils.file_monitor import *
+import threading
+import json
 
 class Arbitrator(QMainWindow):    
     def __init__(self):
@@ -424,35 +427,37 @@ class Arbitrator(QMainWindow):
     
     @QtCore.pyqtSlot()
     def upload_param(self):
-        fail_counter = 0
-        error_log = ""
+        error_log = [["Account", "Link", "From", "To", "Status"]]
         config_file_lst = os.listdir(os.path.join(const.ROOT_PATH, "sftp_configs"))
         for config in config_file_lst:
             try:
-                flink.pull_from_UI_to_cloud(config)
+                logger = flink.pull_from_UI_to_cloud(config)
+                for log in logger:
+                    error_log.append(log)
             except Exception as e:
-                fail_counter += 1
-                print("文件上传至云端失败:", config)
-                error_log += "文件上传至云端失败:" + config + '\n'
-                error_info = traceback.format_exc()
-                with open("error_log.txt", "a+", encoding='utf-8') as err_file:
-                    err_file.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
-                    err_file.write(error_info + '\n')
+                error_acc_lst = json.load(open(os.path.join(const.ROOT_PATH, "sftp_configs", config)))['accountList']
+                for acc in error_acc_lst:
+                    error_log.append([acc, "UI -> Cloud", "-", "-", type(e).__name__])
             try:
-                flink.pull_from_UI_to_market(config)
+                logger = flink.pull_from_UI_to_market(config)
+                for log in logger:
+                    error_log.append(log)
             except Exception as e:
-                fail_counter += 1
-                print("文件上传至行情端失败:", config)
-                error_log += "文件上传至行情端失败:" + config + '\n'
-                error_info = traceback.format_exc()
-                with open("error_log.txt", "a+", encoding='utf-8') as err_file:
-                    err_file.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
-                    err_file.write(error_info + '\n')
-        if fail_counter == 0:
-            QMessageBox.information(self, "上传完成", "参数表已上传至云端&行情端")
-        else:
-            QMessageBox.information(self, "上传失败", error_log)
+                error_acc_lst = json.load(open(os.path.join(const.ROOT_PATH, "sftp_configs", config)))['accountList']
+                for acc in error_acc_lst:
+                    error_log.append([acc, "UI -> Market", "-", "-", type(e).__name__])
+        
+        table_output = visualize.create_aligned_table(error_log)
+        html_table = visualize.show_table_in_message_box(error_log)
+        with open("changelog.txt", "a+", encoding='utf-8') as err_file:
+            err_file.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
+            err_file.write(table_output + '\n')
 
+        msgbox = QMessageBox()
+        msgbox.setWindowTitle("上传完成")
+        msgbox.setTextFormat(Qt.RichText)
+        msgbox.setText(html_table)
+        msgbox.exec_()
 
     @QtCore.pyqtSlot()
     def download_holdings(self):
@@ -867,6 +872,7 @@ class Arbitrator(QMainWindow):
 
 if __name__ == '__main__':
     try:
+        threading.Thread(target=invoke_monitor, args=(False, True,)).start()
         app = QApplication(sys.argv)
         ex = Arbitrator()
         sys.exit(app.exec_())

@@ -13,6 +13,7 @@ from .flink import *
 from .get_contract_pair import *
 from .plotfile_management import *
 from .path_exp_switch import *
+from .file_monitor import *
 
-__all__ = ["cache_management", "calculate_parameter", "compare", "const", "date_section_modification", "plotfile_management", 
+__all__ = ["cache_management", "calculate_parameter", "compare", "const", "date_section_modification", "plotfile_management", "file_monitor",
            "rename", "report_to_tmpvalue", "sftp", "trade_to_trading", "transform", "visualize", "flink", "get_contract_pair", "path_exp_switch"]

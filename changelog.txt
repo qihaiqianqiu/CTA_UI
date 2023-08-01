@@ -1,0 +1,2494 @@
+2023-07-31 19:56:05
+D:\local_repo\CTA_UI\params\BASE\params.csv
+    +++Ìí¼ÓÌ×Àû¶Ô: IF2312-2403
+    +++Ìí¼ÓÌ×Àû¶Ô: IH2312-2403
+==================================================
+2023-07-31 19:56:08
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-07-31 20:24:13
+D:\local_repo\CTA_UI\params\BASE\params.csv
+    ÐÞ¸ÄÌ×Àû¶Ô: A2401-2403
+        [region_0] ÐÞ¸ÄÇ°: 5.0 ÐÞ¸Äºó: 0.0
+        [region_1] ÐÞ¸ÄÇ°: 0.0 ÐÞ¸Äºó: -10.0
+        [region_2] ÐÞ¸ÄÇ°: -10.0 ÐÞ¸Äºó: -20.0
+==================================================
+2023-07-31 20:24:17
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-07-31 20:24:21
+D:\local_repo\CTA_UI\params\ch8\params.csv
+==================================================
+2023-07-31 20:24:25
+D:\local_repo\CTA_UI\params\co5\params.csv
+==================================================
+2023-07-31 20:24:28
+D:\local_repo\CTA_UI\params\lq\params.csv
+==================================================
+2023-07-31 20:24:32
+D:\local_repo\CTA_UI\params\test\params.csv
+==================================================
+2023-07-31 20:24:36
+D:\local_repo\CTA_UI\params\lqq\params.csv
+==================================================
+2023-07-31 20:24:39
+D:\local_repo\CTA_UI\params\lqqq\params.csv
+==================================================
+2023-07-31 20:24:43
+D:\local_repo\CTA_UI\params\co2\params.csv
+==================================================
+2023-07-31 21:36:10
+D:\local_repo\CTA_UI\params\BASE\params.csv
+    ÐÞ¸ÄÌ×Àû¶Ô: RR2309-2310
+        [if_add] ÐÞ¸ÄÇ°: 1.0 ÐÞ¸Äºó: 0.0
+        [region_tick_lock] ÐÞ¸ÄÇ°: 20.0 ÐÞ¸Äºó: 10.0
+==================================================
+2023-07-31 21:36:14
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-07-31 21:36:18
+D:\local_repo\CTA_UI\params\ch8\params.csv
+==================================================
+2023-07-31 21:36:22
+D:\local_repo\CTA_UI\params\co5\params.csv
+==================================================
+2023-07-31 21:36:26
+D:\local_repo\CTA_UI\params\lq\params.csv
+==================================================
+2023-07-31 21:36:30
+D:\local_repo\CTA_UI\params\test\params.csv
+==================================================
+2023-07-31 21:36:34
+D:\local_repo\CTA_UI\params\lqq\params.csv
+==================================================
+2023-07-31 21:36:38
+D:\local_repo\CTA_UI\params\lqqq\params.csv
+==================================================
+2023-07-31 21:36:42
+D:\local_repo\CTA_UI\params\co2\params.csv
+==================================================
+2023-07-31 21:36:46
+D:\local_repo\CTA_UI\params\ch10\params.csv
+==================================================
+2023-07-31 21:36:50
+D:\local_repo\CTA_UI\params\ch11\params.csv
+==================================================
+2023-07-31 21:36:54
+D:\local_repo\CTA_UI\params\ch12\params.csv
+==================================================
+2023-07-31 21:36:58
+D:\local_repo\CTA_UI\params\ch13\params.csv
+==================================================
+2023-07-31 21:37:02
+D:\local_repo\CTA_UI\params\ch2\params.csv
+==================================================
+2023-07-31 21:37:05
+D:\local_repo\CTA_UI\params\ch3\params.csv
+==================================================
+2023-07-31 21:37:09
+D:\local_repo\CTA_UI\params\ch5\params.csv
+==================================================
+2023-07-31 21:37:13
+D:\local_repo\CTA_UI\params\ch6\params.csv
+==================================================
+2023-07-31 21:37:17
+D:\local_repo\CTA_UI\params\ch7\params.csv
+==================================================
+2023-07-31 21:37:21
+D:\local_repo\CTA_UI\params\ch9\params.csv
+==================================================
+2023-07-31 21:37:24
+D:\local_repo\CTA_UI\params\jxh\params.csv
+==================================================
+2023-07-31 21:42:42
+D:\local_repo\CTA_UI\params\BASE\params.csv
+    ÐÞ¸ÄÌ×Àû¶Ô: HC2309-2310
+        [region_1] ÐÞ¸ÄÇ°: -20.0 ÐÞ¸Äºó: -99999.0
+==================================================
+2023-07-31 21:42:46
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-07-31 21:42:50
+D:\local_repo\CTA_UI\params\ch8\params.csv
+==================================================
+2023-07-31 21:42:54
+D:\local_repo\CTA_UI\params\co5\params.csv
+==================================================
+2023-07-31 21:42:58
+D:\local_repo\CTA_UI\params\lq\params.csv
+==================================================
+2023-07-31 21:43:02
+D:\local_repo\CTA_UI\params\test\params.csv
+==================================================
+2023-07-31 21:43:06
+D:\local_repo\CTA_UI\params\lqq\params.csv
+==================================================
+2023-07-31 21:43:10
+D:\local_repo\CTA_UI\params\lqqq\params.csv
+==================================================
+2023-07-31 21:43:14
+D:\local_repo\CTA_UI\params\co2\params.csv
+==================================================
+2023-07-31 21:44:28
+D:\local_repo\CTA_UI\params\BASE\params.csv
+    ÐÞ¸ÄÌ×Àû¶Ô: HC2309-2310
+        [region_1] ÐÞ¸ÄÇ°: -99999.0 ÐÞ¸Äºó: -20.0
+        [if_add] ÐÞ¸ÄÇ°: 1.0 ÐÞ¸Äºó: 0.0
+        [region_tick_lock] ÐÞ¸ÄÇ°: 50.0 ÐÞ¸Äºó: 10.0
+==================================================
+2023-07-31 21:44:32
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-07-31 21:44:36
+D:\local_repo\CTA_UI\params\ch8\params.csv
+==================================================
+2023-07-31 21:44:40
+D:\local_repo\CTA_UI\params\co5\params.csv
+==================================================
+2023-07-31 21:44:44
+D:\local_repo\CTA_UI\params\lq\params.csv
+==================================================
+2023-07-31 21:44:48
+D:\local_repo\CTA_UI\params\test\params.csv
+==================================================
+2023-07-31 21:44:52
+D:\local_repo\CTA_UI\params\lqq\params.csv
+==================================================
+2023-07-31 21:44:56
+D:\local_repo\CTA_UI\params\lqqq\params.csv
+==================================================
+2023-07-31 21:45:00
+D:\local_repo\CTA_UI\params\co2\params.csv
+==================================================
+2023-08-01 00:37:59
+D:\local_repo\CTA_UI\params\BASE\params.csv
+    ÐÞ¸ÄÌ×Àû¶Ô: AG2309-2310
+        [if_add] ÐÞ¸ÄÇ°: 1.0 ÐÞ¸Äºó: 0.0
+==================================================
+2023-08-01 00:38:03
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-08-01 00:38:07
+D:\local_repo\CTA_UI\params\ch8\params.csv
+==================================================
+2023-08-01 00:38:10
+D:\local_repo\CTA_UI\params\co5\params.csv
+==================================================
+2023-08-01 00:38:14
+D:\local_repo\CTA_UI\params\lq\params.csv
+==================================================
+2023-08-01 00:38:18
+D:\local_repo\CTA_UI\params\test\params.csv
+==================================================
+2023-08-01 00:38:22
+D:\local_repo\CTA_UI\params\lqq\params.csv
+==================================================
+2023-08-01 00:38:26
+D:\local_repo\CTA_UI\params\lqqq\params.csv
+==================================================
+2023-08-01 00:38:30
+D:\local_repo\CTA_UI\params\co2\params.csv
+==================================================
+2023-08-01 00:38:33
+D:\local_repo\CTA_UI\params\ch10\params.csv
+==================================================
+2023-08-01 00:38:37
+D:\local_repo\CTA_UI\params\ch11\params.csv
+==================================================
+2023-08-01 00:38:41
+D:\local_repo\CTA_UI\params\ch12\params.csv
+==================================================
+2023-08-01 00:38:45
+D:\local_repo\CTA_UI\params\ch13\params.csv
+==================================================
+2023-08-01 00:38:49
+D:\local_repo\CTA_UI\params\ch2\params.csv
+==================================================
+2023-08-01 00:38:53
+D:\local_repo\CTA_UI\params\ch3\params.csv
+==================================================
+2023-08-01 00:38:57
+D:\local_repo\CTA_UI\params\ch5\params.csv
+==================================================
+2023-08-01 00:39:01
+D:\local_repo\CTA_UI\params\ch6\params.csv
+==================================================
+2023-08-01 00:39:04
+D:\local_repo\CTA_UI\params\ch7\params.csv
+==================================================
+2023-08-01 00:39:08
+D:\local_repo\CTA_UI\params\ch9\params.csv
+==================================================
+2023-08-01 00:39:12
+D:\local_repo\CTA_UI\params\jxh\params.csv
+==================================================
+2023-08-01 09:02:18
+D:\local_repo\CTA_UI\params\BASE\params.csv
+    ÐÞ¸ÄÌ×Àû¶Ô: V2405-2406
+        [if_add] ÐÞ¸ÄÇ°: 1.0 ÐÞ¸Äºó: 0.0
+    ÐÞ¸ÄÌ×Àû¶Ô: V2406-2407
+        [if_add] ÐÞ¸ÄÇ°: 1.0 ÐÞ¸Äºó: 0.0
+==================================================
+2023-08-01 09:02:22
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-08-01 09:02:26
+D:\local_repo\CTA_UI\params\ch8\params.csv
+==================================================
+2023-08-01 09:02:30
+D:\local_repo\CTA_UI\params\co5\params.csv
+==================================================
+2023-08-01 09:02:34
+D:\local_repo\CTA_UI\params\lq\params.csv
+==================================================
+2023-08-01 09:02:38
+D:\local_repo\CTA_UI\params\test\params.csv
+==================================================
+2023-08-01 09:02:41
+D:\local_repo\CTA_UI\params\lqq\params.csv
+==================================================
+2023-08-01 09:02:45
+D:\local_repo\CTA_UI\params\lqqq\params.csv
+==================================================
+2023-08-01 09:02:49
+D:\local_repo\CTA_UI\params\co2\params.csv
+==================================================
+2023-08-01 09:02:53
+D:\local_repo\CTA_UI\params\ch10\params.csv
+==================================================
+2023-08-01 09:02:57
+D:\local_repo\CTA_UI\params\ch11\params.csv
+==================================================
+2023-08-01 09:03:00
+D:\local_repo\CTA_UI\params\ch12\params.csv
+==================================================
+2023-08-01 09:03:04
+D:\local_repo\CTA_UI\params\ch13\params.csv
+==================================================
+2023-08-01 09:03:08
+D:\local_repo\CTA_UI\params\ch2\params.csv
+==================================================
+2023-08-01 09:03:12
+D:\local_repo\CTA_UI\params\ch3\params.csv
+==================================================
+2023-08-01 09:03:16
+D:\local_repo\CTA_UI\params\ch5\params.csv
+==================================================
+2023-08-01 09:03:19
+D:\local_repo\CTA_UI\params\ch6\params.csv
+==================================================
+2023-08-01 09:03:23
+D:\local_repo\CTA_UI\params\ch7\params.csv
+==================================================
+2023-08-01 09:03:27
+D:\local_repo\CTA_UI\params\ch9\params.csv
+==================================================
+2023-08-01 09:03:31
+D:\local_repo\CTA_UI\params\jxh\params.csv
+==================================================
+2023-08-01 09:33:37
+D:\local_repo\CTA_UI\params\BASE\params.csv
+    ÐÞ¸ÄÌ×Àû¶Ô: IF2308-2309
+        [region_1] ÐÞ¸ÄÇ°: -99999.0 ÐÞ¸Äºó: -10.6
+    ÐÞ¸ÄÌ×Àû¶Ô: IF2309-2312
+        [region_2] ÐÞ¸ÄÇ°: -20.4 ÐÞ¸Äºó: -19.6
+        [region_3] ÐÞ¸ÄÇ°: -22.4 ÐÞ¸Äºó: -20.4
+        [region_4] ÐÞ¸ÄÇ°: -99999.0 ÐÞ¸Äºó: -20.8
+        [region_5] ÐÞ¸ÄÇ°: -99999.0 ÐÞ¸Äºó: -22.4
+    ÐÞ¸ÄÌ×Àû¶Ô: IF2312-2403
+        [region_2] ÐÞ¸ÄÇ°: -20.4 ÐÞ¸Äºó: -19.6
+        [region_3] ÐÞ¸ÄÇ°: -20.6 ÐÞ¸Äºó: -20.8
+==================================================
+2023-08-01 09:33:41
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-08-01 09:33:45
+D:\local_repo\CTA_UI\params\ch8\params.csv
+==================================================
+2023-08-01 09:33:49
+D:\local_repo\CTA_UI\params\co5\params.csv
+==================================================
+2023-08-01 09:33:53
+D:\local_repo\CTA_UI\params\lq\params.csv
+==================================================
+2023-08-01 09:33:56
+D:\local_repo\CTA_UI\params\test\params.csv
+==================================================
+2023-08-01 09:34:00
+D:\local_repo\CTA_UI\params\lqq\params.csv
+==================================================
+2023-08-01 09:34:04
+D:\local_repo\CTA_UI\params\lqqq\params.csv
+==================================================
+2023-08-01 09:34:08
+D:\local_repo\CTA_UI\params\co2\params.csv
+==================================================
+2023-08-01 09:40:15
+D:\local_repo\CTA_UI\params\BASE\params.csv
+    ÐÞ¸ÄÌ×Àû¶Ô: IF2308-2309
+        [region_tick_lock] ÐÞ¸ÄÇ°: 35.0 ÐÞ¸Äºó: 30.0
+==================================================
+2023-08-01 09:40:20
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-08-01 09:40:23
+D:\local_repo\CTA_UI\params\ch8\params.csv
+==================================================
+2023-08-01 09:40:27
+D:\local_repo\CTA_UI\params\co5\params.csv
+==================================================
+2023-08-01 09:40:31
+D:\local_repo\CTA_UI\params\lq\params.csv
+==================================================
+2023-08-01 09:40:34
+D:\local_repo\CTA_UI\params\test\params.csv
+==================================================
+2023-08-01 09:40:38
+D:\local_repo\CTA_UI\params\lqq\params.csv
+==================================================
+2023-08-01 09:40:42
+D:\local_repo\CTA_UI\params\lqqq\params.csv
+==================================================
+2023-08-01 09:40:46
+D:\local_repo\CTA_UI\params\co2\params.csv
+==================================================
+2023-08-01 09:42:27
+D:\local_repo\CTA_UI\params\BASE\params.csv
+    ÐÞ¸ÄÌ×Àû¶Ô: IH2312-2403
+        [region_1] ÐÞ¸ÄÇ°: -18.6 ÐÞ¸Äºó: -20.4
+        [region_2] ÐÞ¸ÄÇ°: -20.4 ÐÞ¸Äºó: -20.8
+        [region_3] ÐÞ¸ÄÇ°: -20.6 ÐÞ¸Äºó: -22.6
+==================================================
+2023-08-01 09:42:31
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-08-01 09:42:35
+D:\local_repo\CTA_UI\params\ch8\params.csv
+==================================================
+2023-08-01 09:42:39
+D:\local_repo\CTA_UI\params\co5\params.csv
+==================================================
+2023-08-01 09:42:43
+D:\local_repo\CTA_UI\params\lq\params.csv
+==================================================
+2023-08-01 09:42:47
+D:\local_repo\CTA_UI\params\test\params.csv
+==================================================
+2023-08-01 09:42:50
+D:\local_repo\CTA_UI\params\lqq\params.csv
+==================================================
+2023-08-01 09:42:54
+D:\local_repo\CTA_UI\params\lqqq\params.csv
+==================================================
+2023-08-01 09:42:58
+D:\local_repo\CTA_UI\params\co2\params.csv
+==================================================
+2023-08-01 09:51:34
+D:\local_repo\CTA_UI\params\BASE\params.csv
+    ÐÞ¸ÄÌ×Àû¶Ô: SC2310-2309
+        [region_0] ÐÞ¸ÄÇ°: -99999.0 ÐÞ¸Äºó: -5.4
+        [if_add] ÐÞ¸ÄÇ°: 0.0 ÐÞ¸Äºó: 1.0
+==================================================
+2023-08-01 09:51:38
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-08-01 09:51:41
+D:\local_repo\CTA_UI\params\ch8\params.csv
+==================================================
+2023-08-01 09:51:45
+D:\local_repo\CTA_UI\params\co5\params.csv
+==================================================
+2023-08-01 09:51:49
+D:\local_repo\CTA_UI\params\lq\params.csv
+==================================================
+2023-08-01 09:51:53
+D:\local_repo\CTA_UI\params\test\params.csv
+==================================================
+2023-08-01 09:51:56
+D:\local_repo\CTA_UI\params\lqq\params.csv
+==================================================
+2023-08-01 09:52:00
+D:\local_repo\CTA_UI\params\lqqq\params.csv
+==================================================
+2023-08-01 09:52:04
+D:\local_repo\CTA_UI\params\co2\params.csv
+==================================================
+2023-08-01 09:53:29
+D:\local_repo\CTA_UI\params\BASE\params.csv
+    ÐÞ¸ÄÌ×Àû¶Ô: HC2309-2310
+        [region_0] ÐÞ¸ÄÇ°: -10.0 ÐÞ¸Äºó: -5.0
+==================================================
+2023-08-01 09:53:33
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-08-01 09:53:37
+D:\local_repo\CTA_UI\params\ch8\params.csv
+==================================================
+2023-08-01 09:53:41
+D:\local_repo\CTA_UI\params\co5\params.csv
+==================================================
+2023-08-01 09:53:45
+D:\local_repo\CTA_UI\params\lq\params.csv
+==================================================
+2023-08-01 09:53:48
+D:\local_repo\CTA_UI\params\test\params.csv
+==================================================
+2023-08-01 09:53:52
+D:\local_repo\CTA_UI\params\lqq\params.csv
+==================================================
+2023-08-01 09:53:56
+D:\local_repo\CTA_UI\params\lqqq\params.csv
+==================================================
+2023-08-01 09:54:00
+D:\local_repo\CTA_UI\params\co2\params.csv
+==================================================
+2023-08-01 09:56:33
+D:\local_repo\CTA_UI\params\BASE\params.csv
+    ÐÞ¸ÄÌ×Àû¶Ô: EG2309-2310
+        [region_2] ÐÞ¸ÄÇ°: -60.0 ÐÞ¸Äºó: -78.0
+        [region_3] ÐÞ¸ÄÇ°: -70.0 ÐÞ¸Äºó: -79.0
+        [region_tick_lock] ÐÞ¸ÄÇ°: 60.0 ÐÞ¸Äºó: 36.0
+==================================================
+2023-08-01 09:56:37
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-08-01 09:56:41
+D:\local_repo\CTA_UI\params\ch8\params.csv
+==================================================
+2023-08-01 09:56:45
+D:\local_repo\CTA_UI\params\co5\params.csv
+==================================================
+2023-08-01 09:56:49
+D:\local_repo\CTA_UI\params\lq\params.csv
+==================================================
+2023-08-01 09:56:53
+D:\local_repo\CTA_UI\params\test\params.csv
+==================================================
+2023-08-01 09:56:57
+D:\local_repo\CTA_UI\params\lqq\params.csv
+==================================================
+2023-08-01 09:57:01
+D:\local_repo\CTA_UI\params\lqqq\params.csv
+==================================================
+2023-08-01 09:57:05
+D:\local_repo\CTA_UI\params\co2\params.csv
+==================================================
+2023-08-01 09:57:09
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-08-01 09:57:13
+D:\local_repo\CTA_UI\params\ch8\params.csv
+==================================================
+2023-08-01 09:57:17
+D:\local_repo\CTA_UI\params\co5\params.csv
+==================================================
+2023-08-01 09:57:21
+D:\local_repo\CTA_UI\params\lq\params.csv
+==================================================
+2023-08-01 09:57:24
+D:\local_repo\CTA_UI\params\test\params.csv
+==================================================
+2023-08-01 09:57:28
+D:\local_repo\CTA_UI\params\lqq\params.csv
+==================================================
+2023-08-01 09:57:32
+D:\local_repo\CTA_UI\params\lqqq\params.csv
+==================================================
+2023-08-01 09:57:36
+D:\local_repo\CTA_UI\params\co2\params.csv
+==================================================
+2023-08-01 09:58:47
+D:\local_repo\CTA_UI\params\BASE\params.csv
+    ÐÞ¸ÄÌ×Àû¶Ô: OI2309-2311
+        [if_add] ÐÞ¸ÄÇ°: 1.0 ÐÞ¸Äºó: 0.0
+        [region_tick_lock] ÐÞ¸ÄÇ°: 80.0 ÐÞ¸Äºó: 72.0
+==================================================
+2023-08-01 09:58:51
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-08-01 09:58:55
+D:\local_repo\CTA_UI\params\ch8\params.csv
+==================================================
+2023-08-01 09:58:59
+D:\local_repo\CTA_UI\params\co5\params.csv
+==================================================
+2023-08-01 09:59:02
+D:\local_repo\CTA_UI\params\lq\params.csv
+==================================================
+2023-08-01 09:59:06
+D:\local_repo\CTA_UI\params\test\params.csv
+==================================================
+2023-08-01 09:59:10
+D:\local_repo\CTA_UI\params\lqq\params.csv
+==================================================
+2023-08-01 09:59:14
+D:\local_repo\CTA_UI\params\lqqq\params.csv
+==================================================
+2023-08-01 09:59:18
+D:\local_repo\CTA_UI\params\co2\params.csv
+==================================================
+2023-08-01 10:00:15
+D:\local_repo\CTA_UI\params\BASE\params.csv
+    ÐÞ¸ÄÌ×Àû¶Ô: CF2309-2311
+        [region_2] ÐÞ¸ÄÇ°: -250.0 ÐÞ¸Äºó: -99999.0
+==================================================
+2023-08-01 10:00:19
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-08-01 10:00:23
+D:\local_repo\CTA_UI\params\ch8\params.csv
+==================================================
+2023-08-01 10:00:27
+D:\local_repo\CTA_UI\params\co5\params.csv
+==================================================
+2023-08-01 10:00:30
+D:\local_repo\CTA_UI\params\lq\params.csv
+==================================================
+2023-08-01 10:00:34
+D:\local_repo\CTA_UI\params\test\params.csv
+==================================================
+2023-08-01 10:00:38
+D:\local_repo\CTA_UI\params\lqq\params.csv
+==================================================
+2023-08-01 10:00:42
+D:\local_repo\CTA_UI\params\lqqq\params.csv
+==================================================
+2023-08-01 10:00:45
+D:\local_repo\CTA_UI\params\co2\params.csv
+==================================================
+2023-08-01 10:07:32
+D:\local_repo\CTA_UI\params\BASE\params.csv
+    ÐÞ¸ÄÌ×Àû¶Ô: HC2309-2310
+        [region_0] ÐÞ¸ÄÇ°: -5.0 ÐÞ¸Äºó: -14.0
+==================================================
+2023-08-01 10:07:37
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-08-01 10:07:40
+D:\local_repo\CTA_UI\params\ch8\params.csv
+==================================================
+2023-08-01 10:07:44
+D:\local_repo\CTA_UI\params\co5\params.csv
+==================================================
+2023-08-01 10:07:48
+D:\local_repo\CTA_UI\params\lq\params.csv
+==================================================
+2023-08-01 10:07:52
+D:\local_repo\CTA_UI\params\test\params.csv
+==================================================
+2023-08-01 10:07:56
+D:\local_repo\CTA_UI\params\lqq\params.csv
+==================================================
+2023-08-01 10:07:59
+D:\local_repo\CTA_UI\params\lqqq\params.csv
+==================================================
+2023-08-01 10:08:03
+D:\local_repo\CTA_UI\params\co2\params.csv
+==================================================
+2023-08-01 10:08:07
+D:\local_repo\CTA_UI\params\ch10\params.csv
+==================================================
+2023-08-01 10:08:11
+D:\local_repo\CTA_UI\params\ch11\params.csv
+==================================================
+2023-08-01 10:08:15
+D:\local_repo\CTA_UI\params\ch12\params.csv
+==================================================
+2023-08-01 10:08:19
+D:\local_repo\CTA_UI\params\ch13\params.csv
+==================================================
+2023-08-01 10:08:23
+D:\local_repo\CTA_UI\params\ch2\params.csv
+==================================================
+2023-08-01 10:08:27
+D:\local_repo\CTA_UI\params\ch3\params.csv
+==================================================
+2023-08-01 10:08:31
+D:\local_repo\CTA_UI\params\ch5\params.csv
+==================================================
+2023-08-01 10:08:34
+D:\local_repo\CTA_UI\params\ch6\params.csv
+==================================================
+2023-08-01 10:08:38
+D:\local_repo\CTA_UI\params\ch7\params.csv
+==================================================
+2023-08-01 10:08:42
+D:\local_repo\CTA_UI\params\ch9\params.csv
+==================================================
+2023-08-01 10:08:46
+D:\local_repo\CTA_UI\params\jxh\params.csv
+==================================================
+2023-08-01 12:45:31
++---------+--------------+-------------------------------------------------------+-------------------------------+--------------+
+| account | link         | from                                                  | to                            | status       |
++---------+--------------+-------------------------------------------------------+-------------------------------+--------------+
+| ch3     | UI -> Cloud  | D:\local_repo\CTA_UI\params\ch3\params.csv            | CTA/feng/ch3/params.csv       | âˆš            |
+| ch3     | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\huajing34.json      | CTA/feng/ch3/huajing34.json   | âˆš            |
+| ch5     | UI -> Cloud  | D:\local_repo\CTA_UI\params\ch5\params.csv            | CTA/feng/ch5/params.csv       | âˆš            |
+| ch5     | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\huajing34.json      | CTA/feng/ch5/huajing34.json   | âˆš            |
+| ch3     | UI -> Market | -                                                     | -                             | SSHException |
+| ch5     | UI -> Market | -                                                     | -                             | SSHException |
+| lq      | UI -> Cloud  | D:\local_repo\CTA_UI\params\lq\params.csv             | CTA/hh/lq/params.csv          | âˆš            |
+| lq      | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\lq.json             | CTA/hh/lq/lq.json             | âˆš            |
+| lq      | UI -> Market | -                                                     | -                             | TypeError    |
+| lqqq    | UI -> Cloud  | D:\local_repo\CTA_UI\params\lqqq\params.csv           | CTA/hh/lqqq/params.csv        | âˆš            |
+| lqqq    | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\lqq - å‰¯æœ¬.json     | CTA/hh/lqqq/lqq - å‰¯æœ¬.json   | âˆš            |
+| lqqq    | UI -> Market | -                                                     | -                             | TypeError    |
+| lqq     | UI -> Cloud  | D:\local_repo\CTA_UI\params\lqq\params.csv            | CTA/hh/lqq/params.csv         | âˆš            |
+| lqq     | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\lqq.json            | CTA/hh/lqq/lqq.json           | âˆš            |
+| lqq     | UI -> Market | -                                                     | -                             | TypeError    |
+| lq      | UI -> Cloud  | D:\local_repo\CTA_UI\params\lq\params.csv             | CTA/hh/lq/params.csv          | âˆš            |
+| lq      | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json | CTA/hh/lq/lq_market_test.json | âˆš            |
+| lq      | UI -> Market | -                                                     | -                             | SSHException |
++---------+--------------+-------------------------------------------------------+-------------------------------+--------------+
+2023-08-01 13:19:21
++---------+--------------+-------------------------------------------------------+-------------------------------+--------------+
+| account | link         | from                                                  | to                            | status       |
++---------+--------------+-------------------------------------------------------+-------------------------------+--------------+
+| ch3     | UI -> Cloud  | D:\local_repo\CTA_UI\params\ch3\params.csv            | CTA/feng/ch3/params.csv       | âˆš            |
+| ch3     | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\huajing34.json      | CTA/feng/ch3/huajing34.json   | âˆš            |
+| ch5     | UI -> Cloud  | D:\local_repo\CTA_UI\params\ch5\params.csv            | CTA/feng/ch5/params.csv       | âˆš            |
+| ch5     | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\huajing34.json      | CTA/feng/ch5/huajing34.json   | âˆš            |
+| ch3     | UI -> Market | -                                                     | -                             | SSHException |
+| ch5     | UI -> Market | -                                                     | -                             | SSHException |
+| lq      | UI -> Cloud  | D:\local_repo\CTA_UI\params\lq\params.csv             | CTA/hh/lq/params.csv          | âˆš            |
+| lq      | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\lq.json             | CTA/hh/lq/lq.json             | âˆš            |
+| lq      | UI -> Market | -                                                     | -                             | TypeError    |
+| lqqq    | UI -> Cloud  | D:\local_repo\CTA_UI\params\lqqq\params.csv           | CTA/hh/lqqq/params.csv        | âˆš            |
+| lqqq    | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\lqq - å‰¯æœ¬.json     | CTA/hh/lqqq/lqq - å‰¯æœ¬.json   | âˆš            |
+| lqqq    | UI -> Market | -                                                     | -                             | TypeError    |
+| lqq     | UI -> Cloud  | D:\local_repo\CTA_UI\params\lqq\params.csv            | CTA/hh/lqq/params.csv         | âˆš            |
+| lqq     | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\lqq.json            | CTA/hh/lqq/lqq.json           | âˆš            |
+| lqq     | UI -> Market | -                                                     | -                             | TypeError    |
+| lq      | UI -> Cloud  | D:\local_repo\CTA_UI\params\lq\params.csv             | CTA/hh/lq/params.csv          | âˆš            |
+| lq      | UI -> Cloud  | D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json | CTA/hh/lq/lq_market_test.json | âˆš            |
+| lq      | UI -> Market | -                                                     | -                             | SSHException |
++---------+--------------+-------------------------------------------------------+-------------------------------+--------------+
+2023-08-01 13:24:39
+D:\local_repo\CTA_UI\params\lq\params.csv
+==================================================
+2023-08-01 13:24:43
+D:\local_repo\CTA_UI\params\lqqq\params.csv
+==================================================
+2023-08-01 13:24:48
++
+-
+-
+-
+-
+-
+-
+-
+-
+-
++
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
++
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
++
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
++
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
++
+|
+a
+c
+c
+o
+u
+n
+t
+|
+l
+i
+n
+k
+|
+f
+r
+o
+m
+|
+t
+o
+|
+s
+t
+a
+t
+u
+s
+|
++
+-
+-
+-
+-
+-
+-
+-
+-
+-
++
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
++
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
++
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
++
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
++
+|
+c
+h
+3
+|
+U
+I
+-
+>
+C
+l
+o
+u
+d
+|
+D
+:
+\
+l
+o
+c
+a
+l
+_
+r
+e
+p
+o
+\
+C
+T
+A
+_
+U
+I
+\
+p
+a
+r
+a
+m
+s
+\
+c
+h
+3
+\
+p
+a
+r
+a
+m
+s
+.
+c
+s
+v
+|
+C
+T
+A
+/
+f
+e
+n
+g
+/
+c
+h
+3
+/
+p
+a
+r
+a
+m
+s
+.
+c
+s
+v
+|
+âˆš
+|
+|
+c
+h
+3
+|
+U
+I
+-
+>
+C
+l
+o
+u
+d
+|
+D
+:
+\
+l
+o
+c
+a
+l
+_
+r
+e
+p
+o
+\
+C
+T
+A
+_
+U
+I
+\
+s
+f
+t
+p
+_
+c
+o
+n
+f
+i
+g
+s
+\
+h
+u
+a
+j
+i
+n
+g
+3
+4
+.
+j
+s
+o
+n
+|
+C
+T
+A
+/
+f
+e
+n
+g
+/
+c
+h
+3
+/
+h
+u
+a
+j
+i
+n
+g
+3
+4
+.
+j
+s
+o
+n
+|
+âˆš
+|
+|
+c
+h
+5
+|
+U
+I
+-
+>
+C
+l
+o
+u
+d
+|
+D
+:
+\
+l
+o
+c
+a
+l
+_
+r
+e
+p
+o
+\
+C
+T
+A
+_
+U
+I
+\
+p
+a
+r
+a
+m
+s
+\
+c
+h
+5
+\
+p
+a
+r
+a
+m
+s
+.
+c
+s
+v
+|
+C
+T
+A
+/
+f
+e
+n
+g
+/
+c
+h
+5
+/
+p
+a
+r
+a
+m
+s
+.
+c
+s
+v
+|
+âˆš
+|
+|
+c
+h
+5
+|
+U
+I
+-
+>
+C
+l
+o
+u
+d
+|
+D
+:
+\
+l
+o
+c
+a
+l
+_
+r
+e
+p
+o
+\
+C
+T
+A
+_
+U
+I
+\
+s
+f
+t
+p
+_
+c
+o
+n
+f
+i
+g
+s
+\
+h
+u
+a
+j
+i
+n
+g
+3
+4
+.
+j
+s
+o
+n
+|
+C
+T
+A
+/
+f
+e
+n
+g
+/
+c
+h
+5
+/
+h
+u
+a
+j
+i
+n
+g
+3
+4
+.
+j
+s
+o
+n
+|
+âˆš
+|
+|
+c
+h
+3
+|
+U
+I
+-
+>
+M
+a
+r
+k
+e
+t
+|
+-
+|
+-
+|
+S
+S
+H
+E
+x
+c
+e
+p
+t
+i
+o
+n
+|
+|
+c
+h
+5
+|
+U
+I
+-
+>
+M
+a
+r
+k
+e
+t
+|
+-
+|
+-
+|
+S
+S
+H
+E
+x
+c
+e
+p
+t
+i
+o
+n
+|
+|
+l
+q
+|
+U
+I
+-
+>
+C
+l
+o
+u
+d
+|
+D
+:
+\
+l
+o
+c
+a
+l
+_
+r
+e
+p
+o
+\
+C
+T
+A
+_
+U
+I
+\
+p
+a
+r
+a
+m
+s
+\
+l
+q
+\
+p
+a
+r
+a
+m
+s
+.
+c
+s
+v
+|
+C
+T
+A
+/
+h
+h
+/
+l
+q
+/
+p
+a
+r
+a
+m
+s
+.
+c
+s
+v
+|
+âˆš
+|
+|
+l
+q
+|
+U
+I
+-
+>
+C
+l
+o
+u
+d
+|
+D
+:
+\
+l
+o
+c
+a
+l
+_
+r
+e
+p
+o
+\
+C
+T
+A
+_
+U
+I
+\
+s
+f
+t
+p
+_
+c
+o
+n
+f
+i
+g
+s
+\
+l
+q
+.
+j
+s
+o
+n
+|
+C
+T
+A
+/
+h
+h
+/
+l
+q
+/
+l
+q
+.
+j
+s
+o
+n
+|
+âˆš
+|
+|
+l
+q
+|
+U
+I
+-
+>
+M
+a
+r
+k
+e
+t
+|
+-
+|
+-
+|
+T
+y
+p
+e
+E
+r
+r
+o
+r
+|
+|
+l
+q
+q
+q
+|
+U
+I
+-
+>
+C
+l
+o
+u
+d
+|
+D
+:
+\
+l
+o
+c
+a
+l
+_
+r
+e
+p
+o
+\
+C
+T
+A
+_
+U
+I
+\
+p
+a
+r
+a
+m
+s
+\
+l
+q
+q
+q
+\
+p
+a
+r
+a
+m
+s
+.
+c
+s
+v
+|
+C
+T
+A
+/
+h
+h
+/
+l
+q
+q
+q
+/
+p
+a
+r
+a
+m
+s
+.
+c
+s
+v
+|
+âˆš
+|
+|
+l
+q
+q
+q
+|
+U
+I
+-
+>
+C
+l
+o
+u
+d
+|
+D
+:
+\
+l
+o
+c
+a
+l
+_
+r
+e
+p
+o
+\
+C
+T
+A
+_
+U
+I
+\
+s
+f
+t
+p
+_
+c
+o
+n
+f
+i
+g
+s
+\
+l
+q
+q
+-
+å‰¯
+æœ¬
+.
+j
+s
+o
+n
+|
+C
+T
+A
+/
+h
+h
+/
+l
+q
+q
+q
+/
+l
+q
+q
+-
+å‰¯
+æœ¬
+.
+j
+s
+o
+n
+|
+âˆš
+|
+|
+l
+q
+q
+q
+|
+U
+I
+-
+>
+M
+a
+r
+k
+e
+t
+|
+-
+|
+-
+|
+T
+y
+p
+e
+E
+r
+r
+o
+r
+|
+|
+l
+q
+q
+|
+U
+I
+-
+>
+C
+l
+o
+u
+d
+|
+D
+:
+\
+l
+o
+c
+a
+l
+_
+r
+e
+p
+o
+\
+C
+T
+A
+_
+U
+I
+\
+p
+a
+r
+a
+m
+s
+\
+l
+q
+q
+\
+p
+a
+r
+a
+m
+s
+.
+c
+s
+v
+|
+C
+T
+A
+/
+h
+h
+/
+l
+q
+q
+/
+p
+a
+r
+a
+m
+s
+.
+c
+s
+v
+|
+âˆš
+|
+|
+l
+q
+q
+|
+U
+I
+-
+>
+C
+l
+o
+u
+d
+|
+D
+:
+\
+l
+o
+c
+a
+l
+_
+r
+e
+p
+o
+\
+C
+T
+A
+_
+U
+I
+\
+s
+f
+t
+p
+_
+c
+o
+n
+f
+i
+g
+s
+\
+l
+q
+q
+.
+j
+s
+o
+n
+|
+C
+T
+A
+/
+h
+h
+/
+l
+q
+q
+/
+l
+q
+q
+.
+j
+s
+o
+n
+|
+âˆš
+|
+|
+l
+q
+q
+|
+U
+I
+-
+>
+M
+a
+r
+k
+e
+t
+|
+-
+|
+-
+|
+T
+y
+p
+e
+E
+r
+r
+o
+r
+|
+|
+l
+q
+|
+U
+I
+-
+>
+C
+l
+o
+u
+d
+|
+D
+:
+\
+l
+o
+c
+a
+l
+_
+r
+e
+p
+o
+\
+C
+T
+A
+_
+U
+I
+\
+p
+a
+r
+a
+m
+s
+\
+l
+q
+\
+p
+a
+r
+a
+m
+s
+.
+c
+s
+v
+|
+C
+T
+A
+/
+h
+h
+/
+l
+q
+/
+p
+a
+r
+a
+m
+s
+.
+c
+s
+v
+|
+âˆš
+|
+|
+l
+q
+|
+U
+I
+-
+>
+C
+l
+o
+u
+d
+|
+D
+:
+\
+l
+o
+c
+a
+l
+_
+r
+e
+p
+o
+\
+C
+T
+A
+_
+U
+I
+\
+s
+f
+t
+p
+_
+c
+o
+n
+f
+i
+g
+s
+\
+l
+q
+_
+m
+a
+r
+k
+e
+t
+_
+t
+e
+s
+t
+.
+j
+s
+o
+n
+|
+C
+T
+A
+/
+h
+h
+/
+l
+q
+/
+l
+q
+_
+m
+a
+r
+k
+e
+t
+_
+t
+e
+s
+t
+.
+j
+s
+o
+n
+|
+âˆš
+|
+|
+l
+q
+|
+U
+I
+-
+>
+M
+a
+r
+k
+e
+t
+|
+-
+|
+-
+|
+S
+S
+H
+E
+x
+c
+e
+p
+t
+i
+o
+n
+|
++
+-
+-
+-
+-
+-
+-
+-
+-
+-
++
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
++
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
++
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
++
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
++
+2023-08-01 13:24:47
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-08-01 13:24:51
+D:\local_repo\CTA_UI\params\ch10\params.csv
+==================================================
+2023-08-01 13:24:54
+D:\local_repo\CTA_UI\params\ch11\params.csv
+==================================================
+2023-08-01 13:24:58
+D:\local_repo\CTA_UI\params\ch12\params.csv
+==================================================
+2023-08-01 13:25:02
+D:\local_repo\CTA_UI\params\ch13\params.csv
+==================================================
+2023-08-01 13:25:06
+D:\local_repo\CTA_UI\params\ch2\params.csv
+==================================================
+2023-08-01 13:25:10
+D:\local_repo\CTA_UI\params\ch3\params.csv
+==================================================
+2023-08-01 13:25:13
+D:\local_repo\CTA_UI\params\ch5\params.csv
+==================================================
+2023-08-01 13:25:17
+D:\local_repo\CTA_UI\params\ch6\params.csv
+==================================================
+2023-08-01 13:25:21
+D:\local_repo\CTA_UI\params\ch7\params.csv
+==================================================
+2023-08-01 13:25:25
+D:\local_repo\CTA_UI\params\ch8\params.csv
+==================================================
+2023-08-01 13:25:29
+D:\local_repo\CTA_UI\params\ch9\params.csv
+==================================================
+2023-08-01 13:25:32
+D:\local_repo\CTA_UI\params\co2\params.csv
+==================================================
+2023-08-01 13:25:36
+D:\local_repo\CTA_UI\params\co5\params.csv
+==================================================
+2023-08-01 13:25:40
+D:\local_repo\CTA_UI\params\jxh\params.csv
+==================================================
+2023-08-01 13:25:44
+D:\local_repo\CTA_UI\params\lqq\params.csv
+==================================================
+2023-08-01 13:25:47
+D:\local_repo\CTA_UI\params\test\params.csv
+==================================================
+2023-08-01 13:28:22
+account    link          from                                                   to                             status
+ch3        UI -> Cloud   D:\local_repo\CTA_UI\params\ch3\params.csv             CTA/feng/ch3/params.csv        âˆš
+ch3        UI -> Cloud   D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch3/huajing34.json    âˆš
+ch5        UI -> Cloud   D:\local_repo\CTA_UI\params\ch5\params.csv             CTA/feng/ch5/params.csv        âˆš
+ch5        UI -> Cloud   D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch5/huajing34.json    âˆš
+ch3        UI -> Market  -                                                      -                              SSHException
+ch5        UI -> Market  -                                                      -                              SSHException
+lq         UI -> Cloud   D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv           âˆš
+lq         UI -> Cloud   D:\local_repo\CTA_UI\sftp_configs\lq.json              CTA/hh/lq/lq.json              âˆš
+lq         UI -> Market  -                                                      -                              TypeError
+lqqq       UI -> Cloud   D:\local_repo\CTA_UI\params\lqqq\params.csv            CTA/hh/lqqq/params.csv         âˆš
+lqqq       UI -> Cloud   D:\local_repo\CTA_UI\sftp_configs\lqq - å‰¯æœ¬.json      CTA/hh/lqqq/lqq - å‰¯æœ¬.json    âˆš
+lqqq       UI -> Market  -                                                      -                              TypeError
+lqq        UI -> Cloud   D:\local_repo\CTA_UI\params\lqq\params.csv             CTA/hh/lqq/params.csv          âˆš
+lqq        UI -> Cloud   D:\local_repo\CTA_UI\sftp_configs\lqq.json             CTA/hh/lqq/lqq.json            âˆš
+lqq        UI -> Market  -                                                      -                              TypeError
+lq         UI -> Cloud   D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv           âˆš
+lq         UI -> Cloud   D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json  CTA/hh/lq/lq_market_test.json  âˆš
+lq         UI -> Market  -                                                      -                              SSHException
+2023-08-01 13:35:47
+<table><tr><td>a</td></tr><tr><td>c</td></tr><tr><td>c</td></tr><tr><td>o</td></tr><tr><td>u</td></tr><tr><td>n</td></tr><tr><td>t</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>l</td></tr><tr><td>i</td></tr><tr><td>n</td></tr><tr><td>k</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>f</td></tr><tr><td>r</td></tr><tr><td>o</td></tr><tr><td>m</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>t</td></tr><tr><td>o</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>s</td></tr><tr><td>t</td></tr><tr><td>a</td></tr><tr><td>t</td></tr><tr><td>u</td></tr><tr><td>s</td></tr><tr><td>
+</td></tr><tr><td>c</td></tr><tr><td>h</td></tr><tr><td>3</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td>></td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>u</td></tr><tr><td>d</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>D</td></tr><tr><td>:</td></tr><tr><td>\</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>c</td></tr><tr><td>a</td></tr><tr><td>l</td></tr><tr><td>_</td></tr><tr><td>r</td></tr><tr><td>e</td></tr><tr><td>p</td></tr><tr><td>o</td></tr><tr><td>\</td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>_</td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td>\</td></tr><tr><td>p</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>a</td></tr><tr><td>m</td></tr><tr><td>s</td></tr><tr><td>\</td></tr><tr><td>c</td></tr><tr><td>h</td></tr><tr><td>3</td></tr><tr><td>\</td></tr><tr><td>p</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>a</td></tr><tr><td>m</td></tr><tr><td>s</td></tr><tr><td>.</td></tr><tr><td>c</td></tr><tr><td>s</td></tr><tr><td>v</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>/</td></tr><tr><td>f</td></tr><tr><td>e</td></tr><tr><td>n</td></tr><tr><td>g</td></tr><tr><td>/</td></tr><tr><td>c</td></tr><tr><td>h</td></tr><tr><td>3</td></tr><tr><td>/</td></tr><tr><td>p</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>a</td></tr><tr><td>m</td></tr><tr><td>s</td></tr><tr><td>.</td></tr><tr><td>c</td></tr><tr><td>s</td></tr><tr><td>v</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>âˆš</td></tr><tr><td>
+</td></tr><tr><td>c</td></tr><tr><td>h</td></tr><tr><td>3</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td>></td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>u</td></tr><tr><td>d</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>D</td></tr><tr><td>:</td></tr><tr><td>\</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>c</td></tr><tr><td>a</td></tr><tr><td>l</td></tr><tr><td>_</td></tr><tr><td>r</td></tr><tr><td>e</td></tr><tr><td>p</td></tr><tr><td>o</td></tr><tr><td>\</td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>_</td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td>\</td></tr><tr><td>s</td></tr><tr><td>f</td></tr><tr><td>t</td></tr><tr><td>p</td></tr><tr><td>_</td></tr><tr><td>c</td></tr><tr><td>o</td></tr><tr><td>n</td></tr><tr><td>f</td></tr><tr><td>i</td></tr><tr><td>g</td></tr><tr><td>s</td></tr><tr><td>\</td></tr><tr><td>h</td></tr><tr><td>u</td></tr><tr><td>a</td></tr><tr><td>j</td></tr><tr><td>i</td></tr><tr><td>n</td></tr><tr><td>g</td></tr><tr><td>3</td></tr><tr><td>4</td></tr><tr><td>.</td></tr><tr><td>j</td></tr><tr><td>s</td></tr><tr><td>o</td></tr><tr><td>n</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>/</td></tr><tr><td>f</td></tr><tr><td>e</td></tr><tr><td>n</td></tr><tr><td>g</td></tr><tr><td>/</td></tr><tr><td>c</td></tr><tr><td>h</td></tr><tr><td>3</td></tr><tr><td>/</td></tr><tr><td>h</td></tr><tr><td>u</td></tr><tr><td>a</td></tr><tr><td>j</td></tr><tr><td>i</td></tr><tr><td>n</td></tr><tr><td>g</td></tr><tr><td>3</td></tr><tr><td>4</td></tr><tr><td>.</td></tr><tr><td>j</td></tr><tr><td>s</td></tr><tr><td>o</td></tr><tr><td>n</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>âˆš</td></tr><tr><td>
+</td></tr><tr><td>c</td></tr><tr><td>h</td></tr><tr><td>5</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td>></td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>u</td></tr><tr><td>d</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>D</td></tr><tr><td>:</td></tr><tr><td>\</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>c</td></tr><tr><td>a</td></tr><tr><td>l</td></tr><tr><td>_</td></tr><tr><td>r</td></tr><tr><td>e</td></tr><tr><td>p</td></tr><tr><td>o</td></tr><tr><td>\</td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>_</td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td>\</td></tr><tr><td>p</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>a</td></tr><tr><td>m</td></tr><tr><td>s</td></tr><tr><td>\</td></tr><tr><td>c</td></tr><tr><td>h</td></tr><tr><td>5</td></tr><tr><td>\</td></tr><tr><td>p</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>a</td></tr><tr><td>m</td></tr><tr><td>s</td></tr><tr><td>.</td></tr><tr><td>c</td></tr><tr><td>s</td></tr><tr><td>v</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>/</td></tr><tr><td>f</td></tr><tr><td>e</td></tr><tr><td>n</td></tr><tr><td>g</td></tr><tr><td>/</td></tr><tr><td>c</td></tr><tr><td>h</td></tr><tr><td>5</td></tr><tr><td>/</td></tr><tr><td>p</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>a</td></tr><tr><td>m</td></tr><tr><td>s</td></tr><tr><td>.</td></tr><tr><td>c</td></tr><tr><td>s</td></tr><tr><td>v</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>âˆš</td></tr><tr><td>
+</td></tr><tr><td>c</td></tr><tr><td>h</td></tr><tr><td>5</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td>></td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>u</td></tr><tr><td>d</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>D</td></tr><tr><td>:</td></tr><tr><td>\</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>c</td></tr><tr><td>a</td></tr><tr><td>l</td></tr><tr><td>_</td></tr><tr><td>r</td></tr><tr><td>e</td></tr><tr><td>p</td></tr><tr><td>o</td></tr><tr><td>\</td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>_</td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td>\</td></tr><tr><td>s</td></tr><tr><td>f</td></tr><tr><td>t</td></tr><tr><td>p</td></tr><tr><td>_</td></tr><tr><td>c</td></tr><tr><td>o</td></tr><tr><td>n</td></tr><tr><td>f</td></tr><tr><td>i</td></tr><tr><td>g</td></tr><tr><td>s</td></tr><tr><td>\</td></tr><tr><td>h</td></tr><tr><td>u</td></tr><tr><td>a</td></tr><tr><td>j</td></tr><tr><td>i</td></tr><tr><td>n</td></tr><tr><td>g</td></tr><tr><td>3</td></tr><tr><td>4</td></tr><tr><td>.</td></tr><tr><td>j</td></tr><tr><td>s</td></tr><tr><td>o</td></tr><tr><td>n</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>/</td></tr><tr><td>f</td></tr><tr><td>e</td></tr><tr><td>n</td></tr><tr><td>g</td></tr><tr><td>/</td></tr><tr><td>c</td></tr><tr><td>h</td></tr><tr><td>5</td></tr><tr><td>/</td></tr><tr><td>h</td></tr><tr><td>u</td></tr><tr><td>a</td></tr><tr><td>j</td></tr><tr><td>i</td></tr><tr><td>n</td></tr><tr><td>g</td></tr><tr><td>3</td></tr><tr><td>4</td></tr><tr><td>.</td></tr><tr><td>j</td></tr><tr><td>s</td></tr><tr><td>o</td></tr><tr><td>n</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>âˆš</td></tr><tr><td>
+</td></tr><tr><td>c</td></tr><tr><td>h</td></tr><tr><td>3</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td>></td></tr><tr><td> </td></tr><tr><td>M</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>k</td></tr><tr><td>e</td></tr><tr><td>t</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>S</td></tr><tr><td>S</td></tr><tr><td>H</td></tr><tr><td>E</td></tr><tr><td>x</td></tr><tr><td>c</td></tr><tr><td>e</td></tr><tr><td>p</td></tr><tr><td>t</td></tr><tr><td>i</td></tr><tr><td>o</td></tr><tr><td>n</td></tr><tr><td>
+</td></tr><tr><td>c</td></tr><tr><td>h</td></tr><tr><td>5</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td>></td></tr><tr><td> </td></tr><tr><td>M</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>k</td></tr><tr><td>e</td></tr><tr><td>t</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>S</td></tr><tr><td>S</td></tr><tr><td>H</td></tr><tr><td>E</td></tr><tr><td>x</td></tr><tr><td>c</td></tr><tr><td>e</td></tr><tr><td>p</td></tr><tr><td>t</td></tr><tr><td>i</td></tr><tr><td>o</td></tr><tr><td>n</td></tr><tr><td>
+</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td>></td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>u</td></tr><tr><td>d</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>D</td></tr><tr><td>:</td></tr><tr><td>\</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>c</td></tr><tr><td>a</td></tr><tr><td>l</td></tr><tr><td>_</td></tr><tr><td>r</td></tr><tr><td>e</td></tr><tr><td>p</td></tr><tr><td>o</td></tr><tr><td>\</td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>_</td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td>\</td></tr><tr><td>p</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>a</td></tr><tr><td>m</td></tr><tr><td>s</td></tr><tr><td>\</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>\</td></tr><tr><td>p</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>a</td></tr><tr><td>m</td></tr><tr><td>s</td></tr><tr><td>.</td></tr><tr><td>c</td></tr><tr><td>s</td></tr><tr><td>v</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>/</td></tr><tr><td>h</td></tr><tr><td>h</td></tr><tr><td>/</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>/</td></tr><tr><td>p</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>a</td></tr><tr><td>m</td></tr><tr><td>s</td></tr><tr><td>.</td></tr><tr><td>c</td></tr><tr><td>s</td></tr><tr><td>v</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>âˆš</td></tr><tr><td>
+</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td>></td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>u</td></tr><tr><td>d</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>D</td></tr><tr><td>:</td></tr><tr><td>\</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>c</td></tr><tr><td>a</td></tr><tr><td>l</td></tr><tr><td>_</td></tr><tr><td>r</td></tr><tr><td>e</td></tr><tr><td>p</td></tr><tr><td>o</td></tr><tr><td>\</td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>_</td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td>\</td></tr><tr><td>s</td></tr><tr><td>f</td></tr><tr><td>t</td></tr><tr><td>p</td></tr><tr><td>_</td></tr><tr><td>c</td></tr><tr><td>o</td></tr><tr><td>n</td></tr><tr><td>f</td></tr><tr><td>i</td></tr><tr><td>g</td></tr><tr><td>s</td></tr><tr><td>\</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>.</td></tr><tr><td>j</td></tr><tr><td>s</td></tr><tr><td>o</td></tr><tr><td>n</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>/</td></tr><tr><td>h</td></tr><tr><td>h</td></tr><tr><td>/</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>/</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>.</td></tr><tr><td>j</td></tr><tr><td>s</td></tr><tr><td>o</td></tr><tr><td>n</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>âˆš</td></tr><tr><td>
+</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td>></td></tr><tr><td> </td></tr><tr><td>M</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>k</td></tr><tr><td>e</td></tr><tr><td>t</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>T</td></tr><tr><td>y</td></tr><tr><td>p</td></tr><tr><td>e</td></tr><tr><td>E</td></tr><tr><td>r</td></tr><tr><td>r</td></tr><tr><td>o</td></tr><tr><td>r</td></tr><tr><td>
+</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>q</td></tr><tr><td>q</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td>></td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>u</td></tr><tr><td>d</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>D</td></tr><tr><td>:</td></tr><tr><td>\</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>c</td></tr><tr><td>a</td></tr><tr><td>l</td></tr><tr><td>_</td></tr><tr><td>r</td></tr><tr><td>e</td></tr><tr><td>p</td></tr><tr><td>o</td></tr><tr><td>\</td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>_</td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td>\</td></tr><tr><td>p</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>a</td></tr><tr><td>m</td></tr><tr><td>s</td></tr><tr><td>\</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>q</td></tr><tr><td>q</td></tr><tr><td>\</td></tr><tr><td>p</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>a</td></tr><tr><td>m</td></tr><tr><td>s</td></tr><tr><td>.</td></tr><tr><td>c</td></tr><tr><td>s</td></tr><tr><td>v</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>/</td></tr><tr><td>h</td></tr><tr><td>h</td></tr><tr><td>/</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>q</td></tr><tr><td>q</td></tr><tr><td>/</td></tr><tr><td>p</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>a</td></tr><tr><td>m</td></tr><tr><td>s</td></tr><tr><td>.</td></tr><tr><td>c</td></tr><tr><td>s</td></tr><tr><td>v</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>âˆš</td></tr><tr><td>
+</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>q</td></tr><tr><td>q</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td>></td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>u</td></tr><tr><td>d</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>D</td></tr><tr><td>:</td></tr><tr><td>\</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>c</td></tr><tr><td>a</td></tr><tr><td>l</td></tr><tr><td>_</td></tr><tr><td>r</td></tr><tr><td>e</td></tr><tr><td>p</td></tr><tr><td>o</td></tr><tr><td>\</td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>_</td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td>\</td></tr><tr><td>s</td></tr><tr><td>f</td></tr><tr><td>t</td></tr><tr><td>p</td></tr><tr><td>_</td></tr><tr><td>c</td></tr><tr><td>o</td></tr><tr><td>n</td></tr><tr><td>f</td></tr><tr><td>i</td></tr><tr><td>g</td></tr><tr><td>s</td></tr><tr><td>\</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>q</td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td> </td></tr><tr><td>å‰¯</td></tr><tr><td>æœ¬</td></tr><tr><td>.</td></tr><tr><td>j</td></tr><tr><td>s</td></tr><tr><td>o</td></tr><tr><td>n</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>/</td></tr><tr><td>h</td></tr><tr><td>h</td></tr><tr><td>/</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>q</td></tr><tr><td>q</td></tr><tr><td>/</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>q</td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td> </td></tr><tr><td>å‰¯</td></tr><tr><td>æœ¬</td></tr><tr><td>.</td></tr><tr><td>j</td></tr><tr><td>s</td></tr><tr><td>o</td></tr><tr><td>n</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>âˆš</td></tr><tr><td>
+</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>q</td></tr><tr><td>q</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td>></td></tr><tr><td> </td></tr><tr><td>M</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>k</td></tr><tr><td>e</td></tr><tr><td>t</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>T</td></tr><tr><td>y</td></tr><tr><td>p</td></tr><tr><td>e</td></tr><tr><td>E</td></tr><tr><td>r</td></tr><tr><td>r</td></tr><tr><td>o</td></tr><tr><td>r</td></tr><tr><td>
+</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>q</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td>></td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>u</td></tr><tr><td>d</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>D</td></tr><tr><td>:</td></tr><tr><td>\</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>c</td></tr><tr><td>a</td></tr><tr><td>l</td></tr><tr><td>_</td></tr><tr><td>r</td></tr><tr><td>e</td></tr><tr><td>p</td></tr><tr><td>o</td></tr><tr><td>\</td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>_</td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td>\</td></tr><tr><td>p</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>a</td></tr><tr><td>m</td></tr><tr><td>s</td></tr><tr><td>\</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>q</td></tr><tr><td>\</td></tr><tr><td>p</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>a</td></tr><tr><td>m</td></tr><tr><td>s</td></tr><tr><td>.</td></tr><tr><td>c</td></tr><tr><td>s</td></tr><tr><td>v</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>/</td></tr><tr><td>h</td></tr><tr><td>h</td></tr><tr><td>/</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>q</td></tr><tr><td>/</td></tr><tr><td>p</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>a</td></tr><tr><td>m</td></tr><tr><td>s</td></tr><tr><td>.</td></tr><tr><td>c</td></tr><tr><td>s</td></tr><tr><td>v</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>âˆš</td></tr><tr><td>
+</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>q</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td>></td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>u</td></tr><tr><td>d</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>D</td></tr><tr><td>:</td></tr><tr><td>\</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>c</td></tr><tr><td>a</td></tr><tr><td>l</td></tr><tr><td>_</td></tr><tr><td>r</td></tr><tr><td>e</td></tr><tr><td>p</td></tr><tr><td>o</td></tr><tr><td>\</td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>_</td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td>\</td></tr><tr><td>s</td></tr><tr><td>f</td></tr><tr><td>t</td></tr><tr><td>p</td></tr><tr><td>_</td></tr><tr><td>c</td></tr><tr><td>o</td></tr><tr><td>n</td></tr><tr><td>f</td></tr><tr><td>i</td></tr><tr><td>g</td></tr><tr><td>s</td></tr><tr><td>\</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>q</td></tr><tr><td>.</td></tr><tr><td>j</td></tr><tr><td>s</td></tr><tr><td>o</td></tr><tr><td>n</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>/</td></tr><tr><td>h</td></tr><tr><td>h</td></tr><tr><td>/</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>q</td></tr><tr><td>/</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>q</td></tr><tr><td>.</td></tr><tr><td>j</td></tr><tr><td>s</td></tr><tr><td>o</td></tr><tr><td>n</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>âˆš</td></tr><tr><td>
+</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>q</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td>></td></tr><tr><td> </td></tr><tr><td>M</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>k</td></tr><tr><td>e</td></tr><tr><td>t</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>T</td></tr><tr><td>y</td></tr><tr><td>p</td></tr><tr><td>e</td></tr><tr><td>E</td></tr><tr><td>r</td></tr><tr><td>r</td></tr><tr><td>o</td></tr><tr><td>r</td></tr><tr><td>
+</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td>></td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>u</td></tr><tr><td>d</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>D</td></tr><tr><td>:</td></tr><tr><td>\</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>c</td></tr><tr><td>a</td></tr><tr><td>l</td></tr><tr><td>_</td></tr><tr><td>r</td></tr><tr><td>e</td></tr><tr><td>p</td></tr><tr><td>o</td></tr><tr><td>\</td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>_</td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td>\</td></tr><tr><td>p</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>a</td></tr><tr><td>m</td></tr><tr><td>s</td></tr><tr><td>\</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>\</td></tr><tr><td>p</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>a</td></tr><tr><td>m</td></tr><tr><td>s</td></tr><tr><td>.</td></tr><tr><td>c</td></tr><tr><td>s</td></tr><tr><td>v</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>/</td></tr><tr><td>h</td></tr><tr><td>h</td></tr><tr><td>/</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>/</td></tr><tr><td>p</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>a</td></tr><tr><td>m</td></tr><tr><td>s</td></tr><tr><td>.</td></tr><tr><td>c</td></tr><tr><td>s</td></tr><tr><td>v</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>âˆš</td></tr><tr><td>
+</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td>></td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>u</td></tr><tr><td>d</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>D</td></tr><tr><td>:</td></tr><tr><td>\</td></tr><tr><td>l</td></tr><tr><td>o</td></tr><tr><td>c</td></tr><tr><td>a</td></tr><tr><td>l</td></tr><tr><td>_</td></tr><tr><td>r</td></tr><tr><td>e</td></tr><tr><td>p</td></tr><tr><td>o</td></tr><tr><td>\</td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>_</td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td>\</td></tr><tr><td>s</td></tr><tr><td>f</td></tr><tr><td>t</td></tr><tr><td>p</td></tr><tr><td>_</td></tr><tr><td>c</td></tr><tr><td>o</td></tr><tr><td>n</td></tr><tr><td>f</td></tr><tr><td>i</td></tr><tr><td>g</td></tr><tr><td>s</td></tr><tr><td>\</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>_</td></tr><tr><td>m</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>k</td></tr><tr><td>e</td></tr><tr><td>t</td></tr><tr><td>_</td></tr><tr><td>t</td></tr><tr><td>e</td></tr><tr><td>s</td></tr><tr><td>t</td></tr><tr><td>.</td></tr><tr><td>j</td></tr><tr><td>s</td></tr><tr><td>o</td></tr><tr><td>n</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>C</td></tr><tr><td>T</td></tr><tr><td>A</td></tr><tr><td>/</td></tr><tr><td>h</td></tr><tr><td>h</td></tr><tr><td>/</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>/</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td>_</td></tr><tr><td>m</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>k</td></tr><tr><td>e</td></tr><tr><td>t</td></tr><tr><td>_</td></tr><tr><td>t</td></tr><tr><td>e</td></tr><tr><td>s</td></tr><tr><td>t</td></tr><tr><td>.</td></tr><tr><td>j</td></tr><tr><td>s</td></tr><tr><td>o</td></tr><tr><td>n</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>âˆš</td></tr><tr><td>
+</td></tr><tr><td>l</td></tr><tr><td>q</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>U</td></tr><tr><td>I</td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td>></td></tr><tr><td> </td></tr><tr><td>M</td></tr><tr><td>a</td></tr><tr><td>r</td></tr><tr><td>k</td></tr><tr><td>e</td></tr><tr><td>t</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>-</td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr><tr><td>S</td></tr><tr><td>S</td></tr><tr><td>H</td></tr><tr><td>E</td></tr><tr><td>x</td></tr><tr><td>c</td></tr><tr><td>e</td></tr><tr><td>p</td></tr><tr><td>t</td></tr><tr><td>i</td></tr><tr><td>o</td></tr><tr><td>n</td></tr></table>
+2023-08-01 13:37:58
+<table><tr><td>account</td><td>link</td><td>from</td><td>to</td><td>status</td></tr><tr><td>ch3</td><td>UI -> Cloud</td><td>D:\local_repo\CTA_UI\params\ch3\params.csv</td><td>CTA/feng/ch3/params.csv</td><td>âˆš</td></tr><tr><td>ch3</td><td>UI -> Cloud</td><td>D:\local_repo\CTA_UI\sftp_configs\huajing34.json</td><td>CTA/feng/ch3/huajing34.json</td><td>âˆš</td></tr><tr><td>ch5</td><td>UI -> Cloud</td><td>D:\local_repo\CTA_UI\params\ch5\params.csv</td><td>CTA/feng/ch5/params.csv</td><td>âˆš</td></tr><tr><td>ch5</td><td>UI -> Cloud</td><td>D:\local_repo\CTA_UI\sftp_configs\huajing34.json</td><td>CTA/feng/ch5/huajing34.json</td><td>âˆš</td></tr><tr><td>ch3</td><td>UI -> Market</td><td>-</td><td>-</td><td>SSHException</td></tr><tr><td>ch5</td><td>UI -> Market</td><td>-</td><td>-</td><td>SSHException</td></tr><tr><td>lq</td><td>UI -> Cloud</td><td>D:\local_repo\CTA_UI\params\lq\params.csv</td><td>CTA/hh/lq/params.csv</td><td>âˆš</td></tr><tr><td>lq</td><td>UI -> Cloud</td><td>D:\local_repo\CTA_UI\sftp_configs\lq.json</td><td>CTA/hh/lq/lq.json</td><td>âˆš</td></tr><tr><td>lq</td><td>UI -> Market</td><td>-</td><td>-</td><td>TypeError</td></tr><tr><td>lqqq</td><td>UI -> Cloud</td><td>D:\local_repo\CTA_UI\params\lqqq\params.csv</td><td>CTA/hh/lqqq/params.csv</td><td>âˆš</td></tr><tr><td>lqqq</td><td>UI -> Cloud</td><td>D:\local_repo\CTA_UI\sftp_configs\lqq - å‰¯æœ¬.json</td><td>CTA/hh/lqqq/lqq - å‰¯æœ¬.json</td><td>âˆš</td></tr><tr><td>lqqq</td><td>UI -> Market</td><td>-</td><td>-</td><td>TypeError</td></tr><tr><td>lqq</td><td>UI -> Cloud</td><td>D:\local_repo\CTA_UI\params\lqq\params.csv</td><td>CTA/hh/lqq/params.csv</td><td>âˆš</td></tr><tr><td>lqq</td><td>UI -> Cloud</td><td>D:\local_repo\CTA_UI\sftp_configs\lqq.json</td><td>CTA/hh/lqq/lqq.json</td><td>âˆš</td></tr><tr><td>lqq</td><td>UI -> Market</td><td>-</td><td>-</td><td>TypeError</td></tr><tr><td>lq</td><td>UI -> Cloud</td><td>D:\local_repo\CTA_UI\params\lq\params.csv</td><td>CTA/hh/lq/params.csv</td><td>âˆš</td></tr><tr><td>lq</td><td>UI -> Cloud</td><td>D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json</td><td>CTA/hh/lq/lq_market_test.json</td><td>âˆš</td></tr><tr><td>lq</td><td>UI -> Market</td><td>-</td><td>-</td><td>SSHException</td></tr></table>
+2023-08-01 13:42:25
+account    link          from                                                   to                             status
+ch3        UI -> Cloud   D:\local_repo\CTA_UI\params\ch3\params.csv             CTA/feng/ch3/params.csv        âˆš
+ch3        UI -> Cloud   D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch3/huajing34.json    âˆš
+ch5        UI -> Cloud   D:\local_repo\CTA_UI\params\ch5\params.csv             CTA/feng/ch5/params.csv        âˆš
+ch5        UI -> Cloud   D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch5/huajing34.json    âˆš
+ch3        UI -> Market  -                                                      -                              SSHException
+ch5        UI -> Market  -                                                      -                              SSHException
+lq         UI -> Cloud   D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv           âˆš
+lq         UI -> Cloud   D:\local_repo\CTA_UI\sftp_configs\lq.json              CTA/hh/lq/lq.json              âˆš
+lq         UI -> Market  -                                                      -                              TypeError
+lqqq       UI -> Cloud   D:\local_repo\CTA_UI\params\lqqq\params.csv            CTA/hh/lqqq/params.csv         âˆš
+lqqq       UI -> Cloud   D:\local_repo\CTA_UI\sftp_configs\lqq - å‰¯æœ¬.json      CTA/hh/lqqq/lqq - å‰¯æœ¬.json    âˆš
+lqqq       UI -> Market  -                                                      -                              TypeError
+lqq        UI -> Cloud   D:\local_repo\CTA_UI\params\lqq\params.csv             CTA/hh/lqq/params.csv          âˆš
+lqq        UI -> Cloud   D:\local_repo\CTA_UI\sftp_configs\lqq.json             CTA/hh/lqq/lqq.json            âˆš
+lqq        UI -> Market  -                                                      -                              TypeError
+lq         UI -> Cloud   D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv           âˆš
+lq         UI -> Cloud   D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json  CTA/hh/lq/lq_market_test.json  âˆš
+lq         UI -> Market  -                                                      -                              SSHException
+2023-08-01 13:44:54
+D:\local_repo\CTA_UI\params\BASE\params.csv
+    ÐÞ¸ÄÌ×Àû¶Ô: IF2308-2309
+        [if_add] ÐÞ¸ÄÇ°: 1.0 ÐÞ¸Äºó: 0.0
+    ÐÞ¸ÄÌ×Àû¶Ô: IF2309-2312
+        [if_add] ÐÞ¸ÄÇ°: 1.0 ÐÞ¸Äºó: 0.0
+    ÐÞ¸ÄÌ×Àû¶Ô: IF2312-2403
+        [if_add] ÐÞ¸ÄÇ°: 1.0 ÐÞ¸Äºó: 0.0
+    ÐÞ¸ÄÌ×Àû¶Ô: IH2309-2312
+        [if_add] ÐÞ¸ÄÇ°: 1.0 ÐÞ¸Äºó: 0.0
+    ÐÞ¸ÄÌ×Àû¶Ô: IH2312-2403
+        [if_add] ÐÞ¸ÄÇ°: 1.0 ÐÞ¸Äºó: 0.0
+    ÐÞ¸ÄÌ×Àû¶Ô: IM2309-2312
+        [if_add] ÐÞ¸ÄÇ°: 1.0 ÐÞ¸Äºó: 0.0
+==================================================
+2023-08-01 13:44:58
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-08-01 13:45:02
+D:\local_repo\CTA_UI\params\ch8\params.csv
+==================================================
+2023-08-01 13:45:06
+D:\local_repo\CTA_UI\params\co5\params.csv
+==================================================
+2023-08-01 13:45:09
+D:\local_repo\CTA_UI\params\lq\params.csv
+==================================================
+2023-08-01 13:45:13
+D:\local_repo\CTA_UI\params\test\params.csv
+==================================================
+2023-08-01 13:45:17
+D:\local_repo\CTA_UI\params\lqq\params.csv
+==================================================
+2023-08-01 13:45:21
+D:\local_repo\CTA_UI\params\lqqq\params.csv
+==================================================
+2023-08-01 13:45:24
+D:\local_repo\CTA_UI\params\co2\params.csv
+==================================================
+2023-08-01 13:45:32
+account    link          from                                                   to                             status
+ch3        UI -> Cloud   D:\local_repo\CTA_UI\params\ch3\params.csv             CTA/feng/ch3/params.csv        âˆš
+ch3        UI -> Cloud   D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch3/huajing34.json    âˆš
+ch5        UI -> Cloud   D:\local_repo\CTA_UI\params\ch5\params.csv             CTA/feng/ch5/params.csv        âˆš
+ch5        UI -> Cloud   D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch5/huajing34.json    âˆš
+ch3        UI -> Market  -                                                      -                              SSHException
+ch5        UI -> Market  -                                                      -                              SSHException
+lq         UI -> Cloud   D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv           âˆš
+lq         UI -> Cloud   D:\local_repo\CTA_UI\sftp_configs\lq.json              CTA/hh/lq/lq.json              âˆš
+lq         UI -> Market  -                                                      -                              TypeError
+lqqq       UI -> Cloud   D:\local_repo\CTA_UI\params\lqqq\params.csv            CTA/hh/lqqq/params.csv         âˆš
+lqqq       UI -> Cloud   D:\local_repo\CTA_UI\sftp_configs\lqq - å‰¯æœ¬.json      CTA/hh/lqqq/lqq - å‰¯æœ¬.json    âˆš
+lqqq       UI -> Market  -                                                      -                              TypeError
+lqq        UI -> Cloud   D:\local_repo\CTA_UI\params\lqq\params.csv             CTA/hh/lqq/params.csv          âˆš
+lqq        UI -> Cloud   D:\local_repo\CTA_UI\sftp_configs\lqq.json             CTA/hh/lqq/lqq.json            âˆš
+lqq        UI -> Market  -                                                      -                              TypeError
+lq         UI -> Cloud   D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv           âˆš
+lq         UI -> Cloud   D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json  CTA/hh/lq/lq_market_test.json  âˆš
+lq         UI -> Market  -                                                      -                              SSHException
+2023-08-01 13:53:27
+account    link           from                                                   to                                                             status
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\params\ch3\params.csv             CTA/feng/ch3/params.csv                                        âˆš
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch3/huajing34.json                                    âˆš
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\params\ch5\params.csv             CTA/feng/ch5/params.csv                                        âˆš
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch5/huajing34.json                                    âˆš
+ch3        UI -> Market   -                                                      -                                                              SSHException
+ch5        UI -> Market   -                                                      -                                                              SSHException
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           âˆš
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json              CTA/hh/lq/lq.json                                              âˆš
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv              C:\Users\Administrator\Desktop\cta_lq_zx\params.csv            âˆš
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\params\lqqq\params.csv            CTA/hh/lqqq/params.csv                                         âˆš
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq - å‰¯æœ¬.json      CTA/hh/lqqq/lqq - å‰¯æœ¬.json                                    âˆš
+lqqq       UI -> Trading  D:\local_repo\CTA_UI\params\lqqq\params.csv            C:\Users\Administrator\Desktop\cta_lqqq_zx\testdir\params.csv  âˆš
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\params\lqq\params.csv             CTA/hh/lqq/params.csv                                          âˆš
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq.json             CTA/hh/lqq/lqq.json                                            âˆš
+lqq        UI -> Trading  D:\local_repo\CTA_UI\params\lqq\params.csv             C:\Users\Administrator\Desktop\cta_lqq_zx\testdir\params.csv   âˆš
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           âˆš
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json  CTA/hh/lq/lq_market_test.json                                  âˆš
+lq         UI -> Market   -                                                      -                                                              SSHException

@@ -1,0 +1,31 @@
+{
+    "userName" : "hh",
+
+    "cloudServer": {
+        "host": "39.97.106.35",
+        "port" : 22,
+        "username": "root",
+        "pwd": "Wojiaomt1",
+        "reverse_port": 9876
+    },
+
+    "marketServer": {
+        "host": "192.168.2.233",
+        "username": "Han.Hao",
+        "pwd": "123",
+        "mktDir": "C:\\Users\\Administrator\\Desktop\\CTA"
+    },
+
+    "tradeServer": {
+        "host": "172.31.113.251",
+        "port" : 22,
+        "username": "Administrator",
+        "pwd": "Abc@123"
+    },
+
+    "localUIDir": "D:\\local_repo\\CTA_UI",
+    
+    "accountList": ["lq"],
+
+    "tradeDirList": ["C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\testdir"]
+}

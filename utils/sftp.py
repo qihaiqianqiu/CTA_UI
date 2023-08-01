@@ -25,13 +25,25 @@ class SSHConnection(object):
     def upload(self,local_path,target_path):
         # 连接，上传
         # file_name = self.create_file()
+        log = []
         sftp = paramiko.SFTPClient.from_transport(self.__transport)
         # 将location.py 上传至服务器 /tmp/test.py
-        sftp.put(local_path, target_path)
+        try:
+            sftp.put(local_path, target_path)
+            log = [local_path, target_path, "\u221A"]
+        except Exception as e:
+            log = [local_path, target_path, type(e).__name__]
+        return log
  
     def download(self,remote_path,local_path):
+        log = []
         sftp = paramiko.SFTPClient.from_transport(self.__transport)
-        sftp.get(remote_path,local_path)
+        try:
+            sftp.get(remote_path,local_path)
+            log = [remote_path, local_path, "√"]
+        except Exception as e:
+            log = [remote_path, local_path, type(e).__name__]
+        return log
         
     def reverse_forward_tunnel(self, server_port, remote_host, remote_port):
         def handler(chan, host, port):
