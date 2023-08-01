@@ -21,7 +21,8 @@ mpl.rcParams['ytick.major.size'] = 8
 mpl.rcParams['ytick.major.width'] = 2
 from scipy.stats import norm
 import matplotlib.dates as mdate
-import datetime
+import matplotlib.font_manager as fm
+import matplotlib.patches as patches
 import time
 import traceback
 mpl.rcParams.update({
@@ -39,7 +40,7 @@ from utils.get_contract_pair import get_db_contract_pair
 from utils.date_section_modification import get_date_section, from_predict
 from utils.calculate_parameter import get_pairwise_data
 
-all = ['plot_continuous_contract', 'plot_time_series', 'plot_volume_split', "create_aligned_table", "show_table_in_message_box"]
+all = ['plot_continuous_contract', 'plot_time_series', 'plot_volume_split', "create_aligned_table", "show_table_in_message_box", "stock_to_pie"]
 logger = open(os.path.join(PLOT_PATH, "visual_log.txt"), "a+")
 err = open(os.path.join(PLOT_PATH, "visual_error.txt"), "a+")
 
@@ -72,6 +73,91 @@ def show_table_in_message_box(data):
     
     return table_html
 
+# 持仓字典画饼图
+def stock_to_pie(data):
+    sorted_data = sorted(data.items(), key=lambda x: abs(x[1]), reverse=True)
+    labels = [item[0] for item in sorted_data]
+    sizes = [abs(item[1]) for item in sorted_data]
+
+    positive_profit = {k: v for k, v in data.items() if v > 0}
+    negative_profit = {k: v for k, v in data.items() if v < 0}
+
+    positive_sizes = list(positive_profit.values())
+    positive_sum = sum(positive_sizes)
+
+    negative_sizes = list(negative_profit.values())
+    negative_sizes = [abs(value) for value in negative_sizes]
+    negative_sum = sum(negative_sizes)
+    
+    positive_labels = [f"{k}: {v/positive_sum * 100:.2f}%" for k, v in positive_profit.items()]
+    negative_labels = [f"{k}: {abs(v)/negative_sum * 100:.2f}%" for k, v in negative_profit.items()]
+
+    title_fontsize = 36
+    title_font = fm.FontProperties(weight='bold', size=title_fontsize)
+    label_fontsize = 28
+    label_font = fm.FontProperties(weight='bold', size=label_fontsize)
+
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(64, 40))
+
+    # 饼图1：正收益
+    wedges1, _ = ax1.pie(positive_sizes, labels=None, autopct=None, startangle=90, textprops={'fontsize': label_fontsize})
+    ax1.set_title(f"Positive Profit: {positive_sum}", fontproperties=title_font)
+
+    # 饼图2：负收益
+    wedges2, _= ax2.pie(negative_sizes, labels=None, autopct=None, startangle=90, textprops={'fontsize': label_fontsize})
+    ax2.set_title(f"Negative Profit: {negative_sum}", fontproperties=title_font)
+
+    # 调整图例位置
+    ax1.legend(wedges1, positive_labels, loc="center left", bbox_to_anchor=(1, 0.5), fontsize=label_fontsize)
+    ax2.legend(wedges2, negative_labels, loc="center left", bbox_to_anchor=(1, 0.5), fontsize=label_fontsize)
+
+    # 添加指向品种名称的线和文字
+    for i, p in enumerate(wedges1):
+        ang = (p.theta2 - p.theta1) / 2.0 + p.theta1
+        y = np.sin(np.deg2rad(ang))
+        x = np.cos(np.deg2rad(ang))
+        horizontalalignment = {-1: "right", 1: "left"}[int(np.sign(x))]
+        connectionstyle = "angle,angleA=0,angleB={}".format(ang)
+        kw = dict(arrowprops=dict(arrowstyle="->", lw=1, connectionstyle=connectionstyle))
+        xy = (x, y)
+        if p.theta2 - p.theta1 < 10:
+            xy = (0.5*x, 1.5*y)
+        xytext = (1.35 * np.sign(x), 1.4 * y)
+        ax1.annotate(
+            positive_labels[i],
+            xy=xy,
+            xytext=xytext,
+            horizontalalignment=horizontalalignment,
+            **kw,
+            fontsize=32
+        )
+
+    for i, p in enumerate(wedges2):
+        ang = (p.theta2 - p.theta1) / 2.0 + p.theta1
+        y = np.sin(np.deg2rad(ang))
+        x = np.cos(np.deg2rad(ang))
+        horizontalalignment = {-1: "right", 1: "left"}[int(np.sign(x))]
+        connectionstyle = "angle,angleA=0,angleB={}".format(ang)
+        kw = dict(arrowprops=dict(arrowstyle="->", lw=1, connectionstyle=connectionstyle))
+        xy = (x, y)
+        if p.theta2 - p.theta1 < 10:
+            xy = (0.5*x, 1.5*y)
+        xytext = (1.35 * np.sign(x), 1.4 * y)
+        ax2.annotate(
+            negative_labels[i],
+            xy=xy,
+            xytext=xytext,
+            horizontalalignment=horizontalalignment,
+            **kw,
+            fontsize=32
+        )
+        
+    # 调整子图布局
+    plt.subplots_adjust(wspace=0.5)
+
+    plt.savefig(os.path.join(PLOT_PATH, "profit_distribution.png"))
+    
+    return plt
 
 # Get data from start_date[MorningMarket] to end_date[EveningMarket]
 # 连续合约对模块（蝶式套）返回对应数据  

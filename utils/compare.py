@@ -18,20 +18,18 @@ def get_hold(acc_name):
         os.mkdir(reportFileDir)
     # 选择最新的持仓文件
     reportlst = [re.search(r'\D+\d{6}\.csv', f).group() for f in os.listdir(reportFileDir) if re.search(r'\D+\d{6}\.csv', f)]
-    print(reportlst)
     dtlst = [int(re.search(r"(\d{6})", f).group(0)) for f in reportlst]
-    print(dtlst)
     most_recent_holding_file = reportlst[dtlst.index(max(dtlst))]
-    print(most_recent_holding_file)
+    print("读取最新的持仓文件为:", most_recent_holding_file)
     reportFile = os.path.join(reportFileDir, most_recent_holding_file)
     hold = pd.read_csv(reportFile, encoding='gbk')
     if '持仓合约' and '总仓' in hold.columns.tolist():
-        hold = hold[['持仓合约','买卖','总仓']]
+        hold = hold[['持仓合约','买卖','总仓', '浮动盈亏']]
     if '合约' and '总持仓' in hold.columns.tolist():    
-        hold = hold[['合约', '买卖', '总持仓']]
-    hold.columns = ['持仓合约','买卖','总仓']
+        hold = hold[['合约', '买卖', '总持仓', '持仓盈亏']]
+    hold.columns = ['持仓合约','买卖','总仓', '持仓盈亏']
     hold['a'] = hold['持仓合约'].apply(lambda x:x[:2])
-    hold.columns = ['code','direction','current','a']
+    hold.columns = ['code','direction','current','stocking_delta', 'a']
     # 'dt'字段为日期代码 形如2303 or 304 
     hold['dt'] = hold['code'].apply(lambda x:re.findall(r"\d+.?\d*",x)[0].replace(' ',''))
     # [\u4e00-\u9fa5] 匹配中文
@@ -45,7 +43,8 @@ def get_hold(acc_name):
     hold['current'] = np.where(hold['direction']=='买',hold['current'],-1*hold['current'])
     del hold['direction']
     ## 计算report中的各品种持仓
-    hold = pd.DataFrame(hold.groupby('code')['current'].sum())
+
+    hold = pd.DataFrame(hold.groupby('code')['current', 'stocking_delta'].sum())
     hold = hold[hold['current'] != 0]
     hold = hold.reset_index()
     hold['product'] = hold['code'].apply(lambda x:re.sub("[\u4e00-\u9fa5\0-9\,\。]", "", x).upper())

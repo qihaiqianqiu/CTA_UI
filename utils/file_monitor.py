@@ -23,7 +23,10 @@ class fileMonitor(FileSystemEventHandler):
     Args:
         FileSystemEventHandler (_type_): 
         path:根目录路径
-        logger:日志记录器
+        is_market:是否是市场端
+        is_UI:是否是UI端
+        是否是云端可以通过is_market和is_UI来判断
+        使用不同的flag部署在不同的机器上
     """
     def __init__(self, path, is_market, is_UI) -> None:
         super().__init__()
@@ -140,6 +143,8 @@ class fileMonitor(FileSystemEventHandler):
                     
                 
     def on_modified(self, event):
+        if self.is_UI:
+            pass
         f = open(os.path.join(self.path, 'changelog.txt'), 'a+')  # 记录日志
         # 文件变化处理
         if not event.is_directory and event.src_path.endswith(".csv") and event.event_type == 'modified':

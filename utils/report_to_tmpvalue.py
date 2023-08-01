@@ -27,7 +27,6 @@ def fix_param_pairs(param_df, hold):
     # 对存在唯一性问题的合约，在持仓的，打上标签
     exclude_node = [code for code in issue_node if code in hold['code'].values]
     param_df['flag'] = param_df.apply(lambda x: True if x['code2'] in exclude_node else False, axis=1)
-
     return param_df
 
 
@@ -48,6 +47,7 @@ def to_tmpvalue(acc_name):
 
     hold = get_hold(acc_name)
     param_df = fix_param_pairs(param_df, hold)
+     
     tmpvalue = pd.DataFrame()
     legging = []
     
@@ -204,3 +204,7 @@ def to_tmpvalue(acc_name):
         print("TmpValue与report相差的：")
         print(code_gap)
     return code_gap
+
+
+if __name__ == "__main__":
+    to_tmpvalue("lq")

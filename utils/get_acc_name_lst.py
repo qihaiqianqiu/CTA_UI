@@ -1,5 +1,6 @@
 import pandas as pd
-
-df = pd.read_excel(r'../info/account_info.xlsx', sheet_name="Sheet1")
+import os
+from utils.const import ROOT_PATH
+df = pd.read_excel(os.path.join(ROOT_PATH, "info", "account_info.xlsx"), sheet_name="Sheet1")
 acc_lst = df['id'].values.tolist()
 print(acc_lst)
