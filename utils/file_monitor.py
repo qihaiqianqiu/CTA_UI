@@ -144,7 +144,7 @@ class fileMonitor(FileSystemEventHandler):
                 
     def on_modified(self, event):
         if self.is_UI:
-            pass
+            return
         f = open(os.path.join(self.path, 'changelog.txt'), 'a+')  # 记录日志
         # 文件变化处理
         if not event.is_directory and event.src_path.endswith(".csv") and event.event_type == 'modified':
@@ -194,7 +194,7 @@ class fileMonitor(FileSystemEventHandler):
             print("当前时间：", current_time)
             # 交易日志导出任务
             if not if_quest:
-                if current_time > "15:01":
+                if current_time > "15:01" and current_time < "15:05":
                     for config in self.config_files:
                         print("根据配置文件{}，从交易服务器导出日志".format(config))
                         threading.Thread(target=request_from_trading_to_market, args=(config,)).start()

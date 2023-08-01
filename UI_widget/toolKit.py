@@ -3,6 +3,8 @@ from PyQt5.QtWidgets import QDialog, QPushButton, QGridLayout
 from PyQt5.QtCore import pyqtSignal
 from UI_widget.checkParaDialog import checkParaDialog
 from UI_widget.muteMonth import muteMonth
+from UI_widget.realtimeStocking import stockCounter
+
 
 all = ["toolKit"]
 class toolKit(QDialog):
@@ -27,6 +29,7 @@ class toolKit(QDialog):
         self.setWindowTitle("工具箱")
         btn1.clicked.connect(self.check_param_pairs)
         btn2.clicked.connect(self.mute)
+        btn4.clicked.connect(self.stock_counting)
 
         
         
@@ -50,3 +53,8 @@ class toolKit(QDialog):
         self.mute_month_dialog = muteMonth()
         self.mute_month_dialog.refresh_signal.connect(self.pass_add_signal)
         self.mute_month_dialog.show()
+    
+    @QtCore.pyqtSlot()
+    def stock_counting(self):
+        self.stock_counting_dialog = stockCounter()
+        self.stock_counting_dialog.show()

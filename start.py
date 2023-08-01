@@ -703,8 +703,8 @@ class Arbitrator(QMainWindow):
             region_budget = float(acc[4])
             boundary_budget = float(acc[5])
             acc_param_df = param_df.copy()
-            acc_param_df['region_unit_num'] = acc_param_df.apply(lambda x: int(round(x['region_unit_num'] * region_budget,0)), axis=1)
-            acc_param_df['boundary_unit_num'] = acc_param_df.apply(lambda x: int(round(x['boundary_unit_num'] * boundary_budget,0)), axis=1)
+            acc_param_df['region_unit_num'] = acc_param_df.apply(lambda x: int(round(x['region_unit_num'] * float(region_budget),0)), axis=1)
+            acc_param_df['boundary_unit_num'] = acc_param_df.apply(lambda x: int(round(x['boundary_unit_num'] * float(boundary_budget),0)), axis=1)
             acc_param_dir = os.path.join(const.PARAM_PATH, id)
             if not os.path.exists(acc_param_dir):
                 os.mkdir(acc_param_dir)

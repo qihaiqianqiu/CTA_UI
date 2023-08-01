@@ -90,14 +90,16 @@ def stock_to_pie(data):
     negative_sum = sum(negative_sizes)
     
     positive_labels = [f"{k}: {v/positive_sum * 100:.2f}%" for k, v in positive_profit.items()]
+    positive_percent = [v / positive_sum * 100 for k, v in positive_profit.items()]
     negative_labels = [f"{k}: {abs(v)/negative_sum * 100:.2f}%" for k, v in negative_profit.items()]
+    negative_percent = [abs(v) / negative_sum *100 for k, v in negative_profit.items()]
 
-    title_fontsize = 36
+    title_fontsize = 21
     title_font = fm.FontProperties(weight='bold', size=title_fontsize)
-    label_fontsize = 28
+    label_fontsize = 18
     label_font = fm.FontProperties(weight='bold', size=label_fontsize)
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(64, 40))
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(45, 24))
 
     # 饼图1：正收益
     wedges1, _ = ax1.pie(positive_sizes, labels=None, autopct=None, startangle=90, textprops={'fontsize': label_fontsize})
@@ -113,6 +115,9 @@ def stock_to_pie(data):
 
     # 添加指向品种名称的线和文字
     for i, p in enumerate(wedges1):
+        if positive_percent[i] < 5:
+            print("skip", positive_percent[i])
+            continue
         ang = (p.theta2 - p.theta1) / 2.0 + p.theta1
         y = np.sin(np.deg2rad(ang))
         x = np.cos(np.deg2rad(ang))
@@ -129,10 +134,14 @@ def stock_to_pie(data):
             xytext=xytext,
             horizontalalignment=horizontalalignment,
             **kw,
-            fontsize=32
+            fontsize=21
         )
+        print("draw positive label", positive_labels[i])
 
     for i, p in enumerate(wedges2):
+        if negative_percent[i] < 5:
+            print("skip", negative_percent[i])
+            continue
         ang = (p.theta2 - p.theta1) / 2.0 + p.theta1
         y = np.sin(np.deg2rad(ang))
         x = np.cos(np.deg2rad(ang))
@@ -149,8 +158,9 @@ def stock_to_pie(data):
             xytext=xytext,
             horizontalalignment=horizontalalignment,
             **kw,
-            fontsize=32
+            fontsize=21
         )
+        print("draw negative label", negative_labels[i])
         
     # 调整子图布局
     plt.subplots_adjust(wspace=0.5)

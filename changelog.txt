@@ -2975,3 +2975,195 @@ D:\local_repo\CTA_UI\params\jxh\params.csv
 2023-08-01 20:42:38
 D:\local_repo\CTA_UI\params\lqq\params.csv
 ==================================================
+2023-08-01 20:42:42
+D:\local_repo\CTA_UI\params\lqqq\params.csv
+==================================================
+2023-08-01 21:48:32
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-08-01 21:48:36
+D:\local_repo\CTA_UI\params\ch10\params.csv
+==================================================
+2023-08-01 21:48:40
+D:\local_repo\CTA_UI\params\ch11\params.csv
+==================================================
+2023-08-01 21:48:44
+D:\local_repo\CTA_UI\params\ch12\params.csv
+==================================================
+2023-08-01 21:48:47
+D:\local_repo\CTA_UI\params\ch13\params.csv
+==================================================
+2023-08-01 21:48:51
+D:\local_repo\CTA_UI\params\ch2\params.csv
+==================================================
+2023-08-01 21:48:55
+D:\local_repo\CTA_UI\params\ch3\params.csv
+==================================================
+2023-08-01 21:48:59
+D:\local_repo\CTA_UI\params\ch5\params.csv
+==================================================
+2023-08-01 21:49:03
+D:\local_repo\CTA_UI\params\ch6\params.csv
+==================================================
+2023-08-01 21:49:07
+D:\local_repo\CTA_UI\params\ch7\params.csv
+==================================================
+2023-08-01 21:49:11
+D:\local_repo\CTA_UI\params\ch8\params.csv
+==================================================
+2023-08-01 21:49:15
+D:\local_repo\CTA_UI\params\ch9\params.csv
+==================================================
+2023-08-01 21:49:19
+D:\local_repo\CTA_UI\params\co2\params.csv
+==================================================
+2023-08-01 21:49:23
+D:\local_repo\CTA_UI\params\co5\params.csv
+==================================================
+2023-08-01 21:49:27
+D:\local_repo\CTA_UI\params\jxh\params.csv
+==================================================
+2023-08-01 21:49:31
+D:\local_repo\CTA_UI\params\lq\params.csv
+==================================================
+2023-08-01 21:49:34
+D:\local_repo\CTA_UI\params\lqq\params.csv
+==================================================
+2023-08-01 21:49:38
+D:\local_repo\CTA_UI\params\lqqq\params.csv
+==================================================
+2023-08-01 21:49:42
+D:\local_repo\CTA_UI\params\test\params.csv
+==================================================
+2023-08-01 22:43:49
+D:\local_repo\CTA_UI\params\BASE\params.csv
+    ÐÞ¸ÄÌ×Àû¶Ô: B2309-2310
+        [region_1] ÐÞ¸ÄÇ°: -99999.0 ÐÞ¸Äºó: -45.0
+        [region_2] ÐÞ¸ÄÇ°: -99999.0 ÐÞ¸Äºó: -60.0
+        [region_unit_num] ÐÞ¸ÄÇ°: 3.0 ÐÞ¸Äºó: 1.0
+==================================================
+2023-08-01 22:43:53
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-08-01 22:47:13
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-08-01 22:47:13
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-08-01 22:47:16
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-08-01 22:47:16
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-08-01 22:47:20
+D:\local_repo\CTA_UI\params\ch8\params.csv
+==================================================
+2023-08-01 22:47:20
+D:\local_repo\CTA_UI\params\ch8\params.csv
+==================================================
+2023-08-01 22:47:24
+D:\local_repo\CTA_UI\params\co5\params.csv
+==================================================
+2023-08-01 22:47:24
+D:\local_repo\CTA_UI\params\co5\params.csv
+==================================================
+2023-08-01 22:47:28
+D:\local_repo\CTA_UI\params\lq\params.csv
+==================================================
+2023-08-01 22:47:28
+D:\local_repo\CTA_UI\params\lq\params.csv
+==================================================
+2023-08-01 22:47:31
+D:\local_repo\CTA_UI\params\test\params.csv
+==================================================
+2023-08-01 22:47:31
+D:\local_repo\CTA_UI\params\test\params.csv
+==================================================
+2023-08-01 22:47:35
+D:\local_repo\CTA_UI\params\lqq\params.csv
+==================================================
+2023-08-01 22:47:35
+D:\local_repo\CTA_UI\params\lqq\params.csv
+==================================================
+2023-08-01 22:47:39
+D:\local_repo\CTA_UI\params\lqqq\params.csv
+==================================================
+2023-08-01 22:47:39
+D:\local_repo\CTA_UI\params\lqqq\params.csv
+==================================================
+2023-08-01 22:47:43
+D:\local_repo\CTA_UI\params\co2\params.csv
+==================================================
+2023-08-01 22:47:43
+D:\local_repo\CTA_UI\params\co2\params.csv
+==================================================
+2023-08-01 22:47:50
+Account    Link           From                                                   To                                                             Status
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\params\ch3\params.csv             CTA/feng/ch3/params.csv                                        âˆš
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch3/huajing34.json                                    âˆš
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\params\ch5\params.csv             CTA/feng/ch5/params.csv                                        âˆš
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch5/huajing34.json                                    âˆš
+ch3        UI -> Market   -                                                      -                                                              SSHException
+ch5        UI -> Market   -                                                      -                                                              SSHException
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           âˆš
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json              CTA/hh/lq/lq.json                                              âˆš
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv              C:\Users\Administrator\Desktop\cta_lq_zx\params.csv            âˆš
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\params\lqqq\params.csv            CTA/hh/lqqq/params.csv                                         âˆš
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq - å‰¯æœ¬.json      CTA/hh/lqqq/lqq - å‰¯æœ¬.json                                    âˆš
+lqqq       UI -> Trading  D:\local_repo\CTA_UI\params\lqqq\params.csv            C:\Users\Administrator\Desktop\cta_lqqq_zx\testdir\params.csv  âˆš
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\params\lqq\params.csv             CTA/hh/lqq/params.csv                                          âˆš
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq.json             CTA/hh/lqq/lqq.json                                            âˆš
+lqq        UI -> Trading  D:\local_repo\CTA_UI\params\lqq\params.csv             C:\Users\Administrator\Desktop\cta_lqq_zx\testdir\params.csv   âˆš
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           âˆš
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json  CTA/hh/lq/lq_market_test.json                                  âˆš
+lq         UI -> Market   -                                                      -                                                              SSHException
+2023-08-01 22:49:51
+D:\local_repo\CTA_UI\params\ch10\params.csv
+==================================================
+2023-08-01 22:49:55
+D:\local_repo\CTA_UI\params\ch11\params.csv
+==================================================
+2023-08-01 22:49:59
+D:\local_repo\CTA_UI\params\ch12\params.csv
+==================================================
+2023-08-01 22:50:03
+D:\local_repo\CTA_UI\params\ch13\params.csv
+==================================================
+2023-08-01 22:50:07
+D:\local_repo\CTA_UI\params\ch2\params.csv
+==================================================
+2023-08-01 22:50:10
+D:\local_repo\CTA_UI\params\ch3\params.csv
+==================================================
+2023-08-01 22:50:14
+D:\local_repo\CTA_UI\params\ch5\params.csv
+==================================================
+2023-08-01 22:50:18
+D:\local_repo\CTA_UI\params\ch6\params.csv
+==================================================
+2023-08-01 22:50:22
+D:\local_repo\CTA_UI\params\ch7\params.csv
+==================================================
+2023-08-01 22:50:26
+D:\local_repo\CTA_UI\params\ch9\params.csv
+==================================================
+2023-08-01 22:50:30
+D:\local_repo\CTA_UI\params\jxh\params.csv
+==================================================
+2023-08-01 23:49:08
+D:\local_repo\CTA_UI\params\BASE\params.csv
+==================================================
+2023-08-01 23:49:12
+D:\local_repo\CTA_UI\params\ch8\params.csv
+==================================================
+2023-08-01 23:49:17
+D:\local_repo\CTA_UI\params\co5\params.csv
+==================================================
+2023-08-01 23:49:20
+D:\local_repo\CTA_UI\params\lq\params.csv
+==================================================
+2023-08-01 23:49:24
+D:\local_repo\CTA_UI\params\test\params.csv
+==================================================
