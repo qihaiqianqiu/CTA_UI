@@ -1,7 +1,17 @@
 import os
+import re
 from utils.const import PLOT_PATH
 
 all = ["pairname_to_plotdir"]
+
+def filter_numeric_filenames(directory):
+    pattern = r'^\d+$'  # 匹配只包含数字的正则表达式模式
+    numeric_filenames = []
+    for filename in os.listdir(directory):
+        if re.match(pattern, filename):
+            numeric_filenames.append(filename)
+
+    return numeric_filenames
 
 def pairname_to_plotdir(contract_pair_name) -> str:
     """
@@ -9,7 +19,7 @@ def pairname_to_plotdir(contract_pair_name) -> str:
     :param contract_pair_name: 套利对名称
     :return: 图像存储路径
     """
-    date_lst = os.listdir(PLOT_PATH)
+    date_lst = filter_numeric_filenames(PLOT_PATH)
     date_lst.sort(reverse=True)
     for date in date_lst[:3]:
         plotname = date + "-" + contract_pair_name + ".png"

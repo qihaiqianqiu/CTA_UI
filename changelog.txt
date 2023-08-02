@@ -3170,3 +3170,709 @@ D:\local_repo\CTA_UI\params\test\params.csv
 2023-08-01 23:49:28
 D:\local_repo\CTA_UI\params\co2\params.csv
 ==================================================
+2023-08-01 23:49:32
+D:\local_repo\CTA_UI\params\lqq\params.csv
+==================================================
+2023-08-01 23:49:36
+D:\local_repo\CTA_UI\params\lqqq\params.csv
+==================================================
+2023-08-02 09:05:53
+Account    Link           From                                                   To                                                             Status
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\params\ch3\params.csv             CTA/feng/ch3/params.csv                                        √
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch3/huajing34.json                                    √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\params\ch5\params.csv             CTA/feng/ch5/params.csv                                        √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch5/huajing34.json                                    √
+ch3        UI -> Market   -                                                      -                                                              SSHException
+ch5        UI -> Market   -                                                      -                                                              SSHException
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json              CTA/hh/lq/lq.json                                              √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv              C:\Users\Administrator\Desktop\cta_lq_zx\params.csv            √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\params\lqqq\params.csv            CTA/hh/lqqq/params.csv                                         √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq - 副本.json      CTA/hh/lqqq/lqq - 副本.json                                    √
+lqqq       UI -> Trading  D:\local_repo\CTA_UI\params\lqqq\params.csv            C:\Users\Administrator\Desktop\cta_lqqq_zx\testdir\params.csv  √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\params\lqq\params.csv             CTA/hh/lqq/params.csv                                          √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq.json             CTA/hh/lqq/lqq.json                                            √
+lqq        UI -> Trading  D:\local_repo\CTA_UI\params\lqq\params.csv             C:\Users\Administrator\Desktop\cta_lqq_zx\testdir\params.csv   √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json  CTA/hh/lq/lq_market_test.json                                  √
+lq         UI -> Market   -                                                      -                                                              SSHException
+2023-08-02 09:07:56
+Account    Link           From                                                   To                                                             Status
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\params\ch3\params.csv             CTA/feng/ch3/params.csv                                        √
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch3/huajing34.json                                    √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\params\ch5\params.csv             CTA/feng/ch5/params.csv                                        √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch5/huajing34.json                                    √
+ch3        UI -> Market   -                                                      -                                                              SSHException
+ch5        UI -> Market   -                                                      -                                                              SSHException
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json              CTA/hh/lq/lq.json                                              √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv              C:\Users\Administrator\Desktop\cta_lq_zx\params.csv            √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\params\lqqq\params.csv            CTA/hh/lqqq/params.csv                                         √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq - 副本.json      CTA/hh/lqqq/lqq - 副本.json                                    √
+lqqq       UI -> Trading  D:\local_repo\CTA_UI\params\lqqq\params.csv            C:\Users\Administrator\Desktop\cta_lqqq_zx\testdir\params.csv  √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\params\lqq\params.csv             CTA/hh/lqq/params.csv                                          √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq.json             CTA/hh/lqq/lqq.json                                            √
+lqq        UI -> Trading  D:\local_repo\CTA_UI\params\lqq\params.csv             C:\Users\Administrator\Desktop\cta_lqq_zx\testdir\params.csv   √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json  CTA/hh/lq/lq_market_test.json                                  √
+lq         UI -> Market   -                                                      -                                                              SSHException
+2023-08-02 09:08:50
+Account    Link           From                                                   To                                                             Status
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\params\ch3\params.csv             CTA/feng/ch3/params.csv                                        √
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch3/huajing34.json                                    √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\params\ch5\params.csv             CTA/feng/ch5/params.csv                                        √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch5/huajing34.json                                    √
+ch3        UI -> Market   -                                                      -                                                              SSHException
+ch5        UI -> Market   -                                                      -                                                              SSHException
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json              CTA/hh/lq/lq.json                                              √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv              C:\Users\Administrator\Desktop\cta_lq_zx\params.csv            √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\params\lqqq\params.csv            CTA/hh/lqqq/params.csv                                         √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq - 副本.json      CTA/hh/lqqq/lqq - 副本.json                                    √
+lqqq       UI -> Trading  D:\local_repo\CTA_UI\params\lqqq\params.csv            C:\Users\Administrator\Desktop\cta_lqqq_zx\testdir\params.csv  √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\params\lqq\params.csv             CTA/hh/lqq/params.csv                                          √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq.json             CTA/hh/lqq/lqq.json                                            √
+lqq        UI -> Trading  D:\local_repo\CTA_UI\params\lqq\params.csv             C:\Users\Administrator\Desktop\cta_lqq_zx\testdir\params.csv   √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json  CTA/hh/lq/lq_market_test.json                                  √
+lq         UI -> Market   -                                                      -                                                              SSHException
+2023-08-02 09:45:06
+Account    Link           From                                                   To                                                             Status
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\params\ch3\params.csv             CTA/feng/ch3/params.csv                                        √
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch3/huajing34.json                                    √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\params\ch5\params.csv             CTA/feng/ch5/params.csv                                        √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch5/huajing34.json                                    √
+ch3        UI -> Market   -                                                      -                                                              SSHException
+ch5        UI -> Market   -                                                      -                                                              SSHException
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json              CTA/hh/lq/lq.json                                              √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv              C:\Users\Administrator\Desktop\cta_lq_zx\params.csv            √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\params\lqqq\params.csv            CTA/hh/lqqq/params.csv                                         √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq - 副本.json      CTA/hh/lqqq/lqq - 副本.json                                    √
+lqqq       UI -> Trading  D:\local_repo\CTA_UI\params\lqqq\params.csv            C:\Users\Administrator\Desktop\cta_lqqq_zx\testdir\params.csv  √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\params\lqq\params.csv             CTA/hh/lqq/params.csv                                          √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq.json             CTA/hh/lqq/lqq.json                                            √
+lqq        UI -> Trading  D:\local_repo\CTA_UI\params\lqq\params.csv             C:\Users\Administrator\Desktop\cta_lqq_zx\testdir\params.csv   √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json  CTA/hh/lq/lq_market_test.json                                  √
+lq         UI -> Market   -                                                      -                                                              SSHException
+2023-08-02 09:50:52
+Account    Link           From                                                   To                                                             Status
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\params\ch3\params.csv             CTA/feng/ch3/params.csv                                        √
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch3/huajing34.json                                    √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\params\ch5\params.csv             CTA/feng/ch5/params.csv                                        √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch5/huajing34.json                                    √
+ch3        UI -> Market   -                                                      -                                                              SSHException
+ch5        UI -> Market   -                                                      -                                                              SSHException
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json              CTA/hh/lq/lq.json                                              √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv              C:\Users\Administrator\Desktop\cta_lq_zx\params.csv            √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\params\lqqq\params.csv            CTA/hh/lqqq/params.csv                                         √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq - 副本.json      CTA/hh/lqqq/lqq - 副本.json                                    √
+lqqq       UI -> Trading  D:\local_repo\CTA_UI\params\lqqq\params.csv            C:\Users\Administrator\Desktop\cta_lqqq_zx\testdir\params.csv  √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\params\lqq\params.csv             CTA/hh/lqq/params.csv                                          √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq.json             CTA/hh/lqq/lqq.json                                            √
+lqq        UI -> Trading  D:\local_repo\CTA_UI\params\lqq\params.csv             C:\Users\Administrator\Desktop\cta_lqq_zx\testdir\params.csv   √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json  CTA/hh/lq/lq_market_test.json                                  √
+lq         UI -> Market   -                                                      -                                                              SSHException
+2023-08-02 09:55:37
+Account    Link           From                                                   To                                                             Status
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\params\ch3\params.csv             CTA/feng/ch3/params.csv                                        √
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch3/huajing34.json                                    √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\params\ch5\params.csv             CTA/feng/ch5/params.csv                                        √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch5/huajing34.json                                    √
+ch3        UI -> Market   -                                                      -                                                              SSHException
+ch5        UI -> Market   -                                                      -                                                              SSHException
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json              CTA/hh/lq/lq.json                                              √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv              C:\Users\Administrator\Desktop\cta_lq_zx\params.csv            √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\params\lqqq\params.csv            CTA/hh/lqqq/params.csv                                         √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq - 副本.json      CTA/hh/lqqq/lqq - 副本.json                                    √
+lqqq       UI -> Trading  D:\local_repo\CTA_UI\params\lqqq\params.csv            C:\Users\Administrator\Desktop\cta_lqqq_zx\testdir\params.csv  √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\params\lqq\params.csv             CTA/hh/lqq/params.csv                                          √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq.json             CTA/hh/lqq/lqq.json                                            √
+lqq        UI -> Trading  D:\local_repo\CTA_UI\params\lqq\params.csv             C:\Users\Administrator\Desktop\cta_lqq_zx\testdir\params.csv   √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json  CTA/hh/lq/lq_market_test.json                                  √
+lq         UI -> Market   -                                                      -                                                              SSHException
+2023-08-02 11:21:59
+Account    Link           From                                                   To                                                             Status
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\params\ch3\params.csv             CTA/feng/ch3/params.csv                                        √
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch3/huajing34.json                                    √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\params\ch5\params.csv             CTA/feng/ch5/params.csv                                        √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch5/huajing34.json                                    √
+ch3        UI -> Market   -                                                      -                                                              SSHException
+ch5        UI -> Market   -                                                      -                                                              SSHException
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json              CTA/hh/lq/lq.json                                              √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv              C:\Users\Administrator\Desktop\cta_lq_zx\params.csv            √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\params\lqqq\params.csv            CTA/hh/lqqq/params.csv                                         √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq - 副本.json      CTA/hh/lqqq/lqq - 副本.json                                    √
+lqqq       UI -> Trading  D:\local_repo\CTA_UI\params\lqqq\params.csv            C:\Users\Administrator\Desktop\cta_lqqq_zx\testdir\params.csv  √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\params\lqq\params.csv             CTA/hh/lqq/params.csv                                          √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq.json             CTA/hh/lqq/lqq.json                                            √
+lqq        UI -> Trading  D:\local_repo\CTA_UI\params\lqq\params.csv             C:\Users\Administrator\Desktop\cta_lqq_zx\testdir\params.csv   √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json  CTA/hh/lq/lq_market_test.json                                  √
+lq         UI -> Market   -                                                      -                                                              SSHException
+2023-08-02 11:23:17
+Account    Link           From                                                   To                                                             Status
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\params\ch3\params.csv             CTA/feng/ch3/params.csv                                        √
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch3/huajing34.json                                    √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\params\ch5\params.csv             CTA/feng/ch5/params.csv                                        √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch5/huajing34.json                                    √
+ch3        UI -> Market   -                                                      -                                                              SSHException
+ch5        UI -> Market   -                                                      -                                                              SSHException
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json              CTA/hh/lq/lq.json                                              √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv              C:\Users\Administrator\Desktop\cta_lq_zx\params.csv            √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\params\lqqq\params.csv            CTA/hh/lqqq/params.csv                                         √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq - 副本.json      CTA/hh/lqqq/lqq - 副本.json                                    √
+lqqq       UI -> Trading  D:\local_repo\CTA_UI\params\lqqq\params.csv            C:\Users\Administrator\Desktop\cta_lqqq_zx\testdir\params.csv  √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\params\lqq\params.csv             CTA/hh/lqq/params.csv                                          √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq.json             CTA/hh/lqq/lqq.json                                            √
+lqq        UI -> Trading  D:\local_repo\CTA_UI\params\lqq\params.csv             C:\Users\Administrator\Desktop\cta_lqq_zx\testdir\params.csv   √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json  CTA/hh/lq/lq_market_test.json                                  √
+lq         UI -> Market   -                                                      -                                                              SSHException
+2023-08-02 11:27:30
+Account    Link           From                                                   To                                                             Status
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\params\ch3\params.csv             CTA/feng/ch3/params.csv                                        √
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch3/huajing34.json                                    √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\params\ch5\params.csv             CTA/feng/ch5/params.csv                                        √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch5/huajing34.json                                    √
+ch3        UI -> Market   -                                                      -                                                              SSHException
+ch5        UI -> Market   -                                                      -                                                              SSHException
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json              CTA/hh/lq/lq.json                                              √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv              C:\Users\Administrator\Desktop\cta_lq_zx\params.csv            √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\params\lqqq\params.csv            CTA/hh/lqqq/params.csv                                         √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq - 副本.json      CTA/hh/lqqq/lqq - 副本.json                                    √
+lqqq       UI -> Trading  D:\local_repo\CTA_UI\params\lqqq\params.csv            C:\Users\Administrator\Desktop\cta_lqqq_zx\testdir\params.csv  √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\params\lqq\params.csv             CTA/hh/lqq/params.csv                                          √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq.json             CTA/hh/lqq/lqq.json                                            √
+lqq        UI -> Trading  D:\local_repo\CTA_UI\params\lqq\params.csv             C:\Users\Administrator\Desktop\cta_lqq_zx\testdir\params.csv   √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json  CTA/hh/lq/lq_market_test.json                                  √
+lq         UI -> Market   -                                                      -                                                              SSHException
+2023-08-02 13:57:27
+Account    Link           From                                                   To                                                             Status
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\params\ch3\params.csv             CTA/feng/ch3/params.csv                                        √
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch3/huajing34.json                                    √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\params\ch5\params.csv             CTA/feng/ch5/params.csv                                        √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch5/huajing34.json                                    √
+ch3        UI -> Market   -                                                      -                                                              SSHException
+ch5        UI -> Market   -                                                      -                                                              SSHException
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json              CTA/hh/lq/lq.json                                              √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv              C:\Users\Administrator\Desktop\cta_lq_zx\params.csv            √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\params\lqqq\params.csv            CTA/hh/lqqq/params.csv                                         √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq - 副本.json      CTA/hh/lqqq/lqq - 副本.json                                    √
+lqqq       UI -> Trading  D:\local_repo\CTA_UI\params\lqqq\params.csv            C:\Users\Administrator\Desktop\cta_lqqq_zx\testdir\params.csv  √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\params\lqq\params.csv             CTA/hh/lqq/params.csv                                          √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq.json             CTA/hh/lqq/lqq.json                                            √
+lqq        UI -> Trading  D:\local_repo\CTA_UI\params\lqq\params.csv             C:\Users\Administrator\Desktop\cta_lqq_zx\testdir\params.csv   √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json  CTA/hh/lq/lq_market_test.json                                  √
+lq         UI -> Market   -                                                      -                                                              SSHException
+2023-08-02 15:16:51
+Account    Link           From                                                   To                                                             Status
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\params\ch3\params.csv             CTA/feng/ch3/params.csv                                        √
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch3/huajing34.json                                    √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\params\ch5\params.csv             CTA/feng/ch5/params.csv                                        √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch5/huajing34.json                                    √
+ch3        UI -> Market   -                                                      -                                                              SSHException
+ch5        UI -> Market   -                                                      -                                                              SSHException
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json              CTA/hh/lq/lq.json                                              √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv              C:\Users\Administrator\Desktop\cta_lq_zx\params.csv            √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\params\lqqq\params.csv            CTA/hh/lqqq/params.csv                                         √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq - 副本.json      CTA/hh/lqqq/lqq - 副本.json                                    √
+lqqq       UI -> Trading  D:\local_repo\CTA_UI\params\lqqq\params.csv            C:\Users\Administrator\Desktop\cta_lqqq_zx\testdir\params.csv  √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\params\lqq\params.csv             CTA/hh/lqq/params.csv                                          √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq.json             CTA/hh/lqq/lqq.json                                            √
+lqq        UI -> Trading  D:\local_repo\CTA_UI\params\lqq\params.csv             C:\Users\Administrator\Desktop\cta_lqq_zx\testdir\params.csv   √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json  CTA/hh/lq/lq_market_test.json                                  √
+lq         UI -> Market   -                                                      -                                                              SSHException
+2023-08-02 16:26:52
+Account    Link           From                                                   To                                                             Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           OSError
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json              CTA/hh/lq/lq.json                                              √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\params\lqqq\params.csv            CTA/hh/lqqq/params.csv                                         √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq - 副本.json      CTA/hh/lqqq/lqq - 副本.json                                    √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json  CTA/hh/lq/lq_market_test.json                                  √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\params\lqq\params.csv             CTA/hh/lqq/params.csv                                          √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq.json             CTA/hh/lqq/lqq.json                                            √
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\params\ch3\params.csv             CTA/feng/ch3/params.csv                                        √
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch3/huajing34.json                                    √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\params\ch5\params.csv             CTA/feng/ch5/params.csv                                        √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch5/huajing34.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv              C:\Users\Administrator\Desktop\cta_lq_zx\params.csv            √
+lqqq       UI -> Trading  D:\local_repo\CTA_UI\params\lqqq\params.csv            C:\Users\Administrator\Desktop\cta_lqqq_zx\testdir\params.csv  √
+lqq        UI -> Trading  D:\local_repo\CTA_UI\params\lqq\params.csv             C:\Users\Administrator\Desktop\cta_lqq_zx\testdir\params.csv   √
+lq         UI -> Market   -                                                      -                                                              SSHException
+ch3        UI -> Market   -                                                      -                                                              SSHException
+ch5        UI -> Market   -                                                      -                                                              SSHException
+2023-08-02 16:30:26
+Account    Link           From                                                   To                                                             Status
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\params\lqqq\params.csv            CTA/hh/lqqq/params.csv                                         √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq - 副本.json      CTA/hh/lqqq/lqq - 副本.json                                    √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json              CTA/hh/lq/lq.json                                              √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json  CTA/hh/lq/lq_market_test.json                                  √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\params\lqq\params.csv             CTA/hh/lqq/params.csv                                          √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq.json             CTA/hh/lqq/lqq.json                                            √
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\params\ch3\params.csv             CTA/feng/ch3/params.csv                                        √
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch3/huajing34.json                                    √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\params\ch5\params.csv             CTA/feng/ch5/params.csv                                        √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch5/huajing34.json                                    √
+lqqq       UI -> Trading  D:\local_repo\CTA_UI\params\lqqq\params.csv            C:\Users\Administrator\Desktop\cta_lqqq_zx\testdir\params.csv  √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv              C:\Users\Administrator\Desktop\cta_lq_zx\params.csv            √
+lqq        UI -> Trading  D:\local_repo\CTA_UI\params\lqq\params.csv             C:\Users\Administrator\Desktop\cta_lqq_zx\testdir\params.csv   √
+lq         UI -> Market   -                                                      -                                                              SSHException
+ch3        UI -> Market   -                                                      -                                                              SSHException
+ch5        UI -> Market   -                                                      -                                                              SSHException
+2023-08-02 16:52:21
+Account                                                                                                               Link
+lqq                                                                                                                   Trading -> UI
+lqqq                                                                                                                  Trading -> UI
+C:\Users\Administrator\Desktop\cta_lq_zx\report\holding_230802.csv                                                    D:\local_repo\CTA_UI\report\lq\holding_230802.csv
+['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']  ['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+ch3                                                                                                                   Trading -> UI
+ch5                                                                                                                   Trading -> UI
+2023-08-02 16:53:34
+Account                                                                                                               Link
+lqqq                                                                                                                  Trading -> UI
+lqq                                                                                                                   Trading -> UI
+C:\Users\Administrator\Desktop\cta_lq_zx\report\holding_230802.csv                                                    D:\local_repo\CTA_UI\report\lq\holding_230802.csv
+['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']  ['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+ch3                                                                                                                   Trading -> UI
+ch5                                                                                                                   Trading -> UI
+2023-08-02 16:54:33
+Account                                                                                                                     Link
+lqqq                                                                                                                        Trading -> UI
+lqq                                                                                                                         Trading -> UI
+C:\Users\Administrator\Desktop\cta_lq_zx\report\holding_230802.csv                                                          D:\local_repo\CTA_UI\report\lq\holding_230802.csv
+['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', 'OSError']  ['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+ch3                                                                                                                         Trading -> UI
+ch5                                                                                                                         Trading -> UI
+2023-08-02 16:59:08
+Account
+lqq
+lqqq
+C
+D
+√
+lq
+lq
+lq
+ch3
+ch5
+2023-08-02 17:00:28
+Account
+lqqq
+lqq
+C
+D
+√
+lq
+lq
+lq
+ch3
+ch5
+2023-08-02 17:05:25
+Account
+lqq
+lqqq
+C
+D
+√
+lq
+lq
+lq
+ch3
+ch5
+['Account', 'Link', 'From', 'To', 'Status']['lqqq', 'Trading -> UI', '-', '-', 'ValueError']['lqq', 'Trading -> UI', '-', '-', 'ValueError']C:\Users\Administrator\Desktop\cta_lq_zx\report\holding_230802.csvD:\local_repo\CTA_UI\report\lq\holding_230802.csv√['lq', 'Trading -> UI', 'lq', 'Trading -> UI', 'C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\tradings\\trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', 'OSError']['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']['ch3', 'Trading -> UI', '-', '-', 'SSHException']['ch5', 'Trading -> UI', '-', '-', 'SSHException']2023-08-02 17:13:54
+Account
+lqqq
+lqq
+C
+D
+√
+lq
+lq
+lq
+ch3
+ch5
+['Account', 'Link', 'From', 'To', 'Status']['lqqq', 'Trading -> UI', '-', '-', 'ValueError']['lqq', 'Trading -> UI', '-', '-', 'ValueError']C:\Users\Administrator\Desktop\cta_lq_zx\report\holding_230802.csvD:\local_repo\CTA_UI\report\lq\holding_230802.csv√['lq', 'Trading -> UI', 'lq', 'Trading -> UI', 'C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\tradings\\trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']['ch3', 'Trading -> UI', '-', '-', 'SSHException']['ch5', 'Trading -> UI', '-', '-', 'SSHException']2023-08-02 17:25:29
+Account
+lqqq
+lqq
+C
+D
+√
+lq
+lq
+lq
+ch3
+ch5
+['Account', 'Link', 'From', 'To', 'Status']['lqq', 'Trading -> UI', '-', '-', 'ValueError']['lqqq', 'Trading -> UI', '-', '-', 'ValueError']C:\Users\Administrator\Desktop\cta_lq_zx\report\holding_230802.csvD:\local_repo\CTA_UI\report\lq\holding_230802.csv√['lq', 'Trading -> UI', 'lq', 'Trading -> UI', 'C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\tradings\\trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']['ch3', 'Trading -> UI', '-', '-', 'SSHException']['ch5', 'Trading -> UI', '-', '-', 'SSHException']2023-08-02 17:27:58
+Account
+lqq
+lqqq
+C
+D
+√
+lq
+lq
+lq
+ch3
+ch5
+['Account', 'Link', 'From', 'To', 'Status']
+['lqqq', 'Trading -> UI', '-', '-', 'ValueError']
+['lqq', 'Trading -> UI', '-', '-', 'ValueError']
+C:\Users\Administrator\Desktop\cta_lq_zx\report\holding_230802.csv
+D:\local_repo\CTA_UI\report\lq\holding_230802.csv
+√
+['lq', 'Trading -> UI', 'lq', 'Trading -> UI', 'C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\tradings\\trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', 'OSError']
+['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+['ch3', 'Trading -> UI', '-', '-', 'SSHException']
+['ch5', 'Trading -> UI', '-', '-', 'SSHException']
+2023-08-02 17:31:28
+Account
+lqqq
+lqq
+C
+D
+√
+lq
+lq
+lq
+ch3
+ch5
+['Account', 'Link', 'From', 'To', 'Status']
+['lqqq', 'Trading -> UI', '-', '-', 'ValueError']
+['lqq', 'Trading -> UI', '-', '-', 'ValueError']
+C:\Users\Administrator\Desktop\cta_lq_zx\report\holding_230802.csv
+D:\local_repo\CTA_UI\report\lq\holding_230802.csv
+√
+['lq', 'Trading -> UI', 'lq', 'Trading -> UI', 'C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\tradings\\trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']
+['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+['ch3', 'Trading -> UI', '-', '-', 'SSHException']
+['ch5', 'Trading -> UI', '-', '-', 'SSHException']
+2023-08-02 17:34:49
+Account
+lqqq
+lqq
+C
+D
+√
+lq
+lq
+lq
+ch3
+ch5
+['Account', 'Link', 'From', 'To', 'Status']
+['lqqq', 'Trading -> UI', '-', '-', 'ValueError']
+['lqq', 'Trading -> UI', '-', '-', 'ValueError']
+C:\Users\Administrator\Desktop\cta_lq_zx\report\holding_230802.csv
+D:\local_repo\CTA_UI\report\lq\holding_230802.csv
+√
+['lq', 'Trading -> UI', 'lq', 'Trading -> UI', 'C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\tradings\\trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']
+['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+['ch3', 'Trading -> UI', '-', '-', 'SSHException']
+['ch5', 'Trading -> UI', '-', '-', 'SSHException']
+2023-08-02 17:39:59
+Account
+lqqq
+lqq
+C
+D
+√
+lq
+lq
+lq
+ch3
+ch5
+['Account', 'Link', 'From', 'To', 'Status']
+['lqqq', 'Trading -> UI', '-', '-', 'ValueError']
+['lqq', 'Trading -> UI', '-', '-', 'ValueError']
+['lq', 'Trading -> UI', 'C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\tradings\\trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+['lq', 'Trading -> UI', 'C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\report\\holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']
+['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', 'OSError']
+['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+['ch3', 'Trading -> UI', '-', '-', 'SSHException']
+['ch5', 'Trading -> UI', '-', '-', 'SSHException']
+2023-08-02 17:55:30
+Account    Link           From                                                                  To                                                   Status
+lqqq       Trading -> UI  -                                                                     -                                                    ValueError
+lqq        Trading -> UI  -                                                                     -                                                    ValueError
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\tradings\trading_230802.csv  D:\local_repo\CTA_UI\tradings\lq\trading_230802.csv  √
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\report\holding_230802.csv    D:\local_repo\CTA_UI\report\lq\holding_230802.csv    √
+lq         Cloud -> UI    CTA/hh/lq/holding_230802.csv                                          D:\local_repo\CTA_UI\report\lq\holding_230802.csv    OSError
+lq         Cloud -> UI    CTA/hh/lq/trading_230802.csv                                          D:\local_repo\CTA_UI\tradings\lq\trading_230802.csv  √
+ch3        Trading -> UI  -                                                                     -                                                    SSHException
+ch5        Trading -> UI  -                                                                     -                                                    SSHException
+['Account', 'Link', 'From', 'To', 'Status']
+['lqqq', 'Trading -> UI', '-', '-', 'ValueError']
+['lqq', 'Trading -> UI', '-', '-', 'ValueError']
+['lq', 'Trading -> UI', 'C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\tradings\\trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+['lq', 'Trading -> UI', 'C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\report\\holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']
+['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']
+['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+['ch3', 'Trading -> UI', '-', '-', 'SSHException']
+['ch5', 'Trading -> UI', '-', '-', 'SSHException']
+2023-08-02 18:00:59
+Account    Link           From                                                                  To                                                   Status
+lqqq       Trading -> UI  -                                                                     -                                                    ValueError
+lqq        Trading -> UI  -                                                                     -                                                    ValueError
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\tradings\trading_230802.csv  D:\local_repo\CTA_UI\tradings\lq\trading_230802.csv  √
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\report\holding_230802.csv    D:\local_repo\CTA_UI\report\lq\holding_230802.csv    √
+lq         Cloud -> UI    CTA/hh/lq/holding_230802.csv                                          D:\local_repo\CTA_UI\report\lq\holding_230802.csv    √
+lq         Cloud -> UI    CTA/hh/lq/trading_230802.csv                                          D:\local_repo\CTA_UI\tradings\lq\trading_230802.csv  √
+ch3        Trading -> UI  -                                                                     -                                                    SSHException
+ch5        Trading -> UI  -                                                                     -                                                    SSHException
+['Account', 'Link', 'From', 'To', 'Status']
+['lqqq', 'Trading -> UI', '-', '-', 'ValueError']
+['lqq', 'Trading -> UI', '-', '-', 'ValueError']
+['lq', 'Trading -> UI', 'C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\tradings\\trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+['lq', 'Trading -> UI', 'C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\report\\holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']
+['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']
+['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+['ch3', 'Trading -> UI', '-', '-', 'SSHException']
+['ch5', 'Trading -> UI', '-', '-', 'SSHException']
+2023-08-02 18:02:31
+Account    Link           From                                                                  To                                                   Status
+lqqq       Trading -> UI  -                                                                     -                                                    ValueError
+lqq        Trading -> UI  -                                                                     -                                                    ValueError
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\tradings\trading_230802.csv  D:\local_repo\CTA_UI\tradings\lq\trading_230802.csv  √
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\report\holding_230802.csv    D:\local_repo\CTA_UI\report\lq\holding_230802.csv    √
+lq         Cloud -> UI    CTA/hh/lq/holding_230802.csv                                          D:\local_repo\CTA_UI\report\lq\holding_230802.csv    √
+lq         Cloud -> UI    CTA/hh/lq/trading_230802.csv                                          D:\local_repo\CTA_UI\tradings\lq\trading_230802.csv  √
+ch3        Trading -> UI  -                                                                     -                                                    SSHException
+ch5        Trading -> UI  -                                                                     -                                                    SSHException
+['Account', 'Link', 'From', 'To', 'Status']
+['lqqq', 'Trading -> UI', '-', '-', 'ValueError']
+['lqq', 'Trading -> UI', '-', '-', 'ValueError']
+['lq', 'Trading -> UI', 'C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\tradings\\trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+['lq', 'Trading -> UI', 'C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\report\\holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']
+['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']
+['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+['ch3', 'Trading -> UI', '-', '-', 'SSHException']
+['ch5', 'Trading -> UI', '-', '-', 'SSHException']
+2023-08-02 18:04:07
+Account    Link           From                                                                  To                                                   Status
+lqqq       Trading -> UI  -                                                                     -                                                    ValueError
+lqq        Trading -> UI  -                                                                     -                                                    ValueError
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\tradings\trading_230802.csv  D:\local_repo\CTA_UI\tradings\lq\trading_230802.csv  √
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\report\holding_230802.csv    D:\local_repo\CTA_UI\report\lq\holding_230802.csv    √
+lq         Cloud -> UI    CTA/hh/lq/holding_230802.csv                                          D:\local_repo\CTA_UI\report\lq\holding_230802.csv    √
+lq         Cloud -> UI    CTA/hh/lq/trading_230802.csv                                          D:\local_repo\CTA_UI\tradings\lq\trading_230802.csv  √
+ch3        Trading -> UI  -                                                                     -                                                    SSHException
+ch5        Trading -> UI  -                                                                     -                                                    SSHException
+['Account', 'Link', 'From', 'To', 'Status']
+['ch3', 'Trading -> UI', '-', '-', 'SSHException']
+['ch5', 'Trading -> UI', '-', '-', 'SSHException']
+['lq', 'Trading -> UI', 'C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\tradings\\trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+['lq', 'Trading -> UI', 'C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\report\\holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']
+['lqqq', 'Trading -> UI', '-', '-', 'ValueError']
+['lqq', 'Trading -> UI', '-', '-', 'ValueError']
+[['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√'], ['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']]
+[['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√'], ['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']]
+2023-08-02 18:12:40
+Account                                                                                                               Link
+ch3                                                                                                                   Trading -> UI
+ch5                                                                                                                   Trading -> UI
+lq                                                                                                                    Trading -> UI
+lq                                                                                                                    Trading -> UI
+lqqq                                                                                                                  Trading -> UI
+lqq                                                                                                                   Trading -> UI
+['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']  ['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']  ['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+['Account', 'Link', 'From', 'To', 'Status']
+['ch3', 'Trading -> UI', '-', '-', 'SSHException']
+['ch5', 'Trading -> UI', '-', '-', 'SSHException']
+['lq', 'Trading -> UI', 'C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\tradings\\trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+['lq', 'Trading -> UI', 'C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\report\\holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']
+['lqqq', 'Trading -> UI', '-', '-', 'ValueError']
+['lqq', 'Trading -> UI', '-', '-', 'ValueError']
+[['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√'], ['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']]
+[['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√'], ['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']]
+2023-08-02 18:15:41
+Account                                                                                                               Link
+ch3                                                                                                                   Trading -> UI
+ch5                                                                                                                   Trading -> UI
+lq                                                                                                                    Trading -> UI
+lq                                                                                                                    Trading -> UI
+lqqq                                                                                                                  Trading -> UI
+lqq                                                                                                                   Trading -> UI
+['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']  ['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']  ['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+['Account', 'Link', 'From', 'To', 'Status']
+['ch3', 'Trading -> UI', '-', '-', 'SSHException']
+['ch5', 'Trading -> UI', '-', '-', 'SSHException']
+['lq', 'Trading -> UI', 'C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\tradings\\trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+['lq', 'Trading -> UI', 'C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\report\\holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']
+['lqqq', 'Trading -> UI', '-', '-', 'ValueError']
+['lqq', 'Trading -> UI', '-', '-', 'ValueError']
+[['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√'], ['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']]
+[['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√'], ['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']]
+2023-08-02 18:18:07
+Account                                                                                                               Link
+ch3                                                                                                                   Trading -> UI
+ch5                                                                                                                   Trading -> UI
+lq                                                                                                                    Trading -> UI
+lq                                                                                                                    Trading -> UI
+lqqq                                                                                                                  Trading -> UI
+lqq                                                                                                                   Trading -> UI
+['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']  ['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']  ['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+2023-08-02 18:22:24
+Account                                                                                                               Link
+ch3                                                                                                                   Trading -> UI
+ch5                                                                                                                   Trading -> UI
+lq                                                                                                                    Trading -> UI
+lq                                                                                                                    Trading -> UI
+lqqq                                                                                                                  Trading -> UI
+lqq                                                                                                                   Trading -> UI
+['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']  ['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+['lq', 'Cloud -> UI', 'CTA/hh/lq/holding_230802.csv', 'D:\\local_repo\\CTA_UI\\report\\lq\\holding_230802.csv', '√']  ['lq', 'Cloud -> UI', 'CTA/hh/lq/trading_230802.csv', 'D:\\local_repo\\CTA_UI\\tradings\\lq\\trading_230802.csv', '√']
+2023-08-02 18:24:09
+Account    Link           From                                                                  To                                                   Status
+ch3        Trading -> UI  -                                                                     -                                                    SSHException
+ch5        Trading -> UI  -                                                                     -                                                    SSHException
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\tradings\trading_230802.csv  D:\local_repo\CTA_UI\tradings\lq\trading_230802.csv  √
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\report\holding_230802.csv    D:\local_repo\CTA_UI\report\lq\holding_230802.csv    √
+lqqq       Trading -> UI  -                                                                     -                                                    ValueError
+lqq        Trading -> UI  -                                                                     -                                                    ValueError
+lq         Cloud -> UI    CTA/hh/lq/holding_230802.csv                                          D:\local_repo\CTA_UI\report\lq\holding_230802.csv    √
+lq         Cloud -> UI    CTA/hh/lq/trading_230802.csv                                          D:\local_repo\CTA_UI\tradings\lq\trading_230802.csv  √
+2023-08-02 18:25:39
+Account    Link           From                                                                  To                                                   Status
+ch3        Trading -> UI  -                                                                     -                                                    SSHException
+ch5        Trading -> UI  -                                                                     -                                                    SSHException
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\tradings\trading_230802.csv  D:\local_repo\CTA_UI\tradings\lq\trading_230802.csv  √
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\report\holding_230802.csv    D:\local_repo\CTA_UI\report\lq\holding_230802.csv    √
+lqqq       Trading -> UI  -                                                                     -                                                    ValueError
+lqq        Trading -> UI  -                                                                     -                                                    ValueError
+lq         Cloud -> UI    CTA/hh/lq/holding_230802.csv                                          D:\local_repo\CTA_UI\report\lq\holding_230802.csv    √
+lq         Cloud -> UI    CTA/hh/lq/trading_230802.csv                                          D:\local_repo\CTA_UI\tradings\lq\trading_230802.csv  √
+2023-08-02 18:29:50
+Account    Link           From                                                                  To                                                   Status
+ch3        Trading -> UI  -                                                                     -                                                    SSHException
+ch5        Trading -> UI  -                                                                     -                                                    SSHException
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\tradings\trading_230802.csv  D:\local_repo\CTA_UI\tradings\lq\trading_230802.csv  √
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\report\holding_230802.csv    D:\local_repo\CTA_UI\report\lq\holding_230802.csv    √
+lqqq       Trading -> UI  -                                                                     -                                                    ValueError
+lqq        Trading -> UI  -                                                                     -                                                    ValueError
+lq         Cloud -> UI    CTA/hh/lq/holding_230802.csv                                          D:\local_repo\CTA_UI\report\lq\holding_230802.csv    √
+lq         Cloud -> UI    CTA/hh/lq/trading_230802.csv                                          D:\local_repo\CTA_UI\tradings\lq\trading_230802.csv  √
+2023-08-02 18:35:21
+Account    Link           From                                                   To                                                             Status
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\params\ch3\params.csv             CTA/feng/ch3/params.csv                                        √
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch3/huajing34.json                                    √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\params\ch5\params.csv             CTA/feng/ch5/params.csv                                        √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch5/huajing34.json                                    √
+ch3        UI -> Market   -                                                      -                                                              SSHException
+ch5        UI -> Market   -                                                      -                                                              SSHException
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json              CTA/hh/lq/lq.json                                              √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv              C:\Users\Administrator\Desktop\cta_lq_zx\params.csv            √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\params\lqqq\params.csv            CTA/hh/lqqq/params.csv                                         √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq - 副本.json      CTA/hh/lqqq/lqq - 副本.json                                    √
+lqqq       UI -> Trading  D:\local_repo\CTA_UI\params\lqqq\params.csv            C:\Users\Administrator\Desktop\cta_lqqq_zx\testdir\params.csv  √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\params\lqq\params.csv             CTA/hh/lqq/params.csv                                          √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq.json             CTA/hh/lqq/lqq.json                                            √
+lqq        UI -> Trading  D:\local_repo\CTA_UI\params\lqq\params.csv             C:\Users\Administrator\Desktop\cta_lqq_zx\testdir\params.csv   √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json  CTA/hh/lq/lq_market_test.json                                  √
+lq         UI -> Market   -                                                      -                                                              SSHException
+2023-08-02 18:39:24
+Account    Link           From                                                   To                                                             Status
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\params\ch3\params.csv             CTA/feng/ch3/params.csv                                        √
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch3/huajing34.json                                    √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\params\ch5\params.csv             CTA/feng/ch5/params.csv                                        √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch5/huajing34.json                                    √
+ch3        UI -> Market   -                                                      -                                                              SSHException
+ch5        UI -> Market   -                                                      -                                                              SSHException
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json              CTA/hh/lq/lq.json                                              √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv              C:\Users\Administrator\Desktop\cta_lq_zx\params.csv            √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\params\lqqq\params.csv            CTA/hh/lqqq/params.csv                                         √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq - 副本.json      CTA/hh/lqqq/lqq - 副本.json                                    √
+lqqq       UI -> Trading  D:\local_repo\CTA_UI\params\lqqq\params.csv            C:\Users\Administrator\Desktop\cta_lqqq_zx\testdir\params.csv  √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\params\lqq\params.csv             CTA/hh/lqq/params.csv                                          √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq.json             CTA/hh/lqq/lqq.json                                            √
+lqq        UI -> Trading  D:\local_repo\CTA_UI\params\lqq\params.csv             C:\Users\Administrator\Desktop\cta_lqq_zx\testdir\params.csv   √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json  CTA/hh/lq/lq_market_test.json                                  √
+lq         UI -> Market   -                                                      -                                                              SSHException
+2023-08-02 18:41:23
+Account    Link           From                                                   To                                                             Status
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\params\ch3\params.csv             CTA/feng/ch3/params.csv                                        √
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch3/huajing34.json                                    √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\params\ch5\params.csv             CTA/feng/ch5/params.csv                                        √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch5/huajing34.json                                    √
+ch3        UI -> Market   -                                                      -                                                              SSHException
+ch5        UI -> Market   -                                                      -                                                              SSHException
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json              CTA/hh/lq/lq.json                                              √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv              C:\Users\Administrator\Desktop\cta_lq_zx\params.csv            √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\params\lqqq\params.csv            CTA/hh/lqqq/params.csv                                         √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq - 副本.json      CTA/hh/lqqq/lqq - 副本.json                                    √
+lqqq       UI -> Trading  D:\local_repo\CTA_UI\params\lqqq\params.csv            C:\Users\Administrator\Desktop\cta_lqqq_zx\testdir\params.csv  √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\params\lqq\params.csv             CTA/hh/lqq/params.csv                                          √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq.json             CTA/hh/lqq/lqq.json                                            √
+lqq        UI -> Trading  D:\local_repo\CTA_UI\params\lqq\params.csv             C:\Users\Administrator\Desktop\cta_lqq_zx\testdir\params.csv   √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json  CTA/hh/lq/lq_market_test.json                                  √
+lq         UI -> Market   -                                                      -                                                              SSHException
+2023-08-02 18:42:29
+Account    Link           From                                                   To                                                             Status
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\params\ch3\params.csv             CTA/feng/ch3/params.csv                                        √
+ch3        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch3/huajing34.json                                    √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\params\ch5\params.csv             CTA/feng/ch5/params.csv                                        √
+ch5        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\huajing34.json       CTA/feng/ch5/huajing34.json                                    √
+ch3        UI -> Market   -                                                      -                                                              SSHException
+ch5        UI -> Market   -                                                      -                                                              SSHException
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json              CTA/hh/lq/lq.json                                              √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv              C:\Users\Administrator\Desktop\cta_lq_zx\params.csv            √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\params\lqqq\params.csv            CTA/hh/lqqq/params.csv                                         √
+lqqq       UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq - 副本.json      CTA/hh/lqqq/lqq - 副本.json                                    √
+lqqq       UI -> Trading  D:\local_repo\CTA_UI\params\lqqq\params.csv            C:\Users\Administrator\Desktop\cta_lqqq_zx\testdir\params.csv  √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\params\lqq\params.csv             CTA/hh/lqq/params.csv                                          √
+lqq        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lqq.json             CTA/hh/lqq/lqq.json                                            √
+lqq        UI -> Trading  D:\local_repo\CTA_UI\params\lqq\params.csv             C:\Users\Administrator\Desktop\cta_lqq_zx\testdir\params.csv   √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv              CTA/hh/lq/params.csv                                           √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq_market_test.json  CTA/hh/lq/lq_market_test.json                                  √
+lq         UI -> Market   -                                                      -                                                              SSHException
+2023-08-02 19:04:21
+Account    Link    From    To    Status
+2023-08-02 19:07:43
+Account    Link           From                                                                  To                                                   Status
+lqqq       Trading -> UI  -                                                                     -                                                    ValueError
+lqq        Trading -> UI  -                                                                     -                                                    ValueError
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\tradings\trading_230802.csv  D:\local_repo\CTA_UI\tradings\lq\trading_230802.csv  √
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\report\holding_230802.csv    D:\local_repo\CTA_UI\report\lq\holding_230802.csv    √
+lq         Cloud -> UI    CTA/hh/lq/holding_230802.csv                                          D:\local_repo\CTA_UI\report\lq\holding_230802.csv    OSError
+lq         Cloud -> UI    CTA/hh/lq/trading_230802.csv                                          D:\local_repo\CTA_UI\tradings\lq\trading_230802.csv  √
+ch3        Trading -> UI  -                                                                     -                                                    SSHException
+ch5        Trading -> UI  -                                                                     -                                                    SSHException
+2023-08-02 19:14:57
+Account    Link           From                                                                  To                                                   Status
+lqqq       Trading -> UI  -                                                                     -                                                    ValueError
+lqq        Trading -> UI  -                                                                     -                                                    ValueError
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\tradings\trading_230802.csv  D:\local_repo\CTA_UI\tradings\lq\trading_230802.csv  √
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\report\holding_230802.csv    D:\local_repo\CTA_UI\report\lq\holding_230802.csv    √
+lq         Cloud -> UI    CTA/hh/lq/holding_230802.csv                                          D:\local_repo\CTA_UI\report\lq\holding_230802.csv    OSError
+lq         Cloud -> UI    CTA/hh/lq/trading_230802.csv                                          D:\local_repo\CTA_UI\tradings\lq\trading_230802.csv  √
+ch3        Trading -> UI  -                                                                     -                                                    SSHException
+ch5        Trading -> UI  -                                                                     -                                                    SSHException

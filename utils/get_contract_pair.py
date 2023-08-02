@@ -141,4 +141,5 @@ def get_sp_instruction():
 if __name__ == "__main__":
     #print(check_vaild_month())
     #print(get_contract_pair_rank(['IH2309', 'IH2312']))
-    print(get_db_contract_pair())
+    #print(get_db_contract_pair())
+    print(get_param_contract_pair_with_volume())

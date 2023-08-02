@@ -6,7 +6,7 @@ import os
 import datetime
 import time
 from utils.path_exp_switch import *
-from utils.flink import set_up_ssh_reverse_tunnel, pull_from_market_to_trading, pull_from_market_to_cloud, request_from_trading_to_market
+from utils.flink import set_up_ssh_reverse_tunnel, pull_from_market_to_trading, pull_from_market_to_cloud, request_from_trading_to_market, request_from_cloud_to_UI
 import threading
 import json
 import traceback
@@ -40,8 +40,8 @@ class fileMonitor(FileSystemEventHandler):
             for file in files:
                 if file.endswith(".json") and file != "limit.json" and file != "config.json" and file != "configure.json":
                     self.config_files.append(os.path.join(root, file))
-        if is_UI or is_market:
-            threading.Thread(target=self.planned_time_task).start()
+        if is_market:
+            threading.Thread(target=self.planned_time_market).start()
             if is_market:
                 self.set_up_ssh_tunnel()
             
@@ -187,17 +187,36 @@ class fileMonitor(FileSystemEventHandler):
         f.close()
         
         
-    def planned_time_task(self):
+    def planned_time_market(self):
         if_quest = False
+        error_log = [["Account", "Link", "From", "To", "Status"]]
+
+        def process_config(config):
+            # 根据行情服务器host判断链路形式
+            # 1. 本地行情服务器
+            try:
+                logger = request_from_trading_to_market(config)
+                for log in logger:
+                    error_log.append(log)
+            except Exception as e:
+                error_acc_lst = json.load(open(config))['accountList']
+                for acc in error_acc_lst:
+                    error_log.append([acc, "Trading -> UI", "-", "-", type(e).__name__])
+            
+            
         while True:
             current_time = time.strftime("%H:%M", time.localtime())
             print("当前时间：", current_time)
-            # 交易日志导出任务
             if not if_quest:
-                if current_time > "15:01" and current_time < "15:05":
-                    for config in self.config_files:
-                        print("根据配置文件{}，从交易服务器导出日志".format(config))
-                        threading.Thread(target=request_from_trading_to_market, args=(config,)).start()
+                if current_time > "15:01" and current_time < "15:05": 
+                    try:
+                        for config in self.config_files:
+                            print("@processing", config)
+                            process_config(config)
+                        print("@成功下载日志文件")
+                    except Exception as e:
+                        print(traceback.format_exc())
+                    error_log = [["Account", "Link", "From", "To", "Status"]]
                     if_quest = True
             # 新的一天之后 重置if_quest
             if current_time > "00:00" and current_time < "00:05" and if_quest:

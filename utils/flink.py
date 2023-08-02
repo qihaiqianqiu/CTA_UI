@@ -6,7 +6,7 @@ import pandas as pd
 from utils.const import ROOT_PATH, INFO_PATH
 from utils.path_exp_switch import windows_to_linux
 
-__all__ = ["set_up_ssh_reverse_tunnel", "pull_from_market_to_trading", "request_from_market_to_cloud", "request_from_trading_to_market", "pull_from_UI_to_cloud", "pull_from_UI_to_market", "pull_from_market_to_cloud"]
+__all__ = ["set_up_ssh_reverse_tunnel", "pull_from_market_to_trading", "request_from_market_to_cloud", "request_from_trading_to_market", "pull_from_UI_to_cloud", "pull_from_UI_to_market", "pull_from_market_to_cloud", "request_from_cloud_to_UI"]
 
 
 # 文件链路定义部分 - flink.py
@@ -110,42 +110,41 @@ def pull_from_UI_to_market(config_file):
 
 
 # 从云服务器下载日志文件到本地，以生成交易记录
-def request_from_cloud_to_UI(config):
-    pass   
-"""     
-行情服务器向UI传送日志文件，链路配置 还不确定要不要这样干 先注释掉了  
-def request_from_market_to_UI(config_file):
-    行情服务器向UI传送日志文件，链路配置
-    Args:
-        config_file (_type_): _description_
-    ftp_config_dir = os.path.join(ROOT_PATH, "sftp_configs", config_file)
-    ftp_config = json.load(open(ftp_config_dir))
+def request_from_cloud_to_UI(config):    
+    # 当行情服务器和本地UI分离时，UI从云服务器下载每天的成交记录 
+    ftp_config = json.load(open(config))
     cloud_server_para = ftp_config["cloudServer"]
-    market_server_para = ftp_config["marketServer"]
     
-    ssh = SSHConnection(host=cloud_server_para['host'], port=cloud_server_para['reverse_port'],
-                             username=market_server_para['username'], pwd=market_server_para['pwd'])
+    ssh = sftp.SSHConnection(host=cloud_server_para['host'], port=cloud_server_para['port'],
+                            username=cloud_server_para['username'], pwd=cloud_server_para['pwd'])
     ssh.connect()
     # 日志文件推送
     username = ftp_config["userName"]
     account_list = ftp_config["accountList"]
     UI_dir = ftp_config["localUIDir"]
-    dest_user_dir = os.path.join(market_server_para["mktDir"], username)
-    ssh.cmd("mkdir " + dest_user_dir)
+    cta_cloud_dir = os.path.join("CTA", username)
+    log = []
+    
     for acc in account_list:
-        # 首先，保证行情服务器端建立相应的存储目录
-        dest_acc_dir = os.path.join(dest_user_dir, acc)
-        ssh.cmd("mkdir " + dest_acc_dir)
-        # 上传参数表, 链路配置表
-        report_lst = [f for f in os.listdir(dest_acc_dir) if 'report' in f]
-        trading_lst = [f for f in os.listdir(dest_acc_dir) if 'trading' in f]
-        report_dir = os.path.join(dest_acc_dir, max(report_lst))
-        trading_dir = os.path.join(dest_acc_dir, max(trading_lst))       
-        ssh.download(report_dir, os.path.join(UI_dir, "report", acc, max(report_lst)))
-        ssh.download(trading_dir, os.path.join(UI_dir, "tradings", acc, max(trading_lst)))
+        dest_acc_dir = windows_to_linux(os.path.join(cta_cloud_dir, acc))
+        # 获取云服务器的日志listdir
+        res = ssh.cmd("ls " + dest_acc_dir)
+        output = res.decode("GBK").splitlines()
+        trading_files = [re.search(r'trading_\d{6}\.csv', f).group() for f in output if re.search(r'trading_\d{6}\.csv', f)]
+        trading_file = windows_to_linux(os.path.join(dest_acc_dir, max(trading_files)))
+        holding_files = [re.search(r'holding_\d{6}\.csv', f).group() for f in output if re.search(r'holding_\d{6}\.csv', f)]
+        holding_file = windows_to_linux(os.path.join(dest_acc_dir, max(holding_files)))
+        log_info = ssh.download(holding_file, os.path.join(UI_dir, "report", acc, max(holding_files)))
+        log_info.insert(0, acc)
+        log_info.insert(1, "Cloud -> UI")
+        log.append(log_info)
+        log_info = ssh.download(trading_file, os.path.join(UI_dir, "tradings", acc, max(trading_files)))
+        log_info.insert(0, acc)
+        log_info.insert(1, "Cloud -> UI")
+        log.append(log_info)
         print("参数表成功下载至UI端", dest_acc_dir)
     ssh.close()
-"""
+    return log
 """
 Relevant Terminal
 SSH_reverse_tunnel = "ssh -R 9876:localhost:22 root@39.97.106.35"
@@ -214,7 +213,7 @@ def request_from_trading_to_market(config_file):
     # 日志文件推送
     trade_dir_list = ftp_config["tradeDirList"]
     account_list = ftp_config["accountList"]
-
+    log = []
     if ftp_config["marketServer"]["host"] == "localhost":
         # 本地行情服务器
         mkt_dir = ftp_config["localUIDir"]
@@ -234,10 +233,16 @@ def request_from_trading_to_market(config_file):
             holding_files = [re.search(r'holding_\d{6}\.csv', f).group() for f in output if re.search(r'holding_\d{6}\.csv', f)]
             holding_file = os.path.join(trade_report_dir, max(holding_files))
             print("从交易端获取交易日志文件", trading_file, "下载至行情端", os.path.join(market_trading_dir, max(trading_files)))
-            ssh.download(trading_file, os.path.join(market_trading_dir, max(trading_files)))
+            log_info = ssh.download(trading_file, os.path.join(market_trading_dir, max(trading_files)))
+            log_info.insert(0, account_list[idx])
+            log_info.insert(1, "Trading -> UI")
+            log.append(log_info)
             print("交易服务器日志文件成功下载至行情端", os.path.join(mkt_dir, trading_file))
             print("从交易端获取交易日志文件", holding_file, "下载至行情端", os.path.join(market_report_dir, max(holding_files)))
-            ssh.download(holding_file, os.path.join(market_report_dir, max(holding_files)))
+            log_info = ssh.download(holding_file, os.path.join(market_report_dir, max(holding_files)))
+            log_info.insert(0, account_list[idx])
+            log_info.insert(1, "Trading -> UI")
+            log.append(log_info)
             print("交易服务器日志文件成功下载至行情端", os.path.join(mkt_dir, holding_file))
     else:
         # 远程行情服务器
@@ -259,13 +264,19 @@ def request_from_trading_to_market(config_file):
             holding_files = [re.search(r'holding_\d{6}\.csv', f).group() for f in output if re.search(r'holding_\d{6}\.csv', f)]
             holding_file = os.path.join(trade_report_dir, max(holding_files))
             print("从交易端获取交易日志文件", trading_file, "下载至行情端", market_dir)
-            ssh.download(trading_file, os.path.join(market_dir, max(trading_files)))
+            log_info = ssh.download(trading_file, os.path.join(market_dir, max(trading_files)))
+            log_info.insert(0, account_list[idx])
+            log_info.insert(1, "Trading -> Market")
+            log.append(log_info)
             print("交易服务器日志文件成功下载至行情端", os.path.join(market_dir, trading_file))
             print("从交易端获取交易日志文件", holding_file, "下载至行情端", market_dir)
-            ssh.download(holding_file, os.path.join(market_dir, max(holding_files)))
+            log_info = ssh.download(holding_file, os.path.join(market_dir, max(holding_files)))
+            log_info.insert(0, account_list[idx])
+            log_info.insert(1, "Trading -> Market")
+            log.append(log_info)
             print("交易服务器日志文件成功下载至行情端", os.path.join(market_dir, holding_file))
     ssh.close()
-    
+    return log
     
 def request_from_market_to_cloud(config_file):
     """行情服务器从云服务器获取最新的参数表与链路信息"""

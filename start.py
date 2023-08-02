@@ -275,7 +275,7 @@ class Arbitrator(QMainWindow):
                              "color:#d0f2f5} "
                              "QPushButton:hover:!pressed {border:1px solid #f8878f;}"
                              "QPushButton:pressed {padding-left:6px;padding-top:6px;border:1px solid #f8878f;}")
-        btn_down.clicked.connect(self.download_holdings)
+        btn_down.clicked.connect(self.download_logs)
 
         button_layout_line2.addWidget(btn4)
         button_layout_line2.addWidget(btn7)
@@ -311,8 +311,28 @@ class Arbitrator(QMainWindow):
         self.setWindowTitle('Arbitrager')
         self.openDefaultFile()
         self.show()
+        threading.Thread(target=self.planned_time_download).start()
         
-        
+
+    # 收盘定时执行的任务放在这里
+    def planned_time_download(self):
+        if_quest = False            
+        while True:
+            current_time = time.strftime("%H:%M", time.localtime())
+            print("当前时间：", current_time)
+            if not if_quest:
+                if current_time > "15:01" and current_time < "15:05": 
+                    try:
+                        print("@收盘自动下载日志文件")
+                        self.download_logs()
+                    except Exception as e:
+                        print(traceback.format_exc())
+                    if_quest = True
+            # 新的一天之后 重置if_quest
+            if current_time > "00:00" and current_time < "00:05" and if_quest:
+                if_quest = False
+            time.sleep(30)
+            
     @QtCore.pyqtSlot()
     def openDefaultFile(self):
         df = pd.read_excel('./info/account_info.xlsx', sheet_name="Sheet1")
@@ -429,7 +449,7 @@ class Arbitrator(QMainWindow):
     def upload_param(self):
         error_log = [["Account", "Link", "From", "To", "Status"]]
         config_file_lst = os.listdir(os.path.join(const.ROOT_PATH, "sftp_configs"))
-        for config in config_file_lst:
+        def process_config_upload(config):
             try:
                 logger = flink.pull_from_UI_to_cloud(config)
                 for log in logger:
@@ -446,27 +466,65 @@ class Arbitrator(QMainWindow):
                 error_acc_lst = json.load(open(os.path.join(const.ROOT_PATH, "sftp_configs", config)))['accountList']
                 for acc in error_acc_lst:
                     error_log.append([acc, "UI -> Market", "-", "-", type(e).__name__])
+
+        def param_upload_thread():
+            threads = []
+            for config in config_file_lst:
+                thread = threading.Thread(target=process_config_upload, args=(config,))
+                thread.start()
+                threads.append(thread)
+            for thread in threads:
+                thread.join()
+            
+        # 调用函数来运行多线程
+        try:
+            param_upload_thread()
+            visualize.show_message_box(error_log)
+        except Exception as e:
+            print(traceback.format_exc())
         
-        table_output = visualize.create_aligned_table(error_log)
-        html_table = visualize.show_table_in_message_box(error_log)
-        with open("changelog.txt", "a+", encoding='utf-8') as err_file:
-            err_file.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
-            err_file.write(table_output + '\n')
-
-        msgbox = QMessageBox()
-        msgbox.setWindowTitle("上传完成")
-        msgbox.setTextFormat(Qt.RichText)
-        msgbox.setText(html_table)
-        msgbox.exec_()
-
+        
     @QtCore.pyqtSlot()
-    def download_holdings(self):
-        conn = flink.sftp_conn("bridge")
-        acc_lst = flink.get_acc_lst()
-        for account in acc_lst:
-            flink.sftp_transfer(conn, account, "planned_times")
-
-
+    def download_logs(self):
+        error_log = [["Account", "Link", "From", "To", "Status"]]
+        config_file_lst = os.listdir(os.path.join(const.ROOT_PATH, "sftp_configs"))
+        config_file_path_lst = [os.path.join(const.ROOT_PATH, "sftp_configs", config) for config in config_file_lst]
+        
+        def process_config_download(config):
+            if json.load(open(config))["marketServer"]["host"] == "localhost":
+                try:
+                    logger = flink.request_from_trading_to_market(config)
+                    for log in logger:
+                        error_log.append(log)
+                except Exception as e:
+                    error_acc_lst = json.load(open(config))['accountList']
+                    for acc in error_acc_lst:
+                        error_log.append([acc, "Trading -> UI", "-", "-", type(e).__name__])
+            else:
+                try:
+                    logger = flink.request_from_cloud_to_UI(config)
+                    for log in logger:
+                        error_log.append(log)
+                except Exception as e:
+                    error_acc_lst = json.load(open(config))['accountList']
+                    for acc in error_acc_lst:
+                        error_log.append([acc, "Cloud -> UI", "-", "-", type(e).__name__])
+                        
+        def param_download_thread():
+            threads = []
+            for config in config_file_path_lst:
+                thread = threading.Thread(target=process_config_download, args=(config,))
+                thread.start()
+                threads.append(thread)
+            for thread in threads:
+                thread.join()
+                # 调用函数来运行多线程
+        try:
+            param_download_thread()
+            visualize.show_message_box(error_log)
+        except Exception as e:
+            print(traceback.format_exc())
+            
     @QtCore.pyqtSlot()
     def start_prediction(self, region_info, end_date, end_section, q, step, ratio, flag, cache_path, progressbar):
         with concurrent.futures.ThreadPoolExecutor() as executor:

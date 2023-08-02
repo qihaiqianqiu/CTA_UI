@@ -19,12 +19,15 @@ mpl.rcParams['ytick.labelsize'] = 100
 mpl.rcParams['xtick.labelsize'] = 70
 mpl.rcParams['ytick.major.size'] = 8
 mpl.rcParams['ytick.major.width'] = 2
+from PyQt5.QtWidgets import QDialog, QLabel, QVBoxLayout
+from PyQt5.QtCore import Qt
 from scipy.stats import norm
 import matplotlib.dates as mdate
 import matplotlib.font_manager as fm
 import matplotlib.patches as patches
 import time
 import traceback
+import datetime
 mpl.rcParams.update({
 'text.usetex': False,
 'font.family': 'stixgeneral',
@@ -40,7 +43,7 @@ from utils.get_contract_pair import get_db_contract_pair
 from utils.date_section_modification import get_date_section, from_predict
 from utils.calculate_parameter import get_pairwise_data
 
-all = ['plot_continuous_contract', 'plot_time_series', 'plot_volume_split', "create_aligned_table", "show_table_in_message_box", "stock_to_pie"]
+all = ['plot_continuous_contract', 'plot_time_series', 'plot_volume_split', "create_aligned_table", "show_table_in_message_box", "stock_to_pie", "show_message_box"]
 logger = open(os.path.join(PLOT_PATH, "visual_log.txt"), "a+")
 err = open(os.path.join(PLOT_PATH, "visual_error.txt"), "a+")
 
@@ -73,6 +76,22 @@ def show_table_in_message_box(data):
     
     return table_html
 
+def show_message_box(error_log):
+    table_output = create_aligned_table(error_log)
+    html_table = show_table_in_message_box(error_log)
+    with open("changelog.txt", "a+", encoding='utf-8') as err_file:
+        err_file.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
+        err_file.write(table_output + '\n')
+    dialog = QDialog()
+    dialog.setWindowTitle("传输完成")
+    layout = QVBoxLayout()
+    label = QLabel()
+    label.setTextFormat(Qt.RichText)
+    label.setText(html_table)
+    layout.addWidget(label)
+    dialog.setLayout(layout)
+    dialog.exec_()
+    
 # 持仓字典画饼图
 def stock_to_pie(data):
     sorted_data = sorted(data.items(), key=lambda x: abs(x[1]), reverse=True)

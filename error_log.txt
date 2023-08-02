@@ -1862,3 +1862,13 @@ Traceback (most recent call last):
     raise SSHException(
 paramiko.ssh_exception.SSHException: Unable to connect to 39.97.106.35: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
 
+2023-08-02 19:13:30
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\start.py", line 935, in <module>
+    ex = Arbitrator()
+  File "D:\local_repo\CTA_UI\start.py", line 43, in __init__
+    self.initUI()
+  File "D:\local_repo\CTA_UI\start.py", line 314, in initUI
+    threading.Thread(target=self.planned_time_task).start()
+AttributeError: 'Arbitrator' object has no attribute 'planned_time_task'
+

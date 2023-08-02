@@ -1,6 +1,4 @@
-# CTA_UI 使用说明
-- 更新日志
-- 20230530：
+# 更新日志
 - （已实现）修改主界面参数表展示
 - （已实现）完善基表子表使用逻辑：Boundary Info目录下留界缓存，Param目录下每次更新/计算参数表之后留下带交易单元时间信息后缀的缓存。但是直接使用的是账号目录下的params.csv 
 - （已实现）每当用户修改参数表并保存时，应该同步更新info目录下的region_info.xlsx，保证其实时为最新
@@ -13,7 +11,7 @@
 1. （已实现）检查参数表，用于增加套利对
 2. 查看不可转抛、反套持仓
 3. （已实现）Mute月份合约
-4. 持仓(TmpValue & DB实时数据 -> 持仓盈亏 / 持仓构成) -- estHoldingDialog
+4. （已实现）持仓(TmpValue & DB实时数据 -> 持仓盈亏 / 持仓构成) -- estHoldingDialog
 - 完善一些进度条
 - （已完成一半）窗口大小设置优化
 - 参数表适配SP指令（新增SP模块）- get_sp_instruction
@@ -21,20 +19,89 @@
 - （问题不大）UI目前使用起来有一些卡顿
 - （已实现）pandasModel的列宽有些不够，应该根据内容的长短适应性改变尺寸
 - Boundary计算模块
-
-## 文件传输、监控链路
-- 异常处理 任务日志加一下
-1. 链路 SSH实现，一个链路对应一个终点RDP对应一个Config
-2. UI中链路可视化 链路编辑 设置默认链路组合
-3. 每次传输的时候走Default链路组合
-4. 参数表修改日志，在云服务器运行计算
-5. 使用rsync进行与中枢服务器保存的日志文件同步到本地：
+- （已实现）异常处理 任务日志加一下
+- （已实现）链路 SSH实现，一个链路对应一个终点RDP对应一个Config
+- UI中链路可视化 链路编辑 设置默认链路组合，每次传输的时候走Default链路组合
+- （已实现）参数表修改日志，在云服务器运行计算
+- 使用rsync进行与中枢服务器保存的日志文件同步到本地：
 `rsync_example = "rsync -avPz --port 8730 --password-file=/cygdrive/C/Users/Han.Hao/AppData/Local/cwrsync/bin/cta_password.txt root@39.97.106.35::cta/ /cygdrive/C/Users/Han.Hao/test"`
 `rsync_pwd_path` & `rsync dest path`
+- （已实现）使用watchdog进行与中枢服务器保存的日志文件同步到本地
 
+
+## CTPtest-GetPosAndTrd.exe 持仓交易导出程序configure实例：
+- 文件名:configure.json, 例如，交易程序所在的文件夹是C:\\Users\\Administrator\\Desktop\\cta_lq_zx,则：
+```
+{
+  "EveryCfg": [
+    {
+     "PosOutFilePath": "C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\report\\holding",
+     "TrdOutFilePath": "C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\tradings\\trading",
+      "BrokerID": "66666",
+      "InvesterID": "xxxxx",
+      "InvesterPassword": "xxxxx",
+      "AuthCode": "xxxxx",
+      "AppID": "client_xsqq_1.0.0",
+      "TradeFrontAddr": "tcp://172.31.xx.xxx:43205"
+    }
+  ]
+}
+```
+- 持仓文件会存储为：C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\report\\holding_YYMMDD.csv
+- 交易记录会存储为：C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\tradings\\trading_YYMMDD.csv
+
+
+## 交易服务器脚本说明
+
+- 路径eg：同上例，交易程序所在文件夹为C:\\Users\\Administrator\\Desktop\\cta_lq_zx
+- /cta_lq_zx/ {CTPtest-GetPosAndTrd.exe} & {CTPtest-test.exe} & {trading_server_monitor.exe} [在同一目录下]
+- 功能：
+  1. 开盘前收盘后自动启动和终止CTPtest-test的交易进程
+   - 终止的事件顺序：程序收盘前撤单 -> 收盘后杀进程
+  2. 收盘后自动导出CTPtest-GetPosAntTrd的交易日志
+  3. 收盘后自动清理glog和LimitValue文件
+  
+## 链路config文件配置说明
+- 位置：UI根目录/sftp_configs
+- 一个RDP主机和一个Config文件一一映射，链路配置文件请不要以**limit.json** or **config.json** or **configure.json** or **configure.xml**，避免混淆其他程序需要读取的配置文件
+### 例子 lq.json（推荐以账户名命名）
+```
+{
+    "userName" : "hh",                                                              --@交易员名称，俊哥账户的我测试的时候用的feng可以考虑沿用，是云服务器和行情服务器存储记录的根目录
+
+    "cloudServer": {                                                                --@云服务器配置，除了"reverse_port"都不用动
+        "host": "39.97.106.35",                                                           reverse_port是反向端口，是行情服务器和本地UI之间建立连接走的端口，目前在服务器上开了9870-9876之间的所有端口
+        "port" : 22,                                                                      当行情服务器是一个单独的远程服务器的时候，反向端口会被使用，如果行情服务器就在本地，说明此条链路的本地UI与交易服务器是可以RDP直连的，则反向端口字段可有可无
+        "username": "root",
+        "pwd": "Wojiaomt1",
+        "reverse_port": 9870
+    },
+
+    "marketServer": {                                                               --@行情服务器配置，当行情服务器就是本地UI的时候，行情服务器的概念形同虚设，"host"直接填特殊的"localhost"，其他字段可以不要，程序会进行判断
+        "host": "localhost",                                                              当行情服务器是单独的远程主机，和本地UI分离时，"host"填写行情服务器所在以太网的IP地址（行情端的内网地址），其他字段根据例子里填写
+        "port": 22,                                                                       "mktDir"是行情服务器作为UI和交易服务器的中间站时，进行转发的文件存储目录
+        "username": "Han.Hao",
+        "pwd": "123",
+        "mktDir": "D:\\CTA_mkt\\mktdata\\"
+    },
+
+    "tradeServer": {                                                                --@交易服务器配置，"host"是RDP主机的内网地址，需要交易服务器安装SSH的Server端，port一般为22，username和pwd为远程主机账户密码
+        "host": "172.31.113.251",
+        "port" : 22,
+        "username": "Administrator",
+        "pwd": "Abc@123"
+    },
+
+    "localUIDir": "D:\\local_repo\\CTA_UI",                                         --@本地UI程序所在目录
+    
+    "accountList": ["lq"],                                                          --@该链路终点RDP服务器的交易账户，支持使用列表同时操作多个账户，例如之间huajing34服务器上["ch3","ch5"]
+
+    "tradeDirList": ["C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\"]              --@链路终点RDP（交易服务器）放置交易程序的目录
+}
+```
+
+### 文件传输、监控链路 设计草稿
 - 方案1： 不做内网穿透，云服务器做中转中枢
-
-
 - 方案2： 做内网穿透，云服务器做备份
 - 方案3： 用云服务器做反向SSH的内网穿透【已通过paramiko实现】
   
@@ -98,34 +165,3 @@
    脚本将开始监控云服务器上的文件变化，并在文件发生更改时触发同步操作。
 
 
-## CTPtest-GetPosAndTrd.exe 持仓交易导出程序configure实例：
-- 文件名:configure.json
-```
-{
-  "EveryCfg": [
-    {
-     "PosOutFilePath": "C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\report\\holding",
-     "TrdOutFilePath": "C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\tradings\\trading",
-      "BrokerID": "66666",
-      "InvesterID": "xxxxx",
-      "InvesterPassword": "xxxxx",
-      "AuthCode": "xxxxx",
-      "AppID": "client_xsqq_1.0.0",
-      "TradeFrontAddr": "tcp://172.31.xx.xxx:43205"
-    }
-  ]
-}
-```
-- 持仓文件会存储为：C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\report\\holding_YYMMDD.csv
-- 交易记录会存储为：C:\\Users\\Administrator\\Desktop\\cta_lq_zx\\tradings\\trading_YYMMDD.csv
-
-
-## 交易服务器脚本说明
-
-- 路径eg：/cta_lq_zx/ {CTPtest-GetPosAndTrd.exe} & {CTPtest-test.exe} & {trading_server_monitor.exe} [在同一目录下]
-- 功能：
-  1. 开盘前收盘后自动启动和终止CTPtest-test的交易进程
-   - 终止的事件顺序：程序收盘前撤单 -> 收盘后杀进程
-  2. 收盘后自动导出CTPtest-GetPosAntTrd的交易日志
-  3. 收盘后自动清理glog和LimitValue文件
-  

@@ -40,7 +40,7 @@ class SSHConnection(object):
         sftp = paramiko.SFTPClient.from_transport(self.__transport)
         try:
             sftp.get(remote_path,local_path)
-            log = [remote_path, local_path, "√"]
+            log = [remote_path, local_path, "\u221A"]
         except Exception as e:
             log = [remote_path, local_path, type(e).__name__]
         return log

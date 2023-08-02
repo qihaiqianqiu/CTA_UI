@@ -61,7 +61,6 @@ night = 0
 morning = 0
 afternoon = 0
 while True:
-
     HMtime = time.strftime("%H:%M", time.localtime())
     print("Current time:", HMtime)
     # 夜盘开盘 启动程序
