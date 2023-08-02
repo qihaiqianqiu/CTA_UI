@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-07-28T01:32:12.114Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="Kq7ANEQMl1o-GW0vPiCc" version="21.6.5" type="github">
+<mxfile host="app.diagrams.net" modified="2023-08-02T02:21:00.253Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" etag="g0v9FQ1vGTs2w4MN28Bg" version="21.6.5" type="github">
   <diagram name="Page-1" id="55a83fd1-7818-8e21-69c5-c3457e3827bb">
-    <mxGraphModel dx="3174" dy="1974" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
+    <mxGraphModel dx="3174" dy="1968" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -59,7 +59,7 @@
           <mxGeometry x="592" y="622" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="NVRcVpPu2NZPeXmVPFQy-47" value="" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="-110" y="350" width="1160" height="590" as="geometry" />
+          <mxGeometry x="-130" y="347" width="1160" height="590" as="geometry" />
         </mxCell>
         <mxCell id="NVRcVpPu2NZPeXmVPFQy-49" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;pull_from_UI_to_market&lt;/font&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;rotation=70;" parent="1" vertex="1">
           <mxGeometry x="470" y="320" width="100" height="40" as="geometry" />
@@ -112,7 +112,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="cSd5Ikj80ORa92apMF1n-5" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;request_from_market_to_UI&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=65;" parent="1" vertex="1">
+        <mxCell id="cSd5Ikj80ORa92apMF1n-5" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;request_from_market_to_UI&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=70;" parent="1" vertex="1">
           <mxGeometry x="540" y="310" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="cSd5Ikj80ORa92apMF1n-6" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
@@ -135,6 +135,27 @@
             <mxPoint x="580" y="450" as="sourcePoint" />
             <mxPoint x="590" y="470" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="gqyVCM08sYUSEmtgZJni-1" value="" style="image;html=1;image=img/lib/clip_art/computers/Data_Filtering_128x128.png" vertex="1" parent="1">
+          <mxGeometry x="630" y="-80" width="60" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="gqyVCM08sYUSEmtgZJni-8" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="760" y="80" as="sourcePoint" />
+            <mxPoint x="830" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gqyVCM08sYUSEmtgZJni-9" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="840" y="650" as="sourcePoint" />
+            <mxPoint x="770" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gqyVCM08sYUSEmtgZJni-10" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;pull_from_UI_to_market&lt;/font&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;rotation=80;" vertex="1" parent="1">
+          <mxGeometry x="730" y="350" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gqyVCM08sYUSEmtgZJni-11" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;request_from_market_to_UI&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=80;" vertex="1" parent="1">
+          <mxGeometry x="810" y="350" width="60" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
