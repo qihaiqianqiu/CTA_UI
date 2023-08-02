@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-08-02T02:21:00.253Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" etag="g0v9FQ1vGTs2w4MN28Bg" version="21.6.5" type="github">
+<mxfile host="app.diagrams.net" modified="2023-08-02T02:40:20.652Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" etag="aFtL2KCMrZLw98cNyHPT" version="21.6.5" type="github">
   <diagram name="Page-1" id="55a83fd1-7818-8e21-69c5-c3457e3827bb">
     <mxGraphModel dx="3174" dy="1968" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
@@ -154,7 +154,7 @@
         <mxCell id="gqyVCM08sYUSEmtgZJni-10" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;pull_from_UI_to_market&lt;/font&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;rotation=80;" vertex="1" parent="1">
           <mxGeometry x="730" y="350" width="100" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="gqyVCM08sYUSEmtgZJni-11" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;request_from_market_to_UI&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=80;" vertex="1" parent="1">
+        <mxCell id="gqyVCM08sYUSEmtgZJni-11" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;request_from_trading_to_market&lt;br&gt;&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=80;" vertex="1" parent="1">
           <mxGeometry x="810" y="350" width="60" height="30" as="geometry" />
         </mxCell>
       </root>
