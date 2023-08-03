@@ -1872,3 +1872,11 @@ Traceback (most recent call last):
     threading.Thread(target=self.planned_time_task).start()
 AttributeError: 'Arbitrator' object has no attribute 'planned_time_task'
 
+2023-08-03 15:02:17
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 46, in download
+    sftp.get(remote_path,local_path)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\sftp_client.py", line 814, in get
+    raise IOError(
+OSError: size mismatch in get!  4303 != 4166
+

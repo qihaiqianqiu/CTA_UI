@@ -142,7 +142,6 @@ def request_from_cloud_to_UI(config):
         log_info.insert(0, acc)
         log_info.insert(1, "Cloud -> UI")
         log.append(log_info)
-        print("参数表成功下载至UI端", dest_acc_dir)
     ssh.close()
     return log
 """
@@ -161,7 +160,7 @@ def set_up_ssh_reverse_tunnel(config_file):
     ssh = sftp.SSHConnection(host=cloud_server_para['host'], port=cloud_server_para['port'],
                               username=cloud_server_para['username'], pwd=cloud_server_para['pwd'])
     ssh.connect()
-    print("SSH Tunnel Connected")
+    print("使用配置文件{}建立反向隧道：SSH Tunnel Connected".format(config_file))
     ssh.reverse_forward_tunnel(cloud_server_para['reverse_port'], ftp_config['marketServer']['host'], ftp_config['marketServer']['port'])
     
     

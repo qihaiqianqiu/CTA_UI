@@ -5,20 +5,20 @@
 想先写一个简单一点的，弹出一个界面，每个按钮对应一个账户，点击之后计算该账户的持仓数据并显示在界面上。应该会画一个饼图吧
 """
 from PyQt5 import QtCore
-from PyQt5.QtWidgets import QDialog, QPushButton, QVBoxLayout, QWidget, QMainWindow, QApplication, QScrollArea
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
+from PyQt5.QtWidgets import QDialog, QPushButton, QVBoxLayout
 import matplotlib
 import pandas as pd
 import os
 import json
 import sys
-from utils.const import ROOT_PATH, PLOT_PATH
+from utils.const import ROOT_PATH
 from utils import sftp
-from utils.flink import request_from_trading_to_market
+from utils.flink import request_from_trading_to_market, request_from_cloud_to_UI
 from utils.compare import get_hold
 from utils.visualize import stock_to_pie
 import time
+import datetime
+import traceback
 matplotlib.use('Qt5Agg')
 
 class stockCounter(QDialog):
@@ -66,18 +66,29 @@ class stockCounter(QDialog):
         target_config_path = os.path.join(ROOT_PATH, "sftp_configs", target_config)
         print("使用配置文件{}导出实时持仓".format(target_config_path))
         ftp_config = json.load(open(target_config_path))
-        # 使用指令导出持仓数据
-        trade_server_para = ftp_config["tradeServer"]
-        ssh = sftp.SSHConnection(host=trade_server_para['host'], port=trade_server_para['port'],
-                                username=trade_server_para['username'], pwd=trade_server_para['pwd'])
-        ssh.connect()
-        # 导出持仓指令(如果交易服务器有多账户，只导出第一个的)
-        changedir_cmd = "cd " + ftp_config["tradeDirList"][0]
-        export_cmd = "cmd.exe /c CTPtest-GetPosAndTrd.exe"
-        ssh.cmd(changedir_cmd + " & " + export_cmd)
-        ssh.close()
-        # 下载持仓数据
-        request_from_trading_to_market(target_config_path)
+        # 使用指令导出持仓数据 (需要本地行情服务器直连)
+            # 本地行情服务器
+        if ftp_config["marketServer"]["host"] == "localhost":
+            trade_server_para = ftp_config["tradeServer"]
+            try:
+                ssh = sftp.SSHConnection(host=trade_server_para['host'], port=trade_server_para['port'],
+                                        username=trade_server_para['username'], pwd=trade_server_para['pwd'])
+                ssh.connect()
+                # 导出持仓指令(如果交易服务器有多账户，只导出第一个的)
+                changedir_cmd = "cd " + ftp_config["tradeDirList"][0]
+                export_cmd = "cmd.exe /c CTPtest-GetPosAndTrd.exe"
+                ssh.cmd(changedir_cmd + " & " + export_cmd)
+                ssh.close()
+                # 下载持仓数据
+                request_from_trading_to_market(target_config_path)
+            except Exception as e:
+                with open(os.path.join(ROOT_PATH, "error.log"), 'a+') as f:
+                    f.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
+                    f.write(str(traceback.format_exc()) + "\n")
+        # 远程行情服务器
+        else:
+            print("暂不支持行情服务器在远程的情况")
+            
                   
         
     def calculate_stocking(self, target_acc):
@@ -102,9 +113,9 @@ class stockCounter(QDialog):
         
 
 
-
+"""
 if __name__ == "__main__":
-    """从交易服务器向行情服务器传送交易日志"""
+    交易服务器向行情服务器传送交易日志
     # 获取config文件所在的目录，找到对应交易员与账户
     df = get_hold("lq")
     stocking = {}
@@ -125,4 +136,4 @@ if __name__ == "__main__":
     window.setCentralWidget(widget)
     canvas.draw()
     window.exec_()
-        
+"""

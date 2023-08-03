@@ -60,16 +60,16 @@ def shutdown_CTP(exe):
 night = 0
 morning = 0
 afternoon = 0
+counter = 0
 while True:
-    HMtime = time.strftime("%H:%M", time.localtime())
-    print("Current time:", HMtime)
+    HMtime = time.strftime("%H:%M:%S", time.localtime())
     # 夜盘开盘 启动程序
-    if (HMtime > '20:55' or HMtime < '02:30') and not night:
+    if (HMtime > '20:55:00' or HMtime < '02:30:00') and not night:
         init_CTP("CTPtest-test.exe")
         night = 1
         print("夜盘开盘")
     # 夜盘收盘 关闭程序 删除glog limit
-    if HMtime > '02:35' and HMtime < '08:50' and night:
+    if HMtime > '02:35:00' and HMtime < '08:50:00' and night:
         shutdown_CTP("CTPtest-test.exe")
         #等待20秒，解除对日志文件的读写 
         time.sleep(20)
@@ -77,12 +77,13 @@ while True:
         night = 0
         print("夜盘收盘")
     # 早盘开盘 启动程序
-    if HMtime > '08:55' and HMtime < '11:30' and not morning:
+    # 早盘特殊挂单时间 08:59:55
+    if HMtime > '08:59:55' and HMtime < '11:30:00' and not morning:
         init_CTP("CTPtest-test.exe")
         morning = 1
         print("早盘开盘")
     # 早盘收盘 关闭程序 删除glog limit
-    if HMtime > '11:35' and HMtime < '13:20' and morning:
+    if HMtime > '11:35:00' and HMtime < '13:20:00' and morning:
         shutdown_CTP("CTPtest-test.exe")
         #等待20秒，解除对日志文件的读写 
         time.sleep(20)
@@ -90,12 +91,12 @@ while True:
         morning = 0
         print("早盘收盘")
     # 午盘开盘 启动程序
-    if HMtime > '13:25' and HMtime < '15:00' and not afternoon:
+    if HMtime > '13:25:00' and HMtime < '15:00:00' and not afternoon:
         init_CTP("CTPtest-test.exe")
         afternoon = 1
         print("午盘开盘")
     # 午盘收盘 关闭程序 删除glog limit
-    if HMtime > '15:00' and HMtime < '20:55' and afternoon:
+    if HMtime > '15:00:00' and HMtime < '20:55:00' and afternoon:
         init_CTP("CTPtest-GetPosAndTrd.exe")
         shutdown_CTP("CTPtest-test.exe")
         #等待60秒，解除对日志文件的读写 
@@ -104,9 +105,12 @@ while True:
         afternoon = 0
         print("午盘收盘")
         shutdown_CTP("CTPtest-GetPosAndTrd.exe")
-    print("交易服务器监听中...")
-    print("监控目录:", BASE_DIR)
-    time.sleep(30)
+    counter += 1
+    if counter == 60:
+        print("Current time:", HMtime)
+        print("交易服务器监听中...")
+        counter = 0
+    time.sleep(1)
 
     
             

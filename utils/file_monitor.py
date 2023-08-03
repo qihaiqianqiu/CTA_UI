@@ -36,6 +36,7 @@ class fileMonitor(FileSystemEventHandler):
         self.is_UI = is_UI
         self.config_files = []
         print("开始监听目录：", self.path)
+        # 检查sftp_configs目录下的所有配置文件
         for root, dirs, files in os.walk(os.path.join(self.path, "sftp_configs")):
             for file in files:
                 if file.endswith(".json") and file != "limit.json" and file != "config.json" and file != "configure.json":
@@ -130,7 +131,7 @@ class fileMonitor(FileSystemEventHandler):
             acc = os.path.basename(os.path.dirname(file_path))
             try:
                 if re.search(r'holding_\d{6}\.csv', file_name) or re.search(r'trading_\d{6}\.csv', file_name):
-                    print("文件为交易日志文件" + file_name + "转发到服务器")
+                    print("文件为交易日志文件" + file_name + "转发到云服务器")
                     # 找到其所属账户 
                     for config in self.config_files:
                         acc_lst = json.load(open(config))['accountList']
@@ -152,7 +153,11 @@ class fileMonitor(FileSystemEventHandler):
             print("检测到文件修改：", file_path)
             # 计算文件变化
             file_name = os.path.basename(file_path)
+            acc = os.path.basename(os.path.dirname(file_path))
             try:
+                if file_name == "limit.json" or "config.json" or "configure.json" or "configure.xml":
+                    pass
+                
                 if file_name == "params.csv":
                     f.write(datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')+'\n')
                     f.write(file_path+'\n')
@@ -173,14 +178,25 @@ class fileMonitor(FileSystemEventHandler):
                     # 行情端 -> 交易端
                     if self.is_market:
                         # 读取对应的链路配置文件
-                        acc_dir = os.path.dirname(file_path)
-                        print("在路径", acc_dir, "下查找链路配置文件")
-                        config_file = [f for f in os.listdir(acc_dir) if f.endswith('.json')][0]
-                        print("找到链路配置文件：", config_file)
-                        pull_from_market_to_trading(os.path.join(acc_dir, config_file))
+                        for config in self.config_files:
+                            acc_lst = json.load(open(config))['accountList']
+                            if acc in acc_lst:
+                                pull_from_market_to_trading(config)
+                                break
                         print("@成功从行情端推送至交易端:", file_path)
-                if file_name == "limit.json" or "config.json" or "configure.json" or "configure.xml":
-                    pass
+                        
+                if re.search(r'holding_\d{6}\.csv', file_name) or re.search(r'trading_\d{6}\.csv', file_name):
+                    print("文件为交易日志文件" + file_name + "转发到云服务器")
+                    # 行情端 -> 云端
+                    if self.is_market:
+                        # 找到其所属账户 
+                        for config in self.config_files:
+                            acc_lst = json.load(open(config))['accountList']
+                            if acc in acc_lst:
+                                pull_from_market_to_cloud(config, file_name)
+                                break
+                        print("@成功从行情端推送至云端:", file_path)
+            
             except Exception as e:
                 error_info = traceback.format_exc()
                 print(error_info)
@@ -224,13 +240,12 @@ class fileMonitor(FileSystemEventHandler):
             time.sleep(30)
 
 
-def invoke_monitor(is_market, is_UI):
+def invoke_monitor(target_path, is_market, is_UI):
     ## 尝试配置为行情端服务器
     #path = "./"  # 被监视的目录路径
-    DIR = os.path.dirname(os.path.realpath(sys.argv[0]))
-    event_handler = fileMonitor(path=DIR, is_market=is_market, is_UI=is_UI)
+    event_handler = fileMonitor(path=target_path, is_market=is_market, is_UI=is_UI)
     observer = Observer()
-    observer.schedule(event_handler, DIR, recursive=True)
+    observer.schedule(event_handler, target_path, recursive=True)
     observer.start()
 
     try:
@@ -242,4 +257,4 @@ def invoke_monitor(is_market, is_UI):
         observer.join()
         
 if __name__ == "__main__":
-    print(os.path.dirname(os.path.realpath(sys.argv[0])))
+    invoke_monitor(target_path="D:\\CTA_mkt\\", is_market=True, is_UI=False)

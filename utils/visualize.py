@@ -135,7 +135,7 @@ def stock_to_pie(data):
     # 添加指向品种名称的线和文字
     for i, p in enumerate(wedges1):
         if positive_percent[i] < 5:
-            print("skip", positive_percent[i])
+            print("skip {}".format(positive_labels[i]))
             continue
         ang = (p.theta2 - p.theta1) / 2.0 + p.theta1
         y = np.sin(np.deg2rad(ang))

@@ -24,6 +24,7 @@ from utils.file_monitor import *
 import threading
 import json
 
+
 class Arbitrator(QMainWindow):    
     def __init__(self):
         super().__init__()
@@ -324,7 +325,7 @@ class Arbitrator(QMainWindow):
                 if current_time > "15:01" and current_time < "15:05": 
                     try:
                         print("@收盘自动下载日志文件")
-                        self.download_logs()
+                        self.download_logs()                        
                     except Exception as e:
                         print(traceback.format_exc())
                     if_quest = True
@@ -450,22 +451,13 @@ class Arbitrator(QMainWindow):
         error_log = [["Account", "Link", "From", "To", "Status"]]
         config_file_lst = os.listdir(os.path.join(const.ROOT_PATH, "sftp_configs"))
         def process_config_upload(config):
-            try:
-                logger = flink.pull_from_UI_to_cloud(config)
-                for log in logger:
-                    error_log.append(log)
-            except Exception as e:
-                error_acc_lst = json.load(open(os.path.join(const.ROOT_PATH, "sftp_configs", config)))['accountList']
-                for acc in error_acc_lst:
-                    error_log.append([acc, "UI -> Cloud", "-", "-", type(e).__name__])
-            try:
-                logger = flink.pull_from_UI_to_market(config)
-                for log in logger:
-                    error_log.append(log)
-            except Exception as e:
-                error_acc_lst = json.load(open(os.path.join(const.ROOT_PATH, "sftp_configs", config)))['accountList']
-                for acc in error_acc_lst:
-                    error_log.append([acc, "UI -> Market", "-", "-", type(e).__name__])
+            logger = flink.pull_from_UI_to_cloud(config)
+            for log in logger:
+                error_log.append(log)
+            logger = flink.pull_from_UI_to_market(config)
+            for log in logger:
+                error_log.append(log)
+            
 
         def param_upload_thread():
             threads = []
@@ -491,25 +483,38 @@ class Arbitrator(QMainWindow):
         config_file_path_lst = [os.path.join(const.ROOT_PATH, "sftp_configs", config) for config in config_file_lst]
         
         def process_config_download(config):
+            # 下载后再添加一道工序转发到公盘
             if json.load(open(config))["marketServer"]["host"] == "localhost":
-                try:
-                    logger = flink.request_from_trading_to_market(config)
-                    for log in logger:
-                        error_log.append(log)
-                except Exception as e:
-                    error_acc_lst = json.load(open(config))['accountList']
-                    for acc in error_acc_lst:
-                        error_log.append([acc, "Trading -> UI", "-", "-", type(e).__name__])
+                logger = flink.request_from_trading_to_market(config)
+                for log in logger:
+                    error_log.append(log)
+                    try:
+                        filename = os.path.basename(log[3])
+                        acc = os.path.basename(os.path.dirname(log[3]))
+                        file_type = os.path.basename(os.path.dirname(os.path.dirname(log[3])))
+                        z_path = os.path.join(const.Z_PATH, file_type, acc, filename)
+                        copy_paste.copy_file(log[3], z_path)
+                    except Exception as e:
+                        with open(os.path.join(const.ROOT_PATH, "error_log.txt"), "a+") as f:
+                            err_file.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
+                            err_file.write(traceback.format_exc() + '\n')
+                    
             else:
-                try:
-                    logger = flink.request_from_cloud_to_UI(config)
-                    for log in logger:
-                        error_log.append(log)
-                except Exception as e:
-                    error_acc_lst = json.load(open(config))['accountList']
-                    for acc in error_acc_lst:
-                        error_log.append([acc, "Cloud -> UI", "-", "-", type(e).__name__])
-                        
+                logger = flink.request_from_cloud_to_UI(config)
+                for log in logger:
+                    error_log.append(log)
+                    try:
+                        filename = os.path.basename(log[3])
+                        acc = os.path.basename(os.path.dirname(log[3]))
+                        file_type = os.path.basename(os.path.dirname(os.path.dirname(log[3])))
+                        z_path = os.path.join(const.Z_PATH, file_type, acc, filename)
+                        copy_paste.copy_file(log[3], z_path)
+                    except Exception as e:
+                        with open(os.path.join(const.ROOT_PATH, "error_log.txt"), "a+") as f:
+                            err_file.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
+                            err_file.write(traceback.format_exc() + '\n')
+                    
+                    
         def param_download_thread():
             threads = []
             for config in config_file_path_lst:
@@ -930,7 +935,7 @@ class Arbitrator(QMainWindow):
 
 if __name__ == '__main__':
     try:
-        threading.Thread(target=invoke_monitor, args=(False, True,)).start()
+        threading.Thread(target=invoke_monitor, args=(ROOT_PATH, False, True,)).start()
         app = QApplication(sys.argv)
         ex = Arbitrator()
         sys.exit(app.exec_())

@@ -2,7 +2,8 @@ import paramiko
 import threading
 import socket
 import select
-import uuid
+import os, datetime, traceback
+from utils.const import ROOT_PATH
 
 all = ["SSHConnection"] 
 class SSHConnection(object):
@@ -32,7 +33,10 @@ class SSHConnection(object):
             sftp.put(local_path, target_path)
             log = [local_path, target_path, "\u221A"]
         except Exception as e:
-            log = [local_path, target_path, type(e).__name__]
+            log = [local_path, target_path, type(e).__name__ + ":" + str(e)]
+            with open(os.path.join(ROOT_PATH, "error_log.txt"), 'a+') as f:
+                f.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
+                f.write(str(traceback.format_exc()) + "\n")   
         return log
  
     def download(self,remote_path,local_path):
@@ -42,7 +46,10 @@ class SSHConnection(object):
             sftp.get(remote_path,local_path)
             log = [remote_path, local_path, "\u221A"]
         except Exception as e:
-            log = [remote_path, local_path, type(e).__name__]
+            log = [remote_path, local_path, type(e).__name__ + ":" + str(e)]
+            with open(os.path.join(ROOT_PATH, "error_log.txt"), 'a+') as f:
+                f.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
+                f.write(str(traceback.format_exc()) + "\n")   
         return log
         
     def reverse_forward_tunnel(self, server_port, remote_host, remote_port):

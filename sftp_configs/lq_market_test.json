@@ -11,6 +11,7 @@
 
     "marketServer": {
         "host": "192.168.2.233",
+        "port": 22,
         "username": "Han.Hao",
         "pwd": "123",
         "mktDir": "C:\\Users\\Administrator\\Desktop\\CTA"

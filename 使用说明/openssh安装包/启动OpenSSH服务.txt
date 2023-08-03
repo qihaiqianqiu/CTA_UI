@@ -1,0 +1,4 @@
+cd C:\Program Files\OpenSSH
+powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1
+net start sshd
+Set-Service sshd -StartupType Automatic
