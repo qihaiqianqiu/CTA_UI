@@ -322,7 +322,7 @@ class Arbitrator(QMainWindow):
             current_time = time.strftime("%H:%M", time.localtime())
             print("当前时间：", current_time)
             if not if_quest:
-                if current_time > "15:01" and current_time < "15:05": 
+                if current_time > "15:02" and current_time < "15:05": 
                     try:
                         print("@收盘自动下载日志文件")
                         self.download_logs()                        

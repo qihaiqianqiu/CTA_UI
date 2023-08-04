@@ -1880,3 +1880,35 @@ Traceback (most recent call last):
     raise IOError(
 OSError: size mismatch in get!  4303 != 4166
 
+2023-08-04 15:02:06
+Traceback (most recent call last):
+  File "Z:\300_Group\HFT\Program\CTA_UI_v1.0\utils\sftp.py", line 46, in download
+    sftp.get(remote_path,local_path)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\sftp_client.py", line 814, in get
+    raise IOError(
+OSError: size mismatch in get!  4428 != 3985
+
+2023-08-04 15:02:14
+Traceback (most recent call last):
+  File "Z:\300_Group\HFT\Program\CTA_UI_v1.0\utils\sftp.py", line 46, in download
+    sftp.get(remote_path,local_path)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\sftp_client.py", line 814, in get
+    raise IOError(
+OSError: size mismatch in get!  2505 != 1355
+
+2023-08-04 15:02:14
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 46, in download
+    sftp.get(remote_path,local_path)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\sftp_client.py", line 814, in get
+    raise IOError(
+OSError: size mismatch in get!  4428 != 3985
+
+2023-08-04 15:02:21
+Traceback (most recent call last):
+  File "Z:\300_Group\HFT\Program\CTA_UI_v1.0\utils\sftp.py", line 46, in download
+    sftp.get(remote_path,local_path)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\sftp_client.py", line 814, in get
+    raise IOError(
+OSError: size mismatch in get!  4428 != 3985
+
