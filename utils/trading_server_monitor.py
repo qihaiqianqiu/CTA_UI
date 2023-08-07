@@ -96,7 +96,8 @@ while True:
         afternoon = 1
         print("午盘开盘")
     # 午盘收盘 关闭程序 删除glog limit
-    if HMtime > '15:00:00' and HMtime < '20:55:00' and afternoon:
+    # 多等15秒吧
+    if HMtime > '15:00:15' and HMtime < '20:55:00' and afternoon:
         init_CTP("CTPtest-GetPosAndTrd.exe")
         shutdown_CTP("CTPtest-test.exe")
         #等待60秒，解除对日志文件的读写 

@@ -8,6 +8,7 @@ import os
 from utils.compare import get_param_pairs
 from utils.rename import rename, rename_db_to_param
 from utils.const import ROOT_PATH
+import traceback
 
 all = ["fix_trade_record"]
 # 以下为成交记录合成模块
@@ -20,7 +21,6 @@ def combine(df):
 
 
 def preprocessing(df):
-    print(df)
     df['deal'] = df['deal'].astype('int')
     df['time'] = df['time'].apply(lambda x: pd.to_datetime(x))
     df['code'] = df['code'].apply(lambda x: x.strip(' '))
@@ -31,7 +31,7 @@ def preprocessing(df):
     df['deal'] = df['deal'] * df['direction']
     df['count'] = df['deal'] * df['price']
     del df['direction']
-    return df
+    return df.dropna()
 
 
 def raw_pairing(df, pairing, sec_interval=0, max_interval=90):
@@ -75,39 +75,44 @@ def raw_pairing(df, pairing, sec_interval=0, max_interval=90):
 
 def parse(df):
     pairs = []
+    dropped_single = pd.DataFrame()
+    # 架构套/瘸腿
     structure = pd.DataFrame()
     # 粗配对
     pairs, single_df = raw_pairing(df, pairs)
-
+    print("粗匹配后的未配对合约数：", len(single_df))
     # 落单交易记录-细配对
     if len(single_df) > 0:
-        if single_df['deal'].sum() == 0:
-            append_pairs = []
-            print(single_df)
-            print("***")
-            max_interval_sec = 0
-            min_interval_sec = 9999
-            for temp in single_df.groupby('breed', as_index=False):
-                interval_sec = temp[1].iloc[-1]['time'] - temp[1].iloc[0]['time']
-                interval_sec = interval_sec.total_seconds()
-                if interval_sec < min_interval_sec:
-                    min_interval_sec = interval_sec
-                if interval_sec > max_interval_sec:
-                    max_interval_sec = interval_sec
-            append_pairs, dropped_df = raw_pairing(single_df, append_pairs, sec_interval=min_interval_sec-1, max_interval=max_interval_sec+1)
+        append_pairs = []
+        max_interval_sec = 0
+        min_interval_sec = 9999
+        for temp in single_df.groupby('breed', as_index=False):
+            interval_sec = temp[1].iloc[-1]['time'] - temp[1].iloc[0]['time']
+            interval_sec = interval_sec.total_seconds()
+            if interval_sec < min_interval_sec:
+                min_interval_sec = interval_sec
+            if interval_sec > max_interval_sec:
+                max_interval_sec = interval_sec
+            print("最大时间间隔：", max_interval_sec, "最小时间间隔：", min_interval_sec)
+            if max_interval_sec - min_interval_sec > 1000:
+                max_interval_sec = min_interval_sec + 900
+            dropped_df = pd.DataFrame()
+            print("*******{}********".format(temp[1]))
+            append_pairs, dropped_df = raw_pairing(temp[1], append_pairs, sec_interval=min_interval_sec-1, max_interval=max_interval_sec+1)
             pairs += append_pairs
-
-        for item in pairs:
-            if item.iloc[0]['breed'] == "AL":
-                print(item)
-            item['price'] = item['count'] / item['deal']
-        else:
-            structure = single_df.groupby('code', as_index=False).aggregate({"deal":"sum", "price":"first", "time":"first", "breed":"first", "count":"sum"}) 
+            dropped_single = pd.concat([dropped_single, dropped_df])
+    if len(dropped_single) > 0:
+        # 瘸腿
+        if dropped_single['deal'].sum() != 0:
+            structure = dropped_single.groupby('code', as_index=False).aggregate({"deal":"sum", "price":"first", "time":"first", "breed":"first", "count":"sum"}) 
             structure['price'] = structure['count'] / structure['deal']
             structure = structure.rename(columns={"code":"套利对", "deal":"手数", "price":"价格", "time":"交易时间", "breed":"品种", "count":"总价"})
             structure['操作'] = structure.apply(lambda x: "买" if x['手数'] > 0 else "卖", axis=1)
             structure = structure[['套利对', '交易时间', '操作', '价格', '手数']]
-            
+        # 跨品种套
+        else:
+            pass
+        
     return pairs, structure
 
 
@@ -116,7 +121,6 @@ def match(df, buffer, param):
     if len(df) == 2:
         near = df[df['deal'] > 0]['code'].values[0]
         forward = df[df['deal'] < 0]['code'].values[0]
-        print(near, forward)
         # 根据Param中的套利对决定near, forward的归属
         if len(param[(param['code1'] == forward) & (param['code2'] == near)]) > 0:
             temp = forward
@@ -165,27 +169,24 @@ def fix_trade_record(acc_name):
     tradeFiles = [f for f in os.listdir(tradeFileDir) if "sorted" not in f]
     for filename in tradeFiles:
         if filename.split('.')[0] + '_sorted.csv' in os.listdir(tradeFileDir):
-            print(filename)
             continue
         file = os.path.join(tradeFileDir, filename)
         try:
             df = pd.read_csv(file, encoding='gbk', index_col=False)
-            print(df.columns)
+            print("读取交易记录：{}".format(file))
+            print(df)
             if '成交合约' in df.columns:
                 df = df[['成交合约','买卖','手数','成交价格','成交时间']]
             else:
                 df = df[['合约','买卖','成交手数','成交价格','成交时间']]
-            print(df)
             df.columns = ['code','direction','deal', 'price','time']
             df = preprocessing(df)
             trade_record = pd.DataFrame()
             match_buffer = []
             pairs, structure = parse(df)
             for item in pairs:
-                #print(item)
                 pair_res, match_buffer = match(item, match_buffer, param_df)
                 trade_record = pd.concat([trade_record, pair_res])
-                #print(trade_record)
             for item in match_buffer:
                 trade_record = pd.concat([trade_record, match(item, [], param_df)[0]])
             res = combine(trade_record).sort_values('套利对')
@@ -193,5 +194,5 @@ def fix_trade_record(acc_name):
             print(res)
             res.to_csv(os.path.join(tradeFileDir, filename.split('.')[0] + '_sorted.csv'), index=False, encoding='gbk')
         except KeyError as e:
-            print(e)
-            print("Error file format in: " + acc_name)
+            print(traceback.format_exc())
+            print("Error file format in: " + file)

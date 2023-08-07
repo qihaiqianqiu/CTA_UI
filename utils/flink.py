@@ -2,8 +2,8 @@ import json
 from . import sftp
 import re
 import os
-import pandas as pd
-from utils.const import ROOT_PATH, INFO_PATH
+import datetime
+from utils.const import ROOT_PATH
 from utils.path_exp_switch import windows_to_linux
 
 __all__ = ["set_up_ssh_reverse_tunnel", "pull_from_market_to_trading", "request_from_market_to_cloud", "request_from_trading_to_market", "pull_from_UI_to_cloud", "pull_from_UI_to_market", "pull_from_market_to_cloud", "request_from_cloud_to_UI"]
@@ -35,7 +35,8 @@ def pull_from_UI_to_cloud(config_file):
         ssh.cmd("mkdir -p " + windows_to_linux(dest_acc_dir))
         # 上传参数表, 链路配置表
         param_dir = os.path.join(ROOT_PATH, "params", acc, "params.csv")
-        log_info = ssh.upload(param_dir, windows_to_linux(os.path.join(dest_acc_dir, "params.csv")))
+        dt_stamp = datetime.datetime.now().strftime('%Y%m%d_%H:%M:%S')
+        log_info = ssh.upload(param_dir, windows_to_linux(os.path.join(dest_acc_dir, "params" + "_" + dt_stamp + '.csv')))
         log_info.insert(0, acc)
         log_info.insert(1, "UI -> Cloud")
         log.append(log_info)
