@@ -11,10 +11,32 @@
 - 增删改的操作通过勾选最左侧的Checkbox使用
 - 【保存与分发】Ctrl + S 会保存当前的账户表，并立刻根据当前账户表的数据把基表（BASE）参数表分发给所有子账户
 ### 配置建议
-1. CTA_UI/params/BASE目录下放置基参数表，之后程序可以进行初始化
+1. CTA_UI/params/BASE目录下放置基参数表，**之后**才启动程序，进行初始化
 2. 建立自己的账户表，添加账户后使用Ctrl+S将参数表按自己的设置分发给各个账户对应目录下
+3. 在RDP主机上安装OpenSSH：解压缩后将目录拷贝至C:\Program Files\OpenSSH【另需服务器打开22端口】
+```
+Set-ExecutionPolicy RemoteSigned
+
+cd C:\Program Files\OpenSSH
+
+powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1
+
+net start sshd
+
+# OPTIONAL but recommended:
+Set-Service -Name sshd -StartupType 'Automatic'
+
+# Confirm the Firewall rule is configured. It should be created automatically by setup. Run the following to verify
+if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyContinue | Select-Object Name, Enabled)) {
+    Write-Output "Firewall Rule 'OpenSSH-Server-In-TCP' does not exist, creating it..."
+    New-NetFirewallRule -Name 'OpenSSH-Server-In-TCP' -DisplayName 'OpenSSH Server (sshd)' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+} else {
+    Write-Output "Firewall rule 'OpenSSH-Server-In-TCP' has been created and exists."
+}
+```
+4. 制作账户链路config文件置于sftp_configs目录
 ## 参数表增删改查
-0. 最重要的，操作后的记得Ctrl + S保存，会同时保存参数表的更改，并把新表分发给各个账户
+1. 最重要的，操作后的记得Ctrl + S保存，会同时保存参数表的更改，并把新表分发给各个账户
 ![avatar](/md_pic/param_management.png)
 **事故记录**:配置UI的时候使用以下顺序导致了参数表污染:启动程序->读取我的参数表进内存->拷入目标参数表->使用分发功能触发内存中我的参数表进行分发
 **解决方案**:确定使用正确的基表启动程序
@@ -24,12 +46,12 @@
   - 勾引后点添加，填入参数。注意第一行都要填，第一个空是drift。随时可以点击套利对按钮查看Barplot, 兼容参数表使用和不使用SP指令的情况，如果不勾选则参数表没有SP指令字段
 ![avatar](/md_pic/add_param_table.png)
 
-2. 删除套利对: 参数表界面勾选套利对左边的checkbox后，Ctrl + D
-3. 修改参数表：双击表格即可，修改完之后Ctrl+S保存
-4. 查询套利对图像：BarPlot列点击即可查看，添加参数表填表的时候也可以点击标有套利对名字的蓝色按钮查看
-5. 开启/关闭合约组：工具箱-开启/关闭合约组，是一种快捷操作**if_add**列的方式, 勾选你希望控制的合约组，左拉是关闭，右拉是开启
+1. 删除套利对: 参数表界面勾选套利对左边的checkbox后，Ctrl + D
+2. 修改参数表：双击表格即可，修改完之后Ctrl+S保存
+3. 查询套利对图像：BarPlot列点击即可查看，添加参数表填表的时候也可以点击标有套利对名字的蓝色按钮查看
+4. 开启/关闭合约组：工具箱-开启/关闭合约组，是一种快捷操作**if_add**列的方式, 勾选你希望控制的合约组，左拉是关闭，右拉是开启
 ![avatar](/md_pic/tool_contract_group.png)
-6. 导出实时持仓：工具箱-实时持仓状态，会看到配置文件中包含的所有账户, 点击其中一个查看持仓盈亏（只额外标注占比5%以上的品种）
+1. 导出实时持仓：工具箱-实时持仓状态，会看到配置文件中包含的所有账户, 点击其中一个查看持仓盈亏（只额外标注占比5%以上的品种）
 <center class="half">
     <img src="md_pic/tool_stocking.png" width="160"/><img src="图片链接" width="200"/><img src="md_pic/tool_stocking_pie.png" width="1000"/>
 </center>
@@ -217,7 +239,7 @@
 
 
 
-## 更新日志
+# V1.0更新日志
 - （已实现）修改主界面参数表展示
 - （已实现）完善基表子表使用逻辑：Boundary Info目录下留界缓存，Param目录下每次更新/计算参数表之后留下带交易单元时间信息后缀的缓存。但是直接使用的是账号目录下的params.csv 
 - （已实现）每当用户修改参数表并保存时，应该同步更新info目录下的region_info.xlsx，保证其实时为最新
@@ -247,3 +269,14 @@
 `rsync_pwd_path` & `rsync dest path`
 - （已实现）使用watchdog进行与中枢服务器保存的日志文件同步到本地
 
+## V1.1 更新日志
+- （已实现）参数表在上传至云端服务器时，会保存为带有时间戳后缀的形式，作为备份
+- （已实现）给UI增加主动刷新参数表的功能，可以在后台替换新的基表之后，让程序的内存重新加载新的基表，并在UI前端加载新的基表
+**快捷键 Ctrl + R** 我才意识到这个功能早就写好了只是没有实装，搞了波大亏QNMLGB
+- 优化了交易记录计算功能，现在遇到难以直接匹配的套利对，会考虑无法匹配部分long/short的比值，根据以下情况进行分类
+1. long/short比值无法整除或者有一者为0：必有瘸腿，不撮合，分开写入交易记录末尾
+2. long/short比值为整数：结构套，直接撮合，按比率在交易记录末尾写入
+- （已实现）修复参数表分发给不同规模账户时budget运算的数据类型错误，为max/min_position字段也添加了比例分发
+- 完善绘图功能的窗口交互，添加绘图每日任务配置功能
+- 完善弹性模型界计算的窗口交互
+- 将UI路径参数从代码中分离出来，放在另一个配置文件中，方便修改

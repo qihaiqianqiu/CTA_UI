@@ -64,7 +64,7 @@ counter = 0
 while True:
     HMtime = time.strftime("%H:%M:%S", time.localtime())
     # 夜盘开盘 启动程序
-    if (HMtime > '20:55:00' or HMtime < '02:30:00') and not night:
+    if (HMtime > '20:59:54' or HMtime < '02:30:00') and not night:
         init_CTP("CTPtest-test.exe")
         night = 1
         print("夜盘开盘")
@@ -77,8 +77,8 @@ while True:
         night = 0
         print("夜盘收盘")
     # 早盘开盘 启动程序
-    # 早盘特殊挂单时间 08:59:55
-    if HMtime > '08:59:55' and HMtime < '11:30:00' and not morning:
+    # 早盘特殊挂单时间 08:59:54
+    if HMtime > '08:59:54' and HMtime < '11:30:00' and not morning:
         init_CTP("CTPtest-test.exe")
         morning = 1
         print("早盘开盘")
@@ -91,7 +91,7 @@ while True:
         morning = 0
         print("早盘收盘")
     # 午盘开盘 启动程序
-    if HMtime > '13:25:00' and HMtime < '15:00:00' and not afternoon:
+    if HMtime > '12:59:54' and HMtime < '15:00:00' and not afternoon:
         init_CTP("CTPtest-test.exe")
         afternoon = 1
         print("午盘开盘")

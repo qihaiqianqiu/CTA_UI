@@ -31,7 +31,7 @@ def preprocessing(df):
     df['deal'] = df['deal'] * df['direction']
     df['count'] = df['deal'] * df['price']
     del df['direction']
-    return df.dropna()
+    return df
 
 
 def raw_pairing(df, pairing, sec_interval=0, max_interval=90):
@@ -102,17 +102,45 @@ def parse(df):
             pairs += append_pairs
             dropped_single = pd.concat([dropped_single, dropped_df])
     if len(dropped_single) > 0:
-        # 瘸腿
-        if dropped_single['deal'].sum() != 0:
+        long = dropped_single[dropped_single['deal'] > 0]
+        short = dropped_single[dropped_single['deal'] < 0]
+        long_volume = long['deal'].sum()
+        short_volume = short['deal'].sum()
+        print("异常多空为{}、{}".format(long, short))
+        if min(long_volume, abs(short_volume)) == 0:
+            ratio = 0
+        else:
+            ratio = max(long_volume, abs(short_volume)) / min(long_volume, abs(short_volume))
+        def is_decimal_convertible_to_integer(decimal_value):
+            if decimal_value == 0:
+                return 0
+            else:
+                decimal_part = decimal_value - int(decimal_value)  # 提取小数部分
+                return decimal_part == 0
+        # 结构套
+        if is_decimal_convertible_to_integer(ratio):
+            # 多空腿直接撮合
+            for i in range(len(long)):
+                for j in range(len(short)):
+                    if long.iloc[i]['deal'] > 0:
+                        vol = min(long.iloc[i]['deal'], abs(short.iloc[j]['deal']))
+                        # 判断多空的比率，倍数加在谁头上
+                        if long_volume >= short_volume:
+                            long.iloc[i]['deal'] -= vol * ratio
+                            short.iloc[j]['deal'] += vol
+                            structure = pd.concat([structure, pd.DataFrame({'套利对':[str(int(ratio)) + long.iloc[i]['code'].lower() + '-' + short.iloc[j]['code'].lower()], '交易时间':[long.iloc[i]['time']], '操作':['买'], '价格':[(ratio * long.iloc[i]['price'] - short.iloc[j]['price'])], '手数':[vol]})])
+                        else:
+                            long.iloc[i]['deal'] -= vol 
+                            short.iloc[j]['deal'] += vol * ratio
+                            structure = pd.concat([structure, pd.DataFrame({'套利对':[long.iloc[i]['code'].lower() + '-' + str(int(ratio)) + short.iloc[j]['code'].lower()], '交易时间':[long.iloc[i]['time']], '操作':['买'], '价格':[(long.iloc[i]['price'] - ratio * short.iloc[j]['price'])], '手数':[vol]})])
+        else:
+            # 必有瘸腿 可能还包含结构套
             structure = dropped_single.groupby('code', as_index=False).aggregate({"deal":"sum", "price":"first", "time":"first", "breed":"first", "count":"sum"}) 
             structure['price'] = structure['count'] / structure['deal']
             structure = structure.rename(columns={"code":"套利对", "deal":"手数", "price":"价格", "time":"交易时间", "breed":"品种", "count":"总价"})
             structure['操作'] = structure.apply(lambda x: "买" if x['手数'] > 0 else "卖", axis=1)
-            structure = structure[['套利对', '交易时间', '操作', '价格', '手数']]
-        # 跨品种套
-        else:
-            pass
-        
+            structure = structure[['套利对', '交易时间', '操作', '价格', '手数']]                             
+                      
     return pairs, structure
 
 
@@ -171,6 +199,7 @@ def fix_trade_record(acc_name):
         if filename.split('.')[0] + '_sorted.csv' in os.listdir(tradeFileDir):
             continue
         file = os.path.join(tradeFileDir, filename)
+        print("读取交易记录：{}".format(file))
         try:
             df = pd.read_csv(file, encoding='gbk', index_col=False)
             print("读取交易记录：{}".format(file))
@@ -180,6 +209,7 @@ def fix_trade_record(acc_name):
             else:
                 df = df[['合约','买卖','成交手数','成交价格','成交时间']]
             df.columns = ['code','direction','deal', 'price','time']
+            df = df.dropna()
             df = preprocessing(df)
             trade_record = pd.DataFrame()
             match_buffer = []
@@ -196,3 +226,6 @@ def fix_trade_record(acc_name):
         except KeyError as e:
             print(traceback.format_exc())
             print("Error file format in: " + file)
+            
+if __name__ == "__main__":
+    fix_trade_record("lq")

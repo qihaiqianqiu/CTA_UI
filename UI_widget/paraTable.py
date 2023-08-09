@@ -1,7 +1,7 @@
 import pandas as pd
-from PyQt5.QtWidgets import QTableWidgetItem, QTableWidget, QAbstractItemView, QFrame, QDesktopWidget
+from PyQt5.QtWidgets import QTableWidgetItem, QTableWidget, QApplication
 from PyQt5.QtCore import *
-import os
+import os, sys
 from utils.date_section_modification import *
 from utils.cache_management import *
 from utils.calculate_parameter import *
@@ -23,6 +23,7 @@ class paraTable(QTableWidget):
         print("PARA TABLE GENERATED")
 
     # 刷新参数表并更新其在UI的显示
+    # *************************************************************
     def update(self): 
         info_df = pd.read_csv(os.path.join(PARAM_PATH, 'BASE', 'params.csv')).reset_index(drop=True).set_index("pairs_id").sort_index()
         # 使用pandasModel将info_df转化为表格
@@ -31,6 +32,7 @@ class paraTable(QTableWidget):
         self.view = TableView(self.model)
         
         print("PARA TABLE UPDATED")
+        
         
     # 参数计算模块
     def fill_para_Table(self):
@@ -48,3 +50,10 @@ class paraTable(QTableWidget):
         self.model._data = info_df
         """
         pass
+    
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    table = paraTable()
+    print(table.model._data['region_unit_num'].dtype)
+    sys.exit(app.exec_())
+    

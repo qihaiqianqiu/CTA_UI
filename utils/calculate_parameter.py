@@ -256,7 +256,6 @@ def predict_region(region_num:int, end_date:int, reduce_date:int, clear_date:int
         return region_num
 
 
-# 生成一张info表，与账户的budget值迭代后在ui上展示
 # info表包含且仅包含完整的区界信息，传入transform函数后可以得到合适的params.csv
 def predict_info(region_info:pd.DataFrame, end_date:int, end_section:int, q:float, step:int, ratio:float, flag:bool, cache_path:str):
     region_info['up_boundary_5'] = "99999"

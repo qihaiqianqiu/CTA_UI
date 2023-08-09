@@ -6,7 +6,7 @@ import os
 import datetime
 import time
 from utils.path_exp_switch import *
-from utils.flink import set_up_ssh_reverse_tunnel, pull_from_market_to_trading, pull_from_market_to_cloud, request_from_trading_to_market, request_from_cloud_to_UI
+from utils.flink import set_up_ssh_reverse_tunnel, pull_from_market_to_trading, pull_from_market_to_cloud, request_from_trading_to_market
 import threading
 import json
 import traceback

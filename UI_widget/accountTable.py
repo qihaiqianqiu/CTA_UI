@@ -17,4 +17,4 @@ class accountTable(QTableWidget):
         self.horizontalHeader().setSectionsClickable(False) #可以禁止点击表头的列
         self.setEditTriggers(QAbstractItemView.NoEditTriggers) #设置表格不可更改
         self.show()
-        print("TABLE GENERATED")
+        print("ACC TABLE GENERATED")

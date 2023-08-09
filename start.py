@@ -58,12 +58,6 @@ class Arbitrator(QMainWindow):
         appendAct = QAction('SFTP', self)
         appendAct.setStatusTip('SFTP文件传输')
         appendAct.triggered.connect(self.open)
-
-        # 重载
-        appendAct = QAction('Reload', self)
-        appendAct.setShortcut('Ctrl+O')
-        appendAct.setStatusTip('重载账户表')
-        appendAct.triggered.connect(self.open)
         
         # 退出
         exitAct = QAction('Exit', self)
@@ -101,11 +95,15 @@ class Arbitrator(QMainWindow):
         selectAllAct = QAction('Click all checkbox', self)
         selectAllAct.setShortcut('Ctrl+A')
         selectAllAct.triggered.connect(self.update_check_all_state)
-
+        
+        #重载参数表（刷新）
+        refreshAct = QAction('Refresh', self)
+        refreshAct.setShortcut('Ctrl+R')
+        refreshAct.triggered.connect(lambda: self.refresh(True))
+        
         # 菜单栏
         menuBar = self.menuBar()
         self.fileMenu = menuBar.addMenu('&File')
-        self.fileMenu.addAction(appendAct)
         self.fileMenu.addAction(exitAct)
 
 
@@ -119,6 +117,7 @@ class Arbitrator(QMainWindow):
         self.editMenu.addAction(deletAct)
         self.editMenu.addAction(undoAct_param)
         self.editMenu.addAction(undoAct_acc)
+        self.editMenu.addAction(refreshAct)
         
         # ToolBar
         toolBar = self.addToolBar("")
@@ -340,7 +339,7 @@ class Arbitrator(QMainWindow):
         for line in df.values.tolist():
             self.addLine(line)
 
-
+    # Deprecated
     @QtCore.pyqtSlot()
     def open(self):
         openfile_path = QFileDialog.getOpenFileName(self,'选择文件','','XLSX files(*.xlsx)')
@@ -486,6 +485,7 @@ class Arbitrator(QMainWindow):
             # 下载后再添加一道工序转发到公盘
             if json.load(open(config))["marketServer"]["host"] == "localhost":
                 logger = flink.request_from_trading_to_market(config)
+                # 回传给云服务器的过程由自带的monitor完成
                 for log in logger:
                     error_log.append(log)
                     try:
@@ -630,8 +630,9 @@ class Arbitrator(QMainWindow):
     
     @QtCore.pyqtSlot()
     def update_base_info(self):
-        self.param.update()
-        QMessageBox.information(self, "刷新完成", "BASE参数表更新完成")
+        # 参数计算模块
+        pass   
+        QMessageBox.information(self, "计算完成", "BASE参数表更新完成")
 
 
     @QtCore.pyqtSlot()
@@ -675,7 +676,7 @@ class Arbitrator(QMainWindow):
         keep_line = keep_line.loc[:, ~param_df.columns.isin(['CheckBox', 'BarPlot'])]
         keep_line.to_csv(os.path.join(const.PARAM_PATH, 'BASE', 'params.csv'))
         self.refresh(True)
-    
+     
     
     @QtCore.pyqtSlot()
     def undo_delete_param(self):
@@ -766,8 +767,10 @@ class Arbitrator(QMainWindow):
             region_budget = float(acc[4])
             boundary_budget = float(acc[5])
             acc_param_df = param_df.copy()
-            acc_param_df['region_unit_num'] = acc_param_df.apply(lambda x: int(round(x['region_unit_num'] * float(region_budget),0)), axis=1)
-            acc_param_df['boundary_unit_num'] = acc_param_df.apply(lambda x: int(round(x['boundary_unit_num'] * float(boundary_budget),0)), axis=1)
+            acc_param_df['max_position'] = acc_param_df.apply(lambda x: int(round(float(x['max_position']) * float(region_budget),0)), axis=1)
+            acc_param_df['min_position'] = acc_param_df.apply(lambda x: int(round(float(x['min_position']) * float(region_budget),0)), axis=1)
+            acc_param_df['region_unit_num'] = acc_param_df.apply(lambda x: int(round(float(x['region_unit_num']) * float(region_budget),0)), axis=1)
+            acc_param_df['boundary_unit_num'] = acc_param_df.apply(lambda x: int(round(float(x['boundary_unit_num']) * float(boundary_budget),0)), axis=1)
             acc_param_dir = os.path.join(const.PARAM_PATH, id)
             if not os.path.exists(acc_param_dir):
                 os.mkdir(acc_param_dir)
@@ -935,7 +938,7 @@ class Arbitrator(QMainWindow):
 
 if __name__ == '__main__':
     try:
-        threading.Thread(target=invoke_monitor, args=(ROOT_PATH, False, True,)).start()
+        threading.Thread(target=invoke_monitor, args=(const.ROOT_PATH, False, True,)).start()
         app = QApplication(sys.argv)
         ex = Arbitrator()
         sys.exit(app.exec_())
