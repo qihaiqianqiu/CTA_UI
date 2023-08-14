@@ -83,6 +83,7 @@ def check_update_flag(contract_pair:list, q:float):
 def export_parameter_csv(contract_pair_group:list, start_date:int, end_date:int, q:float):
     start = time.time()
     for pair in contract_pair_group:
+        # 训练的特征集
         column_lst = ['date','max(buy)', 'min(buy)', 'mean(buy)', 'mean-std(buy)', 'mean-2std(buy)', 'mean-2.5std(buy)', 'price_quantile_90(buy)', 'price_quantile_95(buy)', 'price_quantile_N(buy)', 'max(sell)', 'min(sell)', 'mean(sell)', 'mean+std(sell)', 'mean+2std(sell)', 'mean+2.5std(sell)', 'price_quantile_90(sell)', 'price_quantile_95(sell)', 'price_quantile_N(sell)']
         df = pd.DataFrame(columns=column_lst)
         # Appending module
@@ -222,7 +223,7 @@ def predict_boundary_rolling(param_data, step=20, start_date='20220908_0', predi
 
 # 进度条计时器在这里放
 def predict_boundary(contract_pair:list, end_date:int, end_date_section:int, q=0.95, step=20, start_date=20220908):
-    # 1
+    # 1 - 获取训练集
     PARA = os.path.join(BOUNDARY_PATH, "q=" + str(q))
     if not os.path.exists(PARA):
         os.mkdir(PARA)
@@ -233,7 +234,7 @@ def predict_boundary(contract_pair:list, end_date:int, end_date_section:int, q=0
     param_df.to_csv(os.path.join(PARA, pair_name + '.csv'), index=False)
     # 2 - 回测
     #export_tick_csv([contract_pair], start_date, end_date)
-    # 3 - 预测
+    # 3 - 滚动预测
     param_df = param_df.fillna(method='ffill')
     param_df['price_quantile_N_diff(buy)'] = param_df['price_quantile_N(buy)'].diff(1)
     param_df['price_quantile_N_diff(sell)'] = param_df['price_quantile_N(sell)'].diff(1)
@@ -241,6 +242,7 @@ def predict_boundary(contract_pair:list, end_date:int, end_date_section:int, q=0
     print("----------------")
     print("Step=%d" %(step))
     result = predict_boundary_rolling(param_data=param_df, start_date=str(start_date)+"_0", predict_date=str(end_date)+'_'+str(end_date_section), step=step)
+    # 4 - 返回结果：下一界，期望利润
     return round(float(min(result[0], result[1])),2), round(float(abs(result[0]-result[1])),2)
 
 

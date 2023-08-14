@@ -448,7 +448,7 @@ class Arbitrator(QMainWindow):
     @QtCore.pyqtSlot()
     def upload_param(self):
         error_log = [["Account", "Link", "From", "To", "Status"]]
-        config_file_lst = os.listdir(os.path.join(const.ROOT_PATH, "sftp_configs"))
+        config_file_lst = []
         def process_config_upload(config):
             logger = flink.pull_from_UI_to_cloud(config)
             for log in logger:
@@ -469,6 +469,12 @@ class Arbitrator(QMainWindow):
             
         # 调用函数来运行多线程
         try:
+            for i in range(self.table.rowCount(), 0, -1):
+                if self.table.cellWidget(i-1, 0).findChild(type(QCheckBox())).isChecked():
+                    acc_name = self.table.item(i-1,1).text()
+                    for config in os.listdir(os.path.join(const.ROOT_PATH, "sftp_configs")):
+                        if acc_name == config.split(".")[0]:
+                            config_file_lst.append(config)
             param_upload_thread()
             visualize.show_message_box(error_log)
         except Exception as e:
@@ -478,13 +484,13 @@ class Arbitrator(QMainWindow):
     @QtCore.pyqtSlot()
     def download_logs(self):
         error_log = [["Account", "Link", "From", "To", "Status"]]
-        config_file_lst = os.listdir(os.path.join(const.ROOT_PATH, "sftp_configs"))
-        config_file_path_lst = [os.path.join(const.ROOT_PATH, "sftp_configs", config) for config in config_file_lst]
+        config_file_lst = []
         
         def process_config_download(config):
             # 下载后再添加一道工序转发到公盘
-            if json.load(open(config))["marketServer"]["host"] == "localhost":
-                logger = flink.request_from_trading_to_market(config)
+            config_path = os.path.join(const.ROOT_PATH, "sftp_configs", config)
+            if json.load(open(config_path))["marketServer"]["host"] == "localhost":
+                logger = flink.request_from_trading_to_market(config_path)
                 # 回传给云服务器的过程由自带的monitor完成
                 for log in logger:
                     error_log.append(log)
@@ -500,7 +506,7 @@ class Arbitrator(QMainWindow):
                             err_file.write(traceback.format_exc() + '\n')
                     
             else:
-                logger = flink.request_from_cloud_to_UI(config)
+                logger = flink.request_from_cloud_to_UI(config_path)
                 for log in logger:
                     error_log.append(log)
                     try:
@@ -517,7 +523,7 @@ class Arbitrator(QMainWindow):
                     
         def param_download_thread():
             threads = []
-            for config in config_file_path_lst:
+            for config in config_file_lst:
                 thread = threading.Thread(target=process_config_download, args=(config,))
                 thread.start()
                 threads.append(thread)
@@ -525,6 +531,12 @@ class Arbitrator(QMainWindow):
                 thread.join()
                 # 调用函数来运行多线程
         try:
+            for i in range(self.table.rowCount(), 0, -1):
+                if self.table.cellWidget(i-1, 0).findChild(type(QCheckBox())).isChecked():
+                    acc_name = self.table.item(i-1,1).text()
+                    for config in os.listdir(os.path.join(const.ROOT_PATH, "sftp_configs")):
+                        if acc_name == config.split(".")[0]:
+                            config_file_lst.append(config)
             param_download_thread()
             visualize.show_message_box(error_log)
         except Exception as e:

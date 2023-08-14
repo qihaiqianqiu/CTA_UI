@@ -131,6 +131,13 @@ def request_from_cloud_to_UI(config):
     log = []
     
     for acc in account_list:
+        # 首先建立对应目录
+        report_file_dir = os.path.join(UI_dir, "report", acc)
+        if not os.path.exists(report_file_dir):
+            os.mkdir(report_file_dir)
+        trading_file_dir = os.path.join(UI_dir, "tradings", acc)
+        if not os.path.exists(trading_file_dir):
+            os.mkdir(trading_file_dir)
         dest_acc_dir = windows_to_linux(os.path.join(cta_cloud_dir, acc))
         # 获取云服务器的日志listdir
         res = ssh.cmd("ls " + dest_acc_dir)
@@ -139,11 +146,11 @@ def request_from_cloud_to_UI(config):
         trading_file = windows_to_linux(os.path.join(dest_acc_dir, max(trading_files)))
         holding_files = [re.search(r'holding_\d{6}\.csv', f).group() for f in output if re.search(r'holding_\d{6}\.csv', f)]
         holding_file = windows_to_linux(os.path.join(dest_acc_dir, max(holding_files)))
-        log_info = ssh.download(holding_file, os.path.join(UI_dir, "report", acc, max(holding_files)))
+        log_info = ssh.download(holding_file, os.path.join(report_file_dir, max(holding_files)))
         log_info.insert(0, acc)
         log_info.insert(1, "Cloud -> UI")
         log.append(log_info)
-        log_info = ssh.download(trading_file, os.path.join(UI_dir, "tradings", acc, max(trading_files)))
+        log_info = ssh.download(trading_file, os.path.join(trading_file_dir, max(trading_files)))
         log_info.insert(0, acc)
         log_info.insert(1, "Cloud -> UI")
         log.append(log_info)

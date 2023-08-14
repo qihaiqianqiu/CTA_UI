@@ -118,6 +118,7 @@ def parse(df):
                 decimal_part = decimal_value - int(decimal_value)  # 提取小数部分
                 return decimal_part == 0
         # 结构套
+        """
         if is_decimal_convertible_to_integer(ratio):
             # 多空腿直接撮合
             for i in range(len(long)):
@@ -133,14 +134,19 @@ def parse(df):
                             long.iloc[i]['deal'] -= vol 
                             short.iloc[j]['deal'] += vol * ratio
                             structure = pd.concat([structure, pd.DataFrame({'套利对':[long.iloc[i]['code'].lower() + '-' + str(int(ratio)) + short.iloc[j]['code'].lower()], '交易时间':[long.iloc[i]['time']], '操作':['买'], '价格':[(long.iloc[i]['price'] - ratio * short.iloc[j]['price'])], '手数':[vol]})])
-        else:
+        else:"""
             # 必有瘸腿 可能还包含结构套
-            structure = dropped_single.groupby('code', as_index=False).aggregate({"deal":"sum", "price":"first", "time":"first", "breed":"first", "count":"sum"}) 
+        structure = dropped_single.groupby('code', as_index=False).aggregate({"deal":"sum", "price":"first", "time":"first", "breed":"first", "count":"sum"})
+        structure = structure[structure['deal']!=0]
+        print("结构套：")
+        print(structure) 
+        if len(structure) > 0:
             structure['price'] = structure['count'] / structure['deal']
             structure = structure.rename(columns={"code":"套利对", "deal":"手数", "price":"价格", "time":"交易时间", "breed":"品种", "count":"总价"})
             structure['操作'] = structure.apply(lambda x: "买" if x['手数'] > 0 else "卖", axis=1)
             structure = structure[['套利对', '交易时间', '操作', '价格', '手数']]                             
-                      
+        else: structure = pd.DataFrame()     
+                 
     return pairs, structure
 
 

@@ -40,14 +40,16 @@ breed_dict = {'原油': 'sc', '燃料油': 'fu', '低硫燃料油': 'lu', '沥�
            '鸡蛋': 'jd', '硅铁': 'SF', '锰硅': 'SM', '螺纹': 'rb', '铁矿': 'i', '热卷': 'hc', '焦炭': 'j', '焦煤': 'jm',\
            '动力煤': 'ZC', '白银':'ag', '黄金': 'au', '铜': 'cu', '锌': 'zn', '铝': 'al', '铅': 'pb', '不锈钢': 'ss', '镍': 'ni',\
            '锡': 'sn', 'IF': 'IF', 'IH': 'IH', 'IC': 'IC', 'IM': 'IM', '棉纱': 'CY', "线材": 'WR', "国际铜": 'bc', "豆二" : "b", "胶合板" : "bb", \
-            "纤维板" : 'FB', "生猪": "LH", "粳米" : "rr", "粳稻" : 'JR', "晚籼" : 'LR', "油菜籽" : 'RS', "强麦" : "WH"}
+            "纤维板" : 'FB', "生猪": "LH", "粳米" : "rr", "粳稻" : 'JR', "晚籼" : 'LR', "油菜籽" : 'RS', "强麦" : "WH", \
+            "合成橡胶": 'BR', "工业硅": "SI"}
 
 exchange_breed_dict = {
-    "XSGE": ["CU", "AL", "FU", "ZN", "RB", "RU", "PB", "AG", "AU", "BU", "HC", "NI", "SN", "SP", "SS"],
+    "XSGE": ["CU", "AL", "FU", "ZN", "RB", "RU", "PB", "AG", "AU", "BU", "HC", "NI", "SN", "SP", "SS", "BR"],
     "XDCE": ["M", "Y", "C", "L", "P", "V", "J", "JM", "JD", "A", "B", "I", "FB", "PP", "CS", "EG", "RR", "EB", "PG", "LH"],
     "XZCE": ["PM", "MA", "CF", "WH", "TA", "OI", "RI", "SR", "FG", "RS", "RM", "ZC", "JR", "LR", "SF", "SM", "CY", "AP", "CJ", "UR", "SA", "PF", "PK"],
     "CCFX": ["IF", "IH", "IC", "IM"],
-    "XINE": ["NR", "LU", "BC", "SC"]
+    "XINE": ["NR", "LU", "BC", "SC"],
+    "GFEX": ["SI"]
 }
 
 param_columns = ['pairs_id','indate_date', 'first_instrument', 'second_instrument', 'prime_instrument', 'boundary_unit_num', \
@@ -126,7 +128,9 @@ multiple_dict = {
     "IC" : 200,
     "IF" : 300,
     "IH" : 300,
-    "IM" : 200
+    "IM" : 200,
+    "SI" : 5,
+    "BR" : 5
     }
 
 
@@ -255,7 +259,9 @@ boundary_dict = {'SC': 0.1,
                 'IH': 0.2,
                 'IC': 0.2,
                 'IM' : 0.2,
-                'CY': 5}
+                'CY': 5,
+                'SI': 5,
+                'BR': 5}
                 
 
 invalid_month_dict = {
@@ -315,5 +321,7 @@ invalid_month_dict = {
     'IC':[],
     'IF':[],
     'IH':[],
-    'IM':[]
+    'IM':[],
+    'SI':[],
+    'BR':[]
 }

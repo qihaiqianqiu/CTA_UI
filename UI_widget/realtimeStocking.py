@@ -25,6 +25,7 @@ class stockCounter(QDialog):
     def __init__(self):
         super().__init__()
         self.layout = QVBoxLayout()
+        self.setWindowTitle("实时持仓状态-选择账户")
         df = pd.read_excel(os.path.join(ROOT_PATH, "info", "account_info.xlsx"), sheet_name="Sheet1")
         acc_lst = df['id'].values.tolist()
         self.btn_group = []

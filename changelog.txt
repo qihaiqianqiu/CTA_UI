@@ -4746,3 +4746,283 @@ lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/p
 lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
 lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
 lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-09 15:03:05
+Account    Link           From                                                                  To                                                   Status
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\tradings\trading_230809.csv  D:\local_repo\CTA_UI\tradings\lq\trading_230809.csv  √
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\report\holding_230809.csv    D:\local_repo\CTA_UI\report\lq\holding_230809.csv    √
+2023-08-09 23:27:29
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230809_23:27:27.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-10 09:43:46
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230810_09:43:45.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-10 09:46:48
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230810_09:46:46.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-10 09:50:07
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230810_09:50:05.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-10 09:51:49
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230810_09:51:48.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  OSError:Failure
+2023-08-10 09:55:58
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230810_09:55:56.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-10 09:57:39
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230810_09:57:37.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-10 10:02:29
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230810_10:02:27.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-10 10:07:37
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230810_10:07:35.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-10 15:03:20
+Account    Link           From                                                                  To                                                   Status
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\tradings\trading_230810.csv  D:\local_repo\CTA_UI\tradings\lq\trading_230810.csv  √
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\report\holding_230810.csv    D:\local_repo\CTA_UI\report\lq\holding_230810.csv    √
+2023-08-11 10:49:09
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230811_10:49:07.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-11 11:00:50
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230811_11:00:48.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-11 11:02:23
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230811_11:02:21.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-11 11:13:57
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230811_11:13:55.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-11 15:03:16
+Account    Link           From                                                                  To                                                   Status
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\tradings\trading_230811.csv  D:\local_repo\CTA_UI\tradings\lq\trading_230811.csv  √
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\report\holding_230811.csv    D:\local_repo\CTA_UI\report\lq\holding_230811.csv    √
+2023-08-13 23:11:58
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230813_23:11:57.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 08:54:59
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_08:54:57.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 08:59:20
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_08:59:19.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 09:02:31
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_09:02:29.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 09:13:11
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_09:13:09.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 09:20:31
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_09:20:30.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 09:26:11
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_09:26:10.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 09:40:09
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_09:40:08.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 09:45:03
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_09:45:01.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 10:08:45
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_10:08:43.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 10:13:20
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_10:13:19.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 10:32:54
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_10:32:53.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 11:03:51
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_11:03:50.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 11:05:14
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_11:05:13.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 11:07:23
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_11:07:21.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 11:17:48
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_11:17:47.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 11:20:27
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_11:20:25.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 13:54:46
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_13:54:45.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 14:05:29
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_14:05:27.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 14:10:31
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_14:10:29.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 14:12:45
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_14:12:43.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 14:18:57
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_14:18:55.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 14:39:58
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_14:39:56.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 14:44:01
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_14:43:59.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 14:52:19
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_14:52:18.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 14:58:06
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_14:58:04.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 15:03:13
+Account    Link           From                                                                  To                                                   Status
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\tradings\trading_230814.csv  D:\local_repo\CTA_UI\tradings\lq\trading_230814.csv  √
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\report\holding_230814.csv    D:\local_repo\CTA_UI\report\lq\holding_230814.csv    √
+2023-08-14 17:53:36
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_17:53:34.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  D:/local_repo/CTA_UI/sftp_configs/lq.json            FileNotFoundError:[Errno 2] No such file
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 18:02:16
+Account    Link           From                                       To                                                   Status
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params_20230814_18:02:14.csv               √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\params\lq\params.csv  CTA/hh/lq/params.csv                                 √
+lq         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\lq.json  CTA/hh/lq/lq.json                                    √
+lq         UI -> Trading  D:\local_repo\CTA_UI\params\lq\params.csv  C:\Users\Administrator\Desktop\cta_lq_zx\params.csv  √
+2023-08-14 18:02:23
+Account    Link    From    To    Status
+2023-08-14 18:04:20
+Account    Link           From                                                                  To                                                   Status
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\tradings\trading_230814.csv  D:\local_repo\CTA_UI\tradings\lq\trading_230814.csv  √
+lq         Trading -> UI  C:\Users\Administrator\Desktop\cta_lq_zx\report\holding_230814.csv    D:\local_repo\CTA_UI\report\lq\holding_230814.csv    √
+2023-08-14 18:06:23
+Account    Link         From                                To                                                   Status
+zhongtai   Cloud -> UI  CTA/Ls/zhongtai/holding_230814.csv  E:\CTA_UI_v1.1\report\zhongtai\holding_230814.csv    PermissionError:[Errno 13] Permission denied: 'E:\\CTA_UI_v1.1\\report\\zhongtai\\holding_230814.csv'
+zhongtai   Cloud -> UI  CTA/Ls/zhongtai/trading_230814.csv  E:\CTA_UI_v1.1\tradings\zhongtai\trading_230814.csv  PermissionError:[Errno 13] Permission denied: 'E:\\CTA_UI_v1.1\\tradings\\zhongtai\\trading_230814.csv'
+2023-08-14 18:10:32
+Account    Link         From                                To                                                         Status
+zhongtai   Cloud -> UI  CTA/Ls/zhongtai/holding_230814.csv  D:\local_repo\CTA_UI\report\zhongtai\holding_230814.csv    FileNotFoundError:[Errno 2] No such file or directory: 'D:\\local_repo\\CTA_UI\\report\\zhongtai\\holding_230814.csv'
+zhongtai   Cloud -> UI  CTA/Ls/zhongtai/trading_230814.csv  D:\local_repo\CTA_UI\tradings\zhongtai\trading_230814.csv  FileNotFoundError:[Errno 2] No such file or directory: 'D:\\local_repo\\CTA_UI\\tradings\\zhongtai\\trading_230814.csv'
+2023-08-14 18:13:03
+Account    Link         From                                To                                                         Status
+zhongtai   Cloud -> UI  CTA/Ls/zhongtai/holding_230814.csv  D:\local_repo\CTA_UI\report\zhongtai\holding_230814.csv    √
+zhongtai   Cloud -> UI  CTA/Ls/zhongtai/trading_230814.csv  D:\local_repo\CTA_UI\tradings\zhongtai\trading_230814.csv  √
