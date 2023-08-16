@@ -321,10 +321,20 @@ class Arbitrator(QMainWindow):
             current_time = time.strftime("%H:%M", time.localtime())
             print("当前时间：", current_time)
             if not if_quest:
-                if current_time > "15:02" and current_time < "15:05": 
+                if current_time > "15:02": 
                     try:
+                        # 勾选全部账户
+                        for i in range(self.table.rowCount()):
+                            checkbox_widget = self.table.cellWidget(i, 0).findChild(type(QCheckBox()))
+                            if checkbox_widget is not None:
+                                checkbox_widget.setChecked(True)
                         print("@收盘自动下载日志文件")
-                        self.download_logs()                        
+                        self.download_logs()
+                        # 反勾选全部账户
+                        for i in range(self.table.rowCount()):
+                            checkbox_widget = self.table.cellWidget(i, 0).findChild(type(QCheckBox()))
+                            if checkbox_widget is not None:
+                                checkbox_widget.setChecked(False)                        
                     except Exception as e:
                         print(traceback.format_exc())
                     if_quest = True
@@ -476,7 +486,8 @@ class Arbitrator(QMainWindow):
                         if acc_name == config.split(".")[0]:
                             config_file_lst.append(config)
             param_upload_thread()
-            visualize.show_message_box(error_log)
+            self.pretty_table = visualize.show_message_box(error_log)
+            self.pretty_table.exec_()
         except Exception as e:
             print(traceback.format_exc())
         
@@ -490,6 +501,7 @@ class Arbitrator(QMainWindow):
             # 下载后再添加一道工序转发到公盘
             config_path = os.path.join(const.ROOT_PATH, "sftp_configs", config)
             if json.load(open(config_path))["marketServer"]["host"] == "localhost":
+                print("从交易服务器获取账户{}日志文件中..".format(config))
                 logger = flink.request_from_trading_to_market(config_path)
                 # 回传给云服务器的过程由自带的monitor完成
                 for log in logger:
@@ -499,6 +511,9 @@ class Arbitrator(QMainWindow):
                         acc = os.path.basename(os.path.dirname(log[3]))
                         file_type = os.path.basename(os.path.dirname(os.path.dirname(log[3])))
                         z_path = os.path.join(const.Z_PATH, file_type, acc, filename)
+                        # 确认Z盘中路径是否存在
+                        if not os.path.exists(os.path.dirname(z_path)):
+                            os.makedirs(os.path.dirname(z_path))
                         copy_paste.copy_file(log[3], z_path)
                     except Exception as e:
                         with open(os.path.join(const.ROOT_PATH, "error_log.txt"), "a+") as f:
@@ -506,6 +521,7 @@ class Arbitrator(QMainWindow):
                             err_file.write(traceback.format_exc() + '\n')
                     
             else:
+                print("从云服务器获取账户{}日志文件中..".format(config))
                 logger = flink.request_from_cloud_to_UI(config_path)
                 for log in logger:
                     error_log.append(log)
@@ -514,12 +530,14 @@ class Arbitrator(QMainWindow):
                         acc = os.path.basename(os.path.dirname(log[3]))
                         file_type = os.path.basename(os.path.dirname(os.path.dirname(log[3])))
                         z_path = os.path.join(const.Z_PATH, file_type, acc, filename)
+                        # 确认Z盘中路径是否存在
+                        if not os.path.exists(os.path.dirname(z_path)):
+                            os.makedirs(os.path.dirname(z_path))
                         copy_paste.copy_file(log[3], z_path)
                     except Exception as e:
                         with open(os.path.join(const.ROOT_PATH, "error_log.txt"), "a+") as f:
                             err_file.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
                             err_file.write(traceback.format_exc() + '\n')
-                    
                     
         def param_download_thread():
             threads = []
@@ -529,18 +547,22 @@ class Arbitrator(QMainWindow):
                 threads.append(thread)
             for thread in threads:
                 thread.join()
-                # 调用函数来运行多线程
-        try:
-            for i in range(self.table.rowCount(), 0, -1):
-                if self.table.cellWidget(i-1, 0).findChild(type(QCheckBox())).isChecked():
+        # 经过完善后仅对勾选账户执行
+        for i in range(self.table.rowCount(), 0, -1):
+            if self.table.cellWidget(i-1, 0).findChild(type(QCheckBox())).isChecked():
+                try:
                     acc_name = self.table.item(i-1,1).text()
                     for config in os.listdir(os.path.join(const.ROOT_PATH, "sftp_configs")):
                         if acc_name == config.split(".")[0]:
                             config_file_lst.append(config)
-            param_download_thread()
-            visualize.show_message_box(error_log)
-        except Exception as e:
-            print(traceback.format_exc())
+                except Exception as e:
+                    print(traceback.format_exc())
+                    continue
+        param_download_thread()
+        print(error_log)
+        self.pretty_table = visualize.show_message_box(error_log)
+        self.pretty_table.exec_()
+        
             
     @QtCore.pyqtSlot()
     def start_prediction(self, region_info, end_date, end_section, q, step, ratio, flag, cache_path, progressbar):

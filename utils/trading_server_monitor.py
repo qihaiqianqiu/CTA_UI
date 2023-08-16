@@ -5,9 +5,11 @@ import traceback
 import datetime
 import sys
 import subprocess
+import shutil
 
 BASE_DIR = os.path.dirname(os.path.realpath(sys.argv[0]))
 
+# 处理往期日志文件：glog.runlog.limitValue
 def delete_glog_limit():
     # delete glog
     glog_dir = os.path.join(BASE_DIR, "glog")
@@ -45,7 +47,23 @@ def delete_glog_limit():
                         err_file.write(error_info + '\n')
                 time.sleep(1)
                 continue
-            
+    
+    runlog_dir = os.path.join(BASE_DIR, "RunLog")
+    if not os.path.exists(runlog_dir):
+        os.makedirs(runlog_dir)
+    # 将limit文件夹下的文件移动到runlog文件夹下
+    runlog_outside = [f for f in os.listdir(limit_dir) if os.path.isfile(os.path.join(limit_dir, f)) and "RunLog" in f]
+    for runlog in runlog_outside:
+        try:
+            shutil.move(os.path.join(limit_dir, runlog), os.path.join(runlog_dir, runlog))
+        except Exception as e:
+            error_info = traceback.format_exc()
+            with open(os.path.join(BASE_DIR, "trading_monitor_error_log.txt"), "a+", encoding='utf-8') as err_file:
+                    err_file.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
+                    err_file.write(error_info + '\n')
+            time.sleep(1)
+            continue
+                
             
 
 def init_CTP(exe):
@@ -83,7 +101,7 @@ while True:
         morning = 1
         print("早盘开盘")
     # 早盘收盘 关闭程序 删除glog limit
-    if HMtime > '11:35:00' and HMtime < '13:20:00' and morning:
+    if HMtime > '11:35:00' and HMtime < '12:50:00' and morning:
         shutdown_CTP("CTPtest-test.exe")
         #等待20秒，解除对日志文件的读写 
         time.sleep(20)
@@ -97,7 +115,7 @@ while True:
         print("午盘开盘")
     # 午盘收盘 关闭程序 删除glog limit
     # 多等15秒吧
-    if HMtime > '15:00:15' and HMtime < '20:55:00' and afternoon:
+    if HMtime > '15:00:10' and HMtime < '20:55:00' and afternoon:
         init_CTP("CTPtest-GetPosAndTrd.exe")
         shutdown_CTP("CTPtest-test.exe")
         #等待60秒，解除对日志文件的读写 

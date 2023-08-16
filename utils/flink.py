@@ -230,8 +230,12 @@ def request_from_trading_to_market(config_file):
         mkt_dir = ftp_config["localUIDir"]
         for idx in range(len(trade_dir_list)):
             # 推送日志文件到行情端
+            # 确保本地目录存在
             market_trading_dir = os.path.join(mkt_dir, "tradings", account_list[idx])
             market_report_dir = os.path.join(mkt_dir, "report", account_list[idx])
+            if not os.path.exists(market_trading_dir) or os.path.exists(market_report_dir):
+                os.system("mkdir " + market_trading_dir)
+                os.system("mkdir " + market_report_dir)
             trade_trading_dir = os.path.join(trade_dir_list[idx], "tradings")
             trade_report_dir = os.path.join(trade_dir_list[idx], "report")
             # 获取交易服务器的日志listdir

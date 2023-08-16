@@ -90,7 +90,7 @@ def show_message_box(error_log):
     label.setText(html_table)
     layout.addWidget(label)
     dialog.setLayout(layout)
-    dialog.exec_()
+    return dialog
     
 # 持仓字典画饼图
 def stock_to_pie(data):
