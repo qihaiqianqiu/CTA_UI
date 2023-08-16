@@ -129,6 +129,10 @@ def get_contract_pair_rank(contract_pair: list):
     print(SQL)
     df = client.query_dataframe(SQL).sort_values('max_volume_', ascending=False)
     print(df)
+    # 异常处理：查询不到的话
+    if len(df) == 0:
+        first_contract = contract_pair[0]
+        second_contract = contract_pair[1]
     first_contract = df['contract'].tolist()[0]
     second_contract = df['contract'].tolist()[1]
     return [first_contract, second_contract]
