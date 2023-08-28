@@ -7,6 +7,7 @@ import sys
 import subprocess
 import shutil
 
+op_type = sys.platform
 BASE_DIR = os.path.dirname(os.path.realpath(sys.argv[0]))
 
 # 处理往期日志文件：glog.runlog.limitValue
@@ -66,11 +67,23 @@ def delete_glog_limit():
                 
             
 
-def init_CTP(exe):
-    subprocess.Popen(os.path.join(BASE_DIR, exe))
+def init_CTP(exe_type):
+    if op_type == "win32":
+        if exe_type == "TRADE":
+            subprocess.Popen(os.path.join(BASE_DIR, "CTPtest-test.exe"))
+        if exe_type == "GETPOS":
+            subprocess.Popen(os.path.join(BASE_DIR, "CTPtest-GetPosAndTrd.exe"))
+    if op_type == "linux":
+        if exe_type == "TRADE":
+            subprocess.Popen(os.path.join(BASE_DIR, "ctp-test"))
+        if exe_type == "GETPOS":
+            subprocess.Popen(os.path.join(BASE_DIR, "ctp-getposandtrd"))
 
-def shutdown_CTP(exe):
-    subprocess.call(["taskkill", "/F", "/IM", exe])
+def shutdown_CTP():
+    if op_type == "win32":
+        subprocess.call(["taskkill", "/F", "/IM", "CTPtest-test.exe"])
+    if op_type == "linux":
+        subprocess.call(["killall", "-9", "ctp-test"])
 
 
             
@@ -83,12 +96,12 @@ while True:
     HMtime = time.strftime("%H:%M:%S", time.localtime())
     # 夜盘开盘 启动程序
     if (HMtime > '20:59:54' or HMtime < '02:30:00') and not night:
-        init_CTP("CTPtest-test.exe")
+        init_CTP("TRADE")
         night = 1
         print("夜盘开盘")
     # 夜盘收盘 关闭程序 删除glog limit
     if HMtime > '02:35:00' and HMtime < '08:50:00' and night:
-        shutdown_CTP("CTPtest-test.exe")
+        shutdown_CTP()
         #等待20秒，解除对日志文件的读写 
         time.sleep(20)
         delete_glog_limit()
@@ -97,12 +110,12 @@ while True:
     # 早盘开盘 启动程序
     # 早盘特殊挂单时间 08:59:54
     if HMtime > '08:59:54' and HMtime < '11:30:00' and not morning:
-        init_CTP("CTPtest-test.exe")
+        init_CTP("TRADE")
         morning = 1
         print("早盘开盘")
     # 早盘收盘 关闭程序 删除glog limit
     if HMtime > '11:35:00' and HMtime < '12:50:00' and morning:
-        shutdown_CTP("CTPtest-test.exe")
+        shutdown_CTP()
         #等待20秒，解除对日志文件的读写 
         time.sleep(20)
         delete_glog_limit()
@@ -110,20 +123,19 @@ while True:
         print("早盘收盘")
     # 午盘开盘 启动程序
     if HMtime > '12:59:54' and HMtime < '15:00:00' and not afternoon:
-        init_CTP("CTPtest-test.exe")
+        init_CTP("TRADE")
         afternoon = 1
         print("午盘开盘")
     # 午盘收盘 关闭程序 删除glog limit
     # 多等15秒吧
     if HMtime > '15:00:10' and HMtime < '20:55:00' and afternoon:
-        init_CTP("CTPtest-GetPosAndTrd.exe")
-        shutdown_CTP("CTPtest-test.exe")
+        init_CTP("GETPOS")
+        shutdown_CTP()
         #等待60秒，解除对日志文件的读写 
         time.sleep(60)
         delete_glog_limit()
         afternoon = 0
         print("午盘收盘")
-        shutdown_CTP("CTPtest-GetPosAndTrd.exe")
     counter += 1
     if counter == 60:
         print("Current time:", HMtime)

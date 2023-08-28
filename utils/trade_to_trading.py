@@ -102,11 +102,15 @@ def parse(df):
             pairs += append_pairs
             dropped_single = pd.concat([dropped_single, dropped_df])
     if len(dropped_single) > 0:
+                            # 结构套
+        """
         long = dropped_single[dropped_single['deal'] > 0]
         short = dropped_single[dropped_single['deal'] < 0]
+
         long_volume = long['deal'].sum()
         short_volume = short['deal'].sum()
         print("异常多空为{}、{}".format(long, short))
+
         if min(long_volume, abs(short_volume)) == 0:
             ratio = 0
         else:
@@ -117,8 +121,7 @@ def parse(df):
             else:
                 decimal_part = decimal_value - int(decimal_value)  # 提取小数部分
                 return decimal_part == 0
-        # 结构套
-        """
+        
         if is_decimal_convertible_to_integer(ratio):
             # 多空腿直接撮合
             for i in range(len(long)):
@@ -151,8 +154,14 @@ def parse(df):
 
 
 def match(df, buffer, param):
-    # print(df)
+    df = df[df['deal'] != 0]
+    print("df before match:", df)
+    if len(df) == 0:
+        # 出现在【多次】平对锁/平瘸腿后合成交易记录中
+        return pd.DataFrame(), buffer
+    
     if len(df) == 2:
+        print("in branch1")
         near = df[df['deal'] > 0]['code'].values[0]
         forward = df[df['deal'] < 0]['code'].values[0]
         # 根据Param中的套利对决定near, forward的归属
@@ -172,9 +181,11 @@ def match(df, buffer, param):
         num = abs(df['deal'].iloc[0])
         price = df[df['code'] == near]['price'].values[0] - df[df['code'] == forward]['price'].values[0]
         data = pd.DataFrame({"套利对":[pair], "交易时间":time, "操作":operation, "价格":price, "手数":num})
-        return data, buffer
+        return data, buffer 
+            
     
     else:
+        print("in branch2")
         long = df[df['deal'] > 0].iloc[0:1]
         near = long['code']
         short = df[df['deal'] < 0].iloc[0:1]
@@ -188,9 +199,9 @@ def match(df, buffer, param):
         # modify orignal DF
         df.loc[long.index, 'deal'] -= volume
         df.loc[short.index, 'deal'] += volume
-        df = df[df['deal'] != 0]
         return match(df, buffer, param)
-        
+    
+       
 
 def fix_trade_record(acc_name):
     param_df = get_param_pairs(acc_name)

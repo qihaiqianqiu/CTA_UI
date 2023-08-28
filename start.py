@@ -321,7 +321,7 @@ class Arbitrator(QMainWindow):
             current_time = time.strftime("%H:%M", time.localtime())
             print("当前时间：", current_time)
             if not if_quest:
-                if current_time > "15:02": 
+                if current_time > "15:02" and current_time < "15:05": 
                     try:
                         # 勾选全部账户
                         for i in range(self.table.rowCount()):

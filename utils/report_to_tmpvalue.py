@@ -66,6 +66,7 @@ def to_tmpvalue(acc_name):
                 if len(params[1][params[1]['flag']==True]) > 0:
                     flag = True
                 counter = 0
+                cycle_pairs = []
                 print("当前遍历品种：" + holding[0])
                 # 每次更新params中对应套利对形成的填充表
                 filling_table = params[1]
@@ -85,22 +86,25 @@ def to_tmpvalue(acc_name):
 
                 while True:
                     # 统计params中的品种来计算diff
+                    # 尝试使用loc优化计算速度
+                    print("填充表：")
                     print(filling_table)
-                    part_1 = filling_table[['code1', 'code1_vol']].groupby('code1',as_index=False).aggregate({"code1":"first", "code1_vol":"sum"})
-                    part_2 = filling_table[['code2', 'code2_vol']].groupby('code2',as_index=False).aggregate({"code2":"first", "code2_vol":"sum"})             
+                    part_1 = filling_table.loc[:,('code1', 'code1_vol')].groupby('code1',as_index=False).aggregate({"code1":"first", "code1_vol":"sum"})
+                    part_2 = filling_table.loc[:,('code2', 'code2_vol')].groupby('code2',as_index=False).aggregate({"code2":"first", "code2_vol":"sum"})             
                     current_holding = pd.merge(left=part_1, right=part_2, left_on='code1', right_on='code2', how='outer')
-                    current_holding[['code1_vol', 'code2_vol']] = current_holding[['code1_vol', 'code2_vol']].fillna(0)
-                    current_holding[['code1', 'code2'] ] = current_holding[['code1', 'code2']].fillna(method='bfill',axis=1).fillna(method='ffill',axis=1)
+                    current_holding.loc[:,('code1_vol', 'code2_vol')] = current_holding.loc[:,('code1_vol', 'code2_vol')].fillna(0)
+                    current_holding.loc[:,('code1', 'code2')] = current_holding.loc[:,('code1', 'code2')].fillna(method='bfill',axis=1).fillna(method='ffill',axis=1)
                     current_holding['vol'] = current_holding['code1_vol'] + current_holding['code2_vol']
                     current_holding = current_holding[['code1', 'vol']]
                     current_holding.columns = ['code', 'vol']
-                    print("---")
+                    print("已填充仓位：")
                     print(current_holding)
                     # 根据diff的值做变换
                     diff = pd.merge(left=target, right=current_holding, on='code', how='outer')
-                    diff[['current', 'vol']] = diff[['current', 'vol']].fillna(0)
+                    diff.loc[:,('current', 'vol')] = diff.loc[:,('current', 'vol')].fillna(0)
                     diff['delta'] = diff['current'] - diff['vol']
                     diff = diff[diff['delta']!=0].sort_values('code')
+                    print("仓差：")
                     print(diff)
 
                     if counter >= 30:
@@ -122,16 +126,36 @@ def to_tmpvalue(acc_name):
                     if len(diff) == 0:
                         tmpvalue_df = pd.concat([tmpvalue_df, filling_table[['pairs_id','code1_vol']]])
                         break
-
+                    # 判断此时的target和上一次是否重合，如果重合则说明进入死循环
                     target_code = diff.iloc[0]['code']
+                    if counter >= 2:
+                        if target_code == code_before_previous:
+                            # 出现死循环,在以后的计算中不再考虑循环结的套利对
+                            if target_code in set(filling_table['code1'].values):
+                                cycle_pair = filling_table[filling_table['code1'] == target_code].iloc[0]['pairs_id']
+                            elif target_code in set(filling_table['code2'].values):
+                                cycle_pair = filling_table[filling_table['code2'] == target_code].iloc[0]['pairs_id']
+                            # 锁定导致死循环的套利对 - 这个套利对实际上已经完全填充完毕，不应该再对其进行修改
+                            if cycle_pair not in cycle_pairs:
+                                cycle_pairs.append(cycle_pair)
+                            print("死循环：", cycle_pair)                 
                     delta_vol = diff.iloc[0]['delta']
+                    if counter >= 1:
+                        code_before_previous = previous_code
+                    previous_code = target_code
                     # 根据code在参数表中的位置修改值
-                    if target_code in set(filling_table['code1'].values):
-                        filling_table['code1_vol'].loc[filling_table[filling_table['code1'] == target_code].iloc[0]['index']] += delta_vol
-                        filling_table['code2_vol'].loc[filling_table[filling_table['code1'] == target_code].iloc[0]['index']] -= delta_vol
-                    elif target_code in set(filling_table['code2'].values):
-                        filling_table['code2_vol'].loc[filling_table[filling_table['code2'] == target_code].iloc[0]['index']] += delta_vol
-                        filling_table['code1_vol'].loc[filling_table[filling_table['code2'] == target_code].iloc[0]['index']] -= delta_vol
+                    # SettingWithCopy Warning
+                    print("checkpoint_filling_table:")
+                    excluded_table = filling_table.loc[~filling_table['pairs_id'].isin(cycle_pairs)]
+                    print(excluded_table)
+                    print("checkpoint_cycle_pairs:")
+                    print(cycle_pairs)
+                    if target_code in set(excluded_table['code1'].values):
+                        filling_table.loc[excluded_table[excluded_table['code1'] == target_code].iloc[0]['index'], 'code1_vol'] += delta_vol
+                        filling_table.loc[excluded_table[excluded_table['code1'] == target_code].iloc[0]['index'], 'code2_vol'] -= delta_vol
+                    elif target_code in set(excluded_table['code2'].values):
+                        filling_table.loc[excluded_table[excluded_table['code2'] == target_code].iloc[0]['index'], 'code2_vol'] += delta_vol
+                        filling_table.loc[excluded_table[excluded_table['code2'] == target_code].iloc[0]['index'], 'code1_vol'] -= delta_vol
                     else:
                         # 写异常日志
                         log = "未包含在参数表中的合约_3：\n"
@@ -139,7 +163,9 @@ def to_tmpvalue(acc_name):
                         legging.append(log)
                         diff = diff[diff['code'] != target_code]
                         target = target[target['code'] != target_code]
+                        
                     counter += 1
+                    
                 # 触发唯一性问题
                 flag = False
                 if flag:

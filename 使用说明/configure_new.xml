@@ -1,0 +1,27 @@
+<root>
+                <MaxOpenPosition desc="最大开仓量" value="500000"/>
+                <MaxClosePosition desc="最大平仓量" value="500000"/>
+                <MaxStepOpenPosition desc="最大单次开仓量" value="6"/>
+                <MaxStepClosePosition desc="最大单次平仓量" value="6"/>
+                <HandleThreadNum desc="处理线程数" value="1"/>
+	<BrokerID desc="经纪商代码" value="6666"/>
+	<InvesterID desc="投资者账户名" value="66680063"/>
+	<InvesterPassword desc="投资者密码" value="cf785367"/>
+	<AuthCode desc="认证码" value="NII5ZLSN14H9XDQN"/>
+	<AppID desc="唯一标识码" value="client_cocta_1.0"/>
+	<MdFrontAddr desc="行情前置地址" value="tcp://180.166.103.37:51218"/>
+	<TradeFrontAddr desc="交易前置地址" value="tcp://180.166.103.37:51215"/>
+                <PauseTradeSec desc="休市N秒前中止交易" value="120"/>
+                <MaxOverNum desc="单品种额外下单笔数" value="40"/>
+               <MaxRiskRate desc="最大风险率10000倍" value="3800"/>
+               <MaxAfterOrderNum desc="最大撤补次数" value="40"/>
+               <LastKindLongPosition desc="品种多头最后N手" value="4"/>
+               <LastKindLongTradeVolume desc="品种多头成交最后N手" value="3"/>
+               <ParamsResetMilliSeconds desc="Params文件重加载间隔ms" value="5000"/>
+               <FinialCheckMilliSeconds desc="组合瘸腿重加载间隔ms" value="60000"/>
+               <LimitPriceRate desc="涨跌停限价比例(万分之一)" value="100"/>
+               <SPAdvanceTime1 desc="SP早盘提前下单时间 HHMMSS" value="83000"/>
+               <SPAdvanceTime2 desc="SP夜盘提前下单时间 HHMMSS" value="203000"/>
+</root>
+
+
