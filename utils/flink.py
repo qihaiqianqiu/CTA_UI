@@ -5,6 +5,7 @@ import os
 import datetime
 from utils.const import ROOT_PATH
 from utils.path_exp_switch import windows_to_linux
+import sys
 
 __all__ = ["set_up_ssh_reverse_tunnel", "pull_from_market_to_trading", "request_from_market_to_cloud", "request_from_trading_to_market", "pull_from_UI_to_cloud", "pull_from_UI_to_market", "pull_from_market_to_cloud", "request_from_cloud_to_UI"]
 
@@ -132,6 +133,7 @@ def request_from_cloud_to_UI(config):
     
     for acc in account_list:
         # 首先建立对应目录
+        param_file_dir = os.path.join(UI_dir, "params", acc)
         report_file_dir = os.path.join(UI_dir, "report", acc)
         if not os.path.exists(report_file_dir):
             os.mkdir(report_file_dir)
@@ -142,6 +144,8 @@ def request_from_cloud_to_UI(config):
         # 获取云服务器的日志listdir
         res = ssh.cmd("ls " + dest_acc_dir)
         output = res.decode("GBK").splitlines()
+        param_files = [re.search(r'params_\d{8}\.csv', f).group() for f in output if re.search(r'params_\d{8}\.csv', f)]
+        param_file = windows_to_linux(os.path.join(dest_acc_dir, max(param_files)))
         trading_files = [re.search(r'trading_\d{6}\.csv', f).group() for f in output if re.search(r'trading_\d{6}\.csv', f)]
         trading_file = windows_to_linux(os.path.join(dest_acc_dir, max(trading_files)))
         holding_files = [re.search(r'holding_\d{6}\.csv', f).group() for f in output if re.search(r'holding_\d{6}\.csv', f)]
@@ -154,15 +158,12 @@ def request_from_cloud_to_UI(config):
         log_info.insert(0, acc)
         log_info.insert(1, "Cloud -> UI")
         log.append(log_info)
+        log_info = ssh.download(param_file, os.path.join(param_file_dir, max(param_files)))
+        log_info.insert(0, acc)
+        log_info.insert(1, "Cloud -> UI")
     ssh.close()
     return log
-"""
-Relevant Terminal
-SSH_reverse_tunnel = "ssh -R 9876:localhost:22 root@39.97.106.35"
 
-rsync_example = "rsync -avPz --port 8730 --password-file=/cygdrive/C/Users/Han.Hao/AppData/Local/cwrsync/bin/cta_password.txt root@39.97.106.35::cta/ /cygdrive/C/Users/Han.Hao/test"
-# "rsync_pwd_path" & "rsync dest path"
-"""
 # 以下部署在行情服务器上 CTA目录下【同步自云服务器】
 # 行情服务器的方法挂载在后台实时运行
 # 获取根目录下的所有config并推送参数表
@@ -221,10 +222,53 @@ def request_from_trading_to_market(config_file):
     ssh = sftp.SSHConnection(host=trade_server_para['host'], port=trade_server_para['port'],
                              username=trade_server_para['username'], pwd=trade_server_para['pwd'])
     ssh.connect()
+    # 判断系统类型
+    op_judge = ssh.cmd("uname")
+    output = op_judge.decode("GBK").splitlines()
+    if 'Linux' in output:
+        op_type = 'Linux'
+    else:
+        op_type = 'Windows32'
+
     # 日志文件推送
     trade_dir_list = ftp_config["tradeDirList"]
     account_list = ftp_config["accountList"]
     log = []
+    for idx in range(len(trade_dir_list)):
+        # 获取日志（交易、持仓）文件路径
+        if op_type == "Windows32":
+            trade_trading_dir = os.path.join(trade_dir_list[idx], "tradings")
+            trade_report_dir = os.path.join(trade_dir_list[idx], "report")
+            params_dir = os.path.join(trade_dir_list[idx], "params.csv")
+        if op_type == "Linux":
+            trade_trading_dir = windows_to_linux(os.path.join(trade_dir_list[idx], "tradings"))
+            trade_report_dir = windows_to_linux(os.path.join(trade_dir_list[idx], "report"))
+            params_dir = windows_to_linux(os.path.join(trade_dir_list[idx], "params.csv"))
+        # 获取交易服务器的日志listdir
+        if op_type == "Windows32":
+            res = ssh.cmd("dir " + trade_trading_dir)
+        if op_type == "Linux":
+            res = ssh.cmd("ls + " + trade_trading_dir)
+        output = res.decode("GBK").splitlines()
+
+        trading_files = [re.search(r'trading_\d{6}\.csv', f).group() for f in output if re.search(r'trading_\d{6}\.csv', f)]
+        print("交易记录列表")
+        print(trading_files)     
+        if op_type == "Windows32":
+            trading_file = os.path.join(trade_trading_dir, max(trading_files))
+            res = ssh.cmd("dir " + trade_report_dir)
+        if op_type == "Linux":
+            trading_file = windows_to_linux(os.path.join(trade_trading_dir, max(trading_files)))
+            res = ssh.cmd("ls " + windows_to_linux(trade_report_dir))
+        output = res.decode("GBK").splitlines()
+        holding_files = [re.search(r'holding_\d{6}\.csv', f).group() for f in output if re.search(r'holding_\d{6}\.csv', f)] 
+        print("持仓记录列表")
+        print(holding_files)   
+        if op_type == "Windows32":
+            holding_file = os.path.join(trade_report_dir, max(holding_files))
+        if op_type == "Linux":
+            holding_file = windows_to_linux(os.path.join(trade_report_dir, max(holding_files)))     
+               
     if ftp_config["marketServer"]["host"] == "localhost":
         # 本地行情服务器
         mkt_dir = ftp_config["localUIDir"]
@@ -236,25 +280,21 @@ def request_from_trading_to_market(config_file):
             if not os.path.exists(market_trading_dir) or os.path.exists(market_report_dir):
                 os.system("mkdir " + market_trading_dir)
                 os.system("mkdir " + market_report_dir)
-            trade_trading_dir = os.path.join(trade_dir_list[idx], "tradings")
-            trade_report_dir = os.path.join(trade_dir_list[idx], "report")
-            # 获取交易服务器的日志listdir
-            res = ssh.cmd("dir " + trade_trading_dir)
-            output = res.decode("GBK").splitlines()
-            trading_files = [re.search(r'trading_\d{6}\.csv', f).group() for f in output if re.search(r'trading_\d{6}\.csv', f)]
-            trading_file = os.path.join(trade_trading_dir, max(trading_files))
-            res = ssh.cmd("dir " + trade_report_dir)
-            output = res.decode("GBK").splitlines()
-            holding_files = [re.search(r'holding_\d{6}\.csv', f).group() for f in output if re.search(r'holding_\d{6}\.csv', f)]
-            holding_file = os.path.join(trade_report_dir, max(holding_files))
             print("从交易端获取交易日志文件", trading_file, "下载至行情端", os.path.join(market_trading_dir, max(trading_files)))
             log_info = ssh.download(trading_file, os.path.join(market_trading_dir, max(trading_files)))
             log_info.insert(0, account_list[idx])
             log_info.insert(1, "Trading -> UI")
             log.append(log_info)
             print("交易服务器日志文件成功下载至行情端", os.path.join(mkt_dir, trading_file))
+            
             print("从交易端获取交易日志文件", holding_file, "下载至行情端", os.path.join(market_report_dir, max(holding_files)))
             log_info = ssh.download(holding_file, os.path.join(market_report_dir, max(holding_files)))
+            log_info.insert(0, account_list[idx])
+            log_info.insert(1, "Trading -> UI")
+            log.append(log_info)
+            
+            dt_stamp = datetime.datetime.now().strftime('%Y%m%d')
+            log_info = ssh.download(params_dir, os.path.join(mkt_dir, "params", account_list[idx], "params" + "_" + dt_stamp + '.csv'))
             log_info.insert(0, account_list[idx])
             log_info.insert(1, "Trading -> UI")
             log.append(log_info)
@@ -267,17 +307,6 @@ def request_from_trading_to_market(config_file):
             ssh.cmd("mkdir " + trade_dir_list[idx])
             # 推送日志文件到行情端
             market_dir = os.path.join(mkt_dir, username, account_list[idx])
-            trade_trading_dir = os.path.join(trade_dir_list[idx], "tradings")
-            trade_report_dir = os.path.join(trade_dir_list[idx], "report")
-            # 获取交易服务器的日志listdir
-            res = ssh.cmd("dir " + trade_trading_dir)
-            output = res.decode("GBK").splitlines()
-            trading_files = [re.search(r'trading_\d{6}\.csv', f).group() for f in output if re.search(r'trading_\d{6}\.csv', f)]
-            trading_file = os.path.join(trade_trading_dir, max(trading_files))
-            res = ssh.cmd("dir " + trade_report_dir)
-            output = res.decode("GBK").splitlines()
-            holding_files = [re.search(r'holding_\d{6}\.csv', f).group() for f in output if re.search(r'holding_\d{6}\.csv', f)]
-            holding_file = os.path.join(trade_report_dir, max(holding_files))
             print("从交易端获取交易日志文件", trading_file, "下载至行情端", market_dir)
             log_info = ssh.download(trading_file, os.path.join(market_dir, max(trading_files)))
             log_info.insert(0, account_list[idx])
@@ -290,8 +319,17 @@ def request_from_trading_to_market(config_file):
             log_info.insert(1, "Trading -> Market")
             log.append(log_info)
             print("交易服务器日志文件成功下载至行情端", os.path.join(market_dir, holding_file))
+            print("从交易端获取参数表下载至行情端")
+            dt_stamp = datetime.datetime.now().strftime('%Y%m%d')
+            log_info = ssh.download(params_dir, os.path.join(market_dir, "params" + "_" + dt_stamp + '.csv'))
+            log_info.insert(0, account_list[idx])
+            log_info.insert(1, "Trading -> Market")
+            log.append(log_info)
+            print("成功下载参数表")
+            
     ssh.close()
     return log
+
     
 def request_from_market_to_cloud(config_file):
     """行情服务器从云服务器获取最新的参数表与链路信息"""
@@ -345,6 +383,8 @@ def pull_from_market_to_cloud(config_file, file):
                 file_dir = os.path.join(mkt_dir, "report", acc, file)
             if "trading" in file:
                 file_dir = os.path.join(mkt_dir, "tradings", acc, file)
+            if "params" in file:
+                file_dir = os.path.join(mkt_dir, "params", acc, file)
             dest_acc_dir = os.path.join(dest_user_dir, acc)
             ssh.cmd("mkdir -p " + windows_to_linux(dest_acc_dir))
             # 上传交易日志文件,包括持仓和交易记录

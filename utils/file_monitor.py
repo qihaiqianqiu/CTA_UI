@@ -130,7 +130,7 @@ class fileMonitor(FileSystemEventHandler):
             file_name = os.path.basename(file_path)
             acc = os.path.basename(os.path.dirname(file_path))
             try:
-                if re.search(r'holding_\d{6}\.csv', file_name) or re.search(r'trading_\d{6}\.csv', file_name):
+                if re.search(r'holding_\d{6}\.csv', file_name) or re.search(r'trading_\d{6}\.csv', file_name) or re.search(r'params_\d{8}\.csv', file_name):
                     print("文件为交易日志文件" + file_name + "转发到云服务器")
                     # 找到其所属账户 
                     for config in self.config_files:
@@ -224,7 +224,7 @@ class fileMonitor(FileSystemEventHandler):
             current_time = time.strftime("%H:%M", time.localtime())
             print("当前时间：", current_time)
             if not if_quest:
-                if current_time > "15:01" and current_time < "15:05": 
+                if current_time > "14:57" and current_time < "15:05": 
                     try:
                         for config in self.config_files:
                             print("@processing", config)

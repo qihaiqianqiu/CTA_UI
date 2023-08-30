@@ -74,9 +74,11 @@ def get_db_contract_pair():
     df = client.query_dataframe(SQL).sort_values('contract')
     contract_pair_dict = {}
     for breed_class in df.groupby('breed'):
+        print("Start to get contract pair of", breed_class[0])
         contract_pair_lst = []
         contract_lst = breed_class[1]['contract'].tolist()
         contract_pair_lst += [[contract_lst[i], contract_lst[i+1]] for i in range(len(contract_lst)-1)]
+        print(contract_pair_lst)
         contract_pair_dict[breed_class[0]] = contract_pair_lst
     return contract_pair_dict
 
@@ -145,5 +147,7 @@ def get_sp_instruction():
 if __name__ == "__main__":
     #print(check_vaild_month())
     #print(get_contract_pair_rank(['IH2309', 'IH2312']))
-    #print(get_db_contract_pair())
-    print(get_param_contract_pair_with_volume())
+    print(get_db_contract_pair())
+    #print(get_param_contract_pair_with_volume())
+    
+    

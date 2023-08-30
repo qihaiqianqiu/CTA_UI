@@ -12,7 +12,6 @@ mpl.rcParams['axes.unicode_minus'] = False
 from scipy.stats import norm
 import matplotlib.dates as mdate
 import datetime as dt
-from time import *
 import time
 from utils.rename import rename
 from utils.const import client, BOUNDARY_PATH, trade_day, boundary_dict
@@ -21,7 +20,6 @@ from utils.get_contract_pair import get_exchange_on
 __all__ = ["predict_info", "get_pairwise_data"]
 # Get data from start_date[MorningMarket] to end_date[EveningMarket]
 def get_pairwise_data(contract_pair:list, start_date:int, end_date:int):
-    import time
     start = time.time()
     select_clause = 'SELECT contract, trading_date, time, ap1, av1, bp1, bv1, volume from ctp_future_tick '
     where_clause = 'WHERE contract in ' + str(tuple(contract_pair)) + ' and trading_date >= '+ str(start_date) + ' and trading_date <= ' + str(end_date)

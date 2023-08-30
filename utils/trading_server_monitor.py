@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 import heapq
 import time
@@ -73,16 +74,18 @@ def init_CTP(exe_type):
             subprocess.Popen(os.path.join(BASE_DIR, "CTPtest-test.exe"))
         if exe_type == "GETPOS":
             subprocess.Popen(os.path.join(BASE_DIR, "CTPtest-GetPosAndTrd.exe"))
-    if op_type == "linux":
+    else:
         if exe_type == "TRADE":
+            print("Start Init Linux tradinghost:", os.path.join(BASE_DIR, "ctp-test"))
             subprocess.Popen(os.path.join(BASE_DIR, "ctp-test"))
+            print("Init Linux tradinghost success:", os.path.join(BASE_DIR, "ctp-test"))
         if exe_type == "GETPOS":
             subprocess.Popen(os.path.join(BASE_DIR, "ctp-getposandtrd"))
 
 def shutdown_CTP():
     if op_type == "win32":
         subprocess.call(["taskkill", "/F", "/IM", "CTPtest-test.exe"])
-    if op_type == "linux":
+    else:
         subprocess.call(["killall", "-9", "ctp-test"])
 
 
@@ -91,6 +94,7 @@ def shutdown_CTP():
 night = 0
 morning = 0
 afternoon = 0
+afternoon_pre = 0
 counter = 0
 while True:
     HMtime = time.strftime("%H:%M:%S", time.localtime())
@@ -109,7 +113,7 @@ while True:
         print("夜盘收盘")
     # 早盘开盘 启动程序
     # 早盘特殊挂单时间 08:59:54
-    if HMtime > '08:59:54' and HMtime < '11:30:00' and not morning:
+    if HMtime > '08:59:59' and HMtime < '11:30:00' and not morning:
         init_CTP("TRADE")
         morning = 1
         print("早盘开盘")
@@ -125,11 +129,18 @@ while True:
     if HMtime > '12:59:54' and HMtime < '15:00:00' and not afternoon:
         init_CTP("TRADE")
         afternoon = 1
+        afternoon_pre = 1
         print("午盘开盘")
     # 午盘收盘 关闭程序 删除glog limit
+    # 先取交易记录
+    if HMtime > '14:55:00' and HMtime < '14:59:59' and afternoon_pre:
+        init_CTP("GETPOS")
+        print("获取交易记录")
+        afternoon_pre = 0
     # 多等15秒吧
     if HMtime > '15:00:10' and HMtime < '20:55:00' and afternoon:
         init_CTP("GETPOS")
+        print("获取交易记录")
         shutdown_CTP()
         #等待60秒，解除对日志文件的读写 
         time.sleep(60)

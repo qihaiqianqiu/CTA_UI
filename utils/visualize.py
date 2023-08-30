@@ -35,8 +35,6 @@ mpl.rcParams.update({
 })
 from tabulate import tabulate
 from multiprocessing import Pool
-from itertools import product
-from multiprocessing import Process
 from utils.const import trade_day, PLOT_PATH
 from utils.rename import rename, rename_db_to_param
 from utils.get_contract_pair import get_db_contract_pair
