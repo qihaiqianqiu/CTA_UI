@@ -161,6 +161,7 @@ def request_from_cloud_to_UI(config):
         log_info = ssh.download(param_file, os.path.join(param_file_dir, max(param_files)))
         log_info.insert(0, acc)
         log_info.insert(1, "Cloud -> UI")
+        log.append(log_info)
     ssh.close()
     return log
 

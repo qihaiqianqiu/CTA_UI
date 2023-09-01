@@ -96,13 +96,17 @@ morning = 0
 afternoon = 0
 afternoon_pre = 0
 counter = 0
+
+f = open("monitor_log.txt", "a+", encoding="utf-8")
+         
 while True:
     HMtime = time.strftime("%H:%M:%S", time.localtime())
     # 夜盘开盘 启动程序
-    if (HMtime > '20:59:54' or HMtime < '02:30:00') and not night:
+    if (HMtime > '20:59:59' or HMtime < '02:30:00') and not night:
         init_CTP("TRADE")
         night = 1
         print("夜盘开盘")
+        f.write(str(HMtime) + ": Night trading start\n")
     # 夜盘收盘 关闭程序 删除glog limit
     if HMtime > '02:35:00' and HMtime < '08:50:00' and night:
         shutdown_CTP()
@@ -111,12 +115,14 @@ while True:
         delete_glog_limit()
         night = 0
         print("夜盘收盘")
+        f.write(str(HMtime) + ": Night trading end\n")
     # 早盘开盘 启动程序
     # 早盘特殊挂单时间 08:59:54
     if HMtime > '08:59:59' and HMtime < '11:30:00' and not morning:
         init_CTP("TRADE")
         morning = 1
         print("早盘开盘")
+        f.write(str(HMtime) + ": Morning trading start\n")
     # 早盘收盘 关闭程序 删除glog limit
     if HMtime > '11:35:00' and HMtime < '12:50:00' and morning:
         shutdown_CTP()
@@ -125,23 +131,27 @@ while True:
         delete_glog_limit()
         morning = 0
         print("早盘收盘")
+        f.write(str(HMtime) + ": Morning trading end\n")
     # 午盘开盘 启动程序
     if HMtime > '12:59:54' and HMtime < '15:00:00' and not afternoon:
         init_CTP("TRADE")
         afternoon = 1
         afternoon_pre = 1
         print("午盘开盘")
+        f.write(str(HMtime) + ": Afternoon trading start\n")
     # 午盘收盘 关闭程序 删除glog limit
     # 先取交易记录
     if HMtime > '14:55:00' and HMtime < '14:59:59' and afternoon_pre:
         init_CTP("GETPOS")
         print("获取交易记录")
         afternoon_pre = 0
+        f.write(str(HMtime) + ": Get PosAndTrading in advance\n")
     # 多等15秒吧
     if HMtime > '15:00:10' and HMtime < '20:55:00' and afternoon:
         init_CTP("GETPOS")
         print("获取交易记录")
         shutdown_CTP()
+        f.write(str(HMtime) + ": Afternoon trading end\n")
         #等待60秒，解除对日志文件的读写 
         time.sleep(60)
         delete_glog_limit()
@@ -152,6 +162,7 @@ while True:
         print("Current time:", HMtime)
         print("交易服务器监听中...")
         counter = 0
+        f.write(str(HMtime) + ": reset monitor\n")
     time.sleep(1)
 
     

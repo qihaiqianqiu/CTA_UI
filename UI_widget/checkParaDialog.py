@@ -28,6 +28,9 @@ class checkParaDialog(QDialog):
                 flag = candidate_pairs[candidate_pairs['contract_pair']==contract_pair]['flag'].tolist()[0]
                 lost_pair = pd.concat([lost_pair, pd.DataFrame({'warehouse_recipt': flag, 'volume': vol}, index=[contract_pair])])
         lost_pair = lost_pair.sort_values(by=['warehouse_recipt', 'volume'], ascending=False)
+        lost_pair_true = lost_pair[lost_pair['warehouse_recipt'] == True].sort_index()
+        lost_pair_false = lost_pair[lost_pair['warehouse_recipt'] == False].sort_index()
+        lost_pair = pd.concat([lost_pair_true, lost_pair_false])
         
         self.model = pandasModel(lost_pair)
         self.view = TableView(self.model)
