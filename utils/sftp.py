@@ -33,7 +33,7 @@ class SSHConnection(object):
             sftp.put(local_path, target_path)
             log = [local_path, target_path, "\u221A"]
         except Exception as e:
-            log = [local_path, target_path, type(e).__name__ + ":" + str(e)]
+            log = [local_path, target_path, type(e).__name__ + ":" + str(traceback.format_exc())]
             with open(os.path.join(ROOT_PATH, "error_log.txt"), 'a+') as f:
                 f.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
                 f.write(str(traceback.format_exc()) + "\n")   
@@ -46,7 +46,7 @@ class SSHConnection(object):
             sftp.get(remote_path,local_path)
             log = [remote_path, local_path, "\u221A"]
         except Exception as e:
-            log = [remote_path, local_path, type(e).__name__ + ":" + str(e)]
+            log = [remote_path, local_path, type(e).__name__ + ":" + str(traceback.format_exc())]
             with open(os.path.join(ROOT_PATH, "error_log.txt"), 'a+') as f:
                 f.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
                 f.write(str(traceback.format_exc()) + "\n")   

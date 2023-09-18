@@ -11,6 +11,8 @@ import shutil
 op_type = sys.platform
 BASE_DIR = os.path.dirname(os.path.realpath(sys.argv[0]))
 
+f = open("monitor_log.txt", "a+", encoding="utf-8")
+
 # 处理往期日志文件：glog.runlog.limitValue
 def delete_glog_limit():
     # delete glog
@@ -69,25 +71,36 @@ def delete_glog_limit():
             
 
 def init_CTP(exe_type):
-    if op_type == "win32":
-        if exe_type == "TRADE":
-            subprocess.Popen(os.path.join(BASE_DIR, "CTPtest-test.exe"))
-        if exe_type == "GETPOS":
-            subprocess.Popen(os.path.join(BASE_DIR, "CTPtest-GetPosAndTrd.exe"))
-    else:
-        if exe_type == "TRADE":
-            print("Start Init Linux tradinghost:", os.path.join(BASE_DIR, "ctp-test"))
-            subprocess.Popen(os.path.join(BASE_DIR, "ctp-test"))
-            print("Init Linux tradinghost success:", os.path.join(BASE_DIR, "ctp-test"))
-        if exe_type == "GETPOS":
-            subprocess.Popen(os.path.join(BASE_DIR, "ctp-getposandtrd"))
+    try:
+        if op_type == "win32":
+            if exe_type == "TRADE":
+                subprocess.Popen(os.path.join(BASE_DIR, "CTPtest-test.exe"))
+            if exe_type == "GETPOS":
+                subprocess.Popen(os.path.join(BASE_DIR, "CTPtest-GetPosAndTrd.exe"))
+        else:
+            if exe_type == "TRADE":
+                print("Start Init Linux tradinghost:", os.path.join(BASE_DIR, "ctp-test"))
+                subprocess.Popen(os.path.join(BASE_DIR, "ctp-test"))
+                print("Init Linux tradinghost success:", os.path.join(BASE_DIR, "ctp-test"))
+            if exe_type == "GETPOS":
+                subprocess.Popen(os.path.join(BASE_DIR, "ctp-getposandtrd"))
+    except Exception as e:
+        error_info = traceback.format_exc()
+        with open(os.path.join(BASE_DIR, "trading_monitor_error_log.txt"), "a+", encoding='utf-8') as err_file:
+                err_file.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
+                err_file.write(error_info + '\n')
 
 def shutdown_CTP():
-    if op_type == "win32":
-        subprocess.call(["taskkill", "/F", "/IM", "CTPtest-test.exe"])
-    else:
-        subprocess.call(["killall", "-9", "ctp-test"])
-
+    try:
+        if op_type == "win32":
+            subprocess.call(["taskkill", "/F", "/IM", "CTPtest-test.exe"])
+        else:
+            subprocess.call(["killall", "-9", "ctp-test"])
+    except Exception as e:
+        error_info = traceback.format_exc()
+        with open(os.path.join(BASE_DIR, "trading_monitor_error_log.txt"), "a+", encoding='utf-8') as err_file:
+                err_file.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
+                err_file.write(error_info + '\n')
 
             
 
@@ -97,7 +110,6 @@ afternoon = 0
 afternoon_pre = 0
 counter = 0
 
-f = open("monitor_log.txt", "a+", encoding="utf-8")
          
 while True:
     HMtime = time.strftime("%H:%M:%S", time.localtime())

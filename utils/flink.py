@@ -74,18 +74,37 @@ def pull_from_UI_to_market(config_file):
         ssh = sftp.SSHConnection(host=trade_server_para['host'], port=trade_server_para['port'],
                              username=trade_server_para['username'], pwd=trade_server_para['pwd'])
         ssh.connect()
+        op_judge = ssh.cmd("uname")
+        output = op_judge.decode("GBK").splitlines()
+        if 'Linux' in output:
+            op_type = 'Linux'
+        else:
+            op_type = 'Windows32'
         for idx in range(len(trade_dir_list)):
-            # 首先，保证交易服务器端建立相应的存储目录
-            ssh.cmd("mkdir " + trade_dir_list[idx])
-            dest_acc_dir = trade_dir_list[idx]
-            acc = account_list[idx]
-            ssh.cmd("mkdir " + dest_acc_dir)
+            if op_type == 'Windows32':
+                # 首先，保证交易服务器端建立相应的存储目录
+                ssh.cmd("mkdir " + trade_dir_list[idx])
+                dest_acc_dir = trade_dir_list[idx]
+                acc = account_list[idx]
+                ssh.cmd("mkdir " + dest_acc_dir)
+                param_dir = os.path.join(ROOT_PATH, "params", acc, "params.csv")
+            if op_type == 'Linux':    
+                ssh.cmd("mkdir -p " + windows_to_linux(trade_dir_list[idx]))
+                dest_acc_dir = trade_dir_list[idx]
+                acc = account_list[idx]
+                ssh.cmd("mkdir -p " + windows_to_linux(dest_acc_dir))
+                param_dir = os.path.join(ROOT_PATH, "params", acc, "params.csv")
             # 上传参数表, 链路配置表
-            param_dir = os.path.join(ROOT_PATH, "params", acc, "params.csv")
-            log_info = ssh.upload(param_dir, os.path.join(dest_acc_dir, "params.csv"))
-            log_info.insert(0, acc)
-            log_info.insert(1, "UI -> Trading")
-            log.append(log_info)
+            if op_type == 'Windows32':
+                log_info = ssh.upload(param_dir, os.path.join(dest_acc_dir, "params.csv"))
+                log_info.insert(0, acc)
+                log_info.insert(1, "UI -> Trading")
+                log.append(log_info)
+            if op_type == 'Linux': 
+                log_info = ssh.upload(param_dir, windows_to_linux(os.path.join(dest_acc_dir, "params.csv")))
+                log_info.insert(0, acc)
+                log_info.insert(1, "UI -> Trading")
+                log.append(log_info)
         ssh.close()
         
     else:
