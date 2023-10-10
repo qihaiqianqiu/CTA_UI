@@ -58,3 +58,7 @@ class toolKit(QDialog):
     def stock_counting(self):
         self.stock_counting_dialog = stockCounter()
         self.stock_counting_dialog.show()
+    
+    @QtCore.pyqtSlot()
+    def profit_cal(self):
+        pass

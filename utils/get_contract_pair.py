@@ -7,7 +7,7 @@ import datetime
 
 # 获取合约对名称，SP指令，成交量等信息
 
-all = ["get_db_contract_pair",  "check_vaild_month", "get_param_contract_pair_with_volume", "get_param_contract_pair", "check_vaild_month_with_volume", "check", "get_contract_pair_rank", "get_exchange_on"]
+all = ["get_db_contract_pair",  "check_vaild_month", "get_param_contract_pair_with_volume", "get_param_contract_pair", "check", "get_contract_pair_rank", "get_exchange_on"]
 
 def get_param_contract_pair():
     breed_lst = []
@@ -92,7 +92,7 @@ def check(breed:str, month:int):
     else:
         return False
     
-def check_vaild_month(volume_threshold=80):
+def check_vaild_month(volume_threshold=10):
     contract_pair_dict = get_param_contract_pair_with_volume()
     df = pd.DataFrame()
     today = datetime.datetime.today()

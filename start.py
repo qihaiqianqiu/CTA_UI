@@ -51,8 +51,10 @@ class Arbitrator(QMainWindow):
     #       启动可视化
 
     def initUI(self):
-        width = int(QDesktopWidget().screenGeometry().width() * 0.95)
-        height = int(QDesktopWidget().screenGeometry().height() * 0.95)
+        width = 1440
+        height = 800
+        # width = int(QDesktopWidget().screenGeometry().width() * 0.95)
+        # height = int(QDesktopWidget().screenGeometry().height() * 0.95)
         # File tag
         # SFTP
         appendAct = QAction('SFTP', self)
@@ -459,6 +461,7 @@ class Arbitrator(QMainWindow):
     def upload_param(self):
         error_log = [["Account", "Link", "From", "To", "Status"]]
         config_file_lst = []
+        acc_name_lst = []
         def process_config_upload(config):
             logger = flink.pull_from_UI_to_cloud(config)
             for log in logger:
@@ -485,9 +488,30 @@ class Arbitrator(QMainWindow):
                     for config in os.listdir(os.path.join(const.ROOT_PATH, "sftp_configs")):
                         if acc_name == config.split(".")[0]:
                             config_file_lst.append(config)
-            param_upload_thread()
-            self.pretty_table = visualize.show_message_box(error_log)
-            self.pretty_table.exec_()
+                            acc_name_lst.append(acc_name)
+            # 添加一个弹窗，在上传前确认是否上传
+            upload_check = QMessageBox()
+            upload_check.setIcon(QMessageBox.Question)
+            dialog_str = "是否确认上传当前参数表至：\n"
+            for acc in acc_name_lst:
+                dialog_str += acc + '\n'
+            dialog_str += "1.[手动用Excel修改后请确认Ctrl+R重载成功后再上传]\n"
+            dialog_str += "2.[使用UI修改后请确认Ctrl+S保存成功后再上传]"
+            upload_check.setText(dialog_str)
+            upload_check.setWindowTitle("提示")
+            upload_check.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+
+            # 处理消息框的返回值
+            returnValue = upload_check.exec_()
+
+            if returnValue == QMessageBox.Ok:
+                # 用户点击了确定按钮，执行connect函数
+                param_upload_thread()
+                self.pretty_table = visualize.show_message_box(error_log)
+                self.pretty_table.exec_()
+            else:
+                # 用户点击了取消按钮，不执行任何操作
+                return 
         except Exception as e:
             print(traceback.format_exc())
         
