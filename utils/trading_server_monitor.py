@@ -95,7 +95,7 @@ def shutdown_CTP():
         if op_type == "win32":
             subprocess.call(["taskkill", "/F", "/IM", "CTPtest-test.exe"])
         else:
-            subprocess.call(["killall", "-9", "ctp-test"])
+            subprocess.call(["pkill", "ctp-test"])
     except Exception as e:
         error_info = traceback.format_exc()
         with open(os.path.join(BASE_DIR, "trading_monitor_error_log.txt"), "a+", encoding='utf-8') as err_file:

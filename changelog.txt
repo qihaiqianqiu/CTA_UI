@@ -7617,3 +7617,407 @@ co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2
 co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
 co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
 co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-10 14:01:13
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231010_14:01:11.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231010_14:01:11.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-10 14:07:42
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231010_14:07:31.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231010_14:07:31.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+2023-10-10 14:27:50
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231010_14:27:48.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231010_14:27:48.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-10 14:40:09
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231010_14:40:06.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231010_14:40:06.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-10 14:55:14
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231010_14:55:12.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231010_14:55:12.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-10 15:03:49
+Account    Link           From                                          To                                                         Status
+co1        Trading -> UI  /root/cta_ks_co1/tradings/trading_230901.csv  D:\local_repo\CTA_UI\tradings\co1\trading_230901.csv       √
+co1        Trading -> UI  /root/cta_ks_co1/report/holding_230901.csv    D:\local_repo\CTA_UI\report\co1\holding_230901.csv         √
+co1        Trading -> UI  /root/cta_ks_co1/params.csv                   D:\local_repo\CTA_UI\params\co1\params_20231010.csv        √
+zhongtai   Cloud -> UI    CTA/Ls/zhongtai/holding_231010.csv            D:\local_repo\CTA_UI\report\zhongtai\holding_231010.csv    √
+zhongtai   Cloud -> UI    CTA/Ls/zhongtai/trading_231010.csv            D:\local_repo\CTA_UI\tradings\zhongtai\trading_231010.csv  √
+zhongtai   Cloud -> UI    CTA/Ls/zhongtai/params_20231010.csv           D:\local_repo\CTA_UI\params\zhongtai\params_20231010.csv   √
+co2        Trading -> UI  /root/cta_lq_co2/tradings/trading_230925.csv  D:\local_repo\CTA_UI\tradings\co2\trading_230925.csv       √
+co2        Trading -> UI  /root/cta_lq_co2/report/holding_230925.csv    D:\local_repo\CTA_UI\report\co2\holding_230925.csv         √
+co2        Trading -> UI  /root/cta_lq_co2/params.csv                   D:\local_repo\CTA_UI\params\co2\params_20231010.csv        √
+2023-10-10 21:13:13
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231010_21:13:01.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231010_21:13:01.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+2023-10-10 21:14:36
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231010_21:14:33.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231010_21:14:33.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-10 21:15:28
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231010_21:15:25.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231010_21:15:25.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-10 22:12:20
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231010_22:12:17.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231010_22:12:17.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-10 23:09:28
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231010_23:09:25.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231010_23:09:25.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-11 09:02:27
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231011_09:02:23.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231011_09:02:23.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-11 09:07:36
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231011_09:07:23.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231011_09:07:23.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+2023-10-11 09:54:30
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231011_09:54:27.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231011_09:54:27.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-11 10:03:07
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231011_10:02:55.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231011_10:02:55.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+2023-10-11 10:37:55
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231011_10:37:50.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231011_10:37:50.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-11 10:58:37
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231011_10:58:35.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231011_10:58:35.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-11 11:04:33
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231011_11:04:32.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231011_11:04:32.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-11 11:11:47
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231011_11:11:45.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231011_11:11:45.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-11 11:27:05
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231011_11:27:03.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231011_11:27:03.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-11 14:18:19
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231011_14:18:17.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231011_14:18:17.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-11 15:03:23
+Account    Link           From                                          To                                                         Status
+co1        Trading -> UI  /root/cta_ks_co1/tradings/trading_230901.csv  D:\local_repo\CTA_UI\tradings\co1\trading_230901.csv       √
+co1        Trading -> UI  /root/cta_ks_co1/report/holding_230901.csv    D:\local_repo\CTA_UI\report\co1\holding_230901.csv         √
+co1        Trading -> UI  /root/cta_ks_co1/params.csv                   D:\local_repo\CTA_UI\params\co1\params_20231011.csv        √
+co2        Trading -> UI  /root/cta_lq_co2/tradings/trading_230925.csv  D:\local_repo\CTA_UI\tradings\co2\trading_230925.csv       √
+co2        Trading -> UI  /root/cta_lq_co2/report/holding_230925.csv    D:\local_repo\CTA_UI\report\co2\holding_230925.csv         √
+co2        Trading -> UI  /root/cta_lq_co2/params.csv                   D:\local_repo\CTA_UI\params\co2\params_20231011.csv        √
+zhongtai   Cloud -> UI    CTA/Ls/zhongtai/holding_231011.csv            D:\local_repo\CTA_UI\report\zhongtai\holding_231011.csv    √
+zhongtai   Cloud -> UI    CTA/Ls/zhongtai/trading_231011.csv            D:\local_repo\CTA_UI\tradings\zhongtai\trading_231011.csv  √
+zhongtai   Cloud -> UI    CTA/Ls/zhongtai/params_20231011.csv           D:\local_repo\CTA_UI\params\zhongtai\params_20231011.csv   √
+2023-10-12 09:23:33
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231012_09:23:31.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231012_09:23:31.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-12 09:27:32
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231012_09:27:30.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231012_09:27:30.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-12 09:29:09
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231012_09:29:07.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231012_09:29:07.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-12 09:46:39
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231012_09:46:36.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231012_09:46:36.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-12 10:43:27
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231012_10:43:25.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231012_10:43:25.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-12 12:04:39
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231012_12:04:32.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231012_12:04:32.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+2023-10-12 14:35:39
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231012_14:35:37.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231012_14:35:37.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-12 14:53:03
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231012_14:53:01.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231012_14:53:01.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-12 15:03:33
+Account    Link           From                                          To                                                         Status
+co1        Trading -> UI  /root/cta_ks_co1/tradings/trading_230901.csv  D:\local_repo\CTA_UI\tradings\co1\trading_230901.csv       √
+co1        Trading -> UI  /root/cta_ks_co1/report/holding_230901.csv    D:\local_repo\CTA_UI\report\co1\holding_230901.csv         √
+co1        Trading -> UI  /root/cta_ks_co1/params.csv                   D:\local_repo\CTA_UI\params\co1\params_20231012.csv        √
+co2        Trading -> UI  /root/cta_lq_co2/tradings/trading_230925.csv  D:\local_repo\CTA_UI\tradings\co2\trading_230925.csv       √
+co2        Trading -> UI  /root/cta_lq_co2/report/holding_230925.csv    D:\local_repo\CTA_UI\report\co2\holding_230925.csv         √
+co2        Trading -> UI  /root/cta_lq_co2/params.csv                   D:\local_repo\CTA_UI\params\co2\params_20231012.csv        √
+zhongtai   Cloud -> UI    CTA/Ls/zhongtai/holding_231012.csv            D:\local_repo\CTA_UI\report\zhongtai\holding_231012.csv    √
+zhongtai   Cloud -> UI    CTA/Ls/zhongtai/trading_231012.csv            D:\local_repo\CTA_UI\tradings\zhongtai\trading_231012.csv  √
+zhongtai   Cloud -> UI    CTA/Ls/zhongtai/params_20231012.csv           D:\local_repo\CTA_UI\params\zhongtai\params_20231012.csv   √
+2023-10-12 21:04:38
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231012_21:04:32.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231012_21:04:32.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+2023-10-12 21:20:16
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231012_21:20:09.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231012_21:20:09.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+2023-10-12 21:41:12
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231012_21:41:10.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231012_21:41:10.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-13 09:51:01
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231013_09:51:00.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231013_09:51:00.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-13 11:05:59
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231013_11:05:47.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231013_11:05:47.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+2023-10-13 11:23:41
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231013_11:23:29.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231013_11:23:29.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+2023-10-13 14:33:03
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231013_14:33:01.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231013_14:33:01.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-13 14:52:41
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231013_14:52:34.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231013_14:52:34.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+2023-10-13 15:03:45
+Account    Link           From                                          To                                                         Status
+co1        Trading -> UI  /root/cta_ks_co1/tradings/trading_230901.csv  D:\local_repo\CTA_UI\tradings\co1\trading_230901.csv       √
+co1        Trading -> UI  /root/cta_ks_co1/report/holding_230901.csv    D:\local_repo\CTA_UI\report\co1\holding_230901.csv         √
+co1        Trading -> UI  /root/cta_ks_co1/params.csv                   D:\local_repo\CTA_UI\params\co1\params_20231013.csv        √
+co2        Trading -> UI  /root/cta_lq_co2/tradings/trading_230925.csv  D:\local_repo\CTA_UI\tradings\co2\trading_230925.csv       √
+co2        Trading -> UI  /root/cta_lq_co2/report/holding_230925.csv    D:\local_repo\CTA_UI\report\co2\holding_230925.csv         √
+co2        Trading -> UI  /root/cta_lq_co2/params.csv                   D:\local_repo\CTA_UI\params\co2\params_20231013.csv        √
+zhongtai   Cloud -> UI    CTA/Ls/zhongtai/holding_231012.csv            D:\local_repo\CTA_UI\report\zhongtai\holding_231012.csv    √
+zhongtai   Cloud -> UI    CTA/Ls/zhongtai/trading_231012.csv            D:\local_repo\CTA_UI\tradings\zhongtai\trading_231012.csv  √
+zhongtai   Cloud -> UI    CTA/Ls/zhongtai/params_20231012.csv           D:\local_repo\CTA_UI\params\zhongtai\params_20231012.csv   √
