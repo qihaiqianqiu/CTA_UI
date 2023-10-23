@@ -77,8 +77,8 @@ class stockCounter(QDialog):
                 ssh.connect()
                 # 导出持仓指令(如果交易服务器有多账户，只导出第一个的)
                 changedir_cmd = "cd " + ftp_config["tradeDirList"][0]
-                export_cmd = "cmd.exe /c CTPtest-GetPosAndTrd.exe"
-                ssh.cmd(changedir_cmd + " & " + export_cmd)
+                export_cmd = "./ ctp-getposandtrd"
+                ssh.cmd(changedir_cmd + " ; " + export_cmd)
                 ssh.close()
                 # 下载持仓数据
                 request_from_trading_to_market(target_config_path)

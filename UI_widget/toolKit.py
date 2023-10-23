@@ -4,6 +4,7 @@ from PyQt5.QtCore import pyqtSignal
 from UI_widget.checkParaDialog import checkParaDialog
 from UI_widget.muteMonth import muteMonth
 from UI_widget.realtimeStocking import stockCounter
+from UI_widget.pairProfitCalculate import pairProfitCalculate
 
 
 all = ["toolKit"]
@@ -15,7 +16,7 @@ class toolKit(QDialog):
         btn1.setFixedSize(150, 75)
         btn2 = QPushButton("开启/关闭合约组")
         btn2.setFixedSize(150, 75)
-        btn3 = QPushButton("检查不可转抛/反套持仓")
+        btn3 = QPushButton("查看套利对交易记录")
         btn3.setFixedSize(150, 75)
         btn4 = QPushButton("实时持仓状态")
         btn4.setFixedSize(150, 75)
@@ -29,6 +30,7 @@ class toolKit(QDialog):
         self.setWindowTitle("工具箱")
         btn1.clicked.connect(self.check_param_pairs)
         btn2.clicked.connect(self.mute)
+        btn3.clicked.connect(self.profit_cal)
         btn4.clicked.connect(self.stock_counting)
 
         
@@ -61,4 +63,5 @@ class toolKit(QDialog):
     
     @QtCore.pyqtSlot()
     def profit_cal(self):
-        pass
+        self.profit_cal_dialog = profit_calculate()
+        self.profit_cal_dialog.show()

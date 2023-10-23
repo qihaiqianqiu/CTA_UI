@@ -23,6 +23,7 @@ from UI_widget import *
 from utils.file_monitor import *
 import threading
 import json
+import time
 
 
 class Arbitrator(QMainWindow):    
@@ -696,11 +697,13 @@ class Arbitrator(QMainWindow):
     @QtCore.pyqtSlot()
     # 使UI主界面参数表与存储的参数表同步
     def refresh(self, flag):
+        start = time.time()
         if flag:
             self.param.update()
             self.param_layout = QtWidgets.QHBoxLayout()
             self.layout.addLayout(self.param_layout, 5, 0)
             self.param_layout.addWidget(self.param.view)
+            print("刷新完成，耗时：", time.time() - start)
             QMessageBox.information(self, "刷新完成", "BASE参数表更新完成")
 
 
@@ -837,6 +840,7 @@ class Arbitrator(QMainWindow):
             acc_lst += id + '\n'
         QMessageBox.information(self, "参数表保存分发成功", "包含以下用户: \n" + acc_lst)
         self.status.showMessage("账户参数表保存并分发成功")
+        
 
 
     @QtCore.pyqtSlot()

@@ -269,8 +269,9 @@ if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyCon
 `rsync_example = "rsync -avPz --port 8730 --password-file=/cygdrive/C/Users/Han.Hao/AppData/Local/cwrsync/bin/cta_password.txt root@39.97.106.35::cta/ /cygdrive/C/Users/Han.Hao/test"`
 `rsync_pwd_path` & `rsync dest path`
 - （已实现）使用watchdog进行与中枢服务器保存的日志文件同步到本地
-
-## V1.1 更新日志
+  
+# 更新日志
+## V1.1
 - （已实现）参数表在上传至云端服务器时，会保存为带有时间戳后缀的形式，作为备份
 - （已实现）给UI增加主动刷新参数表的功能，可以在后台替换新的基表之后，让程序的内存重新加载新的基表，并在UI前端加载新的基表
 **快捷键 Ctrl + R** 我才意识到这个功能早就写好了只是没有实装，搞了波大亏QNMLGB
@@ -278,12 +279,19 @@ if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyCon
   1. long/short比值无法整除或者有一者为0：必有瘸腿，不撮合，分开写入交易记录末尾
   2. long/short比值为整数：结构套，直接撮合，按比率在交易记录末尾写入
 - （已实现）修复参数表分发给不同规模账户时budget运算的数据类型错误，为max/min_position字段也添加了比例分发
+
+## V1.2
 - 完善绘图功能的窗口交互，添加绘图每日任务配置功能
 - 完善弹性模型界计算的窗口交互
 - 将UI路径参数从代码中分离出来，放在另一个配置文件中，方便修改
-- 上传参数表的时候弹出确认窗口
+- （已实现）上传参数表的时候弹出确认窗口
 - （已实现）检查参数表添加筛选品种功能 --> 添加参数表现在会按品种字母序排列
 - （已实现）收盘自动备份参数表 - YYMMDD
 - （已实现）文件链路模块适配Linux系统
 - （已实现）收盘时的日志文件/参数表提取提前到14:59
-- 在文件传输失败后，返回失败的日志或提示，不阻塞程序的继续运行
+- （已实现）在文件传输失败后，返回失败的日志或提示，不阻塞程序的继续运行
+
+### v1.2.1
+- （已实现）优化了刷新功能的逻辑，解决了越用越卡的问题
+-  工具箱添加套利对盈亏簿记功能
+

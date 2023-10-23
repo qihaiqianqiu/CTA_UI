@@ -48,6 +48,7 @@ def get_param_contract_pair_with_volume():
     cta_table = db_para['tb_to']
     today = datetime.datetime.today().strftime('%Y%m%d')
     previous_trading_date = trade_day[trade_day.index(to_trading_day_backwards(int(today))) - 1]
+    print(previous_trading_date)
     SQL = "SELECT distinct contract, breed, max(volume) from " + cta_table + " where breed in " + str(tuple(breed_lst)) + " and trading_date = " + str(previous_trading_date) + " group by contract, breed"
     df = client.query_dataframe(SQL).sort_values('contract')
     print(df)
@@ -147,7 +148,7 @@ def get_sp_instruction():
 if __name__ == "__main__":
     #print(check_vaild_month())
     #print(get_contract_pair_rank(['IH2309', 'IH2312']))
-    print(get_db_contract_pair())
-    #print(get_param_contract_pair_with_volume())
+    #print(get_db_contract_pair())
+    print(get_param_contract_pair_with_volume())
     
     
