@@ -23,7 +23,7 @@ from UI_widget import *
 from utils.file_monitor import *
 import threading
 import json
-import time
+import queue
 
 
 class Arbitrator(QMainWindow):    
@@ -463,13 +463,15 @@ class Arbitrator(QMainWindow):
         error_log = [["Account", "Link", "From", "To", "Status"]]
         config_file_lst = []
         acc_name_lst = []
+        log_queue = queue.Queue()
         def process_config_upload(config):
             logger = flink.pull_from_UI_to_cloud(config)
-            for log in logger:
-                error_log.append(log)
+            print("if log_info transmitted from flink:", logger)
+            log_queue.put(logger)
+            print("queue put")
             logger = flink.pull_from_UI_to_market(config)
-            for log in logger:
-                error_log.append(log)
+            log_queue.put(logger)
+            print("queue put")
             
 
         def param_upload_thread():
@@ -508,6 +510,11 @@ class Arbitrator(QMainWindow):
             if returnValue == QMessageBox.Ok:
                 # 用户点击了确定按钮，执行connect函数
                 param_upload_thread()
+                print("queue chek:", log_queue.empty())
+                while not log_queue.empty():
+                    logger = log_queue.get()
+                    for log in logger:
+                        error_log.append(log)
                 self.pretty_table = visualize.show_message_box(error_log)
                 self.pretty_table.exec_()
             else:

@@ -8609,3 +8609,338 @@ co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2
 co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
 co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
 co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-23 14:52:07
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231023_14:52:00.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231023_14:52:00.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+2023-10-23 15:03:41
+Account    Link           From                                          To                                                         Status
+co1        Trading -> UI  /root/cta_ks_co1/tradings/trading_231023.csv  D:\local_repo\CTA_UI\tradings\co1\trading_231023.csv       √
+co1        Trading -> UI  /root/cta_ks_co1/report/holding_231023.csv    D:\local_repo\CTA_UI\report\co1\holding_231023.csv         √
+co1        Trading -> UI  /root/cta_ks_co1/params.csv                   D:\local_repo\CTA_UI\params\co1\params_20231023.csv        √
+co2        Trading -> UI  /root/cta_lq_co2/tradings/trading_231023.csv  D:\local_repo\CTA_UI\tradings\co2\trading_231023.csv       √
+co2        Trading -> UI  /root/cta_lq_co2/report/holding_231023.csv    D:\local_repo\CTA_UI\report\co2\holding_231023.csv         √
+co2        Trading -> UI  /root/cta_lq_co2/params.csv                   D:\local_repo\CTA_UI\params\co2\params_20231023.csv        √
+zhongtai   Cloud -> UI    CTA/Ls/zhongtai/holding_231023.csv            D:\local_repo\CTA_UI\report\zhongtai\holding_231023.csv    √
+zhongtai   Cloud -> UI    CTA/Ls/zhongtai/trading_231023.csv            D:\local_repo\CTA_UI\tradings\zhongtai\trading_231023.csv  √
+zhongtai   Cloud -> UI    CTA/Ls/zhongtai/params_20231023.csv           D:\local_repo\CTA_UI\params\zhongtai\params_20231023.csv   √
+2023-10-24 09:38:12
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231024_09:38:10.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231024_09:38:10.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-24 09:43:44
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231024_09:43:33.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231024_09:43:33.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+2023-10-24 11:06:01
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231024_11:05:59.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231024_11:05:59.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+2023-10-24 13:24:31
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231024_13:24:24.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231024_13:24:24.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+2023-10-24 13:34:11
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231024_13:33:59.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231024_13:33:59.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+2023-10-24 13:36:34
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231024_13:36:22.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231024_13:36:22.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+2023-10-24 13:55:56
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231024_13:55:54.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231024_13:55:54.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-24 14:04:18
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231024_14:04:12.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231024_14:04:12.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+2023-10-24 14:09:34
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231024_14:09:32.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231024_14:09:32.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+2023-10-24 14:14:25
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231024_14:14:23.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231024_14:14:23.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-24 14:28:28
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231024_14:28:26.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231024_14:28:26.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-24 14:39:36
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231024_14:39:16.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-24 14:44:08
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231024_14:44:06.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231024_14:44:06.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-24 14:45:54
+Account    Link           From                                        To                                       Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231024_14:45:52.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231024_14:45:52.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-10-24 14:55:10
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231024_14:55:08.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params_20231024_14:55:08.csv  √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1/params.csv                    √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+2023-10-24 15:03:34
+Account    Link           From                                          To                                                         Status
+co1        Trading -> UI  /root/cta_ks_co1/tradings/trading_231024.csv  D:\local_repo\CTA_UI\tradings\co1\trading_231024.csv       √
+co1        Trading -> UI  /root/cta_ks_co1/report/holding_231024.csv    D:\local_repo\CTA_UI\report\co1\holding_231024.csv         √
+co1        Trading -> UI  /root/cta_ks_co1/params.csv                   D:\local_repo\CTA_UI\params\co1\params_20231024.csv        √
+co2        Trading -> UI  /root/cta_lq_co2/tradings/trading_231024.csv  D:\local_repo\CTA_UI\tradings\co2\trading_231024.csv       √
+co2        Trading -> UI  /root/cta_lq_co2/report/holding_231024.csv    D:\local_repo\CTA_UI\report\co2\holding_231024.csv         √
+co2        Trading -> UI  /root/cta_lq_co2/params.csv                   D:\local_repo\CTA_UI\params\co2\params_20231024.csv        √
+zhongtai   Cloud -> UI    CTA/Ls/zhongtai/holding_231024.csv            D:\local_repo\CTA_UI\report\zhongtai\holding_231024.csv    √
+zhongtai   Cloud -> UI    CTA/Ls/zhongtai/trading_231024.csv            D:\local_repo\CTA_UI\tradings\zhongtai\trading_231024.csv  √
+zhongtai   Cloud -> UI    CTA/Ls/zhongtai/params_20231024.csv           D:\local_repo\CTA_UI\params\zhongtai\params_20231024.csv   √
+2023-10-24 15:22:34
+Account    Link    From    To    Status
+2023-10-24 15:29:46
+Account    Link    From    To    Status
+2023-10-24 15:31:09
+Account    Link    From    To    Status
+2023-10-24 15:47:22
+Account    Link    From    To    Status
+2023-10-24 15:49:20
+Account    Link    From    To    Status
+2023-10-24 15:51:51
+Account    Link    From    To    Status
+2023-10-24 15:58:42
+Account    Link    From    To    Status
+2023-10-24 16:00:19
+Account    Link    From    To    Status
+2023-10-24 16:18:16
+Account
+-
+-
+T
+co2
+2023-10-24 16:20:17
+Account    Link           From
+-          -              Traceback (most recent call last):
+                            File "D:\local_repo\CTA_UI\utils\flink.py", line 28, in pull_from_UI_to_cloud
+                              ssh.connect()
+                            File "D:\local_repo\CTA_UI\utils\sftp.py", line 19, in connect
+                              transport = paramiko.Transport((self.host,self.port))
+                            File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+                              raise SSHException(
+                          paramiko.ssh_exception.SSHException: Unable to connect to 39.97.107.35: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv
+2023-10-24 16:23:01
+Account    Link    From    To    Status
+2023-10-24 16:24:30
+Account    Link           From
+co2        UI -> Cloud    SSHException:Traceback (most recent call last):
+                            File "D:\local_repo\CTA_UI\utils\flink.py", line 31, in pull_from_UI_to_cloud
+                              ssh.connect()
+                            File "D:\local_repo\CTA_UI\utils\sftp.py", line 19, in connect
+                              transport = paramiko.Transport((self.host,self.port))
+                            File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+                              raise SSHException(
+                          paramiko.ssh_exception.SSHException: Unable to connect to 39.97.107.35: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv
+2023-10-24 16:27:27
+Account    Link           From
+co2        UI -> Cloud    SSHException:Traceback (most recent call last):
+                            File "D:\local_repo\CTA_UI\utils\flink.py", line 31, in pull_from_UI_to_cloud
+                              ssh.connect()
+                            File "D:\local_repo\CTA_UI\utils\sftp.py", line 19, in connect
+                              transport = paramiko.Transport((self.host,self.port))
+                            File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+                              raise SSHException(
+                          paramiko.ssh_exception.SSHException: Unable to connect to 39.97.107.35: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv
+2023-10-24 16:30:43
+Account    Link           From
+co2        UI -> Cloud    SSHException:Traceback (most recent call last):
+                            File "D:\local_repo\CTA_UI\utils\flink.py", line 31, in pull_from_UI_to_cloud
+                              ssh.connect()
+                            File "D:\local_repo\CTA_UI\utils\sftp.py", line 19, in connect
+                              transport = paramiko.Transport((self.host,self.port))
+                            File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+                              raise SSHException(
+                          paramiko.ssh_exception.SSHException: Unable to connect to 39.97.107.35: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv
+2023-10-24 16:32:46
+Account    Link           From                                             To                                            Status
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv       CTA/hh/co1/params_20231024_16:32:25.csv       √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv       CTA/hh/co1/params.csv                         √
+co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json       CTA/hh/co1/co1.json                           √
+zhongtai   UI -> Cloud    D:\local_repo\CTA_UI\params\zhongtai\params.csv  CTA/Ls/zhongtai/params_20231024_16:32:25.csv  √
+zhongtai   UI -> Cloud    D:\local_repo\CTA_UI\params\zhongtai\params.csv  CTA/Ls/zhongtai/params.csv                    √
+zhongtai   UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\zhongtai.json  CTA/Ls/zhongtai/zhongtai.json                 √
+co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv       /root/cta_ks_co1/params.csv                   √
+co2        UI -> Cloud    -                                                -                                             SSHException:Traceback (most recent call last):
+                                                                                                                           File "D:\local_repo\CTA_UI\utils\flink.py", line 31, in pull_from_UI_to_cloud
+                                                                                                                             ssh.connect()
+                                                                                                                           File "D:\local_repo\CTA_UI\utils\sftp.py", line 19, in connect
+                                                                                                                             transport = paramiko.Transport((self.host,self.port))
+                                                                                                                           File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+                                                                                                                             raise SSHException(
+                                                                                                                         paramiko.ssh_exception.SSHException: Unable to connect to 39.97.107.35: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv       /root/cta_lq_co2/params.csv                   √
+2023-10-24 16:37:23
+Account    Link         From                                        To                                       Status
+co2        UI -> Cloud  D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params_20231024_16:37:01.csv  √
+co2        UI -> Cloud  D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud  D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+2023-10-24 17:10:48
+Account    Link         From                                        To                                       Status
+co2        UI -> Cloud  D:\local_repo\CTA_UI\params\co2\params.csv  CTA\hh\co2\params_20231024_17:10:47.csv  √
+co2        UI -> Cloud  D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud  D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+2023-10-24 17:13:43
+Account    Link         From                                        To                                       Status
+co2        UI -> Cloud  D:\local_repo\CTA_UI\params\co2\params.csv  CTA\hh\co2\params_20231024_17:13:42.csv  √
+co2        UI -> Cloud  D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud  D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+2023-10-24 17:15:03
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA\hh\co2\params_20231024_17:14:41.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co2        UI -> Trading  -                                           -                                        SSHException:Traceback (most recent call last):
+                                                                                                                 File "D:\local_repo\CTA_UI\utils\flink.py", line 84, in pull_from_UI_to_market
+                                                                                                                   ssh.connect()
+                                                                                                                 File "D:\local_repo\CTA_UI\utils\sftp.py", line 19, in connect
+                                                                                                                   transport = paramiko.Transport((self.host,self.port))
+                                                                                                                 File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+                                                                                                                   raise SSHException(
+                                                                                                               paramiko.ssh_exception.SSHException: Unable to connect to 192.168.112.136: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+2023-10-24 17:19:50
+Account    Link           From                                        To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA\hh\co2\params_20231024_17:19:28.csv  √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\params.csv  CTA/hh/co2/params.csv                    √
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json  CTA/hh/co2/co2.json                      √
+co2        UI -> Trading  -                                           -                                        SSHException:Traceback (most recent call last):
+                                                                                                                 File "D:\local_repo\CTA_UI\utils\flink.py", line 84, in pull_from_UI_to_market
+                                                                                                                   ssh.connect()
+                                                                                                                 File "D:\local_repo\CTA_UI\utils\sftp.py", line 19, in connect
+                                                                                                                   transport = paramiko.Transport((self.host,self.port))
+                                                                                                                 File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\transport.py", line 415, in __init__
+                                                                                                                   raise SSHException(
+                                                                                                               paramiko.ssh_exception.SSHException: Unable to connect to 192.168.112.136: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+2023-10-24 17:25:23
+Account    Link           From                                         To                                       Status
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\paramsx.csv  CTA/hh/co2/params_20231024_17:25:22.csv  FileNotFoundError:Traceback (most recent call last):
+                                                                                                                  File "D:\local_repo\CTA_UI\utils\sftp.py", line 33, in upload
+                                                                                                                    sftp.put(local_path, target_path)
+                                                                                                                  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\sftp_client.py", line 757, in put
+                                                                                                                    file_size = os.stat(localpath).st_size
+                                                                                                                FileNotFoundError: [WinError 2] 系统找不到指定的文件。: 'D:\\local_repo\\CTA_UI\\params\\co2\\paramsx.csv'
+co2        UI -> Cloud    D:\local_repo\CTA_UI\params\co2\paramsx.csv  CTA/hh/co2/params.csv                    FileNotFoundError:Traceback (most recent call last):
+                                                                                                                  File "D:\local_repo\CTA_UI\utils\sftp.py", line 33, in upload
+                                                                                                                    sftp.put(local_path, target_path)
+                                                                                                                  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\sftp_client.py", line 757, in put
+                                                                                                                    file_size = os.stat(localpath).st_size
+                                                                                                                FileNotFoundError: [WinError 2] 系统找不到指定的文件。: 'D:\\local_repo\\CTA_UI\\params\\co2\\paramsx.csv'
+co2        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co2.json   CTA/hh/co2/co2.json                      √
+co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv   /root/cta_lq_co2/params.csv              √
+2023-10-24 17:26:34
+Account    Link           From                                          To                                                    Status
+co2        Trading -> UI  /root/cta_lq_co2/tradings/trading_231024.csv  D:\local_repo\CTA_UI\tradings\co2\trading_231024.csv  √
+co2        Trading -> UI  /root/cta_lq_co2/report/holding_231024.csv    D:\local_repo\CTA_UI\report\co2\holding_231024.csv    √
+co2        Trading -> UI  /root/cta_lq_co2/params.csv                   D:\local_repo\CTA_UI\params\co2\params_20231024.csv   √
+2023-10-24 17:27:51
+Account    Link           From                                          To                                                     Status
+co2        Trading -> UI  /root/cta_lq_co2/tradings/trading_231024.csv  D:\local_repo\CTA_UI\tradingsx\co2\trading_231024.csv  √
+co2        Trading -> UI  /root/cta_lq_co2/report/holding_231024.csv    D:\local_repo\CTA_UI\reportx\co2\holding_231024.csv    √
+co2        Trading -> UI  /root/cta_lq_co2/params.csv                   D:\local_repo\CTA_UI\params\co2\params_20231024.csv    √
+2023-10-24 17:29:23
+Account    Link    From    To    Status
+2023-10-24 17:32:05
+Account    Link    From    To    Status

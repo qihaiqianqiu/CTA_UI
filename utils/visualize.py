@@ -68,7 +68,8 @@ def show_table_in_message_box(data):
     for row in data:
         table_html += "<tr>"
         for item in row:
-            table_html += "<td style='border: 1px solid black; padding: 5px; white-space: nowrap;'>{}</td>".format(item)
+            item_with_line_breaks = item.replace('\n', '<br>')
+            table_html += "<td style='border: 1px solid black; padding: 5px; white-space: nowrap;'>{}</td>".format(item_with_line_breaks)
         table_html += "</tr>"
     table_html += "</table>"
     

@@ -67,12 +67,11 @@ if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyCon
 | pull_from_UI_to_cloud          | UI    | 云服务器  | 从本地上传到云服务器                 | 参数表，链路配置文件 | UI    |
 | request_from_cloud_to_UI       | 云服务器  | UI    | 从云服务器下载文件到本地               | 持仓记录，交易记录  | UI    |
 | pull_from_UI_to_market         | UI    | 行情服务器 | 通过云服务器建立反向隧道，从本地上传文件到行情服务器 | 参数表，链路配置文件 | UI    |
-| pull_from_market_to_trading    | UI    | 交易服务器 | 当行情服务器为localhost时          | 参数表        | UI    |
-| pull_from_UI_to_market         | 交易服务器 | UI    | 当行情服务器为localhost时          | 持仓记录，交易记录  | UI    |
+| pull_from_UI_to_market         | UI | 交易服务器    | 当行情服务器为localhost时          | 参数表  | UI    |
 | pull_from_market_to_trading    | 行情服务器 | 交易服务器 | 从行情服务器上传到交易服务器             | 参数表        | 行情服务器 |
 | request_from_trading_to_market | 交易服务器 | 行情服务器 | 从交易服务器下载文件到行情服务器           | 持仓记录，交易记录  | 行情服务器 |
 | pull_from_market_to_cloud      | 行情服务器 | cloud | 从行情服务器上传到云服务器，链路7完成时自动触发   | 持仓记录，交易记录  | 行情服务器 |
-| request_from_market_to_UI      | 行情服务器 | UI    | 未实装，目前UI通过链路3获取日志文件        | 持仓记录，交易记录  | 行情服务器 |
+| request_from_market_to_UI      | 行情服务器 | UI    | 未实装，目前UI通过链路2获取日志文件        | 持仓记录，交易记录  | 行情服务器 |
 
 ####监控与任务表
 | 服务器   | 监控目录              | 定时任务                                                                                                                                                   | 变化捕捉             |
@@ -293,5 +292,5 @@ if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyCon
 
 ### v1.2.1
 - （已实现）优化了刷新功能的逻辑，解决了越用越卡的问题
--  工具箱添加套利对盈亏簿记功能
+-  套利对盈亏簿记功能
 
