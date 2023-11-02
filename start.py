@@ -849,9 +849,6 @@ class Arbitrator(QMainWindow):
             # 添加ignorePairs步骤，去掉ignore表中不交易的标的
             ignore_pairs = ignore_df.loc[:, id]
             ignore_pairs = ignore_pairs[ignore_pairs == True].index.tolist()
-            print("获取到的账户和对应的ignore套利对是：")
-            print(id)
-            print(ignore_pairs)
             # 从param_df中去掉ignore_df中对应账户下ignore_df值为True的标的
             acc_param_df = acc_param_df.loc[~acc_param_df.index.isin(ignore_pairs), :]
             acc_param_df['max_position'] = acc_param_df.apply(lambda x: int(round(float(x['max_position']) * float(region_budget),0)), axis=1)

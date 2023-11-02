@@ -5,8 +5,9 @@ import os
 all = ["Z_PATH", "ROOT_PATH", "BOUNDARY_PATH", "PLOT_PATH", "client", "ssh", "trade_day", "breed_dict", 
        "param_columns", "boundary_dict", "exchange_breed_dict", "secury_deposit_d1_dict", "default_args"]
 # 路径
+script_path = os.path.abspath(__file__)
 Z_PATH = r"Z:\300_Group\HFT\Program\CTA_UI"     # 公盘
-ROOT_PATH = r"D:\local_repo\CTA_UI"
+ROOT_PATH = os.path.dirname(os.path.dirname(script_path))
 PARAM_PATH = os.path.join(ROOT_PATH, "params")
 INFO_PATH = os.path.join(ROOT_PATH, "info")
 BOUNDARY_PATH = os.path.join(INFO_PATH, "boundary_info")
