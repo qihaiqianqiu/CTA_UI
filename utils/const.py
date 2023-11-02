@@ -3,7 +3,8 @@ import json
 import os
 
 all = ["Z_PATH", "ROOT_PATH", "BOUNDARY_PATH", "PLOT_PATH", "client", "ssh", "trade_day", "breed_dict", 
-       "param_columns", "boundary_dict", "exchange_breed_dict", "secury_deposit_d1_dict", "default_args"]
+       "param_columns", "boundary_dict", "exchange_breed_dict", "secury_deposit_d1_dict", "default_args",
+       "multiple_dict", "default_columns", "db_para", "script_path", "PARAM_PATH", "INFO_PATH", "DB_CONFIG_PATH"]
 # 路径
 script_path = os.path.abspath(__file__)
 Z_PATH = r"Z:\300_Group\HFT\Program\CTA_UI"     # 公盘
@@ -60,6 +61,9 @@ param_columns = ['pairs_id','indate_date', 'first_instrument', 'second_instrumen
         'favor_times', 'unfavor_times', 'abs_threshold', 'boundary_tick_lock', 'wait2_windows', 'after_tick', 'night_type',\
         'if_add', 'limitcoef', 'abs_threshold_after', 'kind', 'before_tick', 'before_cancel_flag', 'before_cancel_num',\
         'max_position', 'min_position', 'region_tick_lock', 'region_unit_num', 'If_SP', 'SP_InstrumentID']
+
+default_columns = ['region_0', 'region_1', 'region_2', 'region_3', 'region_4', 'region_5', 'region_6', 'region_7', 'region_tick_lock', 'region_unit_num',\
+    'today_fee', 'night_type', 'if_add', 'max_position', 'min_position','If_SP', 'SP_InstrumentID']
 
 multiple_dict = {
     "AG" : 15,

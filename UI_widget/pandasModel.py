@@ -5,7 +5,7 @@ from PyQt5.QtCore import QUrl, QModelIndex, QAbstractTableModel, Qt
 from PyQt5.QtGui import QIcon, QDesktopServices, QMouseEvent
 import os
 from utils.plotfile_management import pairname_to_plotdir
-from utils.const import ROOT_PATH
+from utils.const import ROOT_PATH, default_columns
 import pandas as pd
 
 #显示所有列
@@ -22,11 +22,15 @@ pd.set_option('max_colwidth',100)
 all = ["pandasModel", "TableView"]
 
 class pandasModel(QAbstractTableModel):
-    def __init__(self, data, barplot_flag=True, checkbox_flag=True):
+    def __init__(self, data, barplot_flag=True, checkbox_flag=True, toggle_flag=False):
         QAbstractTableModel.__init__(self)
         self.barplot_flag = barplot_flag
         self.checkbox_flag = checkbox_flag
         self._data = self.addColumnToDf(data, barplot_flag, checkbox_flag)
+        if toggle_flag == True:
+            self.visible_columns = default_columns
+        else:
+            self.visible_columns = self._data.columns.tolist()
         # 在.0时不显示小数
         def convert_decimal_to_integer(x):
             if isinstance(x, float) and x.is_integer():  # 检查元素是否为浮点数且小数部分为 0
@@ -50,8 +54,10 @@ class pandasModel(QAbstractTableModel):
             row = index.row()
             col = index.column()
             if role == Qt.DisplayRole and col >= self.checkbox_flag + self.barplot_flag:
-                value = self._data.iloc[row, col]
-                return str(value)
+                col_name = self.headerData(col, Qt.Horizontal, Qt.DisplayRole)  # 获取列的索引
+                if col_name in self.visible_columns:
+                    value = self._data.iloc[row, col]
+                    return str(value)
             elif self.checkbox_flag and role == Qt.CheckStateRole and col == 0:
                 checked = self._data.iloc[row, col]
                 return Qt.Checked if checked else Qt.Unchecked
@@ -112,7 +118,16 @@ class pandasModel(QAbstractTableModel):
         else:
             return Qt.ItemIsEnabled
     
-    
+    def toggleColumnVisibility(self, column_index, visible):
+        # 用户切换列的可见性时调用此方法
+        if visible and column_index not in self.visible_columns:
+            self.visible_columns.append(column_index)
+        elif not visible and column_index in self.visible_columns:
+            self.visible_columns.remove(column_index)
+        
+        # 刷新视图
+        self.layoutChanged.emit()
+        
     def mousePressEvent(self, event):
         index = self.indexAt(event.pos())
         if event.button() == Qt.LeftButton:
@@ -163,7 +178,9 @@ class TableView(QTableView):
         self.setEditTriggers(QAbstractItemView.DoubleClicked)
         self.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
         for i in range(1, self.model().columnCount()):
-            self.setColumnWidth(i, 100) 
+            self.setColumnWidth(i, 100)
+        # 隐藏不需要显示的列
+        self.updateColumnVisibility()
 
     def updateHeaderSize(self):
         for row in range(self.model().rowCount()):
@@ -191,3 +208,21 @@ class TableView(QTableView):
                 print("BarPlot not exist")
         else:
             super().mousePressEvent(event)
+    
+    def showColumn(self, column_index):
+        self.setColumnHidden(column_index, False)
+    
+    def hideColumn(self, column_index):
+        self.setColumnHidden(column_index, True)
+
+    def updateColumnVisibility(self):
+        for col in range(self.model().columnCount()):
+            col_name = self.model().headerData(col, Qt.Horizontal, Qt.DisplayRole)
+            if col_name in self.model().visible_columns:
+                self.showColumn(col)
+            else:
+                self.hideColumn(col)
+                
+    def layoutChanged(self):
+        self.updateColumnVisibility()
+        super().layoutChanged()

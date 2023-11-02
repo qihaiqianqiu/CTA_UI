@@ -9815,3 +9815,14 @@ co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1
 co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
 co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
 co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
+2023-11-02 15:03:33
+Account    Link           From                                          To                                                         Status
+co1        Trading -> UI  /root/cta_ks_co1/tradings/trading_231102.csv  D:\local_repo\CTA_UI\tradings\co1\trading_231102.csv       √
+co1        Trading -> UI  /root/cta_ks_co1/report/holding_231102.csv    D:\local_repo\CTA_UI\report\co1\holding_231102.csv         √
+co1        Trading -> UI  /root/cta_ks_co1/params.csv                   D:\local_repo\CTA_UI\params\co1\params_20231102.csv        √
+co2        Trading -> UI  /root/cta_lq_co2/tradings/trading_231102.csv  D:\local_repo\CTA_UI\tradings\co2\trading_231102.csv       √
+co2        Trading -> UI  /root/cta_lq_co2/report/holding_231102.csv    D:\local_repo\CTA_UI\report\co2\holding_231102.csv         √
+co2        Trading -> UI  /root/cta_lq_co2/params.csv                   D:\local_repo\CTA_UI\params\co2\params_20231102.csv        √
+zhongtai   Cloud -> UI    CTA/Ls/zhongtai/holding_231102.csv            D:\local_repo\CTA_UI\report\zhongtai\holding_231102.csv    √
+zhongtai   Cloud -> UI    CTA/Ls/zhongtai/trading_231102.csv            D:\local_repo\CTA_UI\tradings\zhongtai\trading_231102.csv  √
+zhongtai   Cloud -> UI    CTA/Ls/zhongtai/params_20231102.csv           D:\local_repo\CTA_UI\params\zhongtai\params_20231102.csv   √
