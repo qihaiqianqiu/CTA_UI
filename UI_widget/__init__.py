@@ -8,5 +8,8 @@ from .layout_constants import *
 from .estHoldingDialog import *
 from .realtimeStocking import *
 from .toolKit import *
+from .ignoreParamDiaglog import *
+from .checkboxModel import *
+
 all = ["accountTable", "addAccDialog", "addParaDialog", "pandasModel", "paraTable", "visualDialog", "realtimeStocking",
-       "layout_constants", "estHoldingDialog", "toolKit"]
+       "layout_constants", "estHoldingDialog", "toolKit", "ignoreParamDialog", "addBoundDialog", "checkParaDialog", "pairProfitCalculateDialog"]

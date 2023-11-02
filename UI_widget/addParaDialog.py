@@ -48,6 +48,7 @@ class addParaDialog(QDialog):
         self.buttonBox.accepted.connect(self.add_param)
         self.buttonBox.rejected.connect(self.reject)
         self.sp_checkbox = QCheckBox("程序是否交易SP合约")
+        self.sp_checkbox.setChecked(True)
         self.layout.addWidget(self.sp_checkbox)
         self.layout.addWidget(self.buttonBox)
         self.add_signal_inner.emit(True)

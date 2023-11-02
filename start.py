@@ -74,6 +74,12 @@ class Arbitrator(QMainWindow):
         saveAct.setStatusTip('保存当前账户参数信息')
         saveAct.triggered.connect(self.save)
         
+        # 略过交易的标的设置
+        ignoreAct = QAction('Ignore', self)
+        ignoreAct.setShortcut('Ctrl+P')
+        ignoreAct.setStatusTip('在账户下忽略相应标的')
+        ignoreAct.triggered.connect(self.ignore)
+        
         # 期货信息表
         dictAct = QAction('Show Dict', self)
         dictAct.setShortcut('Ctrl+M')
@@ -108,6 +114,7 @@ class Arbitrator(QMainWindow):
         menuBar = self.menuBar()
         self.fileMenu = menuBar.addMenu('&File')
         self.fileMenu.addAction(exitAct)
+        self.fileMenu.addAction(ignoreAct)
 
 
         self.dictMenu = menuBar.addMenu('&Dict')
@@ -359,8 +366,7 @@ class Arbitrator(QMainWindow):
         for pair in pd.read_excel(openfile_path[0], sheet_name='Sheet1').values.tolist():
             self.addLine(pair)
         self.status.showMessage("账户配置导入完成")
-    
-    
+        
     # 未启用：SFTP传输模块
     @QtCore.pyqtSlot()
     def sftp_transfer(self):
@@ -817,8 +823,12 @@ class Arbitrator(QMainWindow):
             self.table.setEditTriggers(QAbstractItemView.AllEditTriggers)
             self.status.showMessage("开启编辑功能,可修改账户表")
             self.editable = True
-
-
+            
+    @QtCore.pyqtSlot()
+    def ignore(self):
+        ignore_dialog = ignoreParamDialog()
+        ignore_dialog.exec_()
+        
     @QtCore.pyqtSlot()
     def save(self):
         self.update_inbuffer()
@@ -830,11 +840,20 @@ class Arbitrator(QMainWindow):
         param_df.to_csv(os.path.join(const.PARAM_PATH, 'BASE', 'params.csv'))
         # 再从基表分发给各个账户表
         acc_lst = ""
+        ignore_df = pd.read_excel(os.path.join(const.INFO_PATH, "ignore_info.xlsx"), sheet_name='Sheet1', index_col=0)
         for acc in self.in_buffer:
             id = acc[0]
             region_budget = float(acc[4])
             boundary_budget = float(acc[5])
             acc_param_df = param_df.copy()
+            # 添加ignorePairs步骤，去掉ignore表中不交易的标的
+            ignore_pairs = ignore_df.loc[:, id]
+            ignore_pairs = ignore_pairs[ignore_pairs == True].index.tolist()
+            print("获取到的账户和对应的ignore套利对是：")
+            print(id)
+            print(ignore_pairs)
+            # 从param_df中去掉ignore_df中对应账户下ignore_df值为True的标的
+            acc_param_df = acc_param_df.loc[~acc_param_df.index.isin(ignore_pairs), :]
             acc_param_df['max_position'] = acc_param_df.apply(lambda x: int(round(float(x['max_position']) * float(region_budget),0)), axis=1)
             acc_param_df['min_position'] = acc_param_df.apply(lambda x: int(round(float(x['min_position']) * float(region_budget),0)), axis=1)
             acc_param_df['region_unit_num'] = acc_param_df.apply(lambda x: int(round(float(x['region_unit_num']) * float(region_budget),0)), axis=1)

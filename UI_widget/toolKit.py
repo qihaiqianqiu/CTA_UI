@@ -4,7 +4,7 @@ from PyQt5.QtCore import pyqtSignal
 from UI_widget.checkParaDialog import checkParaDialog
 from UI_widget.muteMonth import muteMonth
 from UI_widget.realtimeStocking import stockCounter
-from UI_widget.pairProfitCalculate import pairProfitCalculate
+from UI_widget.pairProfitCalculateDialog import pairProfitCalculateDialog
 
 
 all = ["toolKit"]
@@ -63,5 +63,5 @@ class toolKit(QDialog):
     
     @QtCore.pyqtSlot()
     def profit_cal(self):
-        self.profit_cal_dialog = profit_calculate()
+        self.profit_cal_dialog = pairProfitCalculateDialog()
         self.profit_cal_dialog.show()

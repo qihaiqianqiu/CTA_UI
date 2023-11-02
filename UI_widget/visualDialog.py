@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QLabel, QLineEdit, QDialog, QDialogButtonBox, QGridLayout
-from PyQt5.QtCore import *
+from PyQt5.QtCore import Qt
 import datetime as dt
 all = ["visualDialog"]
 class visualDialog(QDialog):

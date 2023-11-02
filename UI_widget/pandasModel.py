@@ -159,7 +159,7 @@ class TableView(QTableView):
         self.setModel(model)
         self.barplot_flag = model.barplot_flag
         self.checkbox_flag = model.checkbox_flag
-        #self.updateHeaderSize()
+        self.updateHeaderSize()
         self.setEditTriggers(QAbstractItemView.DoubleClicked)
         self.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
         for i in range(1, self.model().columnCount()):
