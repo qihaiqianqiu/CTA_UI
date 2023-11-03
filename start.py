@@ -57,7 +57,7 @@ class Arbitrator(QMainWindow):
         # width = int(QDesktopWidget().screenGeometry().width() * 0.95)
         # height = int(QDesktopWidget().screenGeometry().height() * 0.95)
         # File tag
-        # SFTP
+        
         appendAct = QAction('SFTP', self)
         appendAct.setStatusTip('SFTP文件传输')
         appendAct.triggered.connect(self.open)
@@ -81,9 +81,9 @@ class Arbitrator(QMainWindow):
         ignoreAct.triggered.connect(self.ignore)
         
         # 期货信息表
-        dictAct = QAction('Show Dict', self)
+        dictAct = QAction('Select Columns', self)
         dictAct.setShortcut('Ctrl+M')
-        dictAct.triggered.connect(self.showDict)
+        dictAct.triggered.connect(self.select)
 
         # 删除参数表中的勾选行
         deletAct = QAction('Delete Param', self)
@@ -1016,10 +1016,11 @@ class Arbitrator(QMainWindow):
             QMessageBox.information(self, "导出失败--" + acc_name, "成交记录导出失败,生成文件已打开，阻碍写入")
 
     @QtCore.pyqtSlot()
-    def showDict(self):
-        dict_dialog = estHoldingDialog()
-        dict_dialog.accepted.connect(lambda: self.estimate_holding(dict_dialog))
-        dict_dialog.exec()
+    def select(self):
+        colDialog = columnSelection()
+        # 把信号传递给view以更新视图
+        colDialog.data_signal.connect(lambda data: self.param.view.updateColumnVisibility(data))
+        colDialog.exec()
 
 if __name__ == '__main__':
     try:

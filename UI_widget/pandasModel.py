@@ -1,7 +1,7 @@
 from PyQt5 import Qt
 from PyQt5.QtGui import QIcon, QDesktopServices, QMouseEvent
-from PyQt5.QtWidgets import QTableView, QAbstractItemView, QAbstractScrollArea, QHeaderView
-from PyQt5.QtCore import QUrl, QModelIndex, QAbstractTableModel, Qt
+from PyQt5.QtWidgets import QTableView, QAbstractItemView, QAbstractScrollArea
+from PyQt5.QtCore import QUrl, QModelIndex, QAbstractTableModel, Qt, pyqtSlot
 from PyQt5.QtGui import QIcon, QDesktopServices, QMouseEvent
 import os
 from utils.plotfile_management import pairname_to_plotdir
@@ -54,10 +54,8 @@ class pandasModel(QAbstractTableModel):
             row = index.row()
             col = index.column()
             if role == Qt.DisplayRole and col >= self.checkbox_flag + self.barplot_flag:
-                col_name = self.headerData(col, Qt.Horizontal, Qt.DisplayRole)  # 获取列的索引
-                if col_name in self.visible_columns:
-                    value = self._data.iloc[row, col]
-                    return str(value)
+                value = self._data.iloc[row, col]
+                return str(value)
             elif self.checkbox_flag and role == Qt.CheckStateRole and col == 0:
                 checked = self._data.iloc[row, col]
                 return Qt.Checked if checked else Qt.Unchecked
@@ -214,14 +212,25 @@ class TableView(QTableView):
     
     def hideColumn(self, column_index):
         self.setColumnHidden(column_index, True)
-
-    def updateColumnVisibility(self):
-        for col in range(self.model().columnCount()):
-            col_name = self.model().headerData(col, Qt.Horizontal, Qt.DisplayRole)
-            if col_name in self.model().visible_columns:
-                self.showColumn(col)
-            else:
-                self.hideColumn(col)
+        
+    @pyqtSlot(list)
+    def updateColumnVisibility(self, visible_columns=None):
+        print("修改可见列函数调用")
+        if visible_columns is None:
+            for col in range(self.model().columnCount()):
+                col_name = self.model().headerData(col, Qt.Horizontal, Qt.DisplayRole)
+                if col_name in self.model().visible_columns:
+                    self.showColumn(col)
+                else:
+                    self.hideColumn(col)
+        else:
+            print("修改可见列信号接收成功：", visible_columns)
+            for col in range(self.model().columnCount()):
+                col_name = self.model().headerData(col, Qt.Horizontal, Qt.DisplayRole)
+                if col_name in visible_columns:
+                    self.showColumn(col)
+                else:
+                    self.hideColumn(col)
                 
     def layoutChanged(self):
         self.updateColumnVisibility()
