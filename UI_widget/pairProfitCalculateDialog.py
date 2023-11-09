@@ -33,6 +33,8 @@ class pairProfitCalculateDialog(QDialog):
         layout.addWidget(self.contract_pair_label)
         layout.addWidget(self.contract_pair)
         layout.addWidget(self.buttonBox,2,1,Qt.Alignment(Qt.AlignCenter))
+        # 设置窗口标题
+        self.setWindowTitle("核算套利对盈亏")
         self.setLayout(layout)
         self.setWindowTitle("导出套利图")
         

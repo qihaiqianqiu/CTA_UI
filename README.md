@@ -299,6 +299,9 @@ if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyCon
 - （已实现）通过ignore功能控制不同账户交易基表中的不同标的
 - （已实现）自适应程序的根目录，不再需要手动设置
 
-### v1.3
-- UI展示类的自定义功能（包括增删，拖拽，显示合成目标价位）
-
+### v1.2.3
+- （已实现）UI展示类的自定义功能（包括增删）
+  
+### v1.2.4
+- UI展示类的自定义功能（合成region目标价位）
+- 实装Boundary弹性模型计算模块
