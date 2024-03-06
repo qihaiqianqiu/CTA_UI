@@ -3,10 +3,8 @@
 用于每日计划任务
 """
 from utils.visualize import plot_continuous_contract, plot_time_series, plot_volume_split
-from utils.const import PLOT_PATH
 import datetime
-import traceback
-import os
+
 
 if __name__ == "__main__":
     print("开始生成图像")

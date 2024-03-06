@@ -20,7 +20,6 @@ from tqdm import tqdm
 import os
 from utils import *
 from UI_widget import *
-from utils.file_monitor import *
 import threading
 import json
 import queue
@@ -1024,7 +1023,7 @@ class Arbitrator(QMainWindow):
 
 if __name__ == '__main__':
     try:
-        threading.Thread(target=invoke_monitor, args=(const.ROOT_PATH, False, True,)).start()
+        threading.Thread(target=file_monitor.invoke_monitor, args=(const.ROOT_PATH, False, True,)).start()
         app = QApplication(sys.argv)
         ex = Arbitrator()
         sys.exit(app.exec_())

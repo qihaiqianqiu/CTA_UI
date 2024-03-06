@@ -72,8 +72,12 @@ class fileMonitor(FileSystemEventHandler):
         csv_files = self.get_all_csv_files()
         self.cache = {}
         for file in csv_files:
-            print("缓存参数表文件：", file)
-            self.cache[file] = pd.read_csv(file)
+            try:
+                print("缓存参数表文件：", file)
+                self.cache[file] = pd.read_csv(file)
+            except Exception as e:
+                print("参数表读取失败：", file)
+                break
         return self.cache
         
     def compare_csv_file(self, new_df, old_df, index_columns='pairs_id', suff=('_new', '_old')):

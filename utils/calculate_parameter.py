@@ -2,6 +2,7 @@
 from sklearn.linear_model import ElasticNet
 from sklearn.linear_model import Lasso
 from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import MinMaxScaler
 import numpy as np
 # Dependencies
 import os, re, numpy as np, pandas as pd
@@ -48,7 +49,7 @@ def get_pairwise_data(contract_pair:list, start_date:int, end_date:int):
         return pd.DataFrame()
     
 
-# 单一套利对，起止交易日之间全部早、午、夜市
+# 获取单一套利对，起止交易日之间全部早、午、夜市的tick级观测
 def pair_plot_section(contract_pair:list, start_date:int, end_date:int):
     # Trading_section = [['9','11:30'], ['13:30','15:00'] ,['21:00','2:30']] or [1D, 3D, 5D, 11D, 22D]
     pair_data = get_pairwise_data(contract_pair, start_date=trade_day[trade_day.index(start_date)], end_date=trade_day[trade_day.index(end_date)])
@@ -57,15 +58,91 @@ def pair_plot_section(contract_pair:list, start_date:int, end_date:int):
         df_1 = pair_data[(pair_data['time'] > '13:30') & (pair_data['time'] < '15:00')]
         df_2 = pair_data[(pair_data['time'] > '21') | (pair_data['time'] < '02:30')]
         df = [df_0, df_1, df_2]
-        #买近卖远
+        #买近卖远 -- 买可得
         df_abr_b = [pd.concat([temp['trading_date'], (temp['ap1_' + contract_pair[0]] - temp['bp1_' + contract_pair[1]])], axis=1) for temp in df]
-        #卖近买远
+        #卖近买远 -- 卖可得
         df_abr_s = [(temp['bp1_' + contract_pair[0]] - temp['ap1_' + contract_pair[1]]) for temp in df]
         return df_abr_b, df_abr_s
     else:
+        print("No data found in this datetime range!")
         return [pd.DataFrame(), pd.DataFrame(), pd.DataFrame()], [pd.DataFrame(), pd.DataFrame(), pd.DataFrame()]
 
+def votaliry_cal_section(contract_pair:list, start_date:int, end_date:int):
+    pair_data = get_pairwise_data(contract_pair, start_date=trade_day[trade_day.index(start_date)], end_date=trade_day[trade_day.index(end_date)])
+    if len(pair_data) > 0:
+        # 买近卖远 -- 买可得
+        pair_data['buy_pair'] = pair_data['ap1_' + contract_pair[0]] - pair_data['bp1_' + contract_pair[1]]
+        # 卖近买远 -- 卖可得
+        pair_data['sell_pair'] = pair_data['bp1_' + contract_pair[0]] - pair_data['ap1_' + contract_pair[1]]
+        # 引入自然日的概念，修正前一日晚间的夜盘日期戳，以便后期对tick数据按时序排列
+        pair_data['natural_date'] = pair_data.apply(lambda x: str(trade_day[trade_day.index(x['trading_date'])-1]) if x['time']>'21' else x['trading_date'], axis=1)
+        # 将数据按交易日和交易单元进行拆分排序
+        df_0 = pair_data[(pair_data['time'] > '09') & (pair_data['time'] < '11:30')]
+        df_0.loc[:,'date_section'] = df_0.loc[:,'natural_date'].apply(lambda x: str(x) + '_' + str(0))
+        df_1 = pair_data[(pair_data['time'] > '13:30') & (pair_data['time'] < '15:00')]
+        df_1.loc[:,'date_section'] = df_1.loc[:,'natural_date'].apply(lambda x: str(x) + '_' + str(1))
+        df_2 = pair_data[(pair_data['time'] > '21') | (pair_data['time'] < '02:30')]
+        df_2.loc[:,'date_section'] = df_2.loc[:,'trading_date'].apply(lambda x: str(trade_day[trade_day.index(x)-1]) + "_" + str(2))
+        df = pd.concat([df_0, df_1, df_2])
+        df['natural_date'] = pd.to_datetime(df['natural_date'], format='%Y%m%d')
+        df = df.sort_values(by=['natural_date', 'date_section', 'time'])
+        return df
+    else:
+        print("No data found in this datetime range!")
+        return pd.DataFrame() 
+        
 
+# 计算一个时间段内交易单元的已实现收益率序列
+def realized_votality_section(contract_pair:list, start_date:int, end_date:int, count=600):
+    tick_data = votaliry_cal_section(contract_pair, start_date, end_date)
+    # 这里先不考虑买卖可得和为0的情况
+    tick_data['price_observe'] = (tick_data['sell_pair'] + tick_data['buy_pair']) / 2
+    tick_data['mm_price_observe'] = (tick_data['price_observe'] - tick_data['price_observe'].min()) / (tick_data['price_observe'].max() - tick_data['price_observe'].min())
+    tick_data['mm_price_observe'] = tick_data['mm_price_observe'] + 1
+    
+    # 存储return和votality的ndarray
+    rtn = np.array([])
+    vot = np.array([])
+    date_section_vot = []
+    realized_votality = []
+    for date_section, tick in tick_data.groupby('date_section'):
+        open_tick = tick.iloc[:count]
+        close_tick = tick.iloc[-count:]
+        buy = open_tick['buy_pair'].mean()
+        sell = close_tick['sell_pair'].mean()
+        # 计算return
+        realized_return = sell - buy
+        rtn = np.append(rtn, realized_return)
+        # 计算单元波动
+        tick['delta_mm_price_observe'] =  tick_data['mm_price_observe'] / tick['mm_price_observe'].shift(1)
+        tick = tick.dropna()
+        tick.loc[:,'delta_mm_price_observe_square'] = tick.loc[:,'delta_mm_price_observe'] ** 2
+        votality = tick['delta_mm_price_observe_square'].sum()
+        vot = np.append(vot, votality)
+        date_section_vot.append((date_section, votality))
+    # 最终波动率等于收益序列的方差/波动序列的均值
+    # 按每个交易单元输出对应的值:
+    for vot_day in date_section_vot:
+        realized_votality_value = rtn.var() / vot.mean() * vot_day[1]
+        realized_votality_value = rtn.var() / vot.mean()
+        realized_votality.append((vot_day[0], realized_votality_value))
+    return realized_votality
+        
+        
+def votality_window_cal(contract_pair:list,start_date, end_date, window=5):
+    vot_seq = dict()
+    date_range = trade_day[trade_day.index(start_date):trade_day.index(end_date)+1]
+    for day in date_range:
+        pre_day = trade_day[trade_day.index(day)-window]
+        realized_vot = realized_votality_section(contract_pair, pre_day, day)
+        vot_seq[day] = realized_vot
+    print(vot_seq)
+    
+if __name__ == '__main__':
+    print(votality_window_cal(['ni2402','ni2403'], 20231212, 20231227))
+
+
+    
 def check_update_flag(contract_pair:list, q:float):
     # future_pair: ['fu2301', 'fu2305'] --> Paramater CSV: BOUNDARY_PATH/fu2301-fu2305.csv
     pair_filename = contract_pair[0] + '-' + contract_pair[1] + '.csv'
@@ -166,8 +243,6 @@ def export_parameter_csv(contract_pair_group:list, start_date:int, end_date:int,
     print("DataLoading time: ", time.time()-start)
     return df
 
-
-# TimeSeries Prediction on one pair
 def predict_boundary_rolling(param_data, step=20, start_date='20220908_0', predict_date='20221118_0'):
     feature_columns_buy = ['price_quantile_N(buy)']
     feature_columns_sell = ['price_quantile_N(sell)']
@@ -287,9 +362,6 @@ def predict_info(region_info:pd.DataFrame, end_date:int, end_section:int, q:floa
     return region_info
 
 
-if __name__ == '__main__':
-    df = pd.read_excel(r".\info\region_info.xlsx", sheet_name="Sheet1")
-    predict_info(df, 20221207, 0, 0.95, 6).to_csv('C:\PycharmProjects\PycharmProjects\info.csv')
 
 
 
