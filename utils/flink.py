@@ -173,7 +173,7 @@ def request_from_cloud_to_UI(config):
     cloud_server_para = ftp_config["cloudServer"]
     username = ftp_config["userName"]
     account_list = ftp_config["accountList"]
-    UI_dir = ftp_config["localUIDir"]
+    UI_dir = ROOT_PATH
     cta_cloud_dir = os.path.join("CTA", username)
     log = []
     

@@ -24359,3 +24359,15 @@ co1        UI -> Cloud    D:\local_repo\CTA_UI\params\co1\params.csv  CTA/hh/co1
 co1        UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\co1.json  CTA/hh/co1/co1.json                      √
 co2        UI -> Trading  D:\local_repo\CTA_UI\params\co2\params.csv  /root/cta_lq_co2/params.csv              √
 co1        UI -> Trading  D:\local_repo\CTA_UI\params\co1\params.csv  /root/cta_ks_co1/params.csv              √
+2024-03-12 14:32:21
+Account    Link    From    To    Status
+2024-03-12 14:32:24
+Account    Link    From    To    Status
+2024-03-12 14:32:40
+Account    Link    From    To    Status
+2024-03-12 14:32:43
+Account    Link    From    To    Status
+2024-03-12 14:40:17
+Account    Link    From    To    Status
+2024-03-12 14:41:48
+Account    Link    From    To    Status

@@ -1,0 +1,32 @@
+{
+    "userName" : "Ls",
+
+    "cloudServer": {
+        "host": "39.97.106.35",
+        "port" : 22,
+        "username": "root",
+        "pwd": "Wojiaomt1",
+        "reverse_port": 9870
+    },
+
+    "marketServer": {
+        "host": "192.168.255.83",
+        "port": 22,
+        "username": "administrator",
+        "pwd": "Changjiang123",
+        "mktDir": "C:\\Users\\Administrator\\Desktop\\MarketServerDir"
+    },
+
+    "tradeServer": {
+        "host": "171.17.105.15",
+        "port": 22,
+        "username": "root",
+        "pwd": "cjqh@123"
+    },
+
+    "localUIDir": "E:\\CTA_UI_v1.2.1",
+    
+    "accountList": ["changjiang"],
+
+    "tradeDirList": ["/root/cta_cj"]
+}

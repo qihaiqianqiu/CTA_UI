@@ -1,4 +1,5 @@
-from utils.const import exchange_breed_dict, db_para, invalid_month_dict, trade_day
+from utils.const import exchange_breed_dict, invalid_month_dict, trade_day
+from utils.database_api import db_para
 from utils.rename import rename_db_to_param, rename
 from utils.date_section_modification import to_trading_day_backwards
 import pandas as pd

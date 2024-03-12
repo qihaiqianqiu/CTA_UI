@@ -3,7 +3,7 @@ import json
 from utils.const import ROOT_PATH
 import os
 
-all = ['client']
+all = ['client', 'db_para']
 # 数据库配置
 DB_CONFIG_PATH = os.path.join(ROOT_PATH, "DB_config.json")
 db_para = json.load(open(DB_CONFIG_PATH))

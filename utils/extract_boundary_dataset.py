@@ -10,7 +10,8 @@ import os
 from utils.cache_management import *
 from utils.calculate_parameter import *
 import os
-from utils.const import exchange_breed_dict, db_para, trade_day, BOUNDARY_PATH
+from utils.database_api import db_para
+from utils.const import exchange_breed_dict, trade_day, BOUNDARY_PATH
 from utils.date_section_modification import get_date_section, from_predict
 from utils.database_api import client
 import traceback

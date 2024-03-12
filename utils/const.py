@@ -2,7 +2,7 @@ import os
 
 all = ["Z_PATH", "ROOT_PATH", "BOUNDARY_PATH", "PLOT_PATH", "ssh", "trade_day", "breed_dict", 
        "param_columns", "boundary_dict", "exchange_breed_dict", "secury_deposit_d1_dict", "default_args",
-       "multiple_dict", "default_columns", "db_para", "script_path", "PARAM_PATH", "INFO_PATH", "DB_CONFIG_PATH"]
+       "multiple_dict", "default_columns", "script_path", "PARAM_PATH", "INFO_PATH", "DB_CONFIG_PATH"]
 # 路径
 script_path = os.path.abspath(__file__)
 ROOT_PATH = os.path.dirname(os.path.dirname(script_path))
