@@ -15,8 +15,9 @@ import matplotlib.dates as mdate
 import datetime as dt
 import time
 from utils.rename import rename
-from utils.const import client, BOUNDARY_PATH, trade_day, boundary_dict
+from utils.const import BOUNDARY_PATH, trade_day, boundary_dict
 from utils.get_contract_pair import get_exchange_on
+from utils.database_api import client
 
 __all__ = ["predict_info", "get_pairwise_data"]
 # Get data from start_date[MorningMarket] to end_date[EveningMarket]

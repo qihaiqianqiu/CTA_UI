@@ -1,5 +1,5 @@
 import json
-from . import sftp
+from utils.sftp import SSHConnection
 import re
 import os
 import datetime
@@ -25,7 +25,7 @@ def pull_from_UI_to_cloud(config_file):
     username = ftp_config["userName"]
     account_list = ftp_config["accountList"]
     dest_user_dir = os.path.join("CTA", username)
-    ssh = sftp.SSHConnection(host=cloud_server_para['host'], port=cloud_server_para['port'],
+    ssh = SSHConnection(host=cloud_server_para['host'], port=cloud_server_para['port'],
                              username=cloud_server_para['username'], pwd=cloud_server_para['pwd'])
     try:
         ssh.connect()
@@ -78,7 +78,7 @@ def pull_from_UI_to_market(config_file):
         # 本地行情服务器，直连交易服务器
         trade_dir_list = ftp_config["tradeDirList"]
         trade_server_para = ftp_config["tradeServer"]
-        ssh = sftp.SSHConnection(host=trade_server_para['host'], port=trade_server_para['port'],
+        ssh = SSHConnection(host=trade_server_para['host'], port=trade_server_para['port'],
                              username=trade_server_para['username'], pwd=trade_server_para['pwd'])
         try:
             ssh.connect()
@@ -121,7 +121,7 @@ def pull_from_UI_to_market(config_file):
         
     else:
         # 远程行情服务器，在行情侧建立好反向SSH隧道，从UI端使用反向端口连接行情服务器
-        ssh = sftp.SSHConnection(host=cloud_server_para['host'], port=cloud_server_para['reverse_port'],
+        ssh = SSHConnection(host=cloud_server_para['host'], port=cloud_server_para['reverse_port'],
                     username=market_server_para['username'], pwd=market_server_para['pwd'])
         try:
             ssh.connect()
@@ -132,21 +132,35 @@ def pull_from_UI_to_market(config_file):
             return log
         for acc in account_list:
             username = ftp_config["userName"]
-            # 首先，保证行情服务器端建立相应的存储目录
-            dest_user_dir = os.path.join(market_server_para["mktDir"], username)
-            ssh.cmd("mkdir " + dest_user_dir)
-            dest_acc_dir = os.path.join(dest_user_dir, acc)
-            ssh.cmd("mkdir " + dest_acc_dir)
             # 上传参数表, 链路配置表
             param_dir = os.path.join(ROOT_PATH, "params", acc, "params.csv")
-            log_info = ssh.upload(param_dir, os.path.join(dest_acc_dir, "params.csv"))
-            log_info.insert(0, acc)
-            log_info.insert(1, "UI -> Market")
-            log.append(log_info)
-            log_info = ssh.upload(ftp_config_dir, os.path.join(dest_acc_dir, config_file))
-            log_info.insert(0, acc)
-            log_info.insert(1, "UI -> Market")
-            log.append(log_info)
+            # 首先，保证行情服务器端建立相应的存储目录
+            if op_type == 'Windows32':
+                dest_user_dir = os.path.join(market_server_para["mktDir"], username)
+                ssh.cmd("mkdir " + dest_user_dir)
+                dest_acc_dir = os.path.join(dest_user_dir, acc)
+                ssh.cmd("mkdir " + dest_acc_dir)
+                log_info = ssh.upload(param_dir, os.path.join(dest_acc_dir, "params.csv"))
+                log_info.insert(0, acc)
+                log_info.insert(1, "UI -> Market")
+                log.append(log_info)
+                log_info = ssh.upload(ftp_config_dir, os.path.join(dest_acc_dir, config_file))
+                log_info.insert(0, acc)
+                log_info.insert(1, "UI -> Market")
+                log.append(log_info)
+            if op_type == 'Linux':
+                dest_user_dir = windows_to_linux(os.path.join(market_server_para["mktDir"], username))
+                ssh.cmd("mkdir -p " + dest_user_dir)
+                dest_acc_dir = windows_to_linux(os.path.join(dest_user_dir, acc))
+                ssh.cmd("mkdir -p " + dest_acc_dir)
+                log_info = ssh.upload(param_dir, windows_to_linux(os.path.join(dest_acc_dir, "params.csv")))
+                log_info.insert(0, acc)
+                log_info.insert(1, "UI -> Market")
+                log.append(log_info)
+                log_info = ssh.upload(ftp_config_dir, windows_to_linux(os.path.join(dest_acc_dir, config_file)))
+                log_info.insert(0, acc)
+                log_info.insert(1, "UI -> Market")
+                log.append(log_info)
             print("参数表成功上传至行情端", dest_acc_dir)
         ssh.close()
     return log
@@ -164,7 +178,7 @@ def request_from_cloud_to_UI(config):
     log = []
     
     # 日志文件推送
-    ssh = sftp.SSHConnection(host=cloud_server_para['host'], port=cloud_server_para['port'],
+    ssh = SSHConnection(host=cloud_server_para['host'], port=cloud_server_para['port'],
                             username=cloud_server_para['username'], pwd=cloud_server_para['pwd'])
     try:
         ssh.connect()
@@ -214,7 +228,7 @@ def request_from_cloud_to_UI(config):
 def set_up_ssh_reverse_tunnel(config_file):
     ftp_config = json.load(open(config_file))
     cloud_server_para = ftp_config["cloudServer"]
-    ssh = sftp.SSHConnection(host=cloud_server_para['host'], port=cloud_server_para['port'],
+    ssh = SSHConnection(host=cloud_server_para['host'], port=cloud_server_para['port'],
                               username=cloud_server_para['username'], pwd=cloud_server_para['pwd'])
     ssh.connect()
     print("使用配置文件{}建立反向隧道：SSH Tunnel Connected".format(config_file))
@@ -226,22 +240,37 @@ def pull_from_market_to_trading(config_file):
     # 获取config文件所在的目录，找到对应交易员与账户
     ftp_config = json.load(open(config_file))
     trade_server_para = ftp_config["tradeServer"]
-    ssh = sftp.SSHConnection(host=trade_server_para['host'], port=trade_server_para['port'],
+    ssh = SSHConnection(host=trade_server_para['host'], port=trade_server_para['port'],
                              username=trade_server_para['username'], pwd=trade_server_para['pwd'])
     ssh.connect()
+    op_judge = ssh.cmd("uname")
+    output = op_judge.decode("GBK").splitlines()
+    if 'Linux' in output:
+        op_type = 'Linux'
+    else:
+        op_type = 'Windows32'
     # 参数表推送
     trade_dir_list = ftp_config["tradeDirList"]
     account_list = ftp_config["accountList"]
     username = ftp_config["userName"]
     mkt_dir = ftp_config["marketServer"]["mktDir"]
     for idx in range(len(trade_dir_list)):
-        ssh.cmd("mkdir " + trade_dir_list[idx])
-        # 推送参数表到交易端
-        market_param_dir = os.path.join(mkt_dir, username, account_list[idx], "params.csv")
-        trade_param_dir = os.path.join(trade_dir_list[idx], "params.csv")
-        print("从行情端获取参数表", market_param_dir, "上传至交易端", trade_param_dir)
-        ssh.upload(market_param_dir, trade_param_dir)
-        print("行情服务器参数表成功上传至交易端", trade_param_dir)    
+        if op_type == "Windows32":
+            ssh.cmd("mkdir " + trade_dir_list[idx])
+            # 推送参数表到交易端
+            market_param_dir = os.path.join(mkt_dir, username, account_list[idx], "params.csv")
+            trade_param_dir = os.path.join(trade_dir_list[idx], "params.csv")
+            print("从行情端获取参数表", market_param_dir, "上传至交易端", trade_param_dir)
+            ssh.upload(market_param_dir, trade_param_dir)
+            print("行情服务器参数表成功上传至交易端", trade_param_dir)
+        if op_type == "Linux":
+            ssh.cmd("mkdir -p " + windows_to_linux(trade_dir_list[idx]))
+            # 推送参数表到交易端
+            market_param_dir = os.path.join(mkt_dir, username, account_list[idx], "params.csv")
+            trade_param_dir = windows_to_linux(os.path.join(trade_dir_list[idx], "params.csv"))
+            print("从行情端获取参数表", market_param_dir, "上传至交易端", trade_param_dir)
+            ssh.upload(market_param_dir, trade_param_dir)
+            print("行情服务器参数表成功上传至交易端", trade_param_dir)    
     ssh.close() 
 
 
@@ -250,7 +279,7 @@ def request_from_trading_to_market(config_file):
     # 获取config文件所在的目录，找到对应交易员与账户
     ftp_config = json.load(open(config_file))
     trade_server_para = ftp_config["tradeServer"]
-    ssh = sftp.SSHConnection(host=trade_server_para['host'], port=trade_server_para['port'],
+    ssh = SSHConnection(host=trade_server_para['host'], port=trade_server_para['port'],
                              username=trade_server_para['username'], pwd=trade_server_para['pwd'])
     ssh.connect()
     # 判断系统类型
@@ -367,7 +396,7 @@ def request_from_market_to_cloud(config_file):
     # 根目录 行情服务器的CTA文件夹
     ftp_config = json.load(open(config_file))
     cloud_server_para = ftp_config["cloudServer"]
-    ssh = sftp.SSHConnection(host=cloud_server_para['host'], port=cloud_server_para['port'],
+    ssh = SSHConnection(host=cloud_server_para['host'], port=cloud_server_para['port'],
                              username=cloud_server_para['username'], pwd=cloud_server_para['pwd'])
     ssh.connect()
     username = ftp_config['userName']
@@ -396,7 +425,7 @@ def pull_from_market_to_cloud(config_file, file):
     ftp_config_dir = os.path.join(config_file)
     ftp_config = json.load(open(ftp_config_dir))
     cloud_server_para = ftp_config["cloudServer"]
-    ssh = sftp.SSHConnection(host=cloud_server_para['host'], port=cloud_server_para['port'],
+    ssh = SSHConnection(host=cloud_server_para['host'], port=cloud_server_para['port'],
                              username=cloud_server_para['username'], pwd=cloud_server_para['pwd'])
     ssh.connect()
     # 参数表推送

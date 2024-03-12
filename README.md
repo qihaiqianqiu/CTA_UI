@@ -305,3 +305,7 @@ if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyCon
 ### v1.2.4
 - UI展示类的自定义功能（合成region目标价位）
 - 实装Boundary弹性模型计算模块
+
+### v1.2.5
+- （已实现）优化了const中的静态参数，避免过度引用的情况
+- （已实现）优化了文件链路中市场服务器与交易服务器的交互，修正因linux交易服务器产生的路径符号问题

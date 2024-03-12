@@ -1,8 +1,6 @@
-from clickhouse_driver import Client
-import json
 import os
 
-all = ["Z_PATH", "ROOT_PATH", "BOUNDARY_PATH", "PLOT_PATH", "client", "ssh", "trade_day", "breed_dict", 
+all = ["Z_PATH", "ROOT_PATH", "BOUNDARY_PATH", "PLOT_PATH", "ssh", "trade_day", "breed_dict", 
        "param_columns", "boundary_dict", "exchange_breed_dict", "secury_deposit_d1_dict", "default_args",
        "multiple_dict", "default_columns", "db_para", "script_path", "PARAM_PATH", "INFO_PATH", "DB_CONFIG_PATH"]
 # 路径
@@ -13,13 +11,7 @@ PARAM_PATH = os.path.join(ROOT_PATH, "params")
 INFO_PATH = os.path.join(ROOT_PATH, "info")
 BOUNDARY_PATH = os.path.join(INFO_PATH, "boundary_info")
 PLOT_PATH = os.path.join(Z_PATH, "barplot")
-DB_CONFIG_PATH = os.path.join(ROOT_PATH, "DB_config.json")
-# 数据库配置
-db_para = json.load(open(DB_CONFIG_PATH))
 
-# Clickhouse config
-client = Client(host=db_para['ip'], port=db_para['port'])
-client.execute('use ' + db_para['db_to'])
 
 # 界计算模块参数
 default_args = (0.95, 6, 1.0)

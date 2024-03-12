@@ -7,13 +7,12 @@ mpl.rcParams['axes.unicode_minus'] = False
 from utils.rename import rename_db_to_param
 import pandas as pd
 import os
-from utils.date_section_modification import *
 from utils.cache_management import *
 from utils.calculate_parameter import *
 import os
-from utils.const import exchange_breed_dict, db_para,  client, default_args, trade_day, BOUNDARY_PATH
-from utils.rename import rename
-import re
+from utils.const import exchange_breed_dict, db_para, trade_day, BOUNDARY_PATH
+from utils.date_section_modification import get_date_section, from_predict
+from utils.database_api import client
 import traceback
 import time
 from multiprocessing import Pool

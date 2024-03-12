@@ -1,10 +1,10 @@
-from utils.const import exchange_breed_dict, db_para, client, invalid_month_dict, trade_day
+from utils.const import exchange_breed_dict, db_para, invalid_month_dict, trade_day
 from utils.rename import rename_db_to_param, rename
 from utils.date_section_modification import to_trading_day_backwards
 import pandas as pd
 import re
 import datetime
-
+from utils.database_api import client
 # 获取合约对名称，SP指令，成交量等信息
 
 all = ["get_db_contract_pair",  "check_vaild_month", "get_param_contract_pair_with_volume", "get_param_contract_pair", "check", "get_contract_pair_rank", "get_exchange_on"]
