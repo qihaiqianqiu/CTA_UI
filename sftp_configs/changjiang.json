@@ -10,7 +10,7 @@
     },
 
     "marketServer": {
-        "host": "192.168.255.83",
+        "host": "172.22.102.105",
         "port": 22,
         "username": "administrator",
         "pwd": "Changjiang123",

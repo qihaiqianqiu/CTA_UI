@@ -195,6 +195,38 @@ if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyCon
 
    脚本将开始监控云服务器上的文件变化，并在文件发生更改时触发同步操作。
 
+### 市场服务器OpenSSH服务启动
+- 方式1：WindowsServer中-设置-应用与功能-OpenSSH服务器
+- 方式2：手动安装使用说明目录下的openssh安装包
+
+```
+cd C:\Program Files\OpenSSH
+powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1
+net start sshd
+Set-Service sshd -StartupType Automatic
+
+# Start the sshd service
+Start-Service sshd
+
+# OPTIONAL but recommended:
+Set-Service -Name sshd -StartupType 'Automatic'
+
+# Confirm the Firewall rule is configured. It should be created automatically by setup. Run the following to verify
+if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyContinue | Select-Object Name, Enabled)) {
+    Write-Output "Firewall Rule 'OpenSSH-Server-In-TCP' does not exist, creating it..."
+    New-NetFirewallRule -Name 'OpenSSH-Server-In-TCP' -DisplayName 'OpenSSH Server (sshd)' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+} else {
+    Write-Output "Firewall rule 'OpenSSH-Server-In-TCP' has been created and exists."
+}
+```
+### 市场服务器功能启动
+- 将utils中的file_monitor.py文件直接移出包目录，放置于config中对应的市场服务器目录下。直接运行即可。
+- 市场服务器目录结构如下：
+-marketServerDir
+--utils
+--sftp_configs
+--file_monitor.py
+--(usrs/account/file)后续的文件会自动生成在目录下
 
 ## 日常BarPlot（暂略）
 - 目前每个交易单元结束后自动运行
@@ -309,3 +341,4 @@ if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyCon
 ### v1.2.5
 - （已实现）优化了const中的静态参数，避免过度引用的情况
 - （已实现）优化了文件链路中市场服务器与交易服务器的交互，修正因linux交易服务器产生的路径符号问题
+- （已实现）修正使用市场服务器时，下载日志文件到本地UI时的逻辑

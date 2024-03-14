@@ -18,7 +18,7 @@ import datetime
 import concurrent.futures
 from tqdm import tqdm
 import os
-from utils import *
+from utils import const, calculate_parameter, flink, visualize, copy_paste, date_section_modification, cache_management, transform, compare, report_to_tmpvalue, trade_to_trading, file_monitor
 from UI_widget import *
 import threading
 import json
@@ -41,6 +41,7 @@ class Arbitrator(QMainWindow):
         # layout management
         self.container = QtWidgets.QWidget()
         self.param_layout = QtWidgets.QHBoxLayout()
+        self.ignore_dialog = ignoreParamDialog()
         self.initUI()
 
     # 布局：菜单 - 读取（打开）套利对CSV
@@ -825,8 +826,7 @@ class Arbitrator(QMainWindow):
             
     @QtCore.pyqtSlot()
     def ignore(self):
-        ignore_dialog = ignoreParamDialog()
-        ignore_dialog.exec_()
+        self.ignore_dialog.exec_()
         
     @QtCore.pyqtSlot()
     def save(self):
