@@ -17,16 +17,18 @@ import time
 from utils.rename import rename
 from utils.const import BOUNDARY_PATH, trade_day, boundary_dict
 from utils.get_contract_pair import get_exchange_on
-from utils.database_api import client
+from utils.database_api import init_clickhouse_client
 
 __all__ = ["predict_info", "get_pairwise_data"]
 # Get data from start_date[MorningMarket] to end_date[EveningMarket]
 def get_pairwise_data(contract_pair:list, start_date:int, end_date:int):
+    if not ("clickhouse_client" in locals() or "clickhouse_client" in globals()):
+        clickhouse_client = init_clickhouse_client()
     start = time.time()
     select_clause = 'SELECT contract, trading_date, time, ap1, av1, bp1, bv1, volume from ctp_future_tick '
     where_clause = 'WHERE contract in ' + str(tuple(contract_pair)) + ' and trading_date >= '+ str(start_date) + ' and trading_date <= ' + str(end_date)
     query = select_clause + where_clause
-    res = client.query_dataframe(query)
+    res = clickhouse_client.query_dataframe(query)
     print("SQL TIME: ", time.time()-start)
     if len(res) > 0:
         res = res.sort_values(by=['trading_date', 'time'])

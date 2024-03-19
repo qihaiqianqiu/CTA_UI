@@ -7,27 +7,23 @@ import matplotlib
 matplotlib.use('Agg') 
 from matplotlib.colors import Normalize
 import matplotlib.cm as cm
-from matplotlib.patches import PathPatch
-from math import log,sqrt
-from scipy import stats
-from scipy.interpolate import interp1d
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+
 mpl.rcParams['font.sans-serif'] = ['SimHei']
 mpl.rcParams['axes.unicode_minus'] = False
 mpl.rcParams['ytick.labelsize'] = 100
 mpl.rcParams['xtick.labelsize'] = 70
 mpl.rcParams['ytick.major.size'] = 8
 mpl.rcParams['ytick.major.width'] = 2
+
 from PyQt5.QtWidgets import QDialog, QLabel, QVBoxLayout
 from PyQt5.QtCore import Qt
-from scipy.stats import norm
-import matplotlib.dates as mdate
 import matplotlib.font_manager as fm
-import matplotlib.patches as patches
 import time
 import traceback
 import datetime
+
 mpl.rcParams.update({
 'text.usetex': False,
 'font.family': 'stixgeneral',
@@ -35,7 +31,7 @@ mpl.rcParams.update({
 })
 from tabulate import tabulate
 from multiprocessing import Pool
-from utils.const import trade_day, PLOT_PATH
+from utils.const import trade_day, PLOT_PATH, PARAM_PATH
 from utils.rename import rename, rename_db_to_param
 from utils.get_contract_pair import get_db_contract_pair
 from utils.date_section_modification import get_date_section, from_predict
@@ -604,7 +600,7 @@ def export_parameter_csv(date, future_pair_code_group):
 # Deprecated and replaced by all contract_pair in database
 def get_contract_lst():
     pair_df = pd.DataFrame()
-    for root, dirs, files in os.walk(r"Z:\300_Group\HFT\Program\CTA_UI\params", topdown=False):
+    for root, dirs, files in os.walk(PARAM_PATH, topdown=False):
         for name in files:
             if "params.csv" in os.path.join(root, name):
                 pair_df = pd.concat([pair_df, pd.read_csv(os.path.join(root, name))[['first_instrument','second_instrument']]])

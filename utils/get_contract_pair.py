@@ -5,7 +5,7 @@ from utils.date_section_modification import to_trading_day_backwards
 import pandas as pd
 import re
 import datetime
-from utils.database_api import client
+from utils.database_api import init_clickhouse_client
 # 获取合约对名称，SP指令，成交量等信息
 
 all = ["get_db_contract_pair",  "check_vaild_month", "get_param_contract_pair_with_volume", "get_param_contract_pair", "check", "get_contract_pair_rank", "get_exchange_on"]
@@ -18,7 +18,9 @@ def get_param_contract_pair():
     cta_table = db_para['tb_to']
     SQL = "SELECT distinct contract, breed from " + cta_table + " where breed in " + str(tuple(breed_lst))
     print(SQL)
-    df = client.query_dataframe(SQL).sort_values('contract')
+    if not ("clickhouse_client" in locals() or "clickhouse_client" in globals()):
+        clickhouse_client = init_clickhouse_client()
+    df = clickhouse_client.query_dataframe(SQL).sort_values('contract')
     contract_pair_dict = {}
     for breed_class in df.groupby('breed'):
         contract_pair_lst = []
@@ -51,7 +53,9 @@ def get_param_contract_pair_with_volume():
     previous_trading_date = trade_day[trade_day.index(to_trading_day_backwards(int(today))) - 1]
     print(previous_trading_date)
     SQL = "SELECT distinct contract, breed, max(volume) from " + cta_table + " where breed in " + str(tuple(breed_lst)) + " and trading_date = " + str(previous_trading_date) + " group by contract, breed"
-    df = client.query_dataframe(SQL).sort_values('contract')
+    if not ("clickhouse_client" in locals() or "clickhouse_client" in globals()):
+        clickhouse_client = init_clickhouse_client()
+    df = clickhouse_client.query_dataframe(SQL).sort_values('contract')
     print(df)
     contract_pair_dict = {}
     for breed_class in df.groupby('breed'):
@@ -73,7 +77,9 @@ def get_db_contract_pair():
     cta_table = db_para['tb_to']
     SQL = "SELECT distinct contract, breed from " + cta_table + " where breed in " + str(tuple(breed_lst))
     print(SQL)
-    df = client.query_dataframe(SQL).sort_values('contract')
+    if not ("clickhouse_client" in locals() or "clickhouse_client" in globals()):
+        clickhouse_client = init_clickhouse_client()
+    df = clickhouse_client.query_dataframe(SQL).sort_values('contract')
     contract_pair_dict = {}
     for breed_class in df.groupby('breed'):
         print("Start to get contract pair of", breed_class[0])
@@ -131,7 +137,9 @@ def get_contract_pair_rank(contract_pair: list):
     previous_trading_date = trade_day[trade_day.index(to_trading_day_backwards(int(today))) - 1]
     SQL = "SELECT distinct contract, max(volume) from " + cta_table + " where contract in " + str(tuple(contract_pair)) + " and trading_date = " + str(previous_trading_date) + " group by contract"
     print(SQL)
-    df = client.query_dataframe(SQL).sort_values('max_volume_', ascending=False)
+    if not ("clickhouse_client" in locals() or "clickhouse_client" in globals()):
+        clickhouse_client = init_clickhouse_client()
+    df = clickhouse_client.query_dataframe(SQL).sort_values('max_volume_', ascending=False)
     print(df)
     # 异常处理：查询不到的话
     if len(df) == 0:

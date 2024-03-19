@@ -13,7 +13,7 @@ import os
 from utils.database_api import db_para
 from utils.const import exchange_breed_dict, trade_day, BOUNDARY_PATH
 from utils.date_section_modification import get_date_section, from_predict
-from utils.database_api import client
+from utils.database_api import init_clickhouse_client
 import traceback
 import time
 from multiprocessing import Pool
@@ -42,7 +42,9 @@ def get_param_contract_pair():
     cta_table = db_para['tb_to']
     SQL = "SELECT distinct contract, breed from " + cta_table + " where breed in " + str(tuple(breed_lst))
     print(SQL)
-    df = client.query_dataframe(SQL).sort_values('contract')
+    if not ("clickhouse_client" in locals() or "clickhouse_client" in globals()):
+        clickhouse_client = init_clickhouse_client()
+    df = clickhouse_client.query_dataframe(SQL).sort_values('contract')
     contract_pair_dict = {}
     for breed_class in df.groupby('breed'):
         contract_pair_lst = []
@@ -76,11 +78,13 @@ def pair_plot_section(contract_pair:list, start_date:int, end_date:int):
         
 # Get data from start_date[MorningMarket] to end_date[EveningMarket]
 def get_pairwise_data(contract_pair:list, start_date:int, end_date:int):
+    if not ("clickhouse_client" in locals() or "clickhouse_client" in globals()):
+        clickhouse_client = init_clickhouse_client()
     start = time.time()
     select_clause = 'SELECT contract, trading_date, time, ap1, av1, bp1, bv1 from ctp_future_tick '
     where_clause = 'WHERE contract in ' + str(tuple(contract_pair)) + ' and trading_date >= '+ str(start_date) + ' and trading_date <= ' + str(end_date)
     query = select_clause + where_clause
-    res = client.query_dataframe(query)
+    res = clickhouse_client.query_dataframe(query)
     print("SQL TIME: ", time.time()-start)
     if len(res) > 0:
         res = res.sort_values(by=['trading_date', 'time'])

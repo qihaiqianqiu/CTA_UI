@@ -4894,3 +4894,99 @@ Traceback (most recent call last):
     file_size = os.stat(localpath).st_size
 FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'C:\\Users\\Administrator\\Desktop\\MarketServerDir\\Ls\\changjiang\\params_20240313.csv'
 
+2024-03-14 15:01:08
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 33, in upload
+    sftp.put(local_path, target_path)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\sftp_client.py", line 757, in put
+    file_size = os.stat(localpath).st_size
+FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'C:\\Users\\Administrator\\Desktop\\MarketServerDir\\Ls\\changjiang\\holding_240314.csv'
+
+2024-03-14 15:01:09
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 33, in upload
+    sftp.put(local_path, target_path)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\sftp_client.py", line 757, in put
+    file_size = os.stat(localpath).st_size
+FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'C:\\Users\\Administrator\\Desktop\\MarketServerDir\\Ls\\changjiang\\trading_240314.csv'
+
+2024-03-14 15:01:10
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 33, in upload
+    sftp.put(local_path, target_path)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\sftp_client.py", line 757, in put
+    file_size = os.stat(localpath).st_size
+FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'C:\\Users\\Administrator\\Desktop\\MarketServerDir\\Ls\\changjiang\\params_20240314.csv'
+
+2024-03-15 15:01:06
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 33, in upload
+    sftp.put(local_path, target_path)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\sftp_client.py", line 757, in put
+    file_size = os.stat(localpath).st_size
+FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'C:\\Users\\Administrator\\Desktop\\MarketServerDir\\Ls\\changjiang\\holding_240315.csv'
+
+2024-03-15 15:01:10
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 33, in upload
+    sftp.put(local_path, target_path)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\sftp_client.py", line 757, in put
+    file_size = os.stat(localpath).st_size
+FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'C:\\Users\\Administrator\\Desktop\\MarketServerDir\\Ls\\changjiang\\trading_240315.csv'
+
+2024-03-15 15:01:12
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 33, in upload
+    sftp.put(local_path, target_path)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\sftp_client.py", line 757, in put
+    file_size = os.stat(localpath).st_size
+FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'C:\\Users\\Administrator\\Desktop\\MarketServerDir\\Ls\\changjiang\\params_20240315.csv'
+
+2024-03-18 15:01:07
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 33, in upload
+    sftp.put(local_path, target_path)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\sftp_client.py", line 757, in put
+    file_size = os.stat(localpath).st_size
+FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'C:\\Users\\Administrator\\Desktop\\MarketServerDir\\Ls\\changjiang\\holding_240318.csv'
+
+2024-03-18 15:01:10
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 33, in upload
+    sftp.put(local_path, target_path)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\sftp_client.py", line 757, in put
+    file_size = os.stat(localpath).st_size
+FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'C:\\Users\\Administrator\\Desktop\\MarketServerDir\\Ls\\changjiang\\trading_240318.csv'
+
+2024-03-18 15:01:12
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 33, in upload
+    sftp.put(local_path, target_path)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\sftp_client.py", line 757, in put
+    file_size = os.stat(localpath).st_size
+FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'C:\\Users\\Administrator\\Desktop\\MarketServerDir\\Ls\\changjiang\\params_20240318.csv'
+
+2024-03-19 15:01:14
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 33, in upload
+    sftp.put(local_path, target_path)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\sftp_client.py", line 757, in put
+    file_size = os.stat(localpath).st_size
+FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'C:\\Users\\Administrator\\Desktop\\MarketServerDir\\Ls\\changjiang\\holding_240319.csv'
+
+2024-03-19 15:01:17
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 33, in upload
+    sftp.put(local_path, target_path)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\sftp_client.py", line 757, in put
+    file_size = os.stat(localpath).st_size
+FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'C:\\Users\\Administrator\\Desktop\\MarketServerDir\\Ls\\changjiang\\trading_240319.csv'
+
+2024-03-19 15:01:19
+Traceback (most recent call last):
+  File "D:\local_repo\CTA_UI\utils\sftp.py", line 33, in upload
+    sftp.put(local_path, target_path)
+  File "C:\Users\Han.Hao\AppData\Local\anaconda3\lib\site-packages\paramiko\sftp_client.py", line 757, in put
+    file_size = os.stat(localpath).st_size
+FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'C:\\Users\\Administrator\\Desktop\\MarketServerDir\\Ls\\changjiang\\params_20240319.csv'
+

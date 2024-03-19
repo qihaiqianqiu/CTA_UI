@@ -130,6 +130,12 @@ def pull_from_UI_to_market(config_file):
                 log_info = [acc, "UI -> Market", "-", "-", type(e).__name__ + ":" + str(traceback.format_exc())]
                 log.append(log_info)
             return log
+        op_judge = ssh.cmd("uname")
+        output = op_judge.decode("GBK").splitlines()
+        if 'Linux' in output:
+            op_type = 'Linux'
+        else:
+            op_type = 'Windows32'
         for acc in account_list:
             username = ftp_config["userName"]
             # 上传参数表, 链路配置表

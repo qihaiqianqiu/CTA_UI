@@ -342,3 +342,5 @@ if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyCon
 - （已实现）优化了const中的静态参数，避免过度引用的情况
 - （已实现）优化了文件链路中市场服务器与交易服务器的交互，修正因linux交易服务器产生的路径符号问题
 - （已实现）修正使用市场服务器时，下载日志文件到本地UI时的逻辑
+- （已实现）修正了Ignore功能，使其在UI启动时自动刷新到最新的账户和参数表状态
+- 在clickhouse数据库配置不完全的情况下可以进行离线模式使用UI
