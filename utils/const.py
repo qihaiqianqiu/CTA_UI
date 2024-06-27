@@ -91,7 +91,7 @@ exchange_breed_dict = {
     "GFEX": ["SI"]
 }
 
-param_columns = ['pairs_id','indate_date', 'first_instrument', 'second_instrument', 'prime_instrument', 'boundary_unit_num', \
+param_columns = ['BarPlot', 'CheckBox', 'pairs_id','indate_date', 'first_instrument', 'second_instrument', 'prime_instrument', 'boundary_unit_num', \
         'region_drift', 'region_0', 'region_1', 'region_2', 'region_3', 'region_4', 'region_5', 'region_6', 'region_7', \
         'up_boundary_5', 'up_boundary_4', 'up_boundary_3', 'up_boundary_2', 'up_boundary_1', 'down_boundary_1', \
         'down_boundary_2', 'down_boundary_3', 'down_boundary_4', 'down_boundary_5', 'today_fee', 'wait_window', \
@@ -99,7 +99,7 @@ param_columns = ['pairs_id','indate_date', 'first_instrument', 'second_instrumen
         'if_add', 'limitcoef', 'abs_threshold_after', 'kind', 'before_tick', 'before_cancel_flag', 'before_cancel_num',\
         'max_position', 'min_position', 'region_tick_lock', 'region_unit_num', 'If_SP', 'SP_InstrumentID', 'Min_Step']
 
-default_columns = ['region_0', 'region_1', 'region_2', 'region_3', 'region_4', 'region_5', 'region_6', 'region_7', 'region_tick_lock', 'region_unit_num',\
+default_columns = ['CheckBox', 'region_0', 'region_1', 'region_2', 'region_3', 'region_4', 'region_5', 'region_6', 'region_7', 'region_tick_lock', 'region_unit_num',\
     'today_fee', 'night_type', 'if_add', 'max_position', 'min_position','If_SP', 'SP_InstrumentID']
 
 close_columns = ['close_region_0', 'close_region_1', 'close_region_2', 'close_region_3', 'close_region_4', 'close_region_5', 'close_region_6',\

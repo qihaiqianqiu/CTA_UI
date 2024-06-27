@@ -51,10 +51,17 @@ def get_param_contract_pair_with_volume():
     cta_table = db_para['tb_to']
     today = datetime.datetime.today().strftime('%Y%m%d')
     previous_trading_date = trade_day[trade_day.index(to_trading_day_backwards(int(today))) - 1]
-    print(previous_trading_date)
-    SQL = "SELECT distinct contract, breed, max(volume) from " + cta_table + " where breed in " + str(tuple(breed_lst)) + " and trading_date = " + str(previous_trading_date) + " group by contract, breed"
+    # SQL out most recent trading date record
     if not ("clickhouse_client" in locals() or "clickhouse_client" in globals()):
         clickhouse_client = init_clickhouse_client()
+    date_sql = "SELECT max(trading_date) from " + cta_table + " where trading_date <= " + str(previous_trading_date)
+    previous_trading_date_db = clickhouse_client.query_dataframe(date_sql).iloc[0, 0]
+    print(previous_trading_date_db, previous_trading_date)
+    if previous_trading_date_db < previous_trading_date:
+        previous_trading_date = trade_day[trade_day.index(to_trading_day_backwards(int(today))) - 5]
+        print("Records missing in database, traceback to :", previous_trading_date)
+    print(previous_trading_date)
+    SQL = "SELECT distinct contract, breed, max(volume) from " + cta_table + " where breed in " + str(tuple(breed_lst)) + " and trading_date = " + str(previous_trading_date) + " group by contract, breed"
     df = clickhouse_client.query_dataframe(SQL).sort_values('contract')
     print(df)
     contract_pair_dict = {}

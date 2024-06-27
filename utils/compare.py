@@ -71,25 +71,29 @@ def get_param_pairs(acc_name):
 
 # 以下为持仓对比模块         
 def export_holdings_compare(acc_lst):
-    tmpvalue_dict = {}
-    for acc_name in acc_lst:
-        TmpValueDir = os.path.join(ROOT_PATH, "TmpValue")
-        TmpValueFileDir = os.path.join(TmpValueDir, acc_name)
-        TmpValueFile = os.path.join(TmpValueFileDir, "TmpValue.csv")
-        if os.path.exists(TmpValueFile):
-            tmpvalue_dict[acc_name] = pd.read_csv(TmpValueFile, header=None)
-        else:
-            continue
-    counter = 0
-    for key in tmpvalue_dict.keys():
-        temp = tmpvalue_dict[key]
-        temp.columns = ['pairs_id', key, 'holder_col1', 'holder_col2', 'holder_col3']
-        temp = temp[['pairs_id', key]]
-        if counter == 0:
-            df = temp
-            counter = 1
-        else:
-            df = pd.merge(left=df, right=temp, on='pairs_id', how='outer')
+    try:
+        tmpvalue_dict = {}
+        for acc_name in acc_lst:
+            TmpValueDir = os.path.join(ROOT_PATH, "TmpValue")
+            TmpValueFileDir = os.path.join(TmpValueDir, acc_name)
+            TmpValueFile = os.path.join(TmpValueFileDir, "TmpValue.csv")
+            if os.path.exists(TmpValueFile):
+                tmpvalue_dict[acc_name] = pd.read_csv(TmpValueFile, header=None)
+            else:
+                continue
+        counter = 0
+        for key in tmpvalue_dict.keys():
+            temp = tmpvalue_dict[key]
+            temp.columns = ['pairs_id', key, 'holder_col1', 'holder_col2', 'holder_col3']
+            temp = temp[['pairs_id', key]]
+            if counter == 0:
+                df = temp
+                counter = 1
+            else:
+                df = pd.merge(left=df, right=temp, on='pairs_id', how='outer')
+    except Exception as e:
+        print(e)
+        return pd.DataFrame()
     try:
         df = df.fillna('0').sort_values(by='pairs_id')
         if not os.path.exists("./holding_compare"):
@@ -97,7 +101,7 @@ def export_holdings_compare(acc_lst):
         df = df.reset_index(drop=True).set_index("pairs_id")
     except UnboundLocalError as e:
         print("未选中账户！")
-    return df
+        return pd.DataFrame()
 
 
 # 以下为成交对比模块

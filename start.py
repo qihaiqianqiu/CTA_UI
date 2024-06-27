@@ -352,7 +352,6 @@ class Arbitrator(QMainWindow):
             if current_time > "00:00" and current_time < "00:05" and if_quest:
                 if_quest = False
             time.sleep(30)
-            
     @QtCore.pyqtSlot()
     def openDefaultFile(self):
         df = pd.read_excel('./info/account_info.xlsx', sheet_name="Sheet1")

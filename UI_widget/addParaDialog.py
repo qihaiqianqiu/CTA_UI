@@ -164,6 +164,7 @@ class addParaDialog(QDialog):
             param_dict["first_instrument"] = first
             param_dict["second_instrument"] = second
             param_dict["prime_instrument"] = prime_ins
+            param_dict["Min_Step"] = 1
             up_boundary = ["boundary_tick_lock", "up_boundary_5", "up_boundary_4", "up_boundary_3", "up_boundary_2", "up_boundary_1"]
             down_boundary = ["down_boundary_1", "down_boundary_2", "down_boundary_3", "down_boundary_4", "down_boundary_5"]
             boundary_list = ["boundary_unit_num"]
@@ -179,7 +180,7 @@ class addParaDialog(QDialog):
             for column in param_columns:
                 if column not in param_line.columns:
                     print(column)
-            order = param_columns
+            order = param_columns[2:]
             param_line = param_line[order]
             if not self.sp_checkbox.isChecked():
                 param_line.drop(["If_SP", "SP_InstrumentID"], axis=1, inplace=True)
