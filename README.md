@@ -228,8 +228,14 @@ if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyCon
 --file_monitor.py
 --(usrs/account/file)后续的文件会自动生成在目录下
 
-## 日常BarPlot（暂略）
+## 日常BarPlot
 - 目前每个交易单元结束后自动运行
+- **套利对时序图**
+![avatar](/md_pic/ts_barplot.png)
+- **品种监控图**]
+![avatar](/md_pic/breed_barplot.png)
+- **套利对成交量差分图**
+![avatar](/md_pic/volume_barplot.png)
 
 ## Boundary数据集导出与参数计算（暂略）
 - 数据导出：utils.extract_boundary_dataset
@@ -271,7 +277,8 @@ if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyCon
 
 
 
-# V1.0更新日志
+# 更新日志
+## v1.0
 - （已实现）修改主界面参数表展示
 - （已实现）完善基表子表使用逻辑：Boundary Info目录下留界缓存，Param目录下每次更新/计算参数表之后留下带交易单元时间信息后缀的缓存。但是直接使用的是账号目录下的params.csv 
 - （已实现）每当用户修改参数表并保存时，应该同步更新info目录下的region_info.xlsx，保证其实时为最新
@@ -301,7 +308,6 @@ if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyCon
 `rsync_pwd_path` & `rsync dest path`
 - （已实现）使用watchdog进行与中枢服务器保存的日志文件同步到本地
   
-# 更新日志
 ## V1.1
 - （已实现）参数表在上传至云端服务器时，会保存为带有时间戳后缀的形式，作为备份
 - （已实现）给UI增加主动刷新参数表的功能，可以在后台替换新的基表之后，让程序的内存重新加载新的基表，并在UI前端加载新的基表
