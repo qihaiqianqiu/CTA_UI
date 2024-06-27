@@ -1,6 +1,6 @@
 # CTA_UI使用说明
 ## 账户管理
-![avatar](/md_pic/acc_management.png)
+![avatar](./md_pic/acc_management.png)
 - 通过上方按钮进行账户表操作，从左到右依次为：
   1. 更新Boundary参数（暂未稳定实装）
   2. 增加账户
@@ -38,20 +38,20 @@ if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyCon
 4. 制作账户链路config文件置于sftp_configs目录
 ## 参数表增删改查
 1. 最重要的，操作后的记得Ctrl + S保存，会同时保存参数表的更改，并把新表分发给各个账户
-![avatar](/md_pic/param_management.png)
+![avatar](./md_pic/param_management.png)
 **事故记录**:配置UI的时候使用以下顺序导致了参数表污染:启动程序->读取我的参数表进内存->拷入目标参数表->使用分发功能触发内存中我的参数表进行分发
 **解决方案**:确定使用正确的基表启动程序
 1. 增添套利对：
   - 工具箱-检查参数表 ==> 会根据当前基表的参数情况，在数据库中查找可转抛与不可转抛套利对，按主动腿成交量降序排列
-![avatar](/md_pic/add_param_panel.png)
+![avatar](./md_pic/add_param_panel.png)
   - 勾引后点添加，填入参数。注意第一行都要填，第一个空是drift。随时可以点击套利对按钮查看Barplot, 兼容参数表使用和不使用SP指令的情况，如果不勾选则参数表没有SP指令字段
-![avatar](/md_pic/add_param_table.png)
+![avatar](./md_pic/add_param_table.png)
 
 1. 删除套利对: 参数表界面勾选套利对左边的checkbox后，Ctrl + D
 2. 修改参数表：双击表格即可，修改完之后Ctrl+S保存
 3. 查询套利对图像：BarPlot列点击即可查看，添加参数表填表的时候也可以点击标有套利对名字的蓝色按钮查看
 4. 开启/关闭合约组：工具箱-开启/关闭合约组，是一种快捷操作**if_add**列的方式, 勾选你希望控制的合约组，左拉是关闭，右拉是开启
-![avatar](/md_pic/tool_contract_group.png)
+![avatar](./md_pic/tool_contract_group.png)
 1. 导出实时持仓：工具箱-实时持仓状态，会看到配置文件中包含的所有账户, 点击其中一个查看持仓盈亏（只额外标注占比5%以上的品种）
 <center class="half">
     <img src="md_pic/tool_stocking.png" width="160"/><img src="图片链接" width="200"/><img src="md_pic/tool_stocking_pie.png" width="1000"/>
@@ -59,7 +59,7 @@ if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyCon
 
 
 ## 文件传输、监控链路
-![avatar](/md_pic/link.png)
+![avatar](./md_pic/link.png)
 
 ### 文件传输链路表
 | 功能                             | 起点                  | 终点                                                                                                                                                       | 备注                         | 文件         | 运行位置  |
@@ -231,11 +231,11 @@ if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyCon
 ## 日常BarPlot
 - 目前每个交易单元结束后自动运行
 - **套利对时序图**
-![avatar](/md_pic/ts_barplot.png)
+![avatar](./md_pic/ts_barplot.png)
 - **品种监控图**]
-![avatar](/md_pic/breed_barplot.png)
+![avatar](./md_pic/breed_barplot.png)
 - **套利对成交量差分图**
-![avatar](/md_pic/volume_barplot.png)
+![avatar](./md_pic/volume_barplot.png)
 
 ## Boundary数据集导出与参数计算（暂略）
 - 数据导出：utils.extract_boundary_dataset

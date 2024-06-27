@@ -28428,3 +28428,21 @@ cy          Trading -> UI  /root/cta_cy_co1/params.csv                   D:\loca
 co1         Trading -> UI  /root/cta_ks_co1/tradings/trading_240516.csv  D:\local_repo\CTA_UI\tradings\co1\trading_240516.csv         √
 co1         Trading -> UI  /root/cta_ks_co1/report/holding_240516.csv    D:\local_repo\CTA_UI\report\co1\holding_240516.csv           √
 co1         Trading -> UI  /root/cta_ks_co1/params.csv                   D:\local_repo\CTA_UI\params\co1\params_20240627.csv          √
+2024-06-27 22:30:15
+Account    Link           From                                       To                                      Status
+cy         UI -> Cloud    D:\local_repo\CTA_UI\params\cy\params.csv  CTA/hh/cy/params_20240627_22:30:13.csv  √
+cy         UI -> Cloud    D:\local_repo\CTA_UI\params\cy\params.csv  CTA/hh/cy/params.csv                    √
+cy         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\cy.json  CTA/hh/cy/cy.json                       √
+cy         UI -> Trading  D:\local_repo\CTA_UI\params\cy\params.csv  /root/cta_cy_co1/params.csv             √
+2024-06-27 22:34:36
+Account    Link           From                                       To                                      Status
+cy         UI -> Cloud    D:\local_repo\CTA_UI\params\cy\params.csv  CTA/hh/cy/params_20240627_22:34:33.csv  √
+cy         UI -> Cloud    D:\local_repo\CTA_UI\params\cy\params.csv  CTA/hh/cy/params.csv                    √
+cy         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\cy.json  CTA/hh/cy/cy.json                       √
+cy         UI -> Trading  D:\local_repo\CTA_UI\params\cy\params.csv  /root/cta_cy_co1/params.csv             √
+2024-06-27 22:38:23
+Account    Link           From                                       To                                      Status
+cy         UI -> Cloud    D:\local_repo\CTA_UI\params\cy\params.csv  CTA/hh/cy/params_20240627_22:38:21.csv  √
+cy         UI -> Cloud    D:\local_repo\CTA_UI\params\cy\params.csv  CTA/hh/cy/params.csv                    √
+cy         UI -> Cloud    D:\local_repo\CTA_UI\sftp_configs\cy.json  CTA/hh/cy/cy.json                       √
+cy         UI -> Trading  D:\local_repo\CTA_UI\params\cy\params.csv  /root/cta_cy_co1/params.csv             √
