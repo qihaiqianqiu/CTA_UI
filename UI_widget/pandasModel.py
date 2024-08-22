@@ -31,6 +31,7 @@ class pandasModel(QAbstractTableModel):
             self.visible_columns = default_columns
         else:
             self.visible_columns = self._data.columns.tolist()
+        self.visible_columns = [str(col) for col in self.visible_columns]
         # 在.0时不显示小数
         def convert_decimal_to_integer(x):
             if isinstance(x, float) and x.is_integer():  # 检查元素是否为浮点数且小数部分为 0
@@ -38,7 +39,6 @@ class pandasModel(QAbstractTableModel):
             else:
                 return x
         self._data = self._data.applymap(convert_decimal_to_integer)
-        
           
             
     def rowCount(self, parent=None):

@@ -153,7 +153,7 @@ def parse(df):
     return pairs, structure
 
 
-def match(df, buffer, param):
+def match(df, buffer):
     df = df[df['deal'] != 0]
     print("df before match:", df)
     if len(df) == 0:
@@ -164,11 +164,6 @@ def match(df, buffer, param):
         print("in branch1")
         near = df[df['deal'] > 0]['code'].values[0]
         forward = df[df['deal'] < 0]['code'].values[0]
-        # 根据Param中的套利对决定near, forward的归属
-        if len(param[(param['code1'] == forward) & (param['code2'] == near)]) > 0:
-            temp = forward
-            forward = near
-            near = temp
         forward_dt = re.findall(r"\d+.?\d*",forward)[0].replace(' ','')
         if len(forward_dt) == 3:
             forward_dt = '2' + forward_dt
@@ -199,14 +194,29 @@ def match(df, buffer, param):
         # modify orignal DF
         df.loc[long.index, 'deal'] -= volume
         df.loc[short.index, 'deal'] += volume
-        return match(df, buffer, param)
+        return match(df, buffer)
     
-       
+def normalize(sorted:pd.DataFrame):
+    if not sorted.empty:
+        # split legging(分离瘸腿记录)
+        sorted['legging_flag'] = sorted['套利对'].apply(lambda x: 0 if '-' in x else 1)
+        legging_part = sorted[sorted['legging_flag'] == 1]
+        sorted = sorted[sorted['legging_flag'] == 0]
+        sorted['near_dt'] = sorted['套利对'].apply(lambda x: int(re.findall(r"\d+", x.split('-')[0])[0]))
+        sorted['forward_dt'] = sorted['套利对'].apply(lambda x: int(re.findall(r"\d+", x.split('-')[1])[0]))
+        sorted['breed'] = sorted['套利对'].apply(lambda x: re.match('[a-zA-Z]+', x.split('-')[0])[0])
+        for idx, row in sorted.iterrows():
+            if row['near_dt'] > row['forward_dt']:
+                sorted.loc[idx, '套利对'] = row['breed'] + str(row['forward_dt']) + '-' + str(row['near_dt'])
+                sorted.loc[idx, '操作'] = '卖' if row['操作'] == '买' else '买'
+                sorted.loc[idx, '价格'] = -1 * row['价格']
+        sorted = pd.concat([sorted, legging_part])
+        sorted.drop(['near_dt', 'forward_dt', 'breed', 'legging_flag'], axis=1, inplace=True)
+    return sorted
 
 def fix_trade_record(acc_name):
-    param_df = get_param_pairs(acc_name)
-    param_df['code1'] = param_df['code1'].apply(lambda x: rename(x))
-    param_df['code2'] = param_df['code2'].apply(lambda x: rename(x))
+    # tmpvalue path
+    # Output Path configurations
     tradeFileDir = os.path.join(ROOT_PATH, "tradings")
     tradeFileDir = os.path.join(tradeFileDir, acc_name)
     if not os.path.exists(tradeFileDir):
@@ -220,7 +230,7 @@ def fix_trade_record(acc_name):
         try:
             df = pd.read_csv(file, encoding='gbk', index_col=False)
             print("读取交易记录：{}".format(file))
-            print(df)
+            #print(df)
             if '成交合约' in df.columns:
                 df = df[['成交合约','买卖','手数','成交价格','成交时间']]
             else:
@@ -232,17 +242,17 @@ def fix_trade_record(acc_name):
             match_buffer = []
             pairs, structure = parse(df)
             for item in pairs:
-                pair_res, match_buffer = match(item, match_buffer, param_df)
+                pair_res, match_buffer = match(item, match_buffer)
                 trade_record = pd.concat([trade_record, pair_res])
             for item in match_buffer:
-                trade_record = pd.concat([trade_record, match(item, [], param_df)[0]])
+                trade_record = pd.concat([trade_record, match(item, [])[0]])
             res = combine(trade_record).sort_values('套利对')
-            res = pd.concat([res, structure])
             print(res)
-            res.to_csv(os.path.join(tradeFileDir, filename.split('.')[0] + '_sorted.csv'), index=False, encoding='gbk')
+            res = pd.concat([res, structure])
+            normalize(res).to_csv(os.path.join(tradeFileDir, filename.split('.')[0] + '_sorted.csv'), index=False, encoding='gbk')
         except KeyError as e:
             print(traceback.format_exc())
             print("Error file format in: " + file)
             
 if __name__ == "__main__":
-    fix_trade_record("lq")
+    fix_trade_record("co1")

@@ -356,3 +356,9 @@ if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyCon
 - (已实现) 排除了一些窗口下没有用异常处理导致的闪退
 - (已实现) 为主界面参数表添加回了checkbox用以删除套利对
 - 多账户管理时，控制某一个账户更新参数表的同时不开仓
+
+### v1.2.7
+- 重置了持仓记录的计算逻辑，现在可以更快更准确的导出持仓信息
+- 优化了成交记录的显示逻辑
+- 添加了一键导出全记录的功能，快捷键Ctrl+E
+- 优化了若干会导致程序闪退的Exception

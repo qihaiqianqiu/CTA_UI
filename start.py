@@ -110,6 +110,11 @@ class Arbitrator(QMainWindow):
         refreshAct.setShortcut('Ctrl+R')
         refreshAct.triggered.connect(lambda: self.refresh(True))
         
+        # 一键导出记录
+        exportAct = QAction('Export', self)
+        exportAct.setShortcut('Ctrl+E')
+        exportAct.triggered.connect(self.one_click_export)
+        
         # 菜单栏
         menuBar = self.menuBar()
         self.fileMenu = menuBar.addMenu('&File')
@@ -128,6 +133,7 @@ class Arbitrator(QMainWindow):
         self.editMenu.addAction(undoAct_param)
         self.editMenu.addAction(undoAct_acc)
         self.editMenu.addAction(refreshAct)
+        self.editMenu.addAction(exportAct)
         
         # ToolBar
         toolBar = self.addToolBar("")
@@ -862,8 +868,6 @@ class Arbitrator(QMainWindow):
         QMessageBox.information(self, "参数表保存分发成功", "包含以下用户: \n" + acc_lst)
         self.status.showMessage("账户参数表保存并分发成功")
         
-
-
     @QtCore.pyqtSlot()
     def audit(self):
         acc_lst = []
@@ -910,7 +914,6 @@ class Arbitrator(QMainWindow):
             view = TableView(model)
             # 导出对比文件
             res_hold_export.to_csv(os.path.join(ROOT_PATH, "trading_compare", str(datetime.date.today()) + '_day_compare.csv'), encoding='GBK')
-
             layout = QVBoxLayout()
             layout.addWidget(view)
             dialog.setLayout(layout)
@@ -964,6 +967,7 @@ class Arbitrator(QMainWindow):
                             gap_info += '\n' + str(gap.iloc[k]['code']) + "  ||  " + str(gap.iloc[k]['gap'])
                         print(gap_info)
                         QMessageBox.information(self, "导出完成--" + acc_name, gap_info)
+                
                 except FileNotFoundError as e1:
                     print(e1)
                     QMessageBox.information(self, "导出失败--" + acc_name, "TmpValue导出失败,report, params文件未放置在对应账户目录")
@@ -1019,6 +1023,30 @@ class Arbitrator(QMainWindow):
         # 把信号传递给view以更新视图
         colDialog.data_signal.connect(lambda data: self.param.view.updateColumnVisibility(data))
         colDialog.exec()
+    
+    @QtCore.pyqtSlot()
+    def one_click_export(self):
+        self.fixTmpValue()
+        self.fixTradeRecord()
+        self.export_trading_compare_table()
+        self.audit()
+        # 读取最新记录
+        holdings_compare_path = os.path.join(ROOT_PATH, "holding_compare", str(datetime.date.today()) + '_holding_compare.csv')
+        traings_compare_path = os.path.join(ROOT_PATH, "trading_compare", str(datetime.date.today()) + '_day_compare.csv')
+        hold_df = pd.read_csv(holdings_compare_path, encoding='GBK')
+        trade_df = pd.read_csv(traings_compare_path, encoding='GBK')
+        seperator = pd.Series(["||||||||" for i in range(len(hold_df))])
+        seperator.name = "||||||||"
+        combine = pd.concat([hold_df, seperator, trade_df], axis=1)
+        combine_path = os.path.join(ROOT_PATH, "full_record")
+        if not os.path.exists(combine_path):
+            os.mkdir(combine_path)
+        combine_file = os.path.join(combine_path, str(datetime.date.today()) + '_full_record.csv')
+        try:
+            combine.to_csv(combine_file, encoding='GBK', index=False)
+        except PermissionError as e:
+            print("文件已打开，无法写入")
+
 
 if __name__ == '__main__':
     try:

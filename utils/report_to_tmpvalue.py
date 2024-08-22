@@ -9,9 +9,89 @@ import networkx as nx
 import datetime
 import re
 from utils.compare import get_param_pairs, get_hold
-from utils.const import ROOT_PATH
+from utils.const import ROOT_PATH, double_gap, stock_future
 
 all = ["to_tmpvalue"]
+
+def generate_dt_by_gap(start, end, gap):
+    start_dt = int(start)
+    end_dt = int(end)
+    dt_lst = []
+    while start_dt <= end_dt:
+        dt_lst.append(str(start_dt))
+        if start_dt % 100 == 12:
+            start_dt += 88
+            start_dt += gap
+        else:
+            start_dt += gap
+    return dt_lst
+
+def to_tmpvalue(acc_name):
+    # Output Path configurations
+    TmpValueDir = os.path.join(ROOT_PATH, "TmpValue")
+    TmpValueFileDir = os.path.join(TmpValueDir, acc_name)
+    if not os.path.exists(TmpValueFileDir):
+        os.mkdir(TmpValueFileDir)
+    TmpValueFile = os.path.join(TmpValueFileDir, "TmpValue.csv")
+    
+    hold = get_hold(acc_name)
+    try:
+        hold.drop(columns=['stocking_delta'], inplace=True)
+    except KeyError:
+        pass
+    if hold.empty:
+        print("持仓为空！")
+        return pd.DataFrame()
+    hold['dt'] = hold['code'].apply(lambda x:re.findall(r"\d+",x)[0])
+    appendix_col = []
+    for temp in hold.groupby('product'):
+        breed = temp[0]
+        if breed not in double_gap:
+            gap = 1
+        else:
+            gap = 2
+        holding_data = temp[1].sort_values('dt')
+        if breed not in stock_future:
+            dt_list = holding_data['dt'].tolist()
+            dt_min = dt_list[0]
+            dt_max = dt_list[-1]
+            dt_lst = generate_dt_by_gap(dt_min, dt_max, gap)
+            code_lst = [breed + dt for dt in dt_lst]
+            product_lst = [breed for i in range(len(code_lst))]
+            current_lst = [0 for i in range(len(code_lst))]
+            placeholder_cols = pd.DataFrame({'code':code_lst, 'current':current_lst, 'product':product_lst, 'dt':dt_lst})
+            appendix_col.append(placeholder_cols)
+    appendix_col = pd.concat(appendix_col)
+    appendix_col = appendix_col[~appendix_col['code'].isin(hold['code'])]
+    hold = pd.concat([hold, appendix_col], axis=0, join='outer').sort_values('code').reset_index(drop=True)
+    tmpvalue_collection = {}
+    #hold.to_csv("test.csv", index=False)
+    for idx in range(len(hold) - 1):
+        current_row = hold.iloc[idx]
+        next_row = hold.iloc[idx + 1]
+        if int(current_row['current']) != 0 and current_row['product'] == next_row['product']:
+            pair_name = current_row['code'] + '-' + next_row['dt']
+            pair_vol = current_row['current']
+            hold.at[idx + 1, 'current'] += current_row['current']
+            hold.at[idx, 'current'] = 0
+            tmpvalue_collection[pair_name] = pair_vol
+    print(tmpvalue_collection)
+    tmpvalue = pd.DataFrame(tmpvalue_collection.items(), columns=['pair', 'current'])
+    tmpvalue['place_holder_1'] = 0
+    tmpvalue['place_holder_2'] = 0
+    tmpvalue['place_holder_3'] = 20230200000000
+    tmpvalue.sort_values('pair')
+    tmpvalue.to_csv(TmpValueFile, header=None, index=False)
+    gap = hold[hold['current'] != 0]
+    gap.rename(columns={"pair":"code", "current":"gap"}, inplace=True)
+    return gap
+            
+
+                
+                
+                
+    
+"""    
 # 对params里的套利对进行连同图分析，找出入度大于1的套利对
 def fix_param_pairs(param_df, hold):
     issue_node = []
@@ -230,7 +310,7 @@ def to_tmpvalue(acc_name):
         print("TmpValue与report相差的：")
         print(code_gap)
     return code_gap
-
+"""
 
 if __name__ == "__main__":
-    to_tmpvalue("lq")
+    to_tmpvalue("HFT")

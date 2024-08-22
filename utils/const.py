@@ -2,7 +2,7 @@ import os
 
 all = ["Z_PATH", "ROOT_PATH", "BOUNDARY_PATH", "PLOT_PATH", "ssh", "trade_day", "breed_dict", 
        "param_columns", "boundary_dict", "exchange_breed_dict", "secury_deposit_d1_dict", "default_args",
-       "multiple_dict", "default_columns", "script_path", "PARAM_PATH", "INFO_PATH", "DB_CONFIG_PATH"]
+       "multiple_dict", "stock_future", "double_gap", "default_columns", "script_path", "PARAM_PATH", "INFO_PATH", "DB_CONFIG_PATH"]
 # 路径
 script_path = os.path.abspath(__file__)
 ROOT_PATH = os.path.dirname(os.path.dirname(script_path))
@@ -100,7 +100,8 @@ param_columns = ['BarPlot', 'CheckBox', 'pairs_id','indate_date', 'first_instrum
         'max_position', 'min_position', 'region_tick_lock', 'region_unit_num', 'If_SP', 'SP_InstrumentID', 'Min_Step']
 
 default_columns = ['CheckBox', 'region_0', 'region_1', 'region_2', 'region_3', 'region_4', 'region_5', 'region_6', 'region_7', 'region_tick_lock', 'region_unit_num',\
-    'today_fee', 'night_type', 'if_add', 'max_position', 'min_position','If_SP', 'SP_InstrumentID']
+    'today_fee', 'night_type', 'if_add', 'max_position', 'min_position','If_SP', 'SP_InstrumentID'
+    ]
 
 close_columns = ['close_region_0', 'close_region_1', 'close_region_2', 'close_region_3', 'close_region_4', 'close_region_5', 'close_region_6',\
     'close_region_7']
@@ -180,6 +181,9 @@ multiple_dict = {
     "LC" : 1
     }
 
+double_gap = ['AU', 'A', 'C', 'CS', 'OI', 'Y', 'CF','RM', 'I']
+
+stock_future = ['IC', 'IF', 'IH', 'IM']
 
 secury_deposit_d1_dict = {
     "AG" : 0.12,
